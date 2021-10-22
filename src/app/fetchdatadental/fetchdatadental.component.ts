@@ -27,9 +27,10 @@ export class FetchdatadentalComponent implements OnInit {
 
   }
 
-  
+  clicked:boolean=false;
   
   public dentalApprove(user){
+    this.clicked=true;
   this.userRegistration.updateStatusOfDental(user).subscribe(
     data=>{
          alert("updated successfully");
@@ -41,6 +42,7 @@ export class FetchdatadentalComponent implements OnInit {
   )
     
   }
+  
 
   ngOnInit(): void {
      

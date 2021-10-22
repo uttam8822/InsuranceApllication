@@ -25,9 +25,9 @@
              <td>{{user.aadhar}}</td>
             <td>{{user.firstName}}</td>
             <td>{{user.email}}</td>
-            <td><button type="button" class="btn btn-success" (click)="dentalApprove(user)">Approve</button></td>
+            <td><button type="button" class="btn btn-success" [disabled]="clicked" (click)="dentalApprove(user)" clicked=true>Approve</button></td>
             <td><button type="button" class="btn btn-danger">Rejects</button></td>
-            <td><button type="button" class="btn btn-info">Details</button></td>
+            <td><button type="button" class="btn btn-info" routerLink="/lifeServiceDetails">Details</button></td>
         </tr>
        </tbody> 
     </table>

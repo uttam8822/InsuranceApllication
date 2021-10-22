@@ -5,7 +5,7 @@
 
     <h2 style="text-align: center; margin-top: 50px; color: blue;">Create Admin</h2>
     
-    <form #RegisterForm="ngForm" (ngSubmit)="createAdmin()" class="mx-1 mx-md-4">
+    <form #RegisterForm="ngForm" (ngSubmit)="createAdmin()" (ngSubmit) ="RegisterForm.reset()" class="mx-1 mx-md-4">
       <div class="imgcontainer">
       </div>
       <small class="text-danger">{{msg1}}</small>

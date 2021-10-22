@@ -107,7 +107,7 @@ export class DentalVisionComponent implements OnInit {
       error => 
       {
         console.log("exception occred")
-        alert("Please Fill All Requred Feild Correctly");
+        alert("Please fill all Reqiured feild mark with (*).");
       } 
       
     );
