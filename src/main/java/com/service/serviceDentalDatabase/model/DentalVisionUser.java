@@ -35,14 +35,14 @@ public class DentalVisionUser {
 	   private String anyEyeDisease;
 	   private String anyEyeOperation;
 	   private String additionalComments;
-	   
+	   private String status;
 	   
 	   
 	   
 	public DentalVisionUser() {
 		super();
 	}
-	public DentalVisionUser(String firstName, String middleNmme, String lastName, String aadhar, String email,
+	public DentalVisionUser(String status,String firstName, String middleNmme, String lastName, String aadhar, String email,
 			String pan, String address, String zip, String city, String state, String contact, String dateOfBirth,
 			String occupation, String income, String selectPlane, String gender, String healthIssue,
 			String cancellingInsurance, String groupInsurance, String tobacco, String oralOperation,
@@ -76,6 +76,15 @@ public class DentalVisionUser {
 		this.anyEyeDisease = anyEyeDisease;
 		this.anyEyeOperation = anyEyeOperation;
 		this.additionalComments = additionalComments;
+		this.status=status;
+				
+	}
+    
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	public String getFirstName() {
 		return firstName;

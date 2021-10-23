@@ -1,17 +1,23 @@
 package com.service.serviceDentalDatabase.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+//@Access(value=AccessType.FIELD)
 public class LifeUser {
-	
+	 // @Id
+	 // @GeneratedValue(strategy=GenerationType.IDENTITY)
+	 // private int id;
 	   private String firstName;
 	   private String middleNmme;
 	   private String lastName;
 	   @Id
 	   private String aadhar;
 	   private String email;
+	   
 	   private String pan;
 	   private String address;
 	   private String zip;
@@ -31,15 +37,8 @@ public class LifeUser {
 	   private String hivIssue;
 	   private String lungsIssue;
 	   private String additionalComments;
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
+	   private String status;
+	      	   
 	public LifeUser() {
 		super();
 	}
@@ -47,8 +46,9 @@ public class LifeUser {
 			String address, String zip, String city, String state, String contact, String dateOfBirth,
 			String occupation, String income, String selectPlane, String gender, String healthIssue,
 			String cancellingInsurance, String groupInsurance, String tobacco, String hivIssue, String lungsIssue,
-			String additionalComments) {
+			String additionalComments,String status) {
 		super();
+		//this.id=id;
 		this.firstName = firstName;
 		this.middleNmme = middleNmme;
 		this.lastName = lastName;
@@ -72,9 +72,23 @@ public class LifeUser {
 		this.hivIssue = hivIssue;
 		this.lungsIssue = lungsIssue;
 		this.additionalComments = additionalComments;
+		this.status=status;
 	}
+	/*public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id=id;
+	}*/
 	public String getFirstName() {
 		return firstName;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
@@ -210,10 +224,5 @@ public class LifeUser {
 	}
 	public void setAdditionalComments(String additionalComments) {
 		this.additionalComments = additionalComments;
-	}
-	   
-	   
-	   
-	   
-
+	}  
 }

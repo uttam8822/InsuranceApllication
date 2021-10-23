@@ -17,5 +17,11 @@ public class LifeRegistrationService {
 	public LifeUser saveUser(LifeUser user) {
 		return repo.save(user);
 	}
-
+	//public void updateUser(String adhaar, boolean status )
+	/*{
+		LifeUser user=repo.findById(adhaar);
+		user.status=status;
+		repo.s
+	}*/
 }
+
