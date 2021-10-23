@@ -40,7 +40,9 @@ import { FetchdatadentalvisionComponent } from './fetchdatadentalvision/fetchdat
 import { CreateadminComponent } from './createadmin/createadmin.component';
 import { SuccessfullcomponentComponent } from './successfullcomponent/successfullcomponent.component';
 import { LifeServiceUserDetailsComponent } from './life-service-user-details/life-service-user-details.component';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+ import { MatDialogModule } from '@angular/material/dialog';
+import { POPUPComponent } from './popup/popup.component';
+ 
  
  
 
@@ -73,7 +75,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     CreateadminComponent,
     SuccessfullcomponentComponent,
     LifeServiceUserDetailsComponent,
-    ConfirmDialogComponent,
+    POPUPComponent,
+     
     
     
   ],
@@ -91,9 +94,13 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatButtonModule,
     MatListModule,
     MatMenuModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[POPUPComponent]
+   
 })
 export class AppModule { }

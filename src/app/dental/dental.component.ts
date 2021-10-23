@@ -4,6 +4,9 @@ import { NgForm } from '@angular/forms';
 import { RegistrationService } from '../registration.service';
 import {DentalUser} from '../dental-user';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog'; 
+import { POPUPComponent } from '../popup/popup.component';
+ 
 
 @Component({
   selector: 'app-dental',
@@ -11,6 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dental.component.css']
 })
 export class DentalComponent implements OnInit {
+  
 
   Dental:any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
@@ -22,25 +26,23 @@ export class DentalComponent implements OnInit {
      selectChangeHandler(event:any){
        this.selectedDay=event.target.value;
        if(this.selectedDay=="Individual"){
-         alert("Your Yearly policy will be Rs-50000/- whould you like to proceed");
+         this.onOpenDialogClick("Your Yearly policy will be Rs-10000/- whould you like to proceed");
        }
        if(this.selectedDay=="Individual & Spouse"){
-        alert("Your Yearly policy will be Rs-40000/- whould you like to proceed");
+        this.onOpenDialogClick("Your Yearly policy will be Rs-20000/- whould you like to proceed");
       }
-      if(this.selectedDay=="Individual"){
-        alert("Your Yearly policy will be Rs-30000/- whould you like to proceed");
-      }
+      
       if(this.selectedDay=="Individual Spouse & Child"){
-        alert("Your Yearly policy will be Rs-20000/- whould you like to proceed");
+        this.onOpenDialogClick("Your Yearly policy will be Rs-30000/- whould you like to proceed");
       }
       if(this.selectedDay=="Individual Spouse & Parents"){
-        alert("Your Yearly policy will be Rs-10000/- whould you like to proceed");
+        this.onOpenDialogClick("Your Yearly policy will be Rs-40000/- whould you like to proceed");
       }
      }
      
    
 
-  constructor(private _service:RegistrationService,private _route: Router) { }
+  constructor(private _service:RegistrationService,private _route: Router,private matDialog:MatDialog) { }
   
     
 
@@ -123,6 +125,19 @@ export class DentalComponent implements OnInit {
   }
 
 
+  onOpenDialogClick(msg:string){
+           this.matDialog.open(POPUPComponent,{
+               data:{
+                 age:msg
+               },
+               height:"250px",
+               width:"600px",
+          
+             });
+
+              
+             
+  }
 
 
   }

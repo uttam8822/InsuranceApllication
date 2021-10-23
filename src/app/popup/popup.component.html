@@ -1,0 +1,27 @@
+<div>
+
+    <div style="margin-left: 500px;">
+        <button mat-button class="close-icon" [mat-dialog-close]="true" style="margin-right: 0%;">
+            <mat-icon>close</mat-icon>
+     </button>
+    </div>
+        
+    
+    <h1><b>{{data.age}}</b></h1>
+    
+    
+    <div class="row" style="margin-top: 60px;">
+        <div class="col">
+            <button class="btn btn-danger" routerLink="/service" [mat-dialog-close]="true" style="width: 100%;">Cancle</button>
+            
+        </div>
+        <div class="col">
+            <button mat-button class="close-icon btn btn-success" [mat-dialog-close]="true" style="width: 100%;">
+                Proceed
+         </button>
+        </div>
+    </div>
+
+
+
+</div>
