@@ -26,6 +26,12 @@ import { CreateadminComponent } from './createadmin/createadmin.component';
 import { SuccessfullcomponentComponent } from './successfullcomponent/successfullcomponent.component';
 import { LifeServiceUserDetailsComponent } from './life-service-user-details/life-service-user-details.component';
 import { Service1Component } from './service1/service1.component';
+import { UwFetchDentalDataComponent } from './uw-fetch-dental-data/uw-fetch-dental-data.component';
+import { UwFetchDVDataComponent } from './uw-fetch-dvdata/uw-fetch-dvdata.component';
+import { UwFetchLifeDataComponent } from './uw-fetch-life-data/uw-fetch-life-data.component';
+import { UwLifeDetailsComponent } from './uw-life-details/uw-life-details.component';
+import { UwDentalDetailsComponent } from './uw-dental-details/uw-dental-details.component';
+import { UwDVDetailsComponent } from './uw-dvdetails/uw-dvdetails.component';
 const routes: Routes = [
   {path:'',pathMatch:"full", redirectTo:"home"},
   {path:'login',component:LoginComponent},
@@ -53,7 +59,13 @@ const routes: Routes = [
   {path:"service1",component:Service1Component},
   {path:"contact1",component:Contact1Component},
   {path:"dentaldetails",component:DentaluserdetailsComponent},
-  {path:"dvdetails",component:DentalvisiondetailsComponent}
+  {path:"dvdetails",component:DentalvisiondetailsComponent},
+  {path:"UWFetchDental11",component:UwFetchDentalDataComponent},
+  {path:"UWFetchDV11",component:UwFetchDVDataComponent },
+  {path:"UWFetchLife11",component:UwFetchLifeDataComponent},
+  {path:"UWLifeDetails11",component:UwLifeDetailsComponent},
+  {path:"UWDentalDetails11",component:UwDentalDetailsComponent},
+  {path:"UWDVDetails11",component:UwDVDetailsComponent}
 ];
 
 @NgModule({

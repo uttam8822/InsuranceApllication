@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+        <a routerLink="/home"></a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+            <li>
+                <a routerLink="#" style="margin-left: 200px;">Under Writer Dashboard</a>
+            </li>
+            <li>
+                <a routerLink="#"></a>
+            </li>
+        </ul>
+    </div>
+  </mat-toolbar>
+
+
+ <div style="margin-right: 100px; margin-left: 100px;">
+  <div class="btn-group btn-group-justified" style="margin-top: 50px; width: 100%;">
+    <a routerLink="/UWFetchLife11" class="btn btn-danger">Life Service</a>
+    <a routerLink="/UWFetchDental11" class="btn btn-danger">Dental Service</a>
+    <a routerLink="/UWFetchDV11" class="btn btn-danger">Dental & Vision</a>
+    
+  </div>
+
+ 
+</div>

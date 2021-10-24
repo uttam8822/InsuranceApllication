@@ -1,23 +1,11 @@
-<div class="header">
-    <div>
-    <a class="nav"routerLink="/home" style="background-color: white;">Under Writer Dashboard</a>
-    </div>
-    
-    
-    <div class="header-right">
-      <a class="nav-link"routerLink="/home">Home</a>
-      <a class="nav-link"routerLink="/contact">Pending Application</a>
-      <a class="nav-link"routerLink="/login">Logout</a>
-    </div>
-  </div>
-
-
-
-  <div style="margin-right: 100px; margin-left: 100px;">
-    <div class="btn-group btn-group-justified" style="margin-top: 50px; width: 100%;">
-      <a routerLink="/lifedata" class="btn btn-danger">Life Service</a>
-      <a routerLink="/detaldata" class="btn btn-danger">Dental Service</a>
-      <a routerLink="/DVdata" class="btn btn-danger">Dental & Vision</a>
-      
-    </div>
-  
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation">
+    <app-uwsidelist (sidenavClose)="sidenav.close()"></app-uwsidelist>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-uwheader (sidenavToggle)="sidenav.toggle()"></app-uwheader>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

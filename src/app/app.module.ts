@@ -47,6 +47,14 @@ import { Aboutus1Component } from './aboutus1/aboutus1.component';
 import { Contact1Component } from './contact1/contact1.component';
 import { DentaluserdetailsComponent } from './dentaluserdetails/dentaluserdetails.component';
 import { DentalvisiondetailsComponent } from './dentalvisiondetails/dentalvisiondetails.component';
+import { UWheaderComponent } from './uwheader/uwheader.component';
+import { UWSidelistComponent } from './uwsidelist/uwsidelist.component';
+import { UwFetchDentalDataComponent } from './uw-fetch-dental-data/uw-fetch-dental-data.component';
+import { UwFetchLifeDataComponent } from './uw-fetch-life-data/uw-fetch-life-data.component';
+import { UwFetchDVDataComponent } from './uw-fetch-dvdata/uw-fetch-dvdata.component';
+import { UwLifeDetailsComponent } from './uw-life-details/uw-life-details.component';
+import { UwDVDetailsComponent } from './uw-dvdetails/uw-dvdetails.component';
+import { UwDentalDetailsComponent } from './uw-dental-details/uw-dental-details.component';
  
  
  
@@ -86,6 +94,14 @@ import { DentalvisiondetailsComponent } from './dentalvisiondetails/dentalvision
     Contact1Component,
     DentaluserdetailsComponent,
     DentalvisiondetailsComponent,
+    UWheaderComponent,
+    UWSidelistComponent,
+    UwFetchDentalDataComponent,
+    UwFetchLifeDataComponent,
+    UwFetchDVDataComponent,
+    UwLifeDetailsComponent,
+    UwDVDetailsComponent,
+    UwDentalDetailsComponent,
      
     
     
