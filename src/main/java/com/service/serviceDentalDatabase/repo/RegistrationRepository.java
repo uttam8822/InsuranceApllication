@@ -2,14 +2,14 @@ package com.service.serviceDentalDatabase.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.service.serviceDentalDatabase.model.User;
+import com.service.serviceDentalDatabase.model.Registration;
 
 
 
 
-public interface RegistrationRepository extends JpaRepository<User, Integer> {
-	public User findByEmailId(String emailId);
+public interface RegistrationRepository extends JpaRepository<Registration, Integer> {
+	public Registration findByEmailId(String emailId);
 
-	public User findByEmailIdAndPassword(String email, String password);
+	public Registration findByEmailIdAndPassword(String email, String password);
 
 }

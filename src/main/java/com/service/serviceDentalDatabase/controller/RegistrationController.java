@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.service.serviceDentalDatabase.model.User;
+import com.service.serviceDentalDatabase.model.Registration;
 import com.service.serviceDentalDatabase.service.RegistrationUserService;
 
 @RestController
@@ -18,17 +18,17 @@ public class RegistrationController {
 	
 	@PostMapping("/registeruser")
 	@CrossOrigin(origins="http://localhost:4200")
-	public User registerUser(@RequestBody User user) throws Exception
+	public Registration registerUser(@RequestBody Registration user) throws Exception
 	{
 		String tempEmailId = user.getEmailId();
 		if(tempEmailId != null && !"".equals(tempEmailId))
         {
-	     User userobj=service.fetchUserByEmailId(tempEmailId);
+	     Registration userobj=service.fetchUserByEmailId(tempEmailId);
 	     if(userobj != null) {
 	    	 throw new Exception("user with" +tempEmailId + "id already exist");
 	     }
         }
-		User userObj = null;
+		Registration userObj = null;
 		userObj = service.saveUser(user);
 		return userObj;	
 	}
@@ -37,11 +37,11 @@ public class RegistrationController {
 	
 	@PostMapping("/login")
 	@CrossOrigin(origins="http://localhost:4200")
-	public User loginUser(@RequestBody User user)throws Exception
+	public Registration loginUser(@RequestBody Registration user)throws Exception
 	{
 		String tempEmailId = user.getEmailId();
 		String tempPass = user.getPassword();
-		User userobj = null;
+		Registration userobj = null;
 		if(tempEmailId != null && tempPass != null)
 		{
 			userobj =service.fetchUserByEmailIdAndPassword(tempEmailId, tempPass);

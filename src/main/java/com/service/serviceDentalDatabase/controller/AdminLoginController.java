@@ -39,7 +39,7 @@ public class AdminLoginController {
 	if(tempAdminId != null && tempPassword != null) {
 	adminObj = service.fetchByAdminIdAndPassword(tempAdminId,tempPassword);
 	}
-	if(adminObj != null) {
+	if(adminObj == null) {
 	throw new Exception ("Bad Credentials");
 	}
 	return adminObj;

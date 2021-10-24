@@ -3,7 +3,7 @@ package com.service.serviceDentalDatabase.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.service.serviceDentalDatabase.model.User;
+import com.service.serviceDentalDatabase.model.Registration;
 import com.service.serviceDentalDatabase.repo.RegistrationRepository;
 
 @Service
@@ -11,18 +11,18 @@ public class RegistrationUserService
 {
 	@Autowired
 	private RegistrationRepository repo;
-	public User saveUser(User user) {
+	public Registration saveUser(Registration user) {
 	    return	repo.save(user);
 		
 	}
 	
-	public User fetchUserByEmailId(String email)
+	public Registration fetchUserByEmailId(String email)
 	{
 		return repo.findByEmailId(email);
 	}
 	
 	
-	public User fetchUserByEmailIdAndPassword(String email, String password)
+	public Registration fetchUserByEmailIdAndPassword(String email, String password)
 	{
 		return repo.findByEmailIdAndPassword(email, password);
 	}

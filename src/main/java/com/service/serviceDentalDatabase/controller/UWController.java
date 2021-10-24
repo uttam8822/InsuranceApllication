@@ -39,7 +39,7 @@ public class UWController {
 	if(tempWriterId != null && tempPassword != null) {
 	writerObj = service.fetchByWriterIdAndPassword(tempWriterId,tempPassword);
 	}
-	if(writerObj != null) {
+	if(writerObj == null) {
 	throw new Exception ("Bad Credentials");
 	}
 	return writerObj;

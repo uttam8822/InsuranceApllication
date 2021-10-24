@@ -49,7 +49,7 @@ public class ServiceController {
 		return userObj;
 	    
 	}
-	@GetMapping("/getdentaldata")
+	@GetMapping("/getdentaldata{aadhar}")
 	@CrossOrigin(origins="http://localhost:4200")
 	List<ServiceUser> getUser(){
 		return repo.findAll();

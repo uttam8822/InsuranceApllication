@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 
 @Entity
-public class User {
+public class Registration {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -23,10 +23,10 @@ public class User {
 	
 	
 	
-	public User() {
+	public Registration() {
 		super();
 	}
-	public User(int id, String emailId, String firstName, String lastName, String password) {
+	public Registration(int id, String emailId, String firstName, String lastName, String password) {
 		super();
 		this.id = id;
 		this.emailId = emailId;
