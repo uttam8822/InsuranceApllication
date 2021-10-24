@@ -42,6 +42,11 @@ import { SuccessfullcomponentComponent } from './successfullcomponent/successful
 import { LifeServiceUserDetailsComponent } from './life-service-user-details/life-service-user-details.component';
  import { MatDialogModule } from '@angular/material/dialog';
 import { POPUPComponent } from './popup/popup.component';
+import { Service1Component } from './service1/service1.component';
+import { Aboutus1Component } from './aboutus1/aboutus1.component';
+import { Contact1Component } from './contact1/contact1.component';
+import { DentaluserdetailsComponent } from './dentaluserdetails/dentaluserdetails.component';
+import { DentalvisiondetailsComponent } from './dentalvisiondetails/dentalvisiondetails.component';
  
  
  
@@ -76,6 +81,11 @@ import { POPUPComponent } from './popup/popup.component';
     SuccessfullcomponentComponent,
     LifeServiceUserDetailsComponent,
     POPUPComponent,
+    Service1Component,
+    Aboutus1Component,
+    Contact1Component,
+    DentaluserdetailsComponent,
+    DentalvisiondetailsComponent,
      
     
     

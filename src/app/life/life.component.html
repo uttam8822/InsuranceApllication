@@ -6,10 +6,10 @@
       Invest Today and Enjoy Tomorrow!
       </marquee>
     <div class="header-right">
-      <a class="nav-link"routerLink="/home">Home</a>
-      <a class="nav-link"routerLink="/service">Our Services</a>
-      <a class="nav-link"routerLink="/contact">Contact Us</a>
-      <a class="nav-link"routerLink="/about">About Us</a>
+      <a class="nav-link"routerLink="/uhome">Home</a>
+      <a class="nav-link"routerLink="/service1">Our Services</a>
+      <a class="nav-link"routerLink="/contact1">Contact Us</a>
+      <a class="nav-link"routerLink="/about1">About Us</a>
       <a class="nav-link"routerLink="/login">Logout</a>
     </div>
   </div>
@@ -33,7 +33,7 @@
                 </div>
                 </div>
                 <div class="col">
-                    <label>Middle Name<span style="color: red;">*</span></label>
+                    <label>Middle Name</label>
                     <input formControlName="middlename" class="form-control"  aria-label="Last name" placeholder="Enter Middle Name" required required [(ngModel)] = "user.middleNmme"/>
                     <div *ngIf="middlename.invalid && (middlename.touched || middlename.dirty)">
                         <span class="error" *ngIf="middlename.errors?.pattern"> *Enter Only Characters</span>
@@ -293,22 +293,31 @@
                     </div>     
                 </div>
             </div>
-            
-            <button type="submit" class="btn btn-success"
-            (click)="user.gender = 'Female'"
-                (click)="user.groupInsurance='Yes'"
-                (click)="user.cancellingInsurance='No'"
-                (click)="user.tobacco='No'"
-                (click)="user.selectPlane='2'"
-                (click)="user.hivIssue='No'"
-                (click)="user.lungsIssue='No'"
-                >Submit</button>
-        
+            <div class="row">
+                <div class="col">
+                <button type="submit" class="btn btn-success"
+                (click)="user.gender = 'Female'"
+                    (click)="user.groupInsurance='Yes'"
+                    (click)="user.cancellingInsurance='No'"
+                    (click)="user.tobacco='No'"
+                    (click)="user.selectPlane='2'"
+                    (click)="user.hivIssue='No'"
+                    (click)="user.lungsIssue='No'"
+                    >Submit</button>
+                </div>
+    
+                <div class="col">
+                    <button style="background-color: rgb(240, 52, 52) " type="reset" class="btn btn-success" (click)="lifeForm.reset()">Clear</button>
+                    </div>
+                    
+                    <div class="col">
+                    <button routerLink="/service1" style="background-color: rgb(240, 52, 52) " type="reset" class="btn btn-success" (click)="lifeForm.reset()">Cancel</button>
+                    </div>
+                
+            </div>
+           
               
         </form>
-
-    
-
 
     </div>
 </div>

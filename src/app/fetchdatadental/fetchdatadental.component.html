@@ -25,9 +25,17 @@
              <td>{{user.aadhar}}</td>
             <td>{{user.firstName}}</td>
             <td>{{user.email}}</td>
-            <td><button type="button" class="btn btn-success" [disabled]="clicked" (click)="dentalApprove(user)" clicked=true>Approve</button></td>
-            <td><button type="button" class="btn btn-danger">Rejects</button></td>
-            <td><button type="button" class="btn btn-info" routerLink="/lifeServiceDetails">Details</button></td>
+            <td><button type="button" class="btn btn-success"*ngIf="user.status=='Yes';else abc" >Approved</button>
+                <ng-template #abc>
+                <button type="button" class="btn btn-success"(click)="approvealForm2(user)"*ngIf="user.status==null" >Approve</button>
+                </ng-template>
+                </td>
+                <td><button type="button" class="btn btn-danger"(click)="rejectForm2(user)"*ngIf="user.status==null;else abcd">Reject</button>
+                 <ng-template #abcd>
+                <button type="button" class="btn btn-danger"*ngIf="user.status=='No'">Rejected</button>
+                 </ng-template>
+                </td>
+            <td><button type="button" class="btn btn-info"routerLink="/dentaldetails">Details</button></td>
         </tr>
        </tbody> 
     </table>

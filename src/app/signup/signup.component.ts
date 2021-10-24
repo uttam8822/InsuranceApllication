@@ -58,6 +58,7 @@ export class SignupComponent implements OnInit {
       this.msg="Registration successfull";
       this.alert=true;
       this.alert1=false;
+      
     },
       error => {
         console.error("exception occour");

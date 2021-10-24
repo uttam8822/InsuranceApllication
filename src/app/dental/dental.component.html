@@ -7,10 +7,10 @@
       Invest Today and Enjoy Tomorrow!
       </marquee>
     <div class="header-right">
-      <a class="nav-link"routerLink="/home">Home</a>
-      <a class="nav-link"routerLink="/service">Our Services</a>
-      <a class="nav-link"routerLink="/contact">Contact Us</a>
-      <a class="nav-link"routerLink="/about">About Us</a>
+      <a class="nav-link"routerLink="/uhome">Home</a>
+      <a class="nav-link"routerLink="/service1">Our Services</a>
+      <a class="nav-link"routerLink="/contact1">Contact Us</a>
+      <a class="nav-link"routerLink="/about1">About Us</a>
       <a class="nav-link"routerLink="/login">Logout</a>
     </div>
   </div>
@@ -273,7 +273,7 @@
                     </div>     
                 </div>
             </div>
-            <div class="row g-3">
+            <div class="row">
                 <div class="col">  
                 <button type="submit" class="btn btn-success"  (click)="user.gender = 'male'"
                 (click)="user.groupInsurance='No'"
@@ -281,6 +281,14 @@
                 (click)="user.tobacco='Yes'"
                 (click)="user.selectPlane='1'">Submit</button>
                 </div> 
+                <div class="col">
+                    <button style="background-color: rgb(240, 52, 52) " type="reset" class="btn btn-success" (click)="Dental.reset()">Clear</button>
+                    </div>
+                    
+                    <div class="col">
+                    <button routerLink="/service1" style="background-color: rgb(240, 52, 52) " type="reset" class="btn btn-success" (click)="Dental.reset()">Cancel</button>
+                    </div>
+                
                  
             </div>  
         </form>

@@ -34,9 +34,8 @@ export class RegistrationService {
       }
 
   //fetch dental data
-  getDentalData(){
-    let apiurl ="http://localhost:8067/getdentaldata";
-    return this._http.get(apiurl);
+  getDentalData():Observable<object>{
+    return this._http.get("http://localhost:8067/getdentaldata");
   }    
 
   //fetch life data
@@ -50,17 +49,36 @@ export class RegistrationService {
     let apiurl ="http://localhost:8067/getdentalvisiondata";
     return this._http.get(apiurl);
   } 
-
+  
    //update dental application status
-   updateStatusOfDental(user:DentalUser):Observable<object>{
-     return this._http.put("http://localhost:8067/status/user",user);
+   updateStatusOfLife(user:LifeRegistration):Observable<object>{
+     console.log(user.firstName);
+     return this._http.put(`http://localhost:8067/status/user`,user);
    }
+    rejectStatusOfLife(user:LifeRegistration):Observable<object>{
+    console.log(user.firstName);
+    return this._http.put(`http://localhost:8067/status1/user`,user);
+  }
+  updateStatusOfDV(user:DVRegistration):Observable<object>{
+    console.log(user.firstName);
+    return this._http.put(`http://localhost:8067/statusdv/user`,user);
+  }
+   rejectStatusOfDV(user:DVRegistration):Observable<object>{
+   console.log(user.firstName);
+   return this._http.put(`http://localhost:8067/status1dv/user`,user);
+ }
+
+ updateStatusOfD(user:DentalUser):Observable<object>{
+  console.log(user.firstName);
+  return this._http.put(`http://localhost:8067/statusd/user`,user);
+}
+ rejectStatusOfD(user:DentalUser):Observable<object>{
+ console.log(user.firstName);
+ return this._http.put(`http://localhost:8067/status1d/user`,user);
+}
+
+
    
-
-
-
-   
-
   public loginUserFromRemote(user:User):Observable<any>{
   return this._http.post<any>("http://localhost:8067/login",user);
   }
@@ -81,3 +99,4 @@ export class RegistrationService {
     return this. _http.post<any>("http://localhost:8067/uwlogin",uwriter);
   }
 }
+

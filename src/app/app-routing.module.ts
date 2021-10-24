@@ -1,3 +1,7 @@
+import { DentalvisiondetailsComponent } from './dentalvisiondetails/dentalvisiondetails.component';
+import { DentaluserdetailsComponent } from './dentaluserdetails/dentaluserdetails.component';
+import { Contact1Component } from './contact1/contact1.component';
+import { Aboutus1Component } from './aboutus1/aboutus1.component';
 import { CreatuwComponent } from './creatuw/creatuw.component';
 import { ServiceComponent } from './service/service.component';
 import { DentalVisionComponent } from './dental-vision/dental-vision.component';
@@ -21,7 +25,7 @@ import { FetchdatadentalvisionComponent } from './fetchdatadentalvision/fetchdat
 import { CreateadminComponent } from './createadmin/createadmin.component';
 import { SuccessfullcomponentComponent } from './successfullcomponent/successfullcomponent.component';
 import { LifeServiceUserDetailsComponent } from './life-service-user-details/life-service-user-details.component';
-
+import { Service1Component } from './service1/service1.component';
 const routes: Routes = [
   {path:'',pathMatch:"full", redirectTo:"home"},
   {path:'login',component:LoginComponent},
@@ -44,8 +48,12 @@ const routes: Routes = [
   {path:"DVdata",component:FetchdatadentalvisionComponent},
   {path:"createAdmin",component:CreateadminComponent},
   {path:"success",component:SuccessfullcomponentComponent},
-  {path:"lifeServiceDetails",component:LifeServiceUserDetailsComponent}
- 
+  {path:"lifeServiceDetails",component:LifeServiceUserDetailsComponent},
+  {path:"about1",component:Aboutus1Component},
+  {path:"service1",component:Service1Component},
+  {path:"contact1",component:Contact1Component},
+  {path:"dentaldetails",component:DentaluserdetailsComponent},
+  {path:"dvdetails",component:DentalvisiondetailsComponent}
 ];
 
 @NgModule({

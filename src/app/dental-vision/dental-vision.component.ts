@@ -15,7 +15,7 @@ import { POPUPComponent } from '../popup/popup.component';
   styleUrls: ['./dental-vision.component.css']
 })
 export class DentalVisionComponent implements OnInit {
-
+  private formSubmitAttempt: boolean;
  DentalVisionForm:any;
  emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
  constructor(private _service:RegistrationService,private _route: Router,private matDialog:MatDialog) { }
@@ -73,7 +73,31 @@ export class DentalVisionComponent implements OnInit {
      
     });
   }
+  isFieldValid(field: string) {
 
+    return (
+
+      (!this.DentalVisionForm.get(field).valid && this.DentalVisionForm.get(field).touched) ||
+
+      (this.DentalVisionForm.get(field).untouched && this.formSubmitAttempt)
+
+    );
+
+  }
+
+
+
+  displayFieldCss(field: string) {
+
+    return {
+
+      'has-error': this.isFieldValid(field),
+
+      'has-feedback': this.isFieldValid(field)
+
+    };
+
+  }
   get firstname() {return this.DentalVisionForm.get('firstname');}
   get lastname() {return this.DentalVisionForm.get('lastname');}
   get middlename() {return this.DentalVisionForm.get('middlename');}
@@ -103,7 +127,15 @@ export class DentalVisionComponent implements OnInit {
   get additionalComments() {return this.DentalVisionForm.get('additionalComments');}
   user = new DVRegistration();
   applyDVService(){
+    if (this.DentalVisionForm.valid) {
 
+      console.log('form submitted');
+
+    } else {
+
+      this.validateAllFormFields(this.DentalVisionForm);
+
+    }
     this._service.applyUserForDVService(this.user).subscribe(
       data=>{
         console.log("response received");
@@ -126,11 +158,31 @@ export class DentalVisionComponent implements OnInit {
         height:"250px",
         width:"600px",
    
+      });  
+    }
+    validateAllFormFields(formGroup: FormGroup) {
+
+      Object.keys(formGroup.controls).forEach(field => {
+
+        console.log(field);
+
+        const control = formGroup.get(field);
+
+
+
+        if (control instanceof FormControl) {
+
+          control.markAsTouched({ onlySelf: true });
+
+        } else if (control instanceof FormGroup) {
+
+          this.validateAllFormFields(control);
+
+        }
+
       });
 
-       
-      
-}
+    }
 }
 
 

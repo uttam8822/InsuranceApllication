@@ -44,8 +44,8 @@
                           <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           
                           <div class="form-outline flex-fill mb-0">
-                            <label class="form-label" for="form3Example3c">Your Id Number</label>
-                            <input  name="email" type="email" id="form3" class="form-control" placeholder="Enter your email" required="required" #email=ngModel [(ngModel)]="admin.adminId" email="ngModel"/>
+                            <label class="form-label" for="form3Example3c">Your UserID</label>
+                            <input  name="email" type="email" id="form3" class="form-control" placeholder="Enter your ID" required="required" #adminID=ngModel [(ngModel)]="admin.adminId" email="ngModel"/>
                              </div>
                         </div>
       
@@ -92,14 +92,14 @@
       <footer>
           <div class="container">
               <div class="row">
-                  <div class="col-sm-6 col-md-3 item">
-                      <h3>Services</h3>
-                      <ul>
-                          <li><a href="#">Life Insurance</a></li>
-                          <li><a href="#">Dental & Vision Insurance</a></li>
-                          <li><a href="#">Dental Insurance</a></li>
-                      </ul>
-                  </div>
+                <div class="col-sm-6 col-md-3 item">
+                  <a  routerLink="/service" style="text-decoration: none; color: white; scroll-behavior: auto;">Services</a>
+                  <ul>
+                      <li>Life Insurance</li>
+                      <li>Dental & Vision Insurance</li>
+                      <li> Dental Insurance</li>
+                  </ul>
+                </div>
                   <div class="col-sm-6 col-md-3 item">
                       <h3>Know Us</h3>
                       <ul>

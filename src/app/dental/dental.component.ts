@@ -14,7 +14,7 @@ import { POPUPComponent } from '../popup/popup.component';
   styleUrls: ['./dental.component.css']
 })
 export class DentalComponent implements OnInit {
-  
+  private formSubmitAttempt: boolean;
 
   Dental:any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
@@ -74,7 +74,33 @@ export class DentalComponent implements OnInit {
       //selectPlane: new FormControl('', Validators.required)
     });
   }
- 
+  isFieldValid(field: string) {
+
+    return (
+
+      (!this.Dental.get(field).valid && this.Dental.get(field).touched) ||
+
+      (this.Dental.get(field).untouched && this.formSubmitAttempt)
+
+    );
+
+  }
+
+
+
+  displayFieldCss(field: string) {
+
+    return {
+
+      'has-error': this.isFieldValid(field),
+
+      'has-feedback': this.isFieldValid(field)
+
+    };
+
+  }
+
+
   get f(){
     return this.Dental.controls;
   }
@@ -107,7 +133,15 @@ export class DentalComponent implements OnInit {
   
 
   applyDental(){
+    if (this.Dental.valid) {
 
+      console.log('form submitted');
+
+    } else {
+
+      this.validateAllFormFields(this.Dental);
+
+    }
     this._service.applyUserForDental(this.user).subscribe(
       data=>{
         console.log("response received");
@@ -137,6 +171,29 @@ export class DentalComponent implements OnInit {
 
               
              
+  }
+  validateAllFormFields(formGroup: FormGroup) {
+
+    Object.keys(formGroup.controls).forEach(field => {
+
+      console.log(field);
+
+      const control = formGroup.get(field);
+
+
+
+      if (control instanceof FormControl) {
+
+        control.markAsTouched({ onlySelf: true });
+
+      } else if (control instanceof FormGroup) {
+
+        this.validateAllFormFields(control);
+
+      }
+
+    });
+
   }
 
 
