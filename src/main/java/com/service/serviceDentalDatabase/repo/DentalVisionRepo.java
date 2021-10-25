@@ -11,4 +11,5 @@ import com.service.serviceDentalDatabase.model.ServiceUser;
 public interface DentalVisionRepo extends JpaRepository<DentalVisionUser,String> {
 	@Override
 	List<DentalVisionUser> findAll();
+	public DentalVisionUser findByAadhar(String aadhar);
 }

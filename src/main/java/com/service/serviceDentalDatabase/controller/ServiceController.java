@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.service.serviceDentalDatabase.model.ServiceUser;
 import com.service.serviceDentalDatabase.repo.ServiceRepo;
 import com.service.serviceDentalDatabase.service.RegistrationService;
@@ -25,7 +24,14 @@ public class ServiceController {
 	@PostMapping("/registeruserservice")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ServiceUser resisterUserService(@RequestBody ServiceUser user) throws Exception {
-
+		 String tempAadhar=user.getAadhar();
+	        if(tempAadhar != null && !"".equals(tempAadhar))
+	        {
+		     ServiceUser userobj=service.fetchUserByAadhar(tempAadhar);
+		     if(userobj != null) {
+		    	 throw new Exception("user with" +tempAadhar + "id already exist");
+		     }
+	        }
 		ServiceUser userObj = null;
 		userObj = service.saveUser(user);
 		return userObj;

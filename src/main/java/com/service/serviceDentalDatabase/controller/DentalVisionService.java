@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.service.serviceDentalDatabase.model.DentalVisionUser;
+import com.service.serviceDentalDatabase.model.LifeUser;
 import com.service.serviceDentalDatabase.repo.DentalVisionRepo;
 import com.service.serviceDentalDatabase.service.DentalVisionRegistration;
 
@@ -24,7 +25,14 @@ public class DentalVisionService {
 	@PostMapping("/registerdentalvisionservice")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public DentalVisionUser resisterUserService(@RequestBody DentalVisionUser user) throws Exception {
-
+		 String tempAadhar=user.getAadhar();
+	        if(tempAadhar != null && !"".equals(tempAadhar))
+	        {
+		     DentalVisionUser userobj=service.fetchUserByAadhar(tempAadhar);
+		     if(userobj != null) {
+		    	 throw new Exception("user with" +tempAadhar + "id already exist");
+		     }
+	        }
 		DentalVisionUser userObj = null;
 		userObj = service.saveUser(user);
 		return userObj;

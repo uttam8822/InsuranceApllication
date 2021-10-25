@@ -19,7 +19,10 @@ public class RegistrationService {
 		return repo.save(user);
 	}
 	
-	
+	public ServiceUser fetchUserByAadhar(String aadhar)
+	{
+		return repo.findByAadhar(aadhar);
+	}
 	
 	
 	
