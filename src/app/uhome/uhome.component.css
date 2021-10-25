@@ -1,6 +1,6 @@
 .header {
     overflow: visible;
-    background-color: #167abd;
+    background-color: #070707;
     padding: 10px 10px;
   }
   
@@ -22,13 +22,13 @@
     font-weight: bold;
     font-style: italic;
     color:rgb(53, 50, 50);
-    background-color: rgb(86, 53, 230);
+    background-color:white;
     margin-top: 20px;
   }
   
   /* Change the background color on mouse-over */
   .header a.nav-link:hover {
-    background-color: #ddd;
+    background-color: rgb(243, 57, 57);
     color: black;
   }
   

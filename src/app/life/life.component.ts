@@ -21,17 +21,17 @@ export class LifeComponent implements OnInit {
   selectChangeHandler(event:any){
     this.selectedDay=event.target.value;
     if(this.selectedDay=="Individual"){
-      this.onOpenDialogClick("Your Yearly policy will be Rs-10000/- whould you like to proceed");
+      this.onOpenDialogClick("Your yearly policy will be Rs-10000/- would you like to proceed.");
     }
     if(this.selectedDay=="Individual & Spouse"){
-     this.onOpenDialogClick("Your Yearly policy will be Rs-20000/- whould you like to proceed");
+     this.onOpenDialogClick("Your yearly policy will be Rs-20000/- would you like to proceed.");
    }
    
    if(this.selectedDay=="Individual Spouse & Child"){
-     this.onOpenDialogClick("Your Yearly policy will be Rs-30000/- whould you like to proceed");
+     this.onOpenDialogClick("Your yearly policy will be Rs-30000/- would you like to proceed.");
    }
    if(this.selectedDay=="Individual Spouse & Parents"){
-     this.onOpenDialogClick("Your Yearly policy will be Rs-40000/- whould you like to proceed");
+     this.onOpenDialogClick("Your yearly policy will be Rs-40000/- would you like to proceed.");
    }
   }
   LifeForm : any;
