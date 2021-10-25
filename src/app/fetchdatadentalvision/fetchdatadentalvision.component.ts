@@ -23,7 +23,7 @@ export class FetchdatadentalvisionComponent implements OnInit {
     
         data=>{
               
-             alert("updated successfully");
+             alert("Approved successfully");
              let curl=this._router.url;
              this._router.navigateByUrl('/',{skipLocationChange: true}).then(()=>{
              this._router.navigate([curl]);
@@ -41,7 +41,7 @@ export class FetchdatadentalvisionComponent implements OnInit {
       public rejectForm1(user){
         this.userRegistration.rejectStatusOfDV(user).subscribe(
           data=>{
-            alert("Updated Successfully");
+            alert("Rejected Successfully");
             let curl=this._router.url;
             this._router.navigateByUrl('/',{skipLocationChange: true}).then(()=>{
             this._router.navigate([curl]);

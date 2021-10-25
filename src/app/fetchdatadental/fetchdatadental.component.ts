@@ -31,7 +31,7 @@ export class FetchdatadentalComponent implements OnInit {
  public approvealForm2(user){
   this.userRegistration.updateStatusOfD(user).subscribe(
     data=>{
-         alert("updated successfully");
+         alert("Approved Successfully");
          let curl=this._router.url;
          this._router.navigateByUrl('/',{skipLocationChange: true}).then(()=>{
          this._router.navigate([curl]);
@@ -47,7 +47,7 @@ export class FetchdatadentalComponent implements OnInit {
   public rejectForm2(user){
     this.userRegistration.rejectStatusOfD(user).subscribe(
       data=>{
-        alert("Updated Successfully");
+        alert("Rejected Successfully");
         let curl=this._router.url;
         this._router.navigateByUrl('/',{skipLocationChange: true}).then(()=>{
         this._router.navigate([curl]);

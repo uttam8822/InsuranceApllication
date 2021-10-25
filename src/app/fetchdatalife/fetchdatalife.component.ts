@@ -30,7 +30,7 @@ al:boolean;
   
       data=>{
             
-           alert("Update  successfully");
+           alert("Approved  Successfully");
            let curl=this._router.url;
            this._router.navigateByUrl('/',{skipLocationChange: true}).then(()=>{
            this._router.navigate([curl]);
@@ -45,7 +45,7 @@ al:boolean;
     public rejectForm(user){
       this.userRegistration.rejectStatusOfLife(user).subscribe(
         data=>{
-          alert("Updated Successfully");
+          alert("Rejected Successfully");
           let curl=this._router.url;
           this._router.navigateByUrl('/',{skipLocationChange: true}).then(()=>{
           this._router.navigate([curl]);
