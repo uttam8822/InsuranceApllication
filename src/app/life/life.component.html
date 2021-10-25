@@ -277,7 +277,7 @@
                     <label for="exampleFormControlTextarea1" class="form-label">Do you have any other health Issue please Describe:</label>
                     <input formControlName="healthIssue" class="form-control" aria-label="zip" placeholder="Tell about your health issue" required required [(ngModel)] = "user.healthIssue" maxlength="50" style="height: 100px;"/>
                     <div *ngIf="healthIssue.invalid && (healthIssue.touched || healthIssue.dirty)">
-                        <span class="error" *ngIf="healthIssue.errors?.required"> *Occupation is required</span>
+
                         <span class="error" *ngIf="healthIssue.errors?.maxlength">*Length should be less than 50</span>
                     </div>      
                 </div>
@@ -288,7 +288,7 @@
                     <label for="exampleFormControlTextarea1" class="form-label">Please add any additional comments or questions:</label>
                     <input formControlName="additionalComments" class="form-control" aria-label="zip" placeholder=" Add your comments" required required [(ngModel)] = "user.additionalComments" maxlength="50" style="height: 100px;"/>
                     <div *ngIf="additionalComments.invalid && (additionalComments.touched || additionalComments.dirty)">
-                        <span class="error" *ngIf="additionalComments.errors?.required"> *comments is required</span>
+            
                         <span class="error" *ngIf="additionalComments.errors?.maxlength">*Length should be less than 50</span>
                     </div>     
                 </div>

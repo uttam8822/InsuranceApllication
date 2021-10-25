@@ -39,7 +39,7 @@ export class RegistrationService {
   }    
 
   //fetch life data
-  getLifeData(){
+  getLifeData():Observable<object>{
     let apiurl ="http://localhost:8067/getlifedata";
     return this._http.get(apiurl);
   }  

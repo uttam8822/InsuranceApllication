@@ -136,6 +136,10 @@ export class DentalVisionComponent implements OnInit {
       this.validateAllFormFields(this.DentalVisionForm);
 
     }
+    if(this.user.oralOperation=="No" && this.user.anyCavity=="No" && this.user.tobacco=="No" && this.user.anyEyeOperation=="No")
+    {
+      this.user.status="Yes"
+    }
     this._service.applyUserForDVService(this.user).subscribe(
       data=>{
         console.log("response received");
@@ -144,7 +148,7 @@ export class DentalVisionComponent implements OnInit {
       error => 
       {
         console.log("exception occred")
-        alert("Please fill all Reqiured feild mark with (*).");
+       // alert("Please fill all Reqiured feild mark with (*).");
       } 
       
     );

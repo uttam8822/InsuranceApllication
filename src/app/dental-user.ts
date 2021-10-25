@@ -22,7 +22,7 @@ export class DentalUser {
         tobacco:string;
         additionalComments:string;
         applicationStatus:boolean;
-
+        status:string;
         constructor(){}
     
 }

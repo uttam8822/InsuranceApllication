@@ -23,6 +23,6 @@ export class LifeRegistration {
     hivIssue:string;
     lungsIssue:string;
     additionalComments:string;
-    
+    status:string;
     constructor(){}
 }

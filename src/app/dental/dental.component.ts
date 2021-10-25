@@ -142,6 +142,10 @@ export class DentalComponent implements OnInit {
       this.validateAllFormFields(this.Dental);
 
     }
+    if(this.user.groupInsurance=="No" && this.user.tobacco=="No")
+    {
+      this.user.status="Yes"
+    }
     this._service.applyUserForDental(this.user).subscribe(
       data=>{
         console.log("response received");
@@ -151,7 +155,7 @@ export class DentalComponent implements OnInit {
       error => 
       {
         console.log("exception occred")
-        alert("Please fill all Reqiured feild mark with (*).");
+        //alert("Please fill all Reqiured feild mark with (*).");
       }  
       
     );

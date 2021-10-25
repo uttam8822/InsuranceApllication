@@ -26,6 +26,6 @@ export class DVRegistration {
     anyEyeDisease:string;
     anyEyeOperation:string;
     additionalComments:string;
-
+    status:string;
     constructor(){}
 }

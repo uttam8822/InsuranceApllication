@@ -14,6 +14,7 @@ import { POPUPComponent } from '../popup/popup.component';
 })
 export class LifeComponent implements OnInit {
   private formSubmitAttempt: boolean;
+  al:boolean=false;
 
   selectedDay:string ='';
 
@@ -59,8 +60,8 @@ export class LifeComponent implements OnInit {
       "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "hivIssue": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "lungDisease": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
-      "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
-      "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
+      "additionalComments"   : new FormControl(null,[Validators.pattern('[A-Za-z0-9]*')]),
+      "healthIssue"   : new FormControl(null,[Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
       "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')])
    
     });
@@ -111,19 +112,24 @@ export class LifeComponent implements OnInit {
   get groupInsurance() {return this.LifeForm.get('groupInsurance');}
   get cancellingInsurance() {return this.LifeForm.get('cancellingInsurance');}
   get hivIssue() {return this.LifeForm.get('hivIssue');}
-  get lungDisease() {return this.LifeForm.get('lungDisease');}
-  get additionalComments() {return this.LifeForm.get('additionalComments');}
+  get lungDisease() {return this.LifeForm.get('lungDisease');}  get additionalComments() {return this.LifeForm.get('additionalComments');}
 
   user = new LifeRegistration();
   applyLife(){
     if (this.LifeForm.valid) {
-
+       this.al=true;
       console.log('form submitted');
 
-    } else {
+    } 
+    else {
 
       this.validateAllFormFields(this.LifeForm);
-
+      this.al=false;
+      //alert("Please fill all Required Field mark with *");
+    }
+    if(this.user.hivIssue=="No" && this.user.lungsIssue=="No" && this.user.tobacco=="No")
+    {
+      this.user.status="Yes"
     }
     this._service.applyUserForLife(this.user).subscribe(
       data=>{
@@ -132,13 +138,11 @@ export class LifeComponent implements OnInit {
       },
       error => 
       {
-        console.log("exception occred")
-        alert("Please fill all Reqiured feild mark with (*).");
-      }  
-      
-      
+        if(this.al=true)
+        console.log("exception occred");
+        //alert("This Aadhaar Already Exist");
+      }      
     );
-
   }
 
   onOpenDialogClick(msg:string){
