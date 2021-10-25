@@ -4,6 +4,9 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistrationService } from '../registration.service';
 import { User } from '../user';
+import { MatDialog } from '@angular/material/dialog'; 
+import { POPUPComponent } from '../popup/popup.component';
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,10 +16,11 @@ export class LoginComponent implements OnInit {
    user =new User()
    //password=new User()
    msg='';
+   forgot='Forgot your password? Please contact to our customer support at(support@impetus.com).';
   alert:boolean=false;
   alert1:boolean=false;
 
-  constructor(private _service : RegistrationService, private _route : Router) { }
+  constructor(private _service : RegistrationService, private _route : Router,private matDialog:MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +29,7 @@ export class LoginComponent implements OnInit {
         this._service.loginUserFromRemote(this.user).subscribe(
           data => {console.log("response received");
           this.msg="login success"
-          this. _route.navigate(["/uhome"])
+          this. _route.navigate(["/service1"])
         },
           error => {
             console.error("exception occour");
@@ -33,6 +37,7 @@ export class LoginComponent implements OnInit {
            // this.alert=false;
             //this.alert1=true;
             this. _route.navigate(["/login"])
+            
         }
           
         );   
@@ -41,5 +46,20 @@ export class LoginComponent implements OnInit {
   gotoregistration(){
     this._route.navigate(['/signup'])
   }
+
+  onOpenDialogClick(forgot){
+    this.matDialog.open(POPUPComponent,{
+        data:{
+          age:forgot
+        },
+        height:"250px",
+        width:"600px",
+        
+   
+      });
+
+       
+      
+}
 
 }

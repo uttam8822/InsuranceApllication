@@ -1,6 +1,6 @@
 <div class="header">
   <div>
-  <a class="nav"routerLink="/home">Impetus Insurance</a>
+  <a class="nav"routerLink="/home" style="background-color: white;">Impetus Insurance</a>
   </div>
   <marquee width="20%" hieght="20%" hspace="150"direction="left" height="80px" >
     Invest Today and Enjoy Tomorrow!
@@ -74,23 +74,30 @@
   
                    
   
-                    <div class="form-check d-flex justify-content-center mb-5">
-                      
-                      <label class="form-check-label" for="form2Example3">
-                        <a routerLink="/signup">Don't have an account? Sign up</a>
-                        <br>
-                      </label>
-                      
-                    </div>
+                    
                     
 
   
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                       
-                      <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                      <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Login</button>
                     </div>
   
                   </form>
+
+                  <div class="row">
+                      
+                    <label class="form-check-label col" for="form2Example88">
+                      <button class="btn btn-link" routerLink="/signup">Don't have an account? Sign Up</button>
+                      <br>
+                    </label>
+                    <br>
+                    <label class="form-check-label col" for="form2Example3">
+                       <button (click)="onOpenDialogClick(forgot)" class="btn btn-link">Forgot password? Click Here</button>
+                      
+                    </label>
+                    
+                  </div>
   
                 </div>
                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">

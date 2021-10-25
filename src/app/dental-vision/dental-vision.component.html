@@ -333,7 +333,7 @@
             <div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Describe any other health issue/issues you are have or Suffered in Past?</label>
-                    <input formControlName="healthIssue" class="form-control" aria-label="zip" placeholder="Tell about your health issue" required required [(ngModel)] = "user.healthIssue" maxlength="50" style="height: 100px;"/>
+                    <input formControlName="healthIssue" class="form-control" aria-label="zip" placeholder="Tell us about your health issue" required required [(ngModel)] = "user.healthIssue" maxlength="50" style="height: 100px;"/>
                     <div *ngIf="healthIssue.invalid && (healthIssue.touched || healthIssue.dirty)">
                         <span class="error" *ngIf="healthIssue.errors?.required"> *Occupation is required</span>
                         <span class="error" *ngIf="healthIssue.errors?.maxlength">*Length should be less than 50</span>

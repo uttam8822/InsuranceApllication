@@ -1,6 +1,6 @@
 <div class="header">
   <div>
-  <a class="nav"routerLink="/home">Impetus Insurance</a>
+  <a class="nav"routerLink="/home" style="background-color: white;">Impetus Insurance</a>
   </div>
   <marquee width="20%" hieght="20%" hspace="150"direction="left" height="80px" >
     Invest Today and Enjoy Tomorrow!
@@ -60,8 +60,8 @@
                       <label class="form-label" for="form3Example1c">First Name</label>
                       <input formControlName = "firstname" class="form-control" aria-label="First Name" placeholder="Enter Your First Name" required required [(ngModel)] = "user.firstName"/>
                       <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
-                          <span class="error" *ngIf="firstname.errors?.required"> *First Name is Required</span>
-                          <span class="error" *ngIf="firstname.errors?.pattern"> *Enter Only Characters</span>
+                          <span class="error text-danger" *ngIf="firstname.errors?.required"> *First Name is Required</span>
+                          <span class="error text-danger" *ngIf="firstname.errors?.pattern"> *Enter Only Characters</span>
                       </div>
                     </div>
                   </div>
@@ -72,8 +72,8 @@
                       <label class="form-label" for="form3Example1c">Last Name</label>
                       <input formControlName="lastname" class="form-control"  aria-label="Last name" placeholder="Enter Your Last Name" required required [(ngModel)] = "user.lastName"/>
                       <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
-                          <span class="error" *ngIf="lastname.errors?.required"> *Last Name is Required</span>
-                          <span class="error" *ngIf="lastname.errors?.pattern"> *Enter Only Characters</span>
+                          <span class="error text-danger" *ngIf="lastname.errors?.required"> *Last Name is Required</span>
+                          <span class="error text-danger" *ngIf="lastname.errors?.pattern"> *Enter Only Characters</span>
                       </div> 
                     </div>
                   </div>
@@ -85,8 +85,8 @@
                       <label class="form-label" for="form3Example3c">Your Email</label>
                       <input formControlName="email" class="form-control"  aria-label="email" placeholder="Enter Your Email" required required [(ngModel)] = "user.emailId" />
                     <div *ngIf="email.invalid && (email.touched || email.dirty)">
-                        <span class="error" *ngIf="email.errors?.required">*Email required</span>
-                    <span class="error" *ngIf="email.errors?.pattern">*Invalid Email Id</span>
+                        <span class="error text-danger" *ngIf="email.errors?.required">*Email required</span>
+                    <span class="error text-danger" *ngIf="email.errors?.pattern">*Invalid Email Id</span>
                     </div> 
                     </div>
                   </div>
@@ -97,10 +97,10 @@
                       <label class="form-label" for="form3Example4c">Password</label>
                       <input formControlName="password" class="form-control" aria-label="adhar" type="password" placeholder="Enter Your Password"  required required [(ngModel)] = "user.password"/>
                     <div *ngIf="password.invalid && (password.touched || password.dirty)">
-                        <span class="error" *ngIf="password.errors?.required"> *password is required</span>
-                        <span class="error" *ngIf="password.errors?.pattern">  *Only numbers Characters @#! are allowed</span>
-                        <span class="error" *ngIf="password.errors?.minlength"> *password should be more than 8 Characters</span>
-                        <span class="error" *ngIf="password.errors?.maxlength">*password should be less than 20 Characters</span>
+                        <span class="error text-danger" *ngIf="password.errors?.required"> *password is required</span>
+                        <span class="error text-danger" *ngIf="password.errors?.pattern">  *Only numbers Characters @#! are allowed</span>
+                        <span class="error text-danger" *ngIf="password.errors?.minlength"> *password should be more than 8 Characters</span>
+                        <span class="error text-danger" *ngIf="password.errors?.maxlength">*password should be less than 20 Characters</span>
                         
                     </div>
                     </div>
@@ -112,7 +112,7 @@
                       <label class="form-label" for="form3Example4cd"> Confirm Password</label>
                       <input formControlName="cpassword" class="form-control" aria-label="adhar" type="password" placeholder="Confirm Password" pattern="{{user.password}}" required  />
                       <div *ngIf="cpassword.invalid && (cpassword.touched || cpassword.dirty)">
-                          <span class="error" *ngIf="cpassword.errors?.required"> *password is required</span>
+                          <span class="error text-danger" *ngIf="cpassword.errors?.required"> *password is required</span>
                           <span class="text-danger" *ngIf="Registerform.submitted && cpassword.errors?.pattern">  *Password didn't matched</span>
                           
                       </div>
