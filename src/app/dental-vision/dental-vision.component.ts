@@ -20,7 +20,17 @@ export class DentalVisionComponent implements OnInit {
  emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
  constructor(private _service:RegistrationService,private _route: Router,private matDialog:MatDialog) { }
 
- selectedDay:string ='';
+ selectGender:string='';
+     selectedDay:string ='';
+     selectPlaneYear:string='';
+     cancelExixting:string='';
+     groupInsuranceUser:string='';
+     selectTobacco:string='';
+     oralOperationUser:string='';
+     selectCavity:string='';
+     selectGlasses:string='';
+     selectEyeDisses:string='';
+     selectEyeOperation:string='';
   
  selectChangeHandler(event:any){
   this.selectedDay=event.target.value;
@@ -38,6 +48,51 @@ export class DentalVisionComponent implements OnInit {
    this.onOpenDialogClick("Your yearly policy will be Rs-40000/- would you like to proceed.");
  }
 }
+
+
+ //for select plane
+ selectPlanHandler(event:any){
+  this.selectPlaneYear=event.target.value;
+ }
+
+ //for gender
+ selectGenderHandler(event:any){
+  this.selectGender=event.target.value;
+ }
+ //for cancel exixting insurance
+ selectCancelHandler(event:any){
+  this.cancelExixting=event.target.value;
+ }
+
+ //for group insurance 
+ selectGroupInsuranceHandler(event:any){
+   this.groupInsuranceUser=event.target.value;
+ }
+
+ //for tobacco
+ selectTobaccoHandler(event:any){
+  this.selectTobacco=event.target.value;
+ }   
+ //oral operation
+ selectOralHandler(event:any){
+ this.oralOperationUser=event.target.value;
+ }
+ //select cavity
+ selectCavityHandler(event:any){
+  this.selectCavity=event.target.value;
+  }
+  // select wear glasses
+  selectGlassesHandler(event:any){
+    this.selectGlasses=event.target.value;
+    }
+  //select eye Disease
+  selectEyeDiseaseHandler(event:any){
+    this.selectEyeDisses=event.target.value;
+    }
+  //eye operation
+  selectEyeOperationsHandler(event:any){
+    this.selectEyeOperation=event.target.value;
+    }  
 
 
   ngOnInit(): void {
@@ -70,7 +125,7 @@ export class DentalVisionComponent implements OnInit {
       "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
       "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
-     
+      member: new FormControl('', Validators.required)
     });
   }
   isFieldValid(field: string) {
@@ -125,6 +180,7 @@ export class DentalVisionComponent implements OnInit {
   get anyEyeDisease() {return this.DentalVisionForm.get('anyEyeDisease');}
   get anyEyeOperation() {return this.DentalVisionForm.get('anyEyeOperation');}
   get additionalComments() {return this.DentalVisionForm.get('additionalComments');}
+  get member() {return this.DentalVisionForm.get('member');}
   user = new DVRegistration();
   applyDVService(){
     if (this.DentalVisionForm.valid) {

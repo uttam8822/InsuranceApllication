@@ -15,7 +15,14 @@ import { POPUPComponent } from '../popup/popup.component';
 export class LifeComponent implements OnInit {
   private formSubmitAttempt: boolean;
 
-  selectedDay:string ='';
+  selectGender:string='';
+     selectedDay:string ='';
+     selectPlaneYear:string='';
+     cancelExixting:string='';
+     groupInsuranceUser:string='';
+     selectTobacco:string='';
+     selectHIV:string='';
+     selectLungsIssue='';
 
   selectChangeHandler(event:any){
     this.selectedDay=event.target.value;
@@ -33,6 +40,55 @@ export class LifeComponent implements OnInit {
      this.onOpenDialogClick("Your yearly policy will be Rs-40000/- would you like to proceed.");
    }
   }
+
+//for select plane
+selectPlanHandler(event:any){
+  this.selectPlaneYear=event.target.value;
+ }
+
+ //for gender
+ selectGenderHandler(event:any){
+  this.selectGender=event.target.value;
+ }
+ //for cancel exixting insurance
+ selectCancelHandler(event:any){
+  this.cancelExixting=event.target.value;
+ }
+
+ //for group insurance 
+ selectGroupInsuranceHandler(event:any){
+   this.groupInsuranceUser=event.target.value;
+ }
+
+ //for tobacco
+ selectTobaccoHandler(event:any){
+  this.selectTobacco=event.target.value;
+ }     
+//select HIV
+ selectHIVHandler(event:any){
+  this.selectHIV=event.target.value;
+ }    
+ //select Lungs issue
+
+ selectLungHandler(event:any){
+  this.selectLungsIssue=event.target.value;
+ }    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   LifeForm : any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   constructor(private _service:RegistrationService,private _route: Router,private matDialog:MatDialog) { }
@@ -61,8 +117,8 @@ export class LifeComponent implements OnInit {
       "lungDisease": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
       "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
-      "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')])
-   
+      "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
+      member: new FormControl('', Validators.required)
     });
   }
   isFieldValid(field: string) {
@@ -113,6 +169,7 @@ export class LifeComponent implements OnInit {
   get hivIssue() {return this.LifeForm.get('hivIssue');}
   get lungDisease() {return this.LifeForm.get('lungDisease');}
   get additionalComments() {return this.LifeForm.get('additionalComments');}
+  get member() {return this.LifeForm.get('member');}
 
   user = new LifeRegistration();
   applyLife(){

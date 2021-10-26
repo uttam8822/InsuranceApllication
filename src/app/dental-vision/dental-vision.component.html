@@ -170,7 +170,7 @@
                 <div class="col">
                     <label for ="selectPlane">Describe time in year for your plan ?<span style="color: red;">*</span></label>
                     <br> 
-                    <select style="height: 45px; width: 490px;"> 
+                    <select style="height: 45px; width: 490px;" (change)="selectPlanHandler($event)" FormControlName="selectPlane"> 
                         <option>Please select year plan</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -178,18 +178,26 @@
                         <option value="4">4</option> 
                         <option value="5">5</option>
                     </select>
+                    <div *ngIf="selectPlane.invalid && (selectPlane.touched || selectPlane.dirty)">
+                        <span class="error" *ngIf="selectPlane.errors?.required"> *Plan is required</span>
+                         
+                       </div>
                       
                 </div>
                 <div class="col">
                     <label>Select member<span style="color: red;">*</span></label>
                     <br>
-                      <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectChangeHandler($event)">
+                      <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectChangeHandler($event)" FormControlName="member">
                         <option>Please select member</option>
                         <option value="Individual">Individual</option>
                         <option value="Individual & Spouse">Individual & Spouse</option>
                         <option value="Individual Spouse & Child">Individual Spouse & Child</option>
                         <option value="Individual Spouse & Parents">Individual Spouse & Parents</option>
                       </select>
+                      <div *ngIf="member.invalid && (member.touched || member.dirty)">
+                        <span class="error" *ngIf="member.errors?.required"> *member is required</span>
+                         
+                       </div>
                 </div>
             </div>
 
@@ -200,22 +208,30 @@
                 <div class="col ">
                     <label>Gender<span style="color: red;">*</span></label>
                 
-                    <select name="cars" id="cars" style="height: 45px; width: 490px;">
+                    <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectGenderHandler($event)" FormControlName="gender">
                         <option>Please select your </option>
                         <option value="Male" [(ngModel)] = "user.gender">Male</option>
                         <option value="Female" [(ngModel)] = "user.gender">Female</option>
                          
                       </select>
+                      <div *ngIf="gender.invalid && (gender.touched || gender.dirty)">
+                        <span class="error" *ngIf="gender.errors?.required"> *gender is required</span>
+                         
+                       </div>
                  </div>
 
             
                 <div class="col">
                     <label>Are you planning on cancelling any existing life insurance?</label>
-                       <select name="cars" id="cars" style="height: 45px; width: 490px;">
+                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectCancelHandler($event)" FormControlName="cancellingInsurance">
                         <option>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>
+                      <div *ngIf="cancellingInsurance.invalid && (cancellingInsurance.touched || cancellingInsurance.dirty)">
+                        <span class="error" *ngIf="cancellingInsurance.errors?.required"> *Feild is required</span>
+                         
+                       </div>
                 </div>
 
             </div>
@@ -225,20 +241,28 @@
             <div class="row g-3">
                 <div class="col ">
                     <label>Do you have group life insurance through work?</label>
-                      <select name="cars" id="cars" style="height: 45px; width: 490px;">
+                      <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectGroupInsuranceHandler($event)" formControlName="groupInsurance">
                         <option>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
+                    <div *ngIf="groupInsurance.invalid && (groupInsurance.touched || groupInsurance.dirty)">
+                        <span class="error" *ngIf="groupInsurance.errors?.required"> *Feild is required</span>
+                         
+                       </div>
                 </div>
                 <div class="col">
                     <label>Do you consume Tobacco Or Alcohol Or do Smoking?<span style="color: red;">*</span></label>
                  
-                    <select name="cars" id="cars" style="height: 45px; width: 490px;">
+                    <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectTobaccoHandler($event)" formControlName="Tobacco">
                         <option>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>
+                      <div *ngIf="Tobacco.invalid && (Tobacco.touched || Tobacco.dirty)">
+                        <span class="error" *ngIf="Tobacco.errors?.required"> *Feild is required</span>
+                         
+                       </div>
                 </div>
 
             </div>
@@ -248,11 +272,15 @@
             <div class="row g-3">
                 <div class="col">
                     <label>Any Major Oral Operation in Past?</label>
-                     <select name="cars" id="cars" style="height: 45px; width: 490px;">
+                     <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectOralHandler($event)" formControlNamne="oralOperation">
                         <option>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
+                    <div *ngIf="oralOperation.invalid && (oralOperation.touched || oralOperation.dirty)">
+                        <span class="error" *ngIf="oralOperation.errors?.required"> *Feild is required</span>
+                         
+                       </div>
                      
                 </div>
                 <div class="col">
@@ -272,20 +300,28 @@
             <div class="row g-3">
                 <div class="col">
                     <label>Have/Had cavity any time Or any ungrown teeth? </label>
-                       <select name="cars" id="cars" style="height: 45px; width: 490px;">
+                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectCavityHandler($event)" formControlNamne="anyCavity">
                         <option>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
+                    <div *ngIf="anyCavity.invalid && (anyCavity.touched || anyCavity.dirty)">
+                        <span class="error" *ngIf="anyCavity.errors?.required"> *Feild is required</span>
+                         
+                       </div>
 
                 </div>
                 <div class="col">
                     <label>Are you wearing glasses?</label>
-                       <select name="cars" id="cars" style="height: 45px; width: 490px;">
+                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectGlassesHandler($event)" formControlNamne="wearGlasses">
                         <option>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
+                    <div *ngIf="wearGlasses.invalid && (wearGlasses.touched || wearGlasses.dirty)">
+                        <span class="error" *ngIf="wearGlasses.errors?.required"> *Feild is required</span>
+                         
+                       </div>
 
                 </div>
 
@@ -297,20 +333,28 @@
             <div class="row g-3">
                 <div class="col">
                     <label>Do you Have Cataract or any other Eye Disease?</label>
-                        <select name="cars" id="cars" style="height: 45px; width: 490px;">
+                        <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectEyeDiseaseHandler($event)" formControlNamne="anyEyeDisease">
                         <option>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
+                    <div *ngIf="anyEyeDisease.invalid && (anyEyeDisease.touched || anyEyeDisease.dirty)">
+                        <span class="error" *ngIf="anyEyeDisease.errors?.required"> *Feild is required</span>
+                         
+                       </div>
 
                 </div>
                 <div class="col">
                     <label>Have you ever undergone any Eyes Operation?</label>
-                       <select name="cars" id="cars" style="height: 45px; width: 490px;">
+                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectEyeOperationsHandler($event)" formControlNamne="anyEyeOperation">
                         <option>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
+                    <div *ngIf="anyEyeOperation.invalid && (anyEyeOperation.touched || anyEyeOperation.dirty)">
+                        <span class="error" *ngIf="anyEyeOperation.errors?.required"> *Feild is required</span>
+                         
+                       </div>
 
                 </div>
 
@@ -334,10 +378,7 @@
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Describe any other health issue/issues you are have or Suffered in Past?</label>
                     <input formControlName="healthIssue" class="form-control" aria-label="zip" placeholder="Tell us about your health issue" required required [(ngModel)] = "user.healthIssue" maxlength="50" style="height: 100px;"/>
-                    <div *ngIf="healthIssue.invalid && (healthIssue.touched || healthIssue.dirty)">
-                        <span class="error" *ngIf="healthIssue.errors?.required"> *Occupation is required</span>
-                        <span class="error" *ngIf="healthIssue.errors?.maxlength">*Length should be less than 50</span>
-                    </div>     
+                       
                 </div>
             </div>
 
@@ -346,10 +387,7 @@
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Please add any additional comments or questions:</label>
                     <input formControlName="additionalComments" class="form-control" aria-label="zip" placeholder=" Add your comments" required required [(ngModel)] = "user.additionalComments" maxlength="50" style="height: 100px;"/>
-                    <div *ngIf="additionalComments.invalid && (additionalComments.touched || additionalComments.dirty)">
-                        <span class="error" *ngIf="additionalComments.errors?.required"> *comments is required</span>
-                        <span class="error" *ngIf="additionalComments.errors?.maxlength">*Length should be less than 50</span>
-                    </div>     
+                       
                 </div>
             </div>
 
@@ -361,16 +399,16 @@
             <div class="row">
                 <div class="col">
             <button type="submit" class="btn btn-success"
-            (click)="user.gender = 'male'"
-            (click)="user.groupInsurance='No'"
-                (click)="user.cancellingInsurance='No'"
-                (click)="user.selectPlane='3'"
-                (click)="user.tobacco='No'"
-                (click)="user.oralOperation='Yes'"
-                (click)="user.anyCavity='Yes'"
-                (click)="user.wearGlasses='No'"
-                (click)="user.anyEyeDisease='No'"
-                (click)="user.anyEyeOperation='No'"
+            (click)="user.gender=selectGender"
+            (click)="user.tobacco=selectTobacco"
+            (click)="user.selectPlane=selectPlaneYear"
+            (click)="user.cancellingInsurance=cancelExixting"
+            (click)="user.groupInsurance=groupInsuranceUser"
+                (click)="user.oralOperation=oralOperationUser"
+                (click)="user.anyCavity=selectCavity"
+                (click)="user.wearGlasses=selectGlasses"
+                (click)="user.anyEyeDisease=selectEyeDisses"
+                (click)="user.anyEyeOperation=selectEyeOperation"
                  >Submit</button>
         </div>
         <div class="col">
