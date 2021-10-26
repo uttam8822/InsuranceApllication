@@ -127,10 +127,7 @@ export class LifeComponent implements OnInit {
       this.al=false;
       //alert("Please fill all Required Field mark with *");
     }
-    if(this.user.hivIssue=="No" && this.user.lungsIssue=="No" && this.user.tobacco=="No")
-    {
-      this.user.status="Yes"
-    }
+    
     this._service.applyUserForLife(this.user).subscribe(
       data=>{
         console.log("response received");

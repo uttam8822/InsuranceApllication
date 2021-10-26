@@ -142,10 +142,7 @@ export class DentalComponent implements OnInit {
       this.validateAllFormFields(this.Dental);
 
     }
-    if(this.user.groupInsurance=="No" && this.user.tobacco=="No")
-    {
-      this.user.status="Yes"
-    }
+   
     this._service.applyUserForDental(this.user).subscribe(
       data=>{
         console.log("response received");

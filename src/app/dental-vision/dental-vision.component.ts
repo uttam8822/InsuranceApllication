@@ -66,7 +66,7 @@ export class DentalVisionComponent implements OnInit {
       "oralOperation": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
       "lastDentalCkeck": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
       "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
-      "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
+     "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
       "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
       "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
@@ -136,10 +136,7 @@ export class DentalVisionComponent implements OnInit {
       this.validateAllFormFields(this.DentalVisionForm);
 
     }
-    if(this.user.oralOperation=="No" && this.user.anyCavity=="No" && this.user.tobacco=="No" && this.user.anyEyeOperation=="No")
-    {
-      this.user.status="Yes"
-    }
+    
     this._service.applyUserForDVService(this.user).subscribe(
       data=>{
         console.log("response received");
