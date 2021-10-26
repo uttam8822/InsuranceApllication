@@ -230,10 +230,6 @@ label{
       color:#fff;
       opacity:0.75;
     }
-    html{
-      scroll-behavior: smooth;
-    }
-    
     .footer-dark .item.social > a:hover {
       opacity:0.9;
     }
