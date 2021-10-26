@@ -6,7 +6,6 @@
       Invest Today and Enjoy Tomorrow!
       </marquee>
     <div class="header-right">
-      <a class="nav-link"routerLink="/uhome">Home</a>
       <a class="nav-link"routerLink="/service1">Our Services</a>
       <a class="nav-link"routerLink="/contact1">Contact Us</a>
       <a class="nav-link"routerLink="/about1">About Us</a>
@@ -171,7 +170,7 @@
                     <label for ="selectPlane">Describe time in year for your plan ?<span style="color: red;">*</span></label>
                     <br>
                     <select style="height: 45px; width: 490px;" (change)="selectPlanHandler($event)" formControlName="selectPlane">
-                        <option>Please select your plan</option>
+                        <option disabled selected>Please select your plan</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                          <option value="3">3</option>
@@ -188,7 +187,7 @@
                     <label>Select member<span style="color: red;">*</span></label>
                     <br>
                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectChangeHandler($event)" formControlName="member">
-                        <option>Please select member</option>
+                        <option disabled selected>Please select member</option>
                         <option value="Individual">Individual</option>
                         <option value="Individual & Spouse">Individual & Spouse</option>
                         <option value="Individual Spouse & Child">Individual Spouse & Child</option>
@@ -209,7 +208,7 @@
                     <label>Gender<span style="color: red;">*</span></label>
 
                     <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectGenderHandler($event)" formControlName="gender">
-                        <option>Please select your gender</option>
+                        <option disabled selected>Please select your gender</option>
                         <option value="Male" [(ngModel)] = "user.gender">Male</option>
                         <option value="Female" [(ngModel)] = "user.gender">Female</option>
 
@@ -224,12 +223,12 @@
 
                 <div class="col">
                     <label>Are you planning on cancelling any existing life insurance?</label>
-                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectCancelHandler($event)">
-                        <option>Please select </option>
+                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectCancelHandler($event)"formControlName="cancellingInsurance">
+                        <option disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>
-                      <div *ngIf="cancellingInsurance.invalid && (cancellingInsurance.touched || cancellingInsurance.dirty)" formControlName="cancellingInsurance">
+                      <div *ngIf="cancellingInsurance.invalid && (cancellingInsurance.touched || cancellingInsurance.dirty)" >
                         <span class="error" *ngIf="cancellingInsurance.errors?.required"> *Feild is required</span>
 
                        </div>
@@ -243,7 +242,7 @@
                 <div class="col ">
                     <label>Do you have group life insurance through work?</label>
                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectGroupInsuranceHandler($event)" formControlName="groupInsurance">
-                        <option>Please select </option>
+                        <option disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
@@ -256,7 +255,7 @@
                     <label>Do you consume Tobacco Or Alcohol Or do Smoking?<span style="color: red;">*</span></label>
                  
                     <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectTobaccoHandler($event)" formControlName="Tobacco">
-                        <option>Please select </option>
+                        <option disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>
@@ -280,7 +279,7 @@
                 <div class="col">
                 <label>Are You HIV Positive?</label>
                    <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectHIVHandler($event)" formControlName="hivIssue">
-                    <option>Please select </option>
+                    <option disabled selected>Please select </option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                   </select>
@@ -292,7 +291,7 @@
                 <div class="col">
                     <label>Do you Have any Lung Disease Or Heart Desease?</label>
                     <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectLungHandler($event)" formControlName="lungDisease">
-                        <option>Please select </option>
+                        <option disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>
@@ -334,6 +333,7 @@
                 (click)="user.groupInsurance=groupInsuranceUser"
                     (click)="user.hivIssue=selectHIV"
                     (click)="user.lungsIssue=selectLungsIssue"
+                    (click)="user.member=selectedDay"
                     >Submit</button>
                 </div>
 

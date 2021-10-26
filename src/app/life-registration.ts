@@ -24,5 +24,6 @@ export class LifeRegistration {
     lungsIssue:string;
     additionalComments:string;
     status:string;
+    member:string;
     constructor(){}
 }

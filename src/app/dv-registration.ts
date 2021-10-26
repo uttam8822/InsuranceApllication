@@ -27,5 +27,6 @@ export class DVRegistration {
     anyEyeOperation:string;
     additionalComments:string;
     status:string;
+    member:string;
     constructor(){}
 }

@@ -21,8 +21,9 @@ export class DentalUser {
         groupInsurance:string;
         tobacco:string;
         additionalComments:string;
-        applicationStatus:boolean;
+       // applicationStatus:boolean;
         status:string;
+        member:string;
         constructor(){}
     
 }

@@ -184,7 +184,10 @@ selectPlanHandler(event:any){
       this.validateAllFormFields(this.LifeForm);
 
     }
-
+    if(this.user.hivIssue=="No" && this.user.lungsIssue=="No" && this.user.tobacco=="No")
+    {
+      this.user.status="Yes"
+    }
     this._service.applyUserForLife(this.user).subscribe(
       data=>{
         console.log("response received");
@@ -193,7 +196,7 @@ selectPlanHandler(event:any){
       error =>
       {
         console.log("exception occred")
-        alert("Please fill all Reqiured feild mark with (*).");
+       // alert("Please fill all Reqiured feild mark with (*).");
       }
 
 

@@ -72,6 +72,9 @@ export class DentalComponent implements OnInit {
      selectTobaccoHandler(event:any){
       this.selectTobacco=event.target.value;
      }     
+     selectMemberHandler(event:any){
+      this.selectTobacco=event.target.value;
+     } 
    
 
   constructor(private _service:RegistrationService,private _route: Router,private matDialog:MatDialog) { }
@@ -175,7 +178,11 @@ export class DentalComponent implements OnInit {
       this.validateAllFormFields(this.Dental);
 
     }
-   
+    // for dental
+ if(this.user.groupInsurance=="No" && this.user.tobacco=="No")
+ {
+   this.user.status="Yes"
+ }
     this._service.applyUserForDental(this.user).subscribe(
       data=>{
         console.log("response received");
