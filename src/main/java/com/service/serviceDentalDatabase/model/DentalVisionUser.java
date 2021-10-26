@@ -36,6 +36,7 @@ public class DentalVisionUser {
 	   private String anyEyeOperation;
 	   private String additionalComments;
 	   private String status;
+	   private String member;
 	   
 	   
 	   
@@ -47,7 +48,7 @@ public class DentalVisionUser {
 			String occupation, String income, String selectPlane, String gender, String healthIssue,
 			String cancellingInsurance, String groupInsurance, String tobacco, String oralOperation,
 			String lastDentalCkeck, String anyCavity, String wearGlasses, String anyEyeDisease, String anyEyeOperation,
-			String additionalComments) {
+			String additionalComments, String member) {
 		super();
 		this.firstName = firstName;
 		this.middleNmme = middleNmme;
@@ -77,9 +78,17 @@ public class DentalVisionUser {
 		this.anyEyeOperation = anyEyeOperation;
 		this.additionalComments = additionalComments;
 		this.status=status;
+		this.member=member;
 				
 	}
+	
     
+	public String getMember() {
+		return member;
+	}
+	public void setMember(String member) {
+		this.member = member;
+	}
 	public String getStatus() {
 		return status;
 	}

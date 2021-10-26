@@ -25,6 +25,23 @@ public class ServiceController {
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ServiceUser resisterUserService(@RequestBody ServiceUser user) throws Exception {
 		 String tempAadhar=user.getAadhar();
+		 if(user.getLastName()==null) throw new Exception("Error");	
+			if(user.getEmail()==null) throw new Exception("Error");	
+			if(user.getPan()==null) throw new Exception("Error");	
+			if(user.getAddress()==null) throw new Exception("Error");	
+			if(user.getZip()==null) throw new Exception("Error");	
+			if(user.getCity()==null) throw new Exception("Error");	
+			if(user.getState()==null) throw new Exception("Error");	
+			if(user.getContact()==null) throw new Exception("Error");	
+			if(user.getDateOfBirth()==null) throw new Exception("Error");	
+			if(user.getOccupation()==null) throw new Exception("Error");	
+			if(user.getIncome()==null) throw new Exception("Error");	
+			if(user.getGender()==null) throw new Exception("Error");
+			if(user.getSelectPlane()==null) throw new Exception("Error");
+			if(user.getMember()==null) throw new Exception("Error");
+			if(user.getCancellingInsurance()==null) throw new Exception("Error");
+			if(user.getGroupInsurance()==null) throw new Exception("Error");
+			if(user.getTobacco()==null) throw new Exception("Error");
 	        if(tempAadhar != null && !"".equals(tempAadhar))
 	        {
 		     ServiceUser userobj=service.fetchUserByAadhar(tempAadhar);

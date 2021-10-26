@@ -38,6 +38,7 @@ public class LifeUser {
 	   private String lungsIssue;
 	   private String additionalComments;
 	   private String status;
+	   private String member;
 	      	   
 	public LifeUser() {
 		super();
@@ -46,7 +47,7 @@ public class LifeUser {
 			String address, String zip, String city, String state, String contact, String dateOfBirth,
 			String occupation, String income, String selectPlane, String gender, String healthIssue,
 			String cancellingInsurance, String groupInsurance, String tobacco, String hivIssue, String lungsIssue,
-			String additionalComments,String status) {
+			String additionalComments,String status,String member) {
 		super();
 		//this.id=id;
 		this.firstName = firstName;
@@ -73,6 +74,7 @@ public class LifeUser {
 		this.lungsIssue = lungsIssue;
 		this.additionalComments = additionalComments;
 		this.status=status;
+		this.member=member;
 	}
 	/*public int getId() {
 		return id;
@@ -80,10 +82,18 @@ public class LifeUser {
 	public void setId(int id) {
 		this.id=id;
 	}*/
+	
+	
 	public String getFirstName() {
 		return firstName;
 	}
 	
+	public String getMember() {
+		return member;
+	}
+	public void setMember(String member) {
+		this.member = member;
+	}
 	public String getStatus() {
 		return status;
 	}
