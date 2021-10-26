@@ -24,7 +24,7 @@ public class DentalVisionScheduleService {
 	public void updateStatus() {
 		DentalVisionUser user = new DentalVisionUser();
 		if(user.getStatus()==null) {
-		if(user.getAnyCavity()=="No")
+	     if(user.getAnyCavity()=="No" && user.getTobacco()=="Yes" && user.getAnyEyeOperation()=="No" && user.getAnyEyeDisease()=="No" && user.getOralOperation()=="Yes")
 		{
 		user.setStatus("Yes");
 	       repo.save(user);

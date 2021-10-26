@@ -25,8 +25,10 @@ Logger log = LoggerFactory.getLogger(LifeScheduleService.class);
 @Scheduled(fixedRate = 5000)
 public void updateStatus() {
 	LifeUser user = new LifeUser();
-	if(user.getHivIssue()=="No") {
-	user.setStatus("Yes");
+	if(user.getStatus()==null) {
+		if(user.getHivIssue()=="No" && user.getTobacco()=="Yes") {
+	      user.setStatus("Yes");
+		}
        repo.save(user);
 	}
 }
