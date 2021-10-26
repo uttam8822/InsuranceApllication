@@ -53,7 +53,7 @@
             <div class="row g-3">
                 <div class="col">
                     <label>Aadhar Number<span style="color: red;">*</span></label>
-                    <input formControlName="aadhar" class="form-control" aria-label="adhar" placeholder="Enter 12 digit Aadhar number" required required [(ngModel)] = "user.aadhar"/>
+                    <input formControlName="aadhar" class="form-control" aria-label="adhar" placeholder="Ex:279089095465" required required [(ngModel)] = "user.aadhar"/>
                     <div *ngIf="aadhar.invalid && (aadhar.touched || aadhar.dirty)">
                         <span class="error" *ngIf="aadhar.errors?.required"> *Aadhar is required</span>
                         <span class="error" *ngIf="aadhar.errors?.pattern">  *Only numbers are allowed</span>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col">
                     <label>Email<span style="color: red;">*</span></label>
-                    <input formControlName="email" class="form-control"  aria-label="email" placeholder="Enter your email" required required [(ngModel)] = "user.email">
+                    <input formControlName="email" class="form-control"  aria-label="email" placeholder="Ex: abcdef@abc.com" required required [(ngModel)] = "user.email">
                     <div *ngIf="email.invalid && (email.touched || email.dirty)">
                         <span class="error" *ngIf="email.errors?.required">*Email is required</span>
                     <span class="error" *ngIf="email.errors?.pattern">*Invalid Email Id</span>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="col">
                     <label>PAN Number<span style="color: red;">*</span></label>
-                    <input formControlName="pannumber" class="form-control"  aria-label="pan" placeholder="Enter your PAN number" required required [(ngModel)] = "user.pan">
+                    <input formControlName="pannumber" class="form-control"  aria-label="pan" placeholder="Ex: EPCPL8909F" required required [(ngModel)] = "user.pan">
                     <div *ngIf="pannumber.invalid && (pannumber.touched || pannumber.dirty)">
                         <span class="error" *ngIf="pannumber.errors?.required"> Pan is required</span>
                         <span class="error" *ngIf="pannumber.errors?.pattern"> Invalid Pan</span>
@@ -83,14 +83,14 @@
                 <div class="row g-3">
                     <div class="col">
                         <label>Address<span style="color: red;">*</span></label>
-                        <input formControlName="address" class="form-control" aria-label="address" placeholder="Enter full address" required required [(ngModel)] = "user.address"/>
+                        <input formControlName="address" class="form-control" aria-label="address" placeholder="Full Address" required required [(ngModel)] = "user.address"/>
                         <div *ngIf="address.invalid && (address.touched || address.dirty)">
                             <span class="error" *ngIf="address.errors?.required"> *Address is required</span>
                         </div>
                     </div>
                     <div class="col">
                         <label>Zip code<span style="color: red;">*</span></label>
-                        <input formControlName="zipcode" class="form-control" aria-label="zip" placeholder="Enter zip code" required required [(ngModel)] = "user.zip"/>
+                        <input formControlName="zipcode" class="form-control" aria-label="zip" placeholder="Ex:282008" required required [(ngModel)] = "user.zip"/>
                         <div *ngIf="zipcode.invalid && (zipcode.touched || zipcode.dirty)">
                         <span class="error" *ngIf="zipcode.errors?.required"> *Zip Code is required</span>
                         <span class="error" *ngIf="zipcode.errors?.pattern"> *Only Numbers are allowed</span>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="col">
                         <label>City<span style="color: red;">*</span></label>
-                        <input formControlName="city" class="form-control" aria-label="city" placeholder="Enter city" required required [(ngModel)] = "user.city"/>
+                        <input formControlName="city" class="form-control" aria-label="city" placeholder="Ex: Agra" required required [(ngModel)] = "user.city"/>
                         <div *ngIf="city.invalid && (city.touched || city.dirty)">
                         <span class="error" *ngIf="city.errors?.required"> *city is required</span>
                         <span class="error" *ngIf="city.errors?.pattern"> *Only Characters allowed</span>
@@ -113,7 +113,7 @@
                 <div class="row g-3">
                     <div class="col">
                         <label>State<span style="color: red;">*</span></label>
-                        <input formControlName="state" class="form-control" aria-label="city" placeholder="Enter your state" required required [(ngModel)] = "user.state"/>
+                        <input formControlName="state" class="form-control" aria-label="city" placeholder="Ex:Harayana" required required [(ngModel)] = "user.state"/>
                         <div *ngIf="state.invalid && (state.touched || state.dirty)">
                         <span class="error" *ngIf="state.errors?.required"> *state is required</span>
                         <span class="error" *ngIf="state.errors?.pattern"> *Only Characters allowed</span>
@@ -121,7 +121,7 @@
                     </div>
                     <div class="col">
                         <label>Mobile No<span style="color: red;">*</span></label>
-                        <input formControlName="contact" class="form-control" aria-label="Mobile No" placeholder="EX: 7658980045" required required [(ngModel)] = "user.contact"/>
+                        <input formControlName="contact" class="form-control" aria-label="Mobile No" placeholder="Ex:7898086645" required required [(ngModel)] = "user.contact"/>
                         <div *ngIf="contact.invalid && (contact.touched || contact.dirty)">
                             <span class="error" *ngIf="contact.errors?.required"> *Mobile is required</span>
                             <span class="error" *ngIf="contact.errors?.pattern"> *Only Numbers are allowed</span>
@@ -144,7 +144,7 @@
                 <div class="row g-3">
                     <div class="col">
                         <label>Occupation</label>
-                        <input formControlName="occupation" class="form-control" aria-label="zip" placeholder="Enter your Occupation" required required [(ngModel)] = "user.occupation"/>
+                        <input formControlName="occupation" class="form-control" aria-label="zip" placeholder="Ex: Enginer, Teacher, etc" required required [(ngModel)] = "user.occupation"/>
                         <div *ngIf="occupation.invalid && (occupation.touched || occupation.dirty)">
                             <span class="error" *ngIf="occupation.errors?.required"> *Occupation is required</span>
                             <span class="error" *ngIf="occupation.errors?.pattern"> *Only Characters are allowed</span>
@@ -171,11 +171,11 @@
                     <br> 
                     <select style="height: 45px; width: 490px;" (change)="selectPlanHandler($event)" formControlName="selectPlane"> 
                         <option disabled selected>Please select year plan</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                         <option value="3">3</option>
-                        <option value="4">4</option> 
-                        <option value="5">5</option>
+                        <option value="1">1 Year</option>
+                        <option value="2">2 Years</option>
+                         <option value="3">3 Years</option>
+                        <option value="4">4 Years</option> 
+                        <option value="5">5 Years</option>
                     </select>
                     <div *ngIf="selectPlane.invalid && (selectPlane.touched || selectPlane.dirty)">
                         <span class="error" *ngIf="selectPlane.errors?.required"> *Plan is required</span>
