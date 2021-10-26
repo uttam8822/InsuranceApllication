@@ -19,12 +19,18 @@ export class DentalComponent implements OnInit {
   Dental:any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   
-    yearList:any =['1','2','3','4','5'];
-
+     
+     selectGender:string='';
      selectedDay:string ='';
+     selectPlaneYear:string='';
+     cancelExixting:string='';
+     groupInsuranceUser:string='';
+     selectTobacco:string='';
 
      selectChangeHandler(event:any){
        this.selectedDay=event.target.value;
+       
+        
        if(this.selectedDay=="Individual"){
          this.onOpenDialogClick("Your yearly policy will be Rs-10000/- would you like to proceed.");
        }
@@ -38,8 +44,34 @@ export class DentalComponent implements OnInit {
       if(this.selectedDay=="Individual Spouse & Parents"){
         this.onOpenDialogClick("Your yearly policy will be Rs-40000/- would you like to proceed.");
       }
+      
+      
      }
-     
+
+
+     //for select plane
+     selectPlanHandler(event:any){
+      this.selectPlaneYear=event.target.value;
+     }
+
+     //for gender
+     selectGenderHandler(event:any){
+      this.selectGender=event.target.value;
+     }
+     //for cancel exixting insurance
+     selectCancelHandler(event:any){
+      this.cancelExixting=event.target.value;
+     }
+
+     //for group insurance 
+     selectGroupInsuranceHandler(event:any){
+       this.groupInsuranceUser=event.target.value;
+     }
+
+     //for tobacco
+     selectTobaccoHandler(event:any){
+      this.selectTobacco=event.target.value;
+     }     
    
 
   constructor(private _service:RegistrationService,private _route: Router,private matDialog:MatDialog) { }
@@ -65,13 +97,14 @@ export class DentalComponent implements OnInit {
       "Tobacco": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "groupInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
-     // "gender": new FormControl(null,[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
+       "gender": new FormControl(null,[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
       "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "selectPlane": new FormControl(null,[Validators.required,Validators.pattern('[1-5]')]),
       "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
       "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
       "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
       //selectPlane: new FormControl('', Validators.required)
+        member: new FormControl('', Validators.required)
     });
   }
   isFieldValid(field: string) {
@@ -127,7 +160,7 @@ export class DentalComponent implements OnInit {
   get gender() {return this.Dental.get('gender');}
   get healthIssue() {return this.Dental.get('healthIssue');}
   get additionalComments() {return this.Dental.get('additionalComments');}
-
+  get member() {return this.Dental.get('member');}
    user = new DentalUser();
 
   

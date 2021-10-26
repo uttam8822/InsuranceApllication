@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {LifeRegistration} from '../life-registration'
 import { RegistrationService } from '../registration.service';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog'; 
+import { MatDialog } from '@angular/material/dialog';
 import { POPUPComponent } from '../popup/popup.component';
 
 @Component({
@@ -16,7 +16,14 @@ export class LifeComponent implements OnInit {
   private formSubmitAttempt: boolean;
   al:boolean=false;
 
-  selectedDay:string ='';
+  selectGender:string='';
+     selectedDay:string ='';
+     selectPlaneYear:string='';
+     cancelExixting:string='';
+     groupInsuranceUser:string='';
+     selectTobacco:string='';
+     selectHIV:string='';
+     selectLungsIssue='';
 
   selectChangeHandler(event:any){
     this.selectedDay=event.target.value;
@@ -26,7 +33,7 @@ export class LifeComponent implements OnInit {
     if(this.selectedDay=="Individual & Spouse"){
      this.onOpenDialogClick("Your yearly policy will be Rs-20000/- would you like to proceed.");
    }
-   
+
    if(this.selectedDay=="Individual Spouse & Child"){
      this.onOpenDialogClick("Your yearly policy will be Rs-30000/- would you like to proceed.");
    }
@@ -34,6 +41,55 @@ export class LifeComponent implements OnInit {
      this.onOpenDialogClick("Your yearly policy will be Rs-40000/- would you like to proceed.");
    }
   }
+
+//for select plane
+selectPlanHandler(event:any){
+  this.selectPlaneYear=event.target.value;
+ }
+
+ //for gender
+ selectGenderHandler(event:any){
+  this.selectGender=event.target.value;
+ }
+ //for cancel exixting insurance
+ selectCancelHandler(event:any){
+  this.cancelExixting=event.target.value;
+ }
+
+ //for group insurance
+ selectGroupInsuranceHandler(event:any){
+   this.groupInsuranceUser=event.target.value;
+ }
+
+ //for tobacco
+ selectTobaccoHandler(event:any){
+  this.selectTobacco=event.target.value;
+ }
+//select HIV
+ selectHIVHandler(event:any){
+  this.selectHIV=event.target.value;
+ }
+ //select Lungs issue
+
+ selectLungHandler(event:any){
+  this.selectLungsIssue=event.target.value;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   LifeForm : any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   constructor(private _service:RegistrationService,private _route: Router,private matDialog:MatDialog) { }
@@ -60,10 +116,10 @@ export class LifeComponent implements OnInit {
       "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "hivIssue": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "lungDisease": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
-      "additionalComments"   : new FormControl(null,[Validators.pattern('[A-Za-z0-9]*')]),
-      "healthIssue"   : new FormControl(null,[Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
-      "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')])
-   
+      "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
+      "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
+      "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
+      member: new FormControl('', Validators.required)
     });
   }
   isFieldValid(field: string) {
@@ -112,34 +168,37 @@ export class LifeComponent implements OnInit {
   get groupInsurance() {return this.LifeForm.get('groupInsurance');}
   get cancellingInsurance() {return this.LifeForm.get('cancellingInsurance');}
   get hivIssue() {return this.LifeForm.get('hivIssue');}
-  get lungDisease() {return this.LifeForm.get('lungDisease');}  get additionalComments() {return this.LifeForm.get('additionalComments');}
+  get lungDisease() {return this.LifeForm.get('lungDisease');}
+  get additionalComments() {return this.LifeForm.get('additionalComments');}
+  get member() {return this.LifeForm.get('member');}
 
   user = new LifeRegistration();
   applyLife(){
     if (this.LifeForm.valid) {
-       this.al=true;
+
       console.log('form submitted');
 
-    } 
+    }
     else {
 
       this.validateAllFormFields(this.LifeForm);
-      this.al=false;
-      //alert("Please fill all Required Field mark with *");
+
     }
-    
+
     this._service.applyUserForLife(this.user).subscribe(
       data=>{
         console.log("response received");
         this._route.navigate(["/success"])
       },
-      error => 
+      error =>
       {
-        if(this.al=true)
-        console.log("exception occred");
-        //alert("This Aadhaar Already Exist");
-      }      
+        console.log("exception occred")
+        alert("Please fill all Reqiured feild mark with (*).");
+      }
+
+
     );
+
   }
 
   onOpenDialogClick(msg:string){
@@ -149,32 +208,32 @@ export class LifeComponent implements OnInit {
         },
         height:"250px",
         width:"600px",
-   
+
       });
     }
 
       validateAllFormFields(formGroup: FormGroup) {
 
         Object.keys(formGroup.controls).forEach(field => {
-  
+
           console.log(field);
-  
+
           const control = formGroup.get(field);
-  
-  
-  
+
+
+
           if (control instanceof FormControl) {
-  
+
             control.markAsTouched({ onlySelf: true });
-  
+
           } else if (control instanceof FormGroup) {
-  
+
             this.validateAllFormFields(control);
-  
+
           }
-  
+
         });
-  
+
       }
-    
+
 }
