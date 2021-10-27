@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { RegistrationService } from '../registration.service';
@@ -6,6 +6,7 @@ import {DentalUser} from '../dental-user';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog'; 
 import { POPUPComponent } from '../popup/popup.component';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
  
 
 @Component({
@@ -14,6 +15,8 @@ import { POPUPComponent } from '../popup/popup.component';
   styleUrls: ['./dental.component.css']
 })
 export class DentalComponent implements OnInit {
+  //variable created for scroll view
+  @ViewChild('scroll') scroll:ElementRef;
   private formSubmitAttempt: boolean;
 
   Dental:any;
@@ -235,6 +238,11 @@ export class DentalComponent implements OnInit {
 
     });
 
+  }
+
+  // method to scroll up on clicking clear button
+  scrollTop(){
+    this.scroll.nativeElement.scrollTop = 0 ;
   }
 
 

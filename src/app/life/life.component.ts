@@ -1,5 +1,5 @@
 import { variable } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {LifeRegistration} from '../life-registration'
 import { RegistrationService } from '../registration.service';
@@ -13,6 +13,11 @@ import { POPUPComponent } from '../popup/popup.component';
   styleUrls: ['./life.component.css']
 })
 export class LifeComponent implements OnInit {
+
+  @ViewChild('scroll') scroll:ElementRef;
+
+  
+
   private formSubmitAttempt: boolean;
   al:boolean=false;
 
@@ -110,7 +115,7 @@ selectPlanHandler(event:any){
       "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "selectPlane": new FormControl(null,[Validators.required,Validators.pattern('[1-5]')]),
-      "gender": new FormControl(null,[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
+      "gender": new FormControl(" ",[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
       "Tobacco": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "groupInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
@@ -237,6 +242,9 @@ selectPlanHandler(event:any){
 
         });
 
+      }
+      scrollTop(){
+        this.scroll.nativeElement.scrollTop = 0 ;
       }
 
 }

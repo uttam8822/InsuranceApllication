@@ -230,7 +230,6 @@ label{
       color:#fff;
       opacity:0.75;
     }
-    
     .footer-dark .item.social > a:hover {
       opacity:0.9;
     }
@@ -247,3 +246,10 @@ label{
       color: red;
       font-size: small;
     }
+
+    .scroll-ele{
+    height: 550px;
+      overflow-y: scroll;
+    }
+
+  

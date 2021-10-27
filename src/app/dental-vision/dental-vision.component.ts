@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegistrationService } from '../registration.service';
 import { DVRegistration } from '../dv-registration';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog'; 
 import { POPUPComponent } from '../popup/popup.component';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 
 
@@ -15,7 +16,11 @@ import { POPUPComponent } from '../popup/popup.component';
   styleUrls: ['./dental-vision.component.css']
 })
 export class DentalVisionComponent implements OnInit {
-  private formSubmitAttempt: boolean;
+
+  
+  @ViewChild('scroll') scroll:ElementRef;
+
+ private formSubmitAttempt: boolean;
  DentalVisionForm:any;
  emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
  constructor(private _service:RegistrationService,private _route: Router,private matDialog:MatDialog) { }
@@ -245,6 +250,10 @@ if(this.user.oralOperation=="No" && this.user.anyCavity=="No" && this.user.tobac
       });
 
     }
+    scrollTop(){
+      this.scroll.nativeElement.scrollTop = 0 ;
+    }
+
 }
 
 
