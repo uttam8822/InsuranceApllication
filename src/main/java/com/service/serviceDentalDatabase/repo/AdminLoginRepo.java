@@ -9,4 +9,6 @@ import com.service.serviceDentalDatabase.model.Admin;
 public interface AdminLoginRepo extends JpaRepository<Admin,Integer> {
     
 	Admin findByAdminIdAndPassword(String adminId, String password);
+	//Admin findByEmail(String emailId);
+    //Admin findById(String Id);
 }

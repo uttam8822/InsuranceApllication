@@ -11,20 +11,40 @@ public class Admin {
 	        @Id
 			@GeneratedValue(strategy=GenerationType.AUTO)
 			private int id;
+	      private String fullName;
+	       // private String emailId;
 			private String adminId;
 			private String password;
 			
 			
 			public Admin() {}
 			
-			public Admin(int id, String adminId, String password) {
+			public Admin(int id, String fullName,String adminId, String password) {
 			super();
 			this.id = id;
+		//	this.emailId=emailId;
+		    this.fullName=fullName;
 			this.adminId = adminId;
 			this.password = password;
 			}
 			
 			
+			/*public String getFullName() {
+				return fullName;
+			}
+
+			public void setFullName(String fullName) {
+				this.fullName = fullName;
+			}
+
+			public String getEmailId() {
+				return emailId;
+			}
+
+			public void setEmailId(String emailId) {
+				this.emailId = emailId;
+			}
+*/
 			public int getId() {
 			return id;
 			}

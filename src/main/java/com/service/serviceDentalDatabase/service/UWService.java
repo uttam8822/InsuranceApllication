@@ -13,14 +13,21 @@ import com.service.serviceDentalDatabase.repo.UWRepo;
 @Service
 public class UWService {
 	@Autowired
-	private UWRepo repo_2;
+	private UWRepo repo;
+	
 	public UWUser fetchByWriterIdAndPassword(String writerId, String password) {
-		return repo_2.findByWriterIdAndPassword(writerId, password);
+		return repo.findByWriterIdAndPassword(writerId, password);
 		}
 	
-	@Autowired
-	private UWRepo repo;
 	public UWUser saveUser(UWUser user) {
 		return repo.save(user);
 	}
+/*	public UWUser fetchByEmail(String email)
+	{
+		return repo.findByEmail(email);
+	}
+	public UWUser fetchById(String Id) {
+		return repo.findById(Id);
+	}*/
+
 }

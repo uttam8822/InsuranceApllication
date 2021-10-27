@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.service.serviceDentalDatabase.model.Admin;
-import com.service.serviceDentalDatabase.model.UWUser;
 import com.service.serviceDentalDatabase.service.AdminLoginService;
-import com.service.serviceDentalDatabase.service.UWService;
+
 
  
 
@@ -23,7 +22,16 @@ public class AdminLoginController {
 	@CrossOrigin(origins="http://localhost:4200")
 	public Admin resisterUserService(@RequestBody Admin user) throws Exception {
 		
-		
+		/*String tempEmail=user.getEmailId();
+		String tempId=user.getAdminId();
+		if(tempEmail != null && !"".equals(tempEmail)) {
+		Admin userObj=service.fetchByEmail(tempEmail);
+		if(userObj!=null) throw new Exception ("Email Id "+tempEmail+"already exist");
+		}
+		if(tempId!=null && !"".equals(tempId)) {
+		Admin userObj=service.fetchById(tempId);
+		if(userObj!=null) throw new Exception ("EmailId"+tempId+"already Exist");
+		}*/
 		Admin userObj = null;
 		userObj = service.saveUser(user);
 		return userObj;
