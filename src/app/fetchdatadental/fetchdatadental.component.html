@@ -13,11 +13,11 @@
     <button class="btn btn-success"><a routerLink="/adhome" style="text-decoration: none; color: white;">Back</a></button>
     <table id="dtHorizontalExample" class="table table-striped table-bordered table-sm" cellspacing="0">
         <thead style="background-color: black; color:white; text-align:left; width: 100px;">
-            <th>ID</th>
-            <th>FirstName</th>
+            <th>Adhaar</th>
+            <th>First Name</th>
             <th>Email</th>
             <th>Approve</th>
-            <th>Rejects</th>
+            <th>Reject</th>
             <th>Details</th>
         </thead>
         <tbody>
@@ -25,14 +25,14 @@
              <td>{{user.aadhar}}</td>
             <td>{{user.firstName}}</td>
             <td>{{user.email}}</td>
-            <td><button type="button" class="btn btn-success"*ngIf="user.status=='Yes';else abc" >Approved</button>
+            <td><button type="button" class="btn btn-success"*ngIf="user.status=='Yes';else abc" disabled>Approved</button>
                 <ng-template #abc>
                 <button type="button" class="btn btn-success"(click)="approvealForm2(user)"*ngIf="user.status==null" >Approve</button>
                 </ng-template>
                 </td>
                 <td><button type="button" class="btn btn-danger"(click)="rejectForm2(user)"*ngIf="user.status==null;else abcd">Reject</button>
                  <ng-template #abcd>
-                <button type="button" class="btn btn-danger"*ngIf="user.status=='No'">Rejected</button>
+                <button type="button" class="btn btn-danger"*ngIf="user.status=='No'"disabled>Rejected</button>
                  </ng-template>
                 </td>
             <td><button type="button" class="btn btn-info"routerLink="/dentaldetails">Details</button></td>

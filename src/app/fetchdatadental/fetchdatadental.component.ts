@@ -1,7 +1,8 @@
+import { DentalUser } from './../dental-user';
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from '../registration.service';
 import { Router } from '@angular/router';
-import { DentalUser } from '../dental-user';
+//import { DentalUser } from '../dental-user';
 
 @Component({
   selector: 'app-fetchdatadental',

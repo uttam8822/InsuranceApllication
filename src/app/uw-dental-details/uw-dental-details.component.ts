@@ -1,3 +1,4 @@
+import { DentalUser } from './../dental-user';
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from './../registration.service';
 
@@ -10,7 +11,7 @@ export class UwDentalDetailsComponent implements OnInit {
 
   config:any;
   userData:any=[];
-  constructor(private userRegistration:RegistrationService){
+  constructor(private userRegistration:RegistrationService ){
     this.userRegistration.getDentalData().subscribe(data=>{
       console.log(data);
       this.userData=data;

@@ -1,3 +1,5 @@
+import { FetchuserdetailsComponent } from './fetchuserdetails/fetchuserdetails.component';
+import { FetchuwdetailsComponent } from './fetchuwdetails/fetchuwdetails.component';
 import { DentalvisiondetailsComponent } from './dentalvisiondetails/dentalvisiondetails.component';
 import { DentaluserdetailsComponent } from './dentaluserdetails/dentaluserdetails.component';
 import { Contact1Component } from './contact1/contact1.component';
@@ -65,7 +67,9 @@ const routes: Routes = [
   {path:"UWFetchLife11",component:UwFetchLifeDataComponent},
   {path:"UWLifeDetails11",component:UwLifeDetailsComponent},
   {path:"UWDentalDetails11",component:UwDentalDetailsComponent},
-  {path:"UWDVDetails11",component:UwDVDetailsComponent}
+  {path:"UWDVDetails11",component:UwDVDetailsComponent},
+  {path:"fetchuwdetails",component:FetchuwdetailsComponent},
+  {path:"fetchuserdetails",component:FetchuserdetailsComponent}
 ];
 
 @NgModule({

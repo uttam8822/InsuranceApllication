@@ -55,6 +55,8 @@ import { UwFetchDVDataComponent } from './uw-fetch-dvdata/uw-fetch-dvdata.compon
 import { UwLifeDetailsComponent } from './uw-life-details/uw-life-details.component';
 import { UwDVDetailsComponent } from './uw-dvdetails/uw-dvdetails.component';
 import { UwDentalDetailsComponent } from './uw-dental-details/uw-dental-details.component';
+import { FetchuwdetailsComponent } from './fetchuwdetails/fetchuwdetails.component';
+import { FetchuserdetailsComponent } from './fetchuserdetails/fetchuserdetails.component';
  
  
  
@@ -102,6 +104,8 @@ import { UwDentalDetailsComponent } from './uw-dental-details/uw-dental-details.
     UwLifeDetailsComponent,
     UwDVDetailsComponent,
     UwDentalDetailsComponent,
+    FetchuwdetailsComponent,
+    FetchuserdetailsComponent,
      
     
     

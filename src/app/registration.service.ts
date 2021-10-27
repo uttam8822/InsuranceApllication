@@ -76,6 +76,12 @@ export class RegistrationService {
  console.log(user.firstName);
  return this._http.put(`http://localhost:8067/status1d/user`,user);
 }
+getUserData():Observable<object>{
+  return this._http.get("http://localhost:8067/userdetails");
+}    
+getUWData():Observable<object>{
+  return this._http.get("http://localhost:8067/uwdetails");
+} 
 
 
    
