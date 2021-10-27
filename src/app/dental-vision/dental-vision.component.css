@@ -243,3 +243,8 @@ label{
       color: red;
       font-size: small;
     }
+
+    .scroll-ele{
+      height: 550px;
+        overflow-y: scroll;
+      }

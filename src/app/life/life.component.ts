@@ -1,5 +1,5 @@
 import { variable } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {LifeRegistration} from '../life-registration'
 import { RegistrationService } from '../registration.service';
@@ -13,6 +13,11 @@ import { POPUPComponent } from '../popup/popup.component';
   styleUrls: ['./life.component.css']
 })
 export class LifeComponent implements OnInit {
+
+  @ViewChild('scroll') scroll:ElementRef;
+
+  
+
   private formSubmitAttempt: boolean;
   al:boolean=false;
 
@@ -237,6 +242,9 @@ selectPlanHandler(event:any){
 
         });
 
+      }
+      scrollTop(){
+        this.scroll.nativeElement.scrollTop = 0 ;
       }
 
 }

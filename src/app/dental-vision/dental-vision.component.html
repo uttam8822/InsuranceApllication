@@ -17,13 +17,13 @@
 
 
 
-  <div  style="background-image: url('https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=872&q=80');">
+  <div  style="background-image: url('https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=872&q=80'); " class="scroll-ele" #scroll>
     
     <div class="container">
-        <div id="heading" class="container-fluid" style="background-image: url('https://media.istockphoto.com/videos/cute-tooth-dental-cartoon-hd-animation-video-id975678004?s=640x640');">
-             <h1>Apply for Dental and Vision Insurance</h1>
+        <div  style="background-image: url('https://media.istockphoto.com/videos/cute-tooth-dental-cartoon-hd-animation-video-id975678004?s=640x640'); height: 75px; border-radius: 10px;">
+            <h1  style="color: rgb(53, 11, 45); text-align: center; font-weight: 900; font-size: xx-large;">Apply for Dental and Vision Insurance</h1></div>
     
-        </div>
+        
         <form [formGroup]="DentalVisionForm" #DVForm ="ngForm" (ngSubmit)="applyDVService()">
             <div class="row g-3">
                 <div class="col">
@@ -71,7 +71,7 @@
                     </div> 
                 </div>
                 <div class="col">
-                    <label>PAN Number<span style="color: red;">*</span></label>
+                    <label>PAN<span style="color: red;">*</span></label>
                     <input formControlName="pannumber" class="form-control"  aria-label="pan" placeholder="Ex: EPCPL8909F" required required [(ngModel)] = "user.pan">
                     <div *ngIf="pannumber.invalid && (pannumber.touched || pannumber.dirty)">
                         <span class="error" *ngIf="pannumber.errors?.required"> Pan is required</span>
@@ -141,7 +141,7 @@
                </div>
             </div>
             <div>
-                <div class="row g-3">
+                <div class="row g-2">
                     <div class="col">
                         <label>Occupation</label>
                         <input formControlName="occupation" class="form-control" aria-label="zip" placeholder="Ex: Enginer, Teacher, etc" required required [(ngModel)] = "user.occupation"/>
@@ -152,7 +152,7 @@
                     </div>
                     <div class="col">
                         <label>Annual Income in Lacs <span style="color: red;">*</span></label>
-                    <input formControlName="income" class="form-control"  placeholder="In Lacs" required required [(ngModel)] = "user.income"/>
+                    <input formControlName="income" class="form-control"  placeholder="Ex: 4" required required [(ngModel)] = "user.income"/>
 
                     <div *ngIf="income.invalid && (income.touched || income.dirty)">
                         <span class="error" *ngIf="income.errors?.required"> *Income is required</span>
@@ -165,7 +165,7 @@
             </div>
              
 
-            <div class="row g-3">
+            <div class="row g-2">
                 <div class="col">
                     <label for ="selectPlane">Describe time in year for your plan ?<span style="color: red;">*</span></label>
                     <br> 
@@ -203,7 +203,7 @@
 
 
 
-            <div class="row g-3">
+            <div class="row g-2">
                 <div class="col ">
                     <label>Gender<span style="color: red;">*</span></label>
                 
@@ -237,7 +237,7 @@
 
 
 
-            <div class="row g-3">
+            <div class="row g-2">
                 <div class="col ">
                     <label>Do you have group life insurance through work?</label>
                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectGroupInsuranceHandler($event)" formControlName="groupInsurance">
@@ -268,7 +268,7 @@
 
 
             
-            <div class="row g-3">
+            <div class="row g-2">
                 <div class="col">
                     <label>Any Major Oral Operation in Past?</label>
                      <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectOralHandler($event)" formControlName="oralOperation">
@@ -296,7 +296,7 @@
 
 
 
-            <div class="row g-3">
+            <div class="row g-2">
                 <div class="col">
                     <label>Have/Had cavity any time Or any ungrown teeth? </label>
                        <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectCavityHandler($event)" formControlName="anyCavity">
@@ -398,6 +398,7 @@
             <div class="row">
                 <div class="col">
             <button type="submit" class="btn btn-success"
+            (click)="scrollTop()"
             (click)="user.gender=selectGender"
             (click)="user.tobacco=selectTobacco"
             (click)="user.selectPlane=selectPlaneYear"
@@ -412,7 +413,7 @@
                  >Submit</button>
         </div>
         <div class="col">
-            <button style="background-color: rgb(240, 52, 52) " type="reset" class="btn btn-success" (click)="DentalVisionForm.reset()">Clear</button>
+            <button (click)="scrollTop()" style="background-color: rgb(240, 52, 52) " type="reset" class="btn btn-success" (click)="DentalVisionForm.reset()">Clear</button>
             </div>
             
             <div class="col">
