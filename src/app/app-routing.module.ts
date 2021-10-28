@@ -70,7 +70,7 @@ const routes: Routes = [
   {path:"UWDentalDetails11",component:UwDentalDetailsComponent},
   {path:"UWDVDetails11",component:UwDVDetailsComponent},
   {path:"fetchuwdetails",component:FetchuwdetailsComponent},
-  {path:"fetchuserdetails",component:FetchuserdetailsComponent}
+  {path:"fetchuserdetails",component:FetchuserdetailsComponent},
   {path:"UWDVDetails11",component:UwDVDetailsComponent},
   {path:"sendEmail",component:SendEmailComponent}
 ];
