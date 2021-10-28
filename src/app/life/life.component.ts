@@ -114,17 +114,17 @@ selectPlanHandler(event:any){
       "address" : new FormControl(null,[Validators.required]),
       "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-      "selectPlane": new FormControl(null,[Validators.required,Validators.pattern('[1-5]')]),
-      "gender": new FormControl(" ",[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
-      "Tobacco": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
-      "groupInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
-      "cancellingInsurance": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
-      "hivIssue": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
-      "lungDisease": new FormControl(null,[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
+      "selectPlane": new FormControl(0,[Validators.required,Validators.pattern('[1-5]')]),
+      "gender": new FormControl("gender",[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
+      "Tobacco": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
+      "groupInsurance": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
+      "cancellingInsurance": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
+      "hivIssue": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
+      "lungDisease": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
       "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
       "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
-      member: new FormControl('', Validators.required)
+      "member": new FormControl("members", Validators.required)
     });
   }
   isFieldValid(field: string) {
@@ -243,6 +243,7 @@ selectPlanHandler(event:any){
         });
 
       }
+      //method to reach on top on clear button press
       scrollTop(){
         this.scroll.nativeElement.scrollTop = 0 ;
       }
