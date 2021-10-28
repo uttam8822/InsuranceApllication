@@ -7,11 +7,13 @@
 <div class="container">
 <label for="name"><b>Full Name</b></label>
 <input type="text" placeholder="Enter Full Name" name="fullname" required [(ngModel)]="uwriter.fullName" />  
-<!--<label for="emailId"><b>Enter EmailId</b></label>
-<input type="text" placeholder="Enter EmailId" name="emailId" required [(ngModel)]="uwriter.emailId" />-->
+
+<label for="emailId"><b>Enter EmailId</b></label>
+<input type="text" placeholder="Enter EmailId" name="emailId" required [(ngModel)]="uwriter.emailId" />
 
 <label for="userid"><b>Generate UserId</b></label>
 <input type="text" placeholder="Generate UserId" name="userid" required [(ngModel)]="uwriter.writerId" />
+
 <label for="psw"><b>Create Password</b></label>
 <input type="password" placeholder="Create Password" name="password" required [(ngModel)]="uwriter.password" />
 <button style="border-radius: 5px;" type="submit">Create UnderWriter</button>

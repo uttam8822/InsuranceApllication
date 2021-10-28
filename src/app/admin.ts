@@ -1,7 +1,9 @@
 export class Admin {
     id:number;
-    adminId:String;
-    password:String;
+    fullName:string;
+    emailId:string;
+    adminId:string;
+    password:string;
 
 }
 

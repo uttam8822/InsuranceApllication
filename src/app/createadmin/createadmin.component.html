@@ -9,9 +9,14 @@
   </div>
   <small class="text-danger">{{msg1}}</small>
   <div class="container">
+  <label for="name"><b>Full Name</b></label>
+  <input type="text" placeholder="Enter Full Name" name="name" required [(ngModel)]="createAd.fullName" />
+  
+  <label for="email"><b>Enter EmailId</b></label>
+  <input type="text" placeholder="Enter Your EmailId" name="email" required [(ngModel)]="createAd.emailId" />
+
   <label for="userid"><b>Generate UserId</b></label>
   <input type="text" placeholder="Generate UserId" name="userid" required [(ngModel)]="createAd.adminId" />
-  
   
   <label for="psw"><b>Create Password</b></label>
   <input type="password" placeholder="Create Password" name="password" required [(ngModel)]="createAd.password" />
