@@ -85,6 +85,16 @@ export class RegistrationService {
   public registerUserFromRemote(user:User):Observable<any>{
     return this._http.post<any>("http://localhost:8067/registeruser",user);
   }
+
+  //send email
+  public sendEmailFromRemote(user:User):Observable<any>{
+    return this._http.post<any>("http://localhost:8067/sendmail",user);
+  }
+
+
+
+
+
   public loginAdminFromRemote(admin:Admin):Observable<any>{
     return this._http.post<any>("http://localhost:8067/adlogin",admin);
     }

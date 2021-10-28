@@ -55,6 +55,8 @@ import { UwFetchDVDataComponent } from './uw-fetch-dvdata/uw-fetch-dvdata.compon
 import { UwLifeDetailsComponent } from './uw-life-details/uw-life-details.component';
 import { UwDVDetailsComponent } from './uw-dvdetails/uw-dvdetails.component';
 import { UwDentalDetailsComponent } from './uw-dental-details/uw-dental-details.component';
+import { SendEmailComponent } from './send-email/send-email.component';
+ 
  
  
  
@@ -102,6 +104,7 @@ import { UwDentalDetailsComponent } from './uw-dental-details/uw-dental-details.
     UwLifeDetailsComponent,
     UwDVDetailsComponent,
     UwDentalDetailsComponent,
+    SendEmailComponent,
      
     
     
@@ -113,6 +116,7 @@ import { UwDentalDetailsComponent } from './uw-dental-details/uw-dental-details.
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+   
     MatTabsModule,
     MatSidenavModule,
     MatToolbarModule,
