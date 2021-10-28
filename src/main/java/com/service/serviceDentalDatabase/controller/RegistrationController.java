@@ -2,6 +2,8 @@ package com.service.serviceDentalDatabase.controller;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.service.serviceDentalDatabase.model.Registration;
 import com.service.serviceDentalDatabase.repo.RegistrationRepository;
+import com.service.serviceDentalDatabase.service.EmailSendService;
 import com.service.serviceDentalDatabase.service.RegistrationUserService;
 
 @RestController
@@ -21,6 +24,8 @@ public class RegistrationController {
 	private RegistrationUserService service;
 	@Autowired
 	private RegistrationRepository repo;
+	@Autowired
+	private EmailSendService service1;
 	
 	@PostMapping("/registeruser")
 	@CrossOrigin(origins="http://localhost:4200")
@@ -65,5 +70,34 @@ public class RegistrationController {
 	return repo.findAll();
 	
 	}
+	@PostMapping("/sendmail")
+	@CrossOrigin(origins="http://localhost:4200")
+	public void triggerMail(@RequestBody Registration user) throws MessagingException {
+	String tempEmailId = user.getEmailId();
+	if(tempEmailId == null) {
+	throw new MessagingException("Bad credentials");
+	}
+	if(tempEmailId != null && !"".equals(tempEmailId))
+	{
+	Registration userobj= service.fetchUserByEmailId(tempEmailId);
+	if(userobj != null) {
+	service1.sendSimpleEmail(tempEmailId,"Dear User,\nYour request for password reset has been sent successfully"
+	+"\nYour emailId is : "+tempEmailId+"\nYour Name : "+userobj.getFirstName()+" "+userobj.getLastName()+"\nYour new password is : "
+	+userobj.getPassword()+"\n\nWe request you please do not share your credentials.In case if you "
+	+ "have any issue please contact us at the address given below"+"\n\n\n\nThank You!"
+	+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd. \nSDF No. K-13 to 16, NSEZ\nPhase-II Noida-201305 (U.P.)"
+	+ "\nPhone " +
+	"+91-120-4018100"+"\nEmail : support@impetus.com"
+	, "Request for password reset");
+	}
+	if(userobj ==null)
+	{
+	throw new MessagingException("Bad credentials");
+	}
+	}else {
+	throw new MessagingException("Bad credentials");
+	}
+	}
 
+	
 }

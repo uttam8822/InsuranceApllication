@@ -20,7 +20,7 @@ public class AdminLoginService {
 	public Admin saveUser(Admin user) {
 		return repo1.save(user);
 	}
-/*	@Autowired
+	@Autowired
 	private AdminLoginRepo repo2;
 	public Admin fetchByEmail(String emailId)
 	{
@@ -31,5 +31,4 @@ public class AdminLoginService {
 	public Admin fetchById(String Id) {
 		return repo3.findById(Id);
 	}
-*/
 }

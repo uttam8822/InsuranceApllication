@@ -22,7 +22,7 @@ public class AdminLoginController {
 	@CrossOrigin(origins="http://localhost:4200")
 	public Admin resisterUserService(@RequestBody Admin user) throws Exception {
 		
-		/*String tempEmail=user.getEmailId();
+	    String tempEmail=user.getEmailId();
 		String tempId=user.getAdminId();
 		if(tempEmail != null && !"".equals(tempEmail)) {
 		Admin userObj=service.fetchByEmail(tempEmail);
@@ -31,7 +31,7 @@ public class AdminLoginController {
 		if(tempId!=null && !"".equals(tempId)) {
 		Admin userObj=service.fetchById(tempId);
 		if(userObj!=null) throw new Exception ("EmailId"+tempId+"already Exist");
-		}*/
+		}
 		Admin userObj = null;
 		userObj = service.saveUser(user);
 		return userObj;

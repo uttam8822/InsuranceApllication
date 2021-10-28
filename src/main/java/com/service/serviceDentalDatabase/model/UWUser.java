@@ -11,17 +11,17 @@ public class UWUser {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String fullName;
-	//private String emailId;
+	private String email;
 	private String writerId;
 	private String password;
 	
 	public UWUser() {}
 	
-	public UWUser(int id,String fullName,String writerId, String password) {
+	public UWUser(int id,String fullName,String email,String writerId, String password) {
 	super();
 	this.id = id;
 	this.fullName=fullName;
-	//this.emailId=emailId;
+	this.email=email;
 	this.writerId = writerId;
 	this.password = password;
 	}
@@ -35,14 +35,14 @@ public class UWUser {
 		this.fullName = fullName;
 	}
 
-/*	public String getEmailId() {
-		return emailId;
+   public String getEmailId() {
+		return email;
 	}
 
 	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+		this.email = emailId;
 	}
-*/
+
 	public int getId() {
 	return id;
 	}

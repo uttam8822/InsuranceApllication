@@ -22,12 +22,12 @@ public class UWService {
 	public UWUser saveUser(UWUser user) {
 		return repo.save(user);
 	}
-/*	public UWUser fetchByEmail(String email)
+	public UWUser fetchByEmail(String email)
 	{
 		return repo.findByEmail(email);
-	}
+	} 
 	public UWUser fetchById(String Id) {
 		return repo.findById(Id);
-	}*/
+	}
 
 }
