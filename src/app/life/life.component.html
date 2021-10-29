@@ -209,8 +209,8 @@
 
                     <select name="selectlist3" id="selectlist3" style="height: 45px; width: 490px;" (change)="selectGenderHandler($event)" formControlName="gender">
                         <option value="gender" disabled selected>Please select your gender</option>
-                        <option value="Male" [(ngModel)] = "user.gender">Male</option>
-                        <option value="Female" [(ngModel)] = "user.gender">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
 
                       </select>
                       <div *ngIf="gender.invalid && (gender.touched || gender.dirty)">
