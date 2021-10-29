@@ -169,8 +169,8 @@
                 <div class="col">
                     <label for ="selectPlane">Describe time in year for your plan ?<span style="color: red;">*</span></label>
                     <br>
-                    <select style="height: 45px; width: 490px;" (change)="selectPlanHandler($event)" formControlName="selectPlane">
-                        <option disabled selected>Please select your plan</option>
+                    <select name="selectlist1" id="selectlist1" style="height: 45px; width: 490px;" (change)="selectPlanHandler($event)" formControlName="selectPlane">
+                        <option value="0" disabled selected>Please select your plan</option>
                         <option value="1">1 Year</option>
                         <option value="2">2 Years</option>
                          <option value="3">3 Years</option>
@@ -186,8 +186,8 @@
                 <div class="col">
                     <label>Select member<span style="color: red;">*</span></label>
                     <br>
-                      <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectChangeHandler($event)" formControlName="member">
-                        <option disabled selected>Please select member</option>
+                      <select   name="selectlist2" id="selectlist2" style="height: 45px; width: 490px;" (change)="selectChangeHandler($event)" formControlName="member">
+                        <option value="members" disabled selected>Please select members</option>
                         <option value="Individual">Individual</option>
                         <option value="Individual & Spouse">Individual & Spouse</option>
                         <option value="Individual Spouse & Child">Individual Spouse & Child</option>
@@ -207,8 +207,8 @@
                 <div class="col ">
                     <label>Gender<span style="color: red;">*</span></label>
 
-                    <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectGenderHandler($event)" formControlName="gender">
-                        <option disabled selected>Please select your gender</option>
+                    <select name="selectlist3" id="selectlist3" style="height: 45px; width: 490px;" (change)="selectGenderHandler($event)" formControlName="gender">
+                        <option value="gender" disabled selected>Please select your gender</option>
                         <option value="Male" [(ngModel)] = "user.gender">Male</option>
                         <option value="Female" [(ngModel)] = "user.gender">Female</option>
 
@@ -223,8 +223,8 @@
 
                 <div class="col">
                     <label>Are you planning on cancelling any existing life insurance?</label>
-                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectCancelHandler($event)"formControlName="cancellingInsurance">
-                        <option disabled selected>Please select </option>
+                       <select name="selectlist4" id="selectlist4" style="height: 45px; width: 490px;" (change)="selectCancelHandler($event)"formControlName="cancellingInsurance">
+                        <option value="" disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>
@@ -241,8 +241,8 @@
             <div class="row g-2">
                 <div class="col ">
                     <label>Do you have group life insurance through work?</label>
-                      <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectGroupInsuranceHandler($event)" formControlName="groupInsurance">
-                        <option disabled selected>Please select </option>
+                      <select name="selectlist5" id="selectlist5" style="height: 45px; width: 490px;" (change)="selectGroupInsuranceHandler($event)" formControlName="groupInsurance">
+                        <option value="" disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
@@ -254,8 +254,8 @@
                 <div class="col">
                     <label>Do you consume Tobacco Or Alcohol Or do Smoking?<span style="color: red;">*</span></label>
                  
-                    <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectTobaccoHandler($event)" formControlName="Tobacco">
-                        <option disabled selected>Please select </option>
+                    <select name="selectlist6" id="selectlist6" style="height: 45px; width: 490px;" (change)="selectTobaccoHandler($event)" formControlName="Tobacco">
+                        <option value="" disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>
@@ -278,8 +278,8 @@
             <div class="row g-3">
                 <div class="col">
                 <label>Are You HIV Positive?</label>
-                   <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectHIVHandler($event)" formControlName="hivIssue">
-                    <option disabled selected>Please select </option>
+                   <select name="selectlist7" id="selectlist7" style="height: 45px; width: 490px;" (change)="selectHIVHandler($event)" formControlName="hivIssue">
+                    <option value="" disabled selected>Please select </option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                   </select>
@@ -290,8 +290,8 @@
                 </div>
                 <div class="col">
                     <label>Do you Have any Lung Disease Or Heart Desease?</label>
-                    <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectLungHandler($event)" formControlName="lungDisease">
-                        <option disabled selected>Please select </option>
+                    <select name="selectlist8" id="selectlist8" style="height: 45px; width: 490px;" (change)="selectLungHandler($event)" formControlName="lungDisease">
+                        <option value="" disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>

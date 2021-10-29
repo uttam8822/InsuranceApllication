@@ -179,7 +179,7 @@
                     <label>Select member<span style="color: red;">*</span></label>
                     <br>
                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectChangeHandler($event)" formControlName="member">
-                        <option disabled selected>Please select member</option>
+                        <option value= '' disabled selected>Please select member</option>
                         <option value="Individual">Individual</option>
                         <option value="Individual & Spouse">Individual & Spouse</option>
                         <option value="Individual Spouse & Child">Individual Spouse & Child</option>
@@ -203,7 +203,7 @@
                     <label>Gender<span style="color: red;">*</span></label>
 
                     <select name="gender" id="gender" style="height: 45px; width: 490px;" (change)="selectGenderHandler($event)" formControlName='gender' >
-                        <option disabled selected>Please select your gender</option>
+                        <option value='' disabled selected>Please select your gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
 
@@ -222,7 +222,7 @@
                 <div class="col">
                     <label>Are you planning on cancelling any existing life insurance?</label>
                        <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectCancelHandler($event)" formControlName="cancellingInsurance">
-                        <option disabled selected>Please select </option>
+                        <option value='' disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>
@@ -242,7 +242,7 @@
                 <div class="col ">
                     <p>Do you have group life insurance through work?</p>
                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectGroupInsuranceHandler($event)" formControlName="groupInsurance">
-                        <option disabled selected> Please select </option>
+                        <option value='' disabled selected> Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
@@ -255,7 +255,7 @@
                     <p>Do you consume Tobacco Or Alcohol Or do Smoking?<span style="color: red;">*</span></p>
                  
                     <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectTobaccoHandler($event)" formControlName="Tobacco">
-                        <option disabled selected>Please select </option>
+                        <option value='' disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>

@@ -64,6 +64,8 @@ import { FetchuserdetailsComponent } from './fetchuserdetails/fetchuserdetails.c
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -108,7 +110,8 @@ import { FetchuserdetailsComponent } from './fetchuserdetails/fetchuserdetails.c
     UwDentalDetailsComponent,
     FetchuwdetailsComponent,
     FetchuserdetailsComponent,
-    SendEmailComponent,
+    SendEmailComponent
+    
 
 
 
