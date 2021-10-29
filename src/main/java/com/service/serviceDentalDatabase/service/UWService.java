@@ -26,8 +26,8 @@ public class UWService {
 	{
 		return repo.findByEmail(email);
 	} 
-	public UWUser fetchById(String Id) {
-		return repo.findById(Id);
+	public UWUser fetchByWriterId(String Id) {
+		return repo.findByWriterId(Id);
 	}
 
 }

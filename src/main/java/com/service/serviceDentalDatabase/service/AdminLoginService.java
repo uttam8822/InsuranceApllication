@@ -28,7 +28,7 @@ public class AdminLoginService {
 	}
 	@Autowired
 	private AdminLoginRepo repo3;
-	public Admin fetchById(String Id) {
-		return repo3.findById(Id);
+	public Admin fetchByAdminId(String  adminId) {
+		return repo3.findByAdminId(adminId);
 	}
 }

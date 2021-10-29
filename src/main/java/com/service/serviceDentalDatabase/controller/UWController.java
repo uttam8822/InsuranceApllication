@@ -36,7 +36,7 @@ public class UWController {
 			if(userObj!=null) throw new Exception ("Email Id "+tempEmail+"already exist");
 		}              
 		if(tempId!=null && !"".equals(tempId)) {
-		UWUser userObj=service.fetchById(tempId);
+		UWUser userObj=service.fetchByWriterId(tempId);
 		if(userObj!=null) throw new Exception ("Id"+tempId+"already Exist");
 		}
 		UWUser userObj = null;

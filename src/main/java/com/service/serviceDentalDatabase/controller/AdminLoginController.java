@@ -29,8 +29,8 @@ public class AdminLoginController {
 		if(userObj!=null) throw new Exception ("Email Id "+tempEmail+"already exist");
 		}
 		if(tempId!=null && !"".equals(tempId)) {
-		Admin userObj=service.fetchById(tempId);
-		if(userObj!=null) throw new Exception ("EmailId"+tempId+"already Exist");
+		Admin userObj=service.fetchByAdminId(tempId);
+		if(userObj!=null) throw new Exception ("Id"+tempId+"already Exist");
 		}
 		Admin userObj = null;
 		userObj = service.saveUser(user);
