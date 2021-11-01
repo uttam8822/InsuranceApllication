@@ -2,6 +2,8 @@ package com.service.serviceDentalDatabase.controller;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,8 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.service.serviceDentalDatabase.model.LifeUser;
-import com.service.serviceDentalDatabase.model.ServiceUser;
 import com.service.serviceDentalDatabase.repo.LifeRepo;
+import com.service.serviceDentalDatabase.service.EmailSendService;
 import com.service.serviceDentalDatabase.service.LifeRegistrationService;
 
 @RestController
@@ -23,6 +25,9 @@ public class LifeService {
 	private LifeRegistrationService service;
 	@Autowired
 	private LifeRepo repo;
+	
+	@Autowired
+	private EmailSendService service1;
 
 	@PostMapping("/registerlifeservice")
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -64,10 +69,17 @@ public class LifeService {
 		user.setStatus("Yes");
 		LifeUser userObj;
 		
-		userObj=service.saveUser(user);		
+		userObj=service.saveUser(user);	
+		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+userObj.getFirstName()+"\nYour application has been approved for Life service"+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+				"\nPhone : " + 
+				"+91-120-4018100"+"\nEmail : support@impetus.com"
+		,"Application Approved");
+				
 		return userObj;
+		
+}
 	    
-	}
+
 	@PutMapping("/status1/{aadhar}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public LifeUser updateStatus1(@RequestBody LifeUser user)throws Exception{
@@ -75,6 +87,11 @@ public class LifeService {
 		LifeUser userObj;
 		
 		userObj=service.saveUser(user);		
+		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+userObj.getFirstName()+"\nYour application has been rejected for Life service because your application for life service does not meet the criteria"+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+				"\nPhone : " + 
+				"+91-120-4018100"+"\nEmail : support@impetus.com"
+		,"Application Rejected");
+				
 		return userObj;
 	    
 	}
@@ -85,5 +102,6 @@ public class LifeService {
 		return repo.findAll();
 	}
 	
-
+	
+	 
 }

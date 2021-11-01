@@ -70,6 +70,8 @@ public class RegistrationController {
 	return repo.findAll();
 	
 	}
+	
+	
 	@PostMapping("/sendmail")
 	@CrossOrigin(origins="http://localhost:4200")
 	public void triggerMail(@RequestBody Registration user) throws MessagingException {

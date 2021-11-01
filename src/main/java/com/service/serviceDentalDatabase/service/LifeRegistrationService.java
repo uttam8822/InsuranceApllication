@@ -24,5 +24,9 @@ public class LifeRegistrationService {
 		return repo.findByAadhar(aadhar);
 	}
 	
+	public LifeUser fetchByEmail(String email) {
+		return repo.findByEmail(email);
+	}
+	
 }
 

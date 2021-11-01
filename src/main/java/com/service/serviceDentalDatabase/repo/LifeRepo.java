@@ -12,5 +12,7 @@ public interface LifeRepo extends JpaRepository<LifeUser,Integer> {
 	List<LifeUser> findAll();
 	
 	public LifeUser findByAadhar(String aadhar);
+	
+	public LifeUser findByEmail(String email);
 
 }

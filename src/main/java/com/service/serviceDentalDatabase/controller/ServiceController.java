@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.service.serviceDentalDatabase.model.ServiceUser;
 import com.service.serviceDentalDatabase.repo.ServiceRepo;
+import com.service.serviceDentalDatabase.service.EmailSendService;
 import com.service.serviceDentalDatabase.service.RegistrationService;
 
 //submit method when user submit
@@ -21,6 +22,10 @@ public class ServiceController {
 	private RegistrationService service;
     @Autowired
     private ServiceRepo repo;
+    @Autowired
+	private EmailSendService service1;
+    
+    
 	@PostMapping("/registeruserservice")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ServiceUser resisterUserService(@RequestBody ServiceUser user) throws Exception {
@@ -59,7 +64,11 @@ public class ServiceController {
 		user.setStatus("No");
 		ServiceUser userObj;
 		
-		userObj=service.saveUser(user);			
+		userObj=service.saveUser(user);		
+		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+userObj.getFirstName()+"\nYour application has been rejected for Dental Service because your application for life service does not meet the criteria"+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+				"\nPhone : " + 
+				"+91-120-4018100"+"\nEmail : support@impetus.com"
+		,"Application Rejected");
 		return userObj;
 	}
 	@PutMapping("/statusd/{aadhar}")
@@ -68,7 +77,11 @@ public class ServiceController {
 		user.setStatus("Yes");
 		ServiceUser userObj;
 		
-		userObj=service.saveUser(user);			
+		userObj=service.saveUser(user);		
+		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+userObj.getFirstName()+"\nYour application has been approved for Dental Service"+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+				"\nPhone : " + 
+				"+91-120-4018100"+"\nEmail : support@impetus.com"
+		,"Application Approved");
 		return userObj;
 	    
 	}

@@ -14,6 +14,7 @@ import com.service.serviceDentalDatabase.model.DentalVisionUser;
 import com.service.serviceDentalDatabase.model.LifeUser;
 import com.service.serviceDentalDatabase.repo.DentalVisionRepo;
 import com.service.serviceDentalDatabase.service.DentalVisionRegistration;
+import com.service.serviceDentalDatabase.service.EmailSendService;
 
 @RestController
 public class DentalVisionService {
@@ -22,6 +23,9 @@ public class DentalVisionService {
 	private DentalVisionRegistration service;
     @Autowired
     private DentalVisionRepo repo;
+	@Autowired
+	private EmailSendService service1;
+	
 	@PostMapping("/registerdentalvisionservice")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public DentalVisionUser resisterUserService(@RequestBody DentalVisionUser user) throws Exception {
@@ -69,7 +73,12 @@ public class DentalVisionService {
 		user.setStatus("Yes");
 		DentalVisionUser userObj;
 		
-		userObj=service.saveUser(user);			
+		userObj=service.saveUser(user);		
+		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+userObj.getFirstName()+"\nYour application has been approved for Dental Vision service."+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+				"\nPhone : " + 
+				"+91-120-4018100"+"\nEmail : support@impetus.com"
+		,"Application Approved");
+				
 		return userObj;
 	    
 	}
@@ -79,7 +88,11 @@ public class DentalVisionService {
 		user.setStatus("No");
 		DentalVisionUser userObj;
 		
-		userObj=service.saveUser(user);			
+		userObj=service.saveUser(user);		
+		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+userObj.getFirstName()+"\nYour application has been rejected for Life service because your application for Dental Vision service does not meet the criteria"+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+				"\nPhone : " + 
+				"+91-120-4018100"+"\nEmail : support@impetus.com"
+		,"Application Rejected");
 		return userObj;
 	    
 	}
