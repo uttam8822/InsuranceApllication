@@ -123,7 +123,7 @@ selectPlanHandler(event:any){
       "lungDisease": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
       "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
-      "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
+      "dateOfBirth": new FormControl("",[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
       "member": new FormControl("members", Validators.required)
     });
   }
