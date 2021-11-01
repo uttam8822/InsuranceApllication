@@ -97,6 +97,16 @@ getUWData():Observable<object>{
     return this._http.post<any>("http://localhost:8067/sendmail",user);
   }
 
+//send email UW
+  public sendEmailUWFromRemote(user:Uwriter):Observable<any>{
+    return this._http.post<any>("http://localhost:8067/sendmailUW",user);
+  }
+
+// send approve email Life User
+public sendEmailApproveLife(user:LifeRegistration):Observable<any>{
+  return this._http.post<any>("http://localhost:8067/sendApproveEmailLifeUser",user);
+}
+
 
 
 

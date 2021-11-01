@@ -35,6 +35,7 @@ import { UwLifeDetailsComponent } from './uw-life-details/uw-life-details.compon
 import { UwDentalDetailsComponent } from './uw-dental-details/uw-dental-details.component';
 import { UwDVDetailsComponent } from './uw-dvdetails/uw-dvdetails.component';
 import { SendEmailComponent } from './send-email/send-email.component';
+import { SendmailUWComponent } from './sendmail-uw/sendmail-uw.component';
 const routes: Routes = [
   {path:'',pathMatch:"full", redirectTo:"home"},
   {path:'login',component:LoginComponent},
@@ -72,7 +73,8 @@ const routes: Routes = [
   {path:"fetchuwdetails",component:FetchuwdetailsComponent},
   {path:"fetchuserdetails",component:FetchuserdetailsComponent},
   {path:"UWDVDetails11",component:UwDVDetailsComponent},
-  {path:"sendEmail",component:SendEmailComponent}
+  {path:"sendEmail",component:SendEmailComponent},
+  {path:"sendEmailUW",component:SendmailUWComponent}
 ];
 
 @NgModule({

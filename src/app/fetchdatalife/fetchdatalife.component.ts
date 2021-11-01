@@ -23,6 +23,11 @@ al:boolean;
     });
 
   }
+  user1=new LifeRegistration();
+  msg='';
+
+  alert:boolean=false;
+  alert1:boolean=false;
 
   public approvealForm(user){
 
@@ -59,6 +64,26 @@ al:boolean;
       console.log(data);
       this.userData=data;
     })
+  }
+
+
+  sendEmailLifeApprove(){
+    this.userRegistration.sendEmailApproveLife(this.user1).subscribe(
+      data => {console.log("response received");
+      this.msg="Email sent successfull";
+      this.alert=true;
+      this.alert1=false;
+      
+    },
+      error => {
+        console.error("exception occour");
+       this.msg="It seems you are not a valid user please check your email";
+      this.alert=false;
+      this.alert1=true;
+
+    }
+      
+    ); 
   }
   ngOnInit(): void {
 

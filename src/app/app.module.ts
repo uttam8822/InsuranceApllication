@@ -59,6 +59,7 @@ import { SendEmailComponent } from './send-email/send-email.component';
 
 import { FetchuwdetailsComponent } from './fetchuwdetails/fetchuwdetails.component';
 import { FetchuserdetailsComponent } from './fetchuserdetails/fetchuserdetails.component';
+import { SendmailUWComponent } from './sendmail-uw/sendmail-uw.component';
 
 
 
@@ -110,7 +111,8 @@ import { FetchuserdetailsComponent } from './fetchuserdetails/fetchuserdetails.c
     UwDentalDetailsComponent,
     FetchuwdetailsComponent,
     FetchuserdetailsComponent,
-    SendEmailComponent
+    SendEmailComponent,
+    SendmailUWComponent
     
 
 
