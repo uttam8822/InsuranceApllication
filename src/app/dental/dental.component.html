@@ -1,9 +1,9 @@
 
 <div class="header">
-    <div>
+    <div style="padding-bottom: 15px;">
     <a class="nav"routerLink="/home">Impetus Insurance</a>
     </div>
-    <marquee width="20%" hieght="20%" hspace="150"direction="left" height="80px" >
+    <marquee width="20%" hieght="20%" hspace="150"direction="left" height="50px" style="padding-top: 10px;">
       Invest Today and Enjoy Tomorrow!
       </marquee>
     <div class="header-right">
@@ -283,28 +283,18 @@
             <div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Do you have any other health Issue please Describe:</label>
-                    <input formControlName="healthIssue" class="form-control" aria-label="zip" placeholder="Tell us about your health issue" required required [(ngModel)] = "user.healthIssue" maxlength="50" style="height: 100px;"/>
-                    <div *ngIf="healthIssue.invalid && (healthIssue.touched || healthIssue.dirty)">
-
-                        <span class="error" *ngIf="healthIssue.errors?.maxlength">*Length should be less than 50</span>
-                    </div>
-
+                    <input formControlName="healthIssue" class="form-control" aria-label="zip" placeholder="Tell us about your health issue" [(ngModel)] = "user.healthIssue" maxlength="50" style="height: 100px;"/>
                 </div>
             </div>
             <div class="row g-3">
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Please add any additional comments or questions:</label>
-                    <input formControlName="additionalComments" class="form-control" aria-label="zip" placeholder=" Add your comments" required required [(ngModel)] = "user.additionalComments" maxlength="50" style="height: 100px;"/>
-                    <div *ngIf="additionalComments.invalid && (additionalComments.touched || additionalComments.dirty)">
-
-                        <span class="error" *ngIf="additionalComments.errors?.maxlength">*Length should be less than 50</span>
-                    </div>
-
+                    <input  formControlName="additionalComments" class="form-control" aria-label="zip" placeholder=" Add your comments" [(ngModel)] = "user.additionalComments" maxlength="50" style="height: 100px;"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                <button type="submit" (click)="scrollTop()" class="btn btn-success" 
+                <button type="submit"  class="btn btn-success" 
 
                 (click)="user.gender=selectGender"
                 (click)="user.tobacco=selectTobacco"

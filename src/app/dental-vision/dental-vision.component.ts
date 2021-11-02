@@ -17,7 +17,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class DentalVisionComponent implements OnInit {
 
-  
+  submitted = false;
   @ViewChild('scroll') scroll:ElementRef;
 
  private formSubmitAttempt: boolean;
@@ -126,10 +126,10 @@ export class DentalVisionComponent implements OnInit {
       "oralOperation": new FormControl('',[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
       "lastDentalCkeck": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
       "cancellingInsurance": new FormControl("Please select",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
-     "healthIssue"   : new FormControl(0,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
+     "healthIssue"   : new FormControl(null),
       "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
       "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-      "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
+      "additionalComments"   : new FormControl(null),
       "member": new FormControl("select members", Validators.required)
     });
   }
@@ -188,15 +188,19 @@ export class DentalVisionComponent implements OnInit {
   get member() {return this.DentalVisionForm.get('member');}
   user = new DVRegistration();
   applyDVService(){
-    if (this.DentalVisionForm.valid) {
-
-      console.log('form submitted');
-
-    } else {
-
+    this.submitted = true;
+    if(this.DentalVisionForm.invalid){
       this.validateAllFormFields(this.DentalVisionForm);
+      return;}
+    // if (this.DentalVisionForm.valid) {
 
-    }
+    //   console.log('form submitted');
+
+    // } else {
+
+    //   this.validateAllFormFields(this.DentalVisionForm);
+
+    // }
     //for dental and vision
 
 if(this.user.oralOperation=="No" && this.user.anyCavity=="No" && this.user.tobacco=="No" && this.user.anyEyeOperation=="No")

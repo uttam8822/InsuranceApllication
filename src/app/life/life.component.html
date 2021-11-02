@@ -1,8 +1,8 @@
 <div class="header">
-    <div>
+    <div style="padding-bottom: 10px;">
     <a class="nav"routerLink="/home">Impetus Insurance</a>
     </div>
-    <marquee width="20%" hieght="20%" hspace="150"direction="left" height="80px" >
+    <marquee width="20%" hieght="20%" hspace="150"direction="left" height="50px" style="padding-top: 10px;" >
       Invest Today and Enjoy Tomorrow!
       </marquee>
     <div class="header-right">
@@ -26,7 +26,7 @@
                 <div class="col">
                     <label>First Name<span style="color: red;">*</span></label>
                     <input formControlName = "firstname" class="form-control" aria-label="First name" placeholder="Enter Your First Name" required required [(ngModel)] = "user.firstName"/>
-                <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
+                              <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
                     <span class="error" *ngIf="firstname.errors?.required"> *First Name is required</span>
                     <span class="error" *ngIf="firstname.errors?.pattern"> *Enter Only Characters</span>
                 </div>
@@ -170,7 +170,7 @@
                     <label for ="selectPlane">Describe time in year for your plan ?<span style="color: red;">*</span></label>
                     <br>
                     <select name="selectlist1" id="selectlist1" style="height: 45px; width: 490px;" (change)="selectPlanHandler($event)" formControlName="selectPlane" required>
-                        <option value="0" disabled selected>Please select your plan</option>
+                        <option value="" disabled selected>Please select your plan</option>
                         <option value="1">1 Year</option>
                         <option value="2">2 Years</option>
                          <option value="3">3 Years</option>
@@ -187,7 +187,7 @@
                     <label>Select member<span style="color: red;">*</span></label>
                     <br>
                       <select   name="selectlist2" id="selectlist2" style="height: 45px; width: 490px;" (change)="selectChangeHandler($event)" formControlName="member" required>
-                        <option value="members" disabled selected>Please select members</option>
+                        <option value="" disabled selected>Please select members</option>
                         <option value="Individual">Individual</option>
                         <option value="Individual & Spouse">Individual & Spouse</option>
                         <option value="Individual Spouse & Child">Individual Spouse & Child</option>
@@ -208,7 +208,7 @@
                     <label>Gender<span style="color: red;">*</span></label>
 
                     <select name="selectlist3" id="selectlist3" style="height: 45px; width: 490px;" (change)="selectGenderHandler($event)" formControlName="gender" required>
-                        <option value="gender" disabled selected>Please select your gender</option>
+                        <option value="" disabled selected>Please select your gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
 
@@ -315,17 +315,12 @@
             <div class="row g-2">
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Please add any additional comments or questions:</label>
-                    <input formControlName="additionalComments" class="form-control" aria-label="zip" placeholder=" Add your comments" required required [(ngModel)] = "user.additionalComments" maxlength="50" style="height: 100px;"/>
-                    <div *ngIf="additionalComments.invalid && (additionalComments.touched || additionalComments.dirty)">
-
-                        <span class="error" *ngIf="additionalComments.errors?.maxlength">*Length should be less than 50</span>
-                    </div>
-
+                    <input formControlName="additionalComments" class="form-control" aria-label="zip" placeholder=" Add your comments"  [(ngModel)] = "user.additionalComments" maxlength="50" style="height: 100px;"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                <button type="submit" class="btn btn-success" (click)="scrollTop()"
+                <button type="submit" class="btn btn-success" 
                 (click)="user.gender=selectGender"
                 (click)="user.tobacco=selectTobacco"
                 (click)="user.selectPlane=selectPlaneYear"
