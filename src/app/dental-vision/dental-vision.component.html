@@ -184,7 +184,7 @@
                     <label>Select member<span style="color: red;">*</span></label>
                     <br>
                       <select name="selectlist4" id="selectlist4" style="height: 45px; width: 490px;" (change)="selectChangeHandler($event)" formControlName="member">
-                        <option value="select members" disabled selected>Please select member</option>
+                        <option value="" disabled selected>Please select member</option>
                         <option value="Individual">Individual</option>
                         <option value="Individual & Spouse">Individual & Spouse</option>
                         <option value="Individual Spouse & Child">Individual Spouse & Child</option>
@@ -205,14 +205,13 @@
                     <label>Gender<span style="color: red;">*</span></label>
                 
                     <select name="selectlist5" id="selectlist5" style="height: 45px; width: 490px;" (change)="selectGenderHandler($event)" formControlName="gender">
-                        <option value="select gender" disabled selected> Please select your </option>
+                        <option value="" disabled selected> Please select your </option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                          
                       </select>
                       <div *ngIf="gender.invalid && (gender.touched || gender.dirty)">
                         <span class="error" *ngIf="gender.errors?.required"> *gender is required</span>
-                         
                        </div>
                  </div>
 
@@ -220,7 +219,7 @@
                 <div class="col">
                     <label>Are you planning on cancelling any existing life insurance?</label>
                        <select name="selectlist6" id="selectlist6" style="height: 45px; width: 490px;" (change)="selectCancelHandler($event)" formControlName="cancellingInsurance">
-                        <option value="Please select"  selected>Please select </option>
+                        <option value=""  selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>

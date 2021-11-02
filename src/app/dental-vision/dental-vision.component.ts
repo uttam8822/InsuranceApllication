@@ -115,7 +115,7 @@ export class DentalVisionComponent implements OnInit {
       "income" : new FormControl(null, [Validators.required,Validators.maxLength(2),Validators.pattern('[0-9]*')]),
       "address" : new FormControl(null,[Validators.required]),
       "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-      "gender": new FormControl("select gender",[Validators.required,Validators.pattern('[?:MALE\bmale|female\bFEMALE]*')]),
+      "gender": new FormControl("",[Validators.required,Validators.pattern('[?:MALE\bmale|female\bFEMALE]*')]),
       "selectPlane": new FormControl('',[Validators.required,Validators.pattern('[1-5]')]),
       "Tobacco": new FormControl('',[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
       "anyCavity": new FormControl('',[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
@@ -125,12 +125,12 @@ export class DentalVisionComponent implements OnInit {
       "anyEyeOperation": new FormControl('',[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
       "oralOperation": new FormControl('',[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
       "lastDentalCkeck": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
-      "cancellingInsurance": new FormControl("Please select",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
+      "cancellingInsurance": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
      "healthIssue"   : new FormControl(null),
       "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
       "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "additionalComments"   : new FormControl(null),
-      "member": new FormControl("select members", Validators.required)
+      "member": new FormControl("", Validators.required)
     });
   }
   isFieldValid(field: string) {
