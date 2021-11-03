@@ -36,17 +36,20 @@ import { UwDentalDetailsComponent } from './uw-dental-details/uw-dental-details.
 import { UwDVDetailsComponent } from './uw-dvdetails/uw-dvdetails.component';
 import { SendEmailComponent } from './send-email/send-email.component';
 import { SendmailUWComponent } from './sendmail-uw/sendmail-uw.component';
+import { UserAuthGuard } from './Auth/user-auth.guard';
+import { UwriterAuthGuard } from './Auth/uwriter-auth.guard';
+import { AdminAuthGuard } from './Auth/admin-auth.guard';
 const routes: Routes = [
   {path:'',pathMatch:"full", redirectTo:"home"},
   {path:'login',component:LoginComponent},
   {path:'home',component:HomeComponent},
   {path:'contact',component:ContactComponent},
   {path:'about',component:AboutComponent},
-  {path:'adhome',component:AdhomeComponent},
-  {path:'uwriterhome',component:UwhomeComponent},
+  {path:'adhome',component:AdhomeComponent,canActivate:[AdminAuthGuard]},
+  {path:'uwriterhome',component:UwhomeComponent,canActivate:[UwriterAuthGuard]},
   {path:'uwlogin',component:UwloginComponent},
   {path:'adlogin',component:AdloginComponent},
-  {path:'uhome',component:UhomeComponent},
+  {path:'uhome',component:UhomeComponent,canActivate:[UserAuthGuard]},
   {path:'life',component:LifeComponent},
   {path:'service',component:ServiceComponent},
   {path:'cretuw',component:CreatuwComponent},
