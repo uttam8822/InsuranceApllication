@@ -19,20 +19,23 @@ public class DentalScheduleService {
 	Logger log = LoggerFactory.getLogger(DentalScheduleService.class);
 
 
-	@Scheduled(fixedRate = 5000)
+	@Scheduled(fixedRate = 30000)
 	public void updateStatus() {
-		ServiceUser user = new ServiceUser();
+		List<ServiceUser> users= repo.findAll();
+		for(ServiceUser user:users) {
+		//ServiceUser user = new ServiceUser();
 		if(user.getStatus()==null) {
-			if(user.getTobacco()=="No" && user.getCancellingInsurance()=="Yes") {
+			if("No".equals(user.getTobacco()) && "Yes".equals( user.getCancellingInsurance())) {
 		      user.setStatus("Yes");
 	          repo.save(user);
 		}
 	}
+		}
 	}
-	@Scheduled(cron="30 * * * * * *")
+/*	@Scheduled(initialDelay = 15000 , fixedDelay=15000)
 	public void fetchLifeData() {
 		List<ServiceUser> users= repo.findAll();
 		log.info("users : {}", users);
 	}
-
+*/
 }

@@ -38,6 +38,7 @@ public class ServiceUser {
 	   private String additionalComments;
 	   private String status;
 	   private String member;
+	   private String reason;
    public ServiceUser() {
 		super();
 	}
@@ -47,7 +48,7 @@ public class ServiceUser {
 public ServiceUser(String status,String firstName, String middleNmme, String lastName, String aadhar, String email, String pan,
 		String address, String zip, String city, String state, String contact, String dateOfBirth, String occupation,
 		String income, String selectPlane, String gender, String healthIssue, String cancellingInsurance,
-		String groupInsurance, String tobacco, String additionalComments,String member) {
+		String groupInsurance, String tobacco, String additionalComments,String member,String reason) {
 	super();
 	this.firstName = firstName;
 	this.middleNmme = middleNmme;
@@ -72,7 +73,20 @@ public ServiceUser(String status,String firstName, String middleNmme, String las
 	this.additionalComments = additionalComments;
 	this.status=status;
 	this.member=member;
+	this.reason=reason;
 }
+
+
+public String getReason() {
+	return reason;
+}
+
+
+
+public void setReason(String reason) {
+	this.reason = reason;
+}
+
 
 
 public String getMember() {

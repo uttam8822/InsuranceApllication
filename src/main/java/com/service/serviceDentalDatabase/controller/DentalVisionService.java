@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.service.serviceDentalDatabase.model.DentalVisionUser;
-import com.service.serviceDentalDatabase.model.LifeUser;
 import com.service.serviceDentalDatabase.repo.DentalVisionRepo;
 import com.service.serviceDentalDatabase.service.DentalVisionRegistration;
 import com.service.serviceDentalDatabase.service.EmailSendService;
@@ -56,6 +55,7 @@ public class DentalVisionService {
 		if(user.getWearGlasses()==null) throw new Exception("Error");
 		if(user.getAnyEyeDisease()==null) throw new Exception("Error");
 		if(user.getAnyEyeOperation()==null) throw new Exception("Error");
+		DentalVisionUser userObj = null;
 	        if(tempAadhar != null && !"".equals(tempAadhar))
 	        {
 		     DentalVisionUser userobj=service.fetchUserByAadhar(tempAadhar);
@@ -63,8 +63,19 @@ public class DentalVisionService {
 		    	 throw new Exception("user with" +tempAadhar + "id already exist");
 		     }
 	        }
-		DentalVisionUser userObj = null;
-		userObj = service.saveUser(user);
+	        if("No".equals(user.getAnyCavity()) && "No".equals(user.getOralOperation()) && "No".equals(user.getTobacco()) && "No".equals(user.getAnyEyeOperation())) {
+	        	user.setStatus("Yes");
+	        	userObj = service.saveUser(user);
+	        	System.out.println(userObj.getEmail());
+	        	service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been approved for Life service"+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+	    				"\nPhone : " + 
+	    				"+91-120-4018100"+"\nEmail : support@impetus.com"
+	    		,"Application Approved");
+	        }
+	        else {
+			userObj = service.saveUser(user);
+	        }
+		
 		return userObj;
 	}
 	@PutMapping("/statusdv/{aadhar}")
@@ -86,10 +97,12 @@ public class DentalVisionService {
 	@CrossOrigin(origins = "http://localhost:4200")
 	public DentalVisionUser updateStatus1(@RequestBody DentalVisionUser user)throws Exception{
 		user.setStatus("No");
+		String temp=user.getReason();
+		user.setReason(temp);
 		DentalVisionUser userObj;
 		
 		userObj=service.saveUser(user);		
-		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+userObj.getFirstName()+"\nYour application has been rejected for Life service because your application for Dental Vision service does not meet the criteria"+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+userObj.getFirstName()+"\nYour application has been rejected for Life service because of"+user.getReason()+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
 				"\nPhone : " + 
 				"+91-120-4018100"+"\nEmail : support@impetus.com"
 		,"Application Rejected");

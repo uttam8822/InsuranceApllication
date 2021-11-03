@@ -1,4 +1,4 @@
-package com.service.serviceDentalDatabase.controller;
+ package com.service.serviceDentalDatabase.controller;
 
 import java.util.List;
 
@@ -47,6 +47,7 @@ public class ServiceController {
 			if(user.getCancellingInsurance()==null) throw new Exception("CIError");
 			if(user.getGroupInsurance()==null) throw new Exception("GIError");
 			if(user.getTobacco()==null) throw new Exception("TError");
+			ServiceUser userObj = null;
 	        if(tempAadhar != null && !"".equals(tempAadhar))
 	        {
 		     ServiceUser userobj=service.fetchUserByAadhar(tempAadhar);
@@ -54,18 +55,31 @@ public class ServiceController {
 		    	 throw new Exception("user with" +tempAadhar + "id already exist");
 		     }
 	        }
-		ServiceUser userObj = null;
-		userObj = service.saveUser(user);
+	        if("No".equals(user.getTobacco()) && "No".equals(user.getGroupInsurance()) && "No".equals(user.getCancellingInsurance())) {
+	        	user.setStatus("Yes");
+	        	userObj = service.saveUser(user);
+	        	System.out.println(userObj.getEmail());
+	        	service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been approved for Life service"+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+	    				"\nPhone : " + 
+	    				"+91-120-4018100"+"\nEmail : support@impetus.com"
+	    		,"Application Approved");
+	        }
+	        else {
+			userObj = service.saveUser(user);
+	        }
+		
 		return userObj;
 	}
 	@PutMapping("/status1d/{aadhar}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ServiceUser updateStatus(@RequestBody ServiceUser user)throws Exception{
 		user.setStatus("No");
+		String temp=user.getReason();
+		user.setReason(temp);
 		ServiceUser userObj;
 		
 		userObj=service.saveUser(user);		
-		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+userObj.getFirstName()+"\nYour application has been rejected for Dental Service because your application for life service does not meet the criteria"+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+userObj.getFirstName()+"\nYour application has been rejected for Dental Service because of"+user.getReason()+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
 				"\nPhone : " + 
 				"+91-120-4018100"+"\nEmail : support@impetus.com"
 		,"Application Rejected");
