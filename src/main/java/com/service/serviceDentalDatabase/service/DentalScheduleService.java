@@ -15,6 +15,8 @@ import com.service.serviceDentalDatabase.repo.DentalScheduleRepo;
 public class DentalScheduleService {
 	@Autowired
 	private DentalScheduleRepo repo;
+	@Autowired
+	private EmailSendService service1;
 
 	Logger log = LoggerFactory.getLogger(DentalScheduleService.class);
 
@@ -27,6 +29,13 @@ public class DentalScheduleService {
 		if(user.getStatus()==null) {
 			if("No".equals(user.getTobacco()) && "Yes".equals( user.getCancellingInsurance())) {
 		      user.setStatus("Yes");
+		      service1.sendSimpleEmail(user.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been approved for Life service"+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+	    				"\nPhone : " + 
+	    				"+91-120-4018100"+"\nEmail : support@impetus.com"
+	    		,"Application Approved");
+
+			}
+
 	          repo.save(user);
 		}
 	}
@@ -38,4 +47,3 @@ public class DentalScheduleService {
 		log.info("users : {}", users);
 	}
 */
-}
