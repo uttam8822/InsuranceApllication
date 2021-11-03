@@ -1,8 +1,8 @@
 <div class="header">
-    <div>
+    <div style="padding-bottom: 10px;">
     <a class="nav"routerLink="/home">Impetus Insurance</a>
     </div>
-    <marquee width="20%" hieght="20%" hspace="150"direction="left" height="80px" >
+    <marquee width="20%" hieght="20%" hspace="150"direction="left" height="50px" style="padding-top: 10px;">
       Invest Today and Enjoy Tomorrow!
       </marquee>
     <div class="header-right">
@@ -12,9 +12,6 @@
       <a class="nav-link"routerLink="/login">Logout</a>
     </div>
   </div>
-
-
-
 
 
   <div  style="background-image: url('https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=872&q=80'); " class="scroll-ele" #scroll>
@@ -187,7 +184,7 @@
                     <label>Select member<span style="color: red;">*</span></label>
                     <br>
                       <select name="selectlist4" id="selectlist4" style="height: 45px; width: 490px;" (change)="selectChangeHandler($event)" formControlName="member">
-                        <option value="select members" disabled selected>Please select member</option>
+                        <option value="" disabled selected>Please select member</option>
                         <option value="Individual">Individual</option>
                         <option value="Individual & Spouse">Individual & Spouse</option>
                         <option value="Individual Spouse & Child">Individual Spouse & Child</option>
@@ -208,14 +205,13 @@
                     <label>Gender<span style="color: red;">*</span></label>
                 
                     <select name="selectlist5" id="selectlist5" style="height: 45px; width: 490px;" (change)="selectGenderHandler($event)" formControlName="gender">
-                        <option value="select gender" disabled selected> Please select your </option>
+                        <option value="" disabled selected> Please select your </option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                          
                       </select>
                       <div *ngIf="gender.invalid && (gender.touched || gender.dirty)">
                         <span class="error" *ngIf="gender.errors?.required"> *gender is required</span>
-                         
                        </div>
                  </div>
 
@@ -223,7 +219,7 @@
                 <div class="col">
                     <label>Are you planning on cancelling any existing life insurance?</label>
                        <select name="selectlist6" id="selectlist6" style="height: 45px; width: 490px;" (change)="selectCancelHandler($event)" formControlName="cancellingInsurance">
-                        <option value="Please select"  selected>Please select </option>
+                        <option value=""  selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>
@@ -376,8 +372,7 @@
             <div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Describe any other health issue/issues you are have or Suffered in Past?</label>
-                    <input formControlName="healthIssue" class="form-control" aria-label="zip" placeholder="Tell us about your health issue" required required [(ngModel)] = "user.healthIssue" maxlength="50" style="height: 100px;"/>
-                       
+                    <input formControlName="healthIssue" class="form-control" aria-label="zip" placeholder="Tell us about your health issue" [(ngModel)] = "user.healthIssue" maxlength="50" style="height: 100px;"/>    
                 </div>
             </div>
 
@@ -385,7 +380,7 @@
             <div class="row g-3">
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Please add any additional comments or questions:</label>
-                    <input formControlName="additionalComments" class="form-control" aria-label="zip" placeholder=" Add your comments" required required [(ngModel)] = "user.additionalComments" maxlength="50" style="height: 100px;"/>
+                    <input formControlName="additionalComments" class="form-control" aria-label="zip" placeholder=" Add your comments" [(ngModel)] = "user.additionalComments" maxlength="50" style="height: 100px;"/>
                        
                 </div>
             </div>
@@ -398,7 +393,6 @@
             <div class="row">
                 <div class="col">
             <button type="submit" class="btn btn-success"
-            (click)="scrollTop()"
             (click)="user.gender=selectGender"
             (click)="user.tobacco=selectTobacco"
             (click)="user.selectPlane=selectPlaneYear"

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-uhome',
@@ -9,7 +10,12 @@ export class UhomeComponent implements OnInit {
 
   constructor() { }
 
+   
+  name:any;
+  finalNameOfUser:any;
   ngOnInit(): void {
+     this.name=localStorage.getItem("email");
+     this.finalNameOfUser=this.name.split("@",1);
   }
 
 }

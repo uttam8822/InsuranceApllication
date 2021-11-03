@@ -7,6 +7,7 @@ import { RegistrationService } from '../registration.service';
 import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog'; 
 import { POPUPComponent } from '../popup/popup.component';
+import { UwriterAuthGuard } from '../Auth/uwriter-auth.guard';
 
 @Component({
   selector: 'app-uwlogin',
@@ -18,7 +19,7 @@ export class UwloginComponent implements OnInit {
   msg:string='';
   forgot='Forgot your password? Please contact to our customer support at(support@impetus.com).';
 
-  constructor(private _service: RegistrationService, private _route: Router,private matDialog:MatDialog) { }
+  constructor(private _service: RegistrationService, private _route: Router,private matDialog:MatDialog,private auth:UwriterAuthGuard) { }
 
   ngOnInit(): void {
   }
@@ -27,10 +28,12 @@ export class UwloginComponent implements OnInit {
     data=>{
       console.log("registered successfully");
       this.msg="Login Successfully";
+      this.auth.response=true;
       this. _route.navigate(["/uwriterhome"]);
     },
     error=>{
       console.error("exception occurred")
+      this.auth.response=false;
       this.msg="Bad Credentials";
     }
     );

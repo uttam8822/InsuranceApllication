@@ -60,6 +60,10 @@ import { SendEmailComponent } from './send-email/send-email.component';
 import { FetchuwdetailsComponent } from './fetchuwdetails/fetchuwdetails.component';
 import { FetchuserdetailsComponent } from './fetchuserdetails/fetchuserdetails.component';
 import { SendmailUWComponent } from './sendmail-uw/sendmail-uw.component';
+import { UserAuthGuard } from './Auth/user-auth.guard';
+import { RegistrationService } from './registration.service';
+import { UwriterAuthGuard} from './Auth/uwriter-auth.guard';
+import { AdminAuthGuard } from './Auth/admin-auth.guard';
 
 
 
@@ -137,7 +141,7 @@ import { SendmailUWComponent } from './sendmail-uw/sendmail-uw.component';
     MatDialogModule
 
   ],
-  providers: [],
+  providers: [UserAuthGuard,RegistrationService,UwriterAuthGuard,AdminAuthGuard],
   bootstrap: [AppComponent],
   entryComponents:[POPUPComponent]
 
