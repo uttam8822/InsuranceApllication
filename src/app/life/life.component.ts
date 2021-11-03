@@ -97,6 +97,7 @@ selectPlanHandler(event:any){
 
   LifeForm : any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+  submitted=false;
   constructor(private _service:RegistrationService,private _route: Router,private matDialog:MatDialog) { }
 
   ngOnInit(): void {
@@ -114,17 +115,17 @@ selectPlanHandler(event:any){
       "address" : new FormControl(null,[Validators.required]),
       "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-      "selectPlane": new FormControl(0,[Validators.required,Validators.pattern('[1-5]')]),
-      "gender": new FormControl("gender",[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
+      "selectPlane": new FormControl('',[Validators.required,Validators.pattern('[1-5]')]),
+      "gender": new FormControl("",[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
       "Tobacco": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "groupInsurance": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "cancellingInsurance": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "hivIssue": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "lungDisease": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
-      "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
-      "healthIssue"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
+      "additionalComments"   : new FormControl(null,[Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
+      "healthIssue"   : new FormControl(null,[Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
       "dateOfBirth": new FormControl("",[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
-      "member": new FormControl("members", Validators.required)
+      "member": new FormControl("", Validators.required)
     });
   }
   isFieldValid(field: string) {
@@ -179,16 +180,21 @@ selectPlanHandler(event:any){
 
   user = new LifeRegistration();
   applyLife(){
-    if (this.LifeForm.valid) {
-
-      console.log('form submitted');
-
-    }
-    else {
-
+    this.submitted = true;
+    if(this.LifeForm.invalid){
       this.validateAllFormFields(this.LifeForm);
-
+      return;
     }
+    // if (this.LifeForm.valid) {
+
+    //   console.log('form submitted');
+
+    // }
+    // else {
+
+      //this.validateAllFormFields(this.LifeForm);
+
+    //}
     if(this.user.hivIssue=="No" && this.user.lungsIssue=="No" && this.user.tobacco=="No")
     {
       this.user.status="Yes"
@@ -248,4 +254,7 @@ selectPlanHandler(event:any){
         this.scroll.nativeElement.scrollTop = 0 ;
       }
 
+      // scrollToMiddle(){
+      //   this.scroll.nativeElement.scrollTop = 0 ;
+      // }
 }

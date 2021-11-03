@@ -19,6 +19,8 @@ export class DentalComponent implements OnInit {
   @ViewChild('scroll') scroll:ElementRef;
   private formSubmitAttempt: boolean;
 
+
+  submitted = false;
   Dental:any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   
@@ -106,8 +108,8 @@ export class DentalComponent implements OnInit {
        "gender": new FormControl('',[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
       "state": new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "selectPlane": new FormControl('',[Validators.required,Validators.pattern('[1-5]')]),
-      "healthIssue"   : new FormControl('',[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
-      "additionalComments"   : new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('[A-Za-z0-9]*')]),
+      "healthIssue"   : new FormControl(null),
+      "additionalComments"   : new FormControl(null),
       "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
       //selectPlane: new FormControl('', Validators.required)
         member: new FormControl('', Validators.required)
@@ -171,16 +173,20 @@ export class DentalComponent implements OnInit {
 
   
 
-  applyDental(){
-    if (this.Dental.valid) {
-
-      console.log('form submitted');
-
-    } else {
-
+  applyDental(){this.submitted = true;
+    if(this.Dental.invalid){
       this.validateAllFormFields(this.Dental);
+      return;}
 
-    }
+    // if (this.Dental.valid) {
+
+    //   console.log('form submitted');
+
+    // } else {
+
+    //   this.validateAllFormFields(this.Dental);
+
+    // }
     // for dental
  if(this.user.groupInsurance=="No" && this.user.tobacco=="No")
  {
