@@ -28,5 +28,6 @@ export class DVRegistration {
     additionalComments:string;
     status:string;
     member:string;
+    reason:string;
     constructor(){}
 }

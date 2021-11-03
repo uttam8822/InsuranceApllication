@@ -25,5 +25,6 @@ export class LifeRegistration {
     additionalComments:string;
     status:string;
     member:string;
+    reason:string;
     constructor(){}
 }

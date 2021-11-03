@@ -189,14 +189,14 @@ selectPlanHandler(event:any){
       this.validateAllFormFields(this.LifeForm);
 
     }
-    if(this.user.hivIssue=="No" && this.user.lungsIssue=="No" && this.user.tobacco=="No")
+    /*if(this.user.hivIssue=="No" && this.user.lungsIssue=="No" && this.user.tobacco=="No")
     {
       this.user.status="Yes"
-    }
+    }*/
     this._service.applyUserForLife(this.user).subscribe(
       data=>{
         console.log("response received");
-        this._route.navigate(["/success"])
+       this._route.navigate(["/success"])
       },
       error =>
       {

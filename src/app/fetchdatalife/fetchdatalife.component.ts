@@ -14,6 +14,9 @@ export class FetchdatalifeComponent implements OnInit {
   config:any;
   value:string="Approve";
   userData:any=[];
+  activeUser :any= null;
+  reason: string = '';//Get user reason, on Modal window
+  showModal: boolean;
 al:boolean;
   constructor(private userRegistration:RegistrationService,private _router:Router){
     this.userRegistration.getLifeData().subscribe(data=>{
@@ -23,6 +26,21 @@ al:boolean;
     });
 
   }
+
+  show(user){
+    this.showModal = true; // Show-Hide Modal Check
+    this.activeUser = user; // Preserving user info for later use
+    
+  }
+  //Bootstrap Modal Close event
+  hide()
+  {
+    this.showModal = false;
+  }
+
+
+
+
   user1=new LifeRegistration();
   msg='';
 
@@ -47,10 +65,13 @@ al:boolean;
        }
     )
     }
-    public rejectForm(user){
-      this.userRegistration.rejectStatusOfLife(user).subscribe(
+    public rejectForm(){
+      let getActiveUserInfo = this.activeUser;
+      getActiveUserInfo.reason = this.reason;
+      this.userRegistration.rejectStatusOfLife(getActiveUserInfo).subscribe(
         data=>{
           alert("Rejected Successfully");
+          this.activeUser = null
           let curl=this._router.url;
           this._router.navigateByUrl('/',{skipLocationChange: true}).then(()=>{
           this._router.navigate([curl]);
@@ -88,6 +109,11 @@ al:boolean;
   ngOnInit(): void {
 
   }
+  clickShow(){
+    this.userRegistration.getLifeData().subscribe(data=>{
+      console.log(data);
+      this.userData=data;
+  });
 
 }
-
+}

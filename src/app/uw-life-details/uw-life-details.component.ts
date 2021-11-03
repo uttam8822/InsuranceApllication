@@ -1,3 +1,4 @@
+import { LifeRegistration } from './../life-registration';
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from '../registration.service';
 
@@ -7,11 +8,12 @@ import { RegistrationService } from '../registration.service';
   styleUrls: ['./uw-life-details.component.css']
 })
 export class UwLifeDetailsComponent implements OnInit {
-
+user:LifeRegistration=new LifeRegistration();
   config:any;
   userData:any=[];
   constructor(private userRegistration:RegistrationService){
-    this.userRegistration.getLifeData().subscribe(data=>{
+    console.log("Hello",this.userData);
+   this.userRegistration.getLifeData().subscribe(data=>{
       console.log(data);
       this.userData=data;
      
@@ -24,6 +26,7 @@ export class UwLifeDetailsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log("Hello hii",this.userData)
   }
 
 }
