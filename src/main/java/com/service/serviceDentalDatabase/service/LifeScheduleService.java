@@ -36,7 +36,7 @@ public void updateStatus() {
 			if("No".equals(user.getHivIssue()) && "Yes".equals(user.getTobacco())) {
 			System.out.println(user.getTobacco());
 		      user.setStatus("Yes");
-		      service1.sendSimpleEmail(user.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been approved for Life service"+"\n In case if you have any query please feel free to connect with us"+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+		      service1.sendSimpleEmail(user.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been approved for Life service"+"\n In case if you have any query please feel free to connect with us."+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
 	    				"\nPhone : " + 
 	    				"+91-120-4018100"+"\nEmail : support@impetus.com"
 	    		,"Application Approved");
