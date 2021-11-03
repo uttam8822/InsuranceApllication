@@ -24,6 +24,7 @@ export class DentalUser {
        // applicationStatus:boolean;
         status:string;
         member:string;
+        reason:string;
         constructor(){}
     
 }

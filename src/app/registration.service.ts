@@ -40,8 +40,7 @@ export class RegistrationService {
 
   //fetch life data
   getLifeData():Observable<object>{
-    let apiurl ="http://localhost:8067/getlifedata";
-    return this._http.get(apiurl);
+    return this._http.get("http://localhost:8067/getlifedata");
   }  
 
   //fetch data dental vision

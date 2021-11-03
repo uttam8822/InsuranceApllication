@@ -16,6 +16,9 @@ export class UwFetchLifeDataComponent implements OnInit {
   config:any;
   value:string="Approve";
   userData:any=[];
+  activeUser :any= null;
+  reason: string = '';//Get user reason, on Modal window
+  showModal: boolean;
 al:boolean;
   constructor(private userRegistration:RegistrationService,private _router:Router){
     this.userRegistration.getLifeData().subscribe(data=>{
@@ -25,6 +28,18 @@ al:boolean;
     });
 
   }
+
+  show(user){
+    this.showModal = true; // Show-Hide Modal Check
+    this.activeUser = user; // Preserving user info for later use
+    
+  }
+  //Bootstrap Modal Close event
+  hide()
+  {
+    this.showModal = false;
+  }
+
 
   public approvealForm(user){
 
@@ -44,8 +59,10 @@ al:boolean;
        }
     )
     }
-    public rejectForm(user){
-      this.userRegistration.rejectStatusOfLife(user).subscribe(
+    public rejectForm(){
+      let getActiveUserInfo = this.activeUser;
+      getActiveUserInfo.reason = this.reason;
+      this.userRegistration.rejectStatusOfLife(getActiveUserInfo).subscribe(
         data=>{
           alert("Rejected Successfully");
           let curl=this._router.url;
@@ -63,6 +80,10 @@ al:boolean;
     })
   }
   ngOnInit(): void {
+
+  }
+  onDetails() :void{
+    this._router.navigate(['/UWLifeDetails11'], {state: {data: this.user}});
 
   }
 
