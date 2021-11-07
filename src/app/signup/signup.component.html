@@ -97,7 +97,7 @@
                       <label class="form-label" for="form3Example4c">Password</label>
                       <input formControlName="password" class="form-control" aria-label="adhar" type="password" placeholder="Enter Your Password"  required required [(ngModel)] = "user.password"/>
                     <div *ngIf="password.invalid && (password.touched || password.dirty)">
-                        <span class="error text-danger" *ngIf="password.errors?.required"> *password is required.</span>
+                        <span class="error text-danger" *ngIf="password.errors?.required"> *Password is required.</span>
                         <span class="error text-danger" *ngIf="password.errors?.pattern">  *Only numbers Characters @#! are allowed.</span>
                         <span class="error text-danger" *ngIf="password.errors?.minlength"> *Password should be more than 8 Characters.</span>
                         <span class="error text-danger" *ngIf="password.errors?.maxlength">*Password should be less than 20 Characters.</span>

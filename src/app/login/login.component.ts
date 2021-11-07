@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
           this.userEmail=this.user.emailId;
           console.log(this.userEmail);
           localStorage.setItem("email",this.userEmail);
-          this. _route.navigate(["/uhome"])
+          this. _route.navigate(["/service1"])
           
           
         },

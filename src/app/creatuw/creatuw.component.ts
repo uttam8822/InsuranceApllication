@@ -33,10 +33,10 @@ export class CreatuwComponent implements OnInit {
   submitted  = false;
 
   createUw() {
-    this.submitted = true;
-    if(this.createunderwriter.invalid){
-      this.validateAllFormFields(this.createunderwriter);
-      return;}
+   // this.submitted = true;
+   // if(this.createunderwriter.invalid){
+     // this.validateAllFormFields(this.createunderwriter);
+     // return;}
 
 
     this._service.registerUwriter(this.uwriter).subscribe(
@@ -46,24 +46,24 @@ export class CreatuwComponent implements OnInit {
     },
     error=>{
       console.error("exception occurred")
-      this.msg1="Already Exist"
+      this.msg1="Please Fill Form Correctly or Id Already Exist(try with another id)"
     }
     );
   }
 
-  isFieldValid(field: string) {
-    return (
-      (!this.createunderwriter.get(field).valid && this.createunderwriter.get(field).touched) ||
-      (this.createunderwriter.get(field).untouched && this.formSubmitAttempt)
-    );
-  }
+  // isFieldValid(field: string) {
+  //   return (
+  //     (!this.createunderwriter.get(field).valid && this.createunderwriter.get(field).touched) ||
+  //     (this.createunderwriter.get(field).untouched && this.formSubmitAttempt)
+  //   );
+  // }
 
-  displayFieldCss(field: string) {
-    return {
-      'has-error': this.isFieldValid(field),
-      'has-feedback': this.isFieldValid(field)
-    };
-  }
+  // displayFieldCss(field: string) {
+  //   return {
+  //     'has-error': this.isFieldValid(field),
+  //     'has-feedback': this.isFieldValid(field)
+  //   };
+  // }
 
 
 get underwritername() {return this.createunderwriter.get('underwritername');}
@@ -71,28 +71,28 @@ get underwriteremail() {return this.createunderwriter.get('underwriteremail');}
 get underwriterid() {return this.createunderwriter.get('underwriterid');}
 get underwriterpassword() {return this.createunderwriter.get('underwriterpassword');}
 
-validateAllFormFields(formGroup: FormGroup) {
+// validateAllFormFields(formGroup: FormGroup) {
 
-  Object.keys(formGroup.controls).forEach(field => {
+//   Object.keys(formGroup.controls).forEach(field => {
 
-    console.log(field);
+//     console.log(field);
 
-    const control = formGroup.get(field);
+//     const control = formGroup.get(field);
 
 
 
-    if (control instanceof FormControl) {
+//     if (control instanceof FormControl) {
 
-      control.markAsTouched({ onlySelf: true });
+//       control.markAsTouched({ onlySelf: true });
 
-    } else if (control instanceof FormGroup) {
+//     } else if (control instanceof FormGroup) {
 
-      this.validateAllFormFields(control);
+//       this.validateAllFormFields(control);
 
-    }
+//     }
 
-  });
+//   });
 
-}
+//}
 
 }

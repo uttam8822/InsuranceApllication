@@ -8,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class Service1Component implements OnInit {
 
 
- 
+  name:any;
+  finalNameOfUser:any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.name=localStorage.getItem("email");
+     this.finalNameOfUser=this.name.split("@",1);
   }
 
 }
