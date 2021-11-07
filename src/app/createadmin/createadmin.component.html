@@ -39,7 +39,11 @@
   </div>
   
   <label for="psw"><b>Create Password</b></label>
-  <input type="password" placeholder="Create Password" name="password" required [(ngModel)]="createAd.password" />
+  <input formControlName = "adminpassword" type="password" placeholder="Create Password" name="password" required [(ngModel)]="createAd.password" />
+  <div *ngIf="adminpassword.invalid && (adminpassword.touched || adminpassword.dirty)">
+    <span class="error" *ngIf="adminpassword.errors?.required"> *Admin Password is required.</span>
+    <span class="error" *ngIf="adminpassword.errors?.pattern"> *Invalid Password. </span>
+    </div>
   
   <button style="border-radius: 5px;" type="submit">Create Admin</button>
   </div>

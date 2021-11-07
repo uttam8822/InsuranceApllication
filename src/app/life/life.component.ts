@@ -115,7 +115,7 @@ selectPlanHandler(event:any){
       "income" : new FormControl(null, [Validators.required,Validators.maxLength(2),Validators.pattern('[0-9]*')]),
       "address" : new FormControl(null,[Validators.required]),
       "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-      "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z0-9_.-]*')]),
+      "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z0-9- ]*')]),
       "selectPlane": new FormControl('',[Validators.required,Validators.pattern('[1-5]')]),
       "gender": new FormControl("",[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
       "Tobacco": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
@@ -125,10 +125,7 @@ selectPlanHandler(event:any){
       "lungDisease": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "additionalComments"   : new FormControl(null),
       "healthIssue"   : new FormControl(null),
-      "dateOfBirth": new FormControl("",[Validators.required,Validators.pattern("^((2000|2400|2800|(19|2[0-9](0[48]|[2468][048]|[13579][26])))-02-29)$" 
-      + "|^(((19|2[0-9])[0-9]{2})-02-(0[1-9]|1[0-9]|2[0-8]))$"
-      + "|^(((19|2[0-9])[0-9]{2})-(0[13578]|10|12)-(0[1-9]|[12][0-9]|3[01]))$" 
-      + "|^(((19|2[0-9])[0-9]{2})-(0[469]|11)-(0[1-9]|[12][0-9]|30))$")]),
+      "dateOfBirth": new FormControl("",[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
       "member": new FormControl("", Validators.required)
     });
   }
@@ -183,6 +180,7 @@ selectPlanHandler(event:any){
   get member() {return this.LifeForm.get('member');}
 
   user = new LifeRegistration();
+
   applyLife(){
     this.submitted = true;
     if(this.LifeForm.invalid){
