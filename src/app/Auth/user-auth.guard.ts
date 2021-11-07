@@ -22,7 +22,7 @@ export class UserAuthGuard implements CanActivate {
        if(this.response){
          return true;
        }else{
-         alert("Anauthorized Access 😈😈😈😈😈😈 Please login to enjoy our services");
+         alert("Unauthorized Access 😈😈😈😈😈😈 Please login to Enjoy our Services.");
          this._route.navigate(['/login']);
          return false;
        }

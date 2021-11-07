@@ -229,3 +229,8 @@ form {
       font-size:13px;
       margin-bottom:0;
     }
+
+    .error{
+      color: red;
+      font-size: small;
+    }

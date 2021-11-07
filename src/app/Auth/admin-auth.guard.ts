@@ -16,7 +16,7 @@ export class AdminAuthGuard implements CanActivate {
       if(this.response){
         return true;
       }else{
-        alert("Anauthorized Access 😈😈😈😈😈😈 Please login");
+        alert("Unauthorized Access 😈😈😈😈😈😈 Please login.");
         this._route.navigate(['/adlogin']);
         return false;
       }

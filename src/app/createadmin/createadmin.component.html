@@ -4,19 +4,39 @@
 
   <h2 style="text-align: center; margin-top: 50px; color: blue;">Create Admin</h2>
   
-  <form #RegisterForm="ngForm" (ngSubmit)="createAdmin()" (ngSubmit) ="RegisterForm.reset()" class="mx-1 mx-md-4">
+  <form #RegisterForm="ngForm" (ngSubmit)="createAdmin()" (ngSubmit) ="RegisterForm.reset()" class="mx-1 mx-md-4" [formGroup]="createadmin">
   <div class="imgcontainer">
   </div>
   <small class="text-danger">{{msg1}}</small>
   <div class="container">
+  <div>
   <label for="name"><b>Full Name</b></label>
-  <input type="text" placeholder="Enter Full Name" name="name" required [(ngModel)]="createAd.fullName" />
+  <input formControlName="adminname" type="text" placeholder="Enter Full Name" name="name" required [(ngModel)]="createAd.fullName" />
+    <div *ngIf="adminname.invalid && (adminname.touched || adminname.dirty)">
+    <span class="error" *ngIf="adminname.errors?.required"> *Admin Name is required.</span>
+    <span class="error" *ngIf="adminname.errors?.pattern"> *Only Characters allowed.</span>
+    </div>
+  </div>
   
-  <label for="email"><b>Enter EmailId</b></label>
-  <input type="text" placeholder="Enter Your EmailId" name="email" required [(ngModel)]="createAd.emailId" />
+  
 
+  <div>
+  <label for="email"><b>Enter EmailId</b></label>
+  <input formControlName = "adminemail" type="text" placeholder="Enter Your EmailId" name="email" required [(ngModel)]="createAd.emailId" />
+  <div *ngIf="adminemail.invalid && (adminemail.touched || adminemail.dirty)">
+    <span class="error" *ngIf="adminemail.errors?.required"> *Admin Email is required.</span>
+    <span class="error" *ngIf="adminemail.errors?.pattern"> *Invalid email.</span>
+    </div>
+  </div>
+
+  <div>
   <label for="userid"><b>Generate UserId</b></label>
-  <input type="text" placeholder="Generate UserId" name="userid" required [(ngModel)]="createAd.adminId" />
+  <input formControlName = "adminid"  type="text" placeholder="Admin1, Admin2" name="userid" required [(ngModel)]="createAd.adminId" />
+  <div *ngIf="adminid.invalid && (adminid.touched || adminid.dirty)">
+    <span class="error" *ngIf="adminid.errors?.required"> *Admin Userid is required.</span>
+    <span class="error" *ngIf="adminid.errors?.pattern"> *Invalid UserID and Characters and Numbers allowed.</span>
+    </div>
+  </div>
   
   <label for="psw"><b>Create Password</b></label>
   <input type="password" placeholder="Create Password" name="password" required [(ngModel)]="createAd.password" />

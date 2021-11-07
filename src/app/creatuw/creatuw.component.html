@@ -1,18 +1,39 @@
 
 <body> <h2 style="text-align: center; margin-top: 50px; color: blue;">Generate Underwriter</h2>
-<form #RegisterForm="ngForm" (ngSubmit)="createUw()" (ngSubmit) ="RegisterForm.reset()" class="mx-1 mx-md-4">
+<form #RegisterForm="ngForm" (ngSubmit)="createUw()" (ngSubmit) ="RegisterForm.reset()" class="mx-1 mx-md-4" [formGroup] ="createunderwriter">
 <div class="imgcontainer">
 </div>
 <small class="text-danger">{{msg1}}</small>
 <div class="container">
+
+    <div>
 <label for="name"><b>Full Name</b></label>
-<input type="text" placeholder="Enter Full Name" name="fullname" required [(ngModel)]="uwriter.fullName" />  
+<input formControlName = "underwritername" type="text" placeholder="Enter Full Name" name="fullname" required [(ngModel)]="uwriter.fullName" /> 
+<div *ngIf="underwritername.invalid && (underwritername.touched || underwritername.dirty)">
+    <span class="error" *ngIf="underwritername.errors?.required"> *UnderWriter Name is required.</span>
+    <span class="error" *ngIf="underwritername.errors?.pattern"> *Only Characters allowed</span>
+    </div>
+</div>
 
+<div>
 <label for="emailId"><b>Enter EmailId</b></label>
-<input type="text" placeholder="Enter EmailId" name="emailId" required [(ngModel)]="uwriter.emailId" />
+<input formControlName = "underwriteremail" type="text" placeholder="Enter EmailId" name="emailId" required [(ngModel)]="uwriter.emailId" />
+<div *ngIf="underwriteremail.invalid && (underwriteremail.touched || underwriteremail.dirty)">
+    <span class="error" *ngIf="underwriteremail.errors?.required"> *Underwriter Email is required.</span>
+    <span class="error" *ngIf="underwriteremail.errors?.pattern"> *Invalid Email.</span>
+    </div>
 
+</div>
+
+
+<div>
 <label for="userid"><b>Generate UserId</b></label>
-<input type="text" placeholder="Generate UserId" name="userid" required [(ngModel)]="uwriter.writerId" />
+<input formControlName ="underwriterid" type="text" placeholder="UnderWriter1, UnderWriter2" name="userid" required [(ngModel)]="uwriter.writerId" />
+<div *ngIf="underwriterid.invalid && (underwriterid.touched || underwriterid.dirty)">
+    <span class="error" *ngIf="underwriterid.errors?.required"> *Underwriter Userid is required.</span>
+    <span class="error" *ngIf="underwriterid.errors?.pattern"> *Invalid UserID Only Characters and Numbers allowed.</span>
+    </div>
+</div>
 
 <label for="psw"><b>Create Password</b></label>
 <input type="password" placeholder="Create Password" name="password" required [(ngModel)]="uwriter.password" />
