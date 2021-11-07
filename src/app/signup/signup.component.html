@@ -99,8 +99,8 @@
                     <div *ngIf="password.invalid && (password.touched || password.dirty)">
                         <span class="error text-danger" *ngIf="password.errors?.required"> *password is required</span>
                         <span class="error text-danger" *ngIf="password.errors?.pattern">  *Only numbers Characters @#! are allowed</span>
-                        <span class="error text-danger" *ngIf="password.errors?.minlength"> *password should be more than 8 Characters</span>
-                        <span class="error text-danger" *ngIf="password.errors?.maxlength">*password should be less than 20 Characters</span>
+                        <span class="error text-danger" *ngIf="password.errors?.minlength"> *Password should be more than 8 Characters</span>
+                        <span class="error text-danger" *ngIf="password.errors?.maxlength">*Password should be less than 20 Characters</span>
                         
                     </div>
                     </div>
@@ -112,7 +112,7 @@
                       <label class="form-label" for="form3Example4cd"> Confirm Password</label>
                       <input formControlName="cpassword" class="form-control" aria-label="adhar" type="password" placeholder="Confirm Password" pattern="{{user.password}}" required  />
                       <div *ngIf="cpassword.invalid && (cpassword.touched || cpassword.dirty)">
-                          <span class="error text-danger" *ngIf="cpassword.errors?.required"> *password is required</span>
+                          <span class="error text-danger" *ngIf="cpassword.errors?.required"> *Password is required</span>
                           <span class="text-danger" *ngIf="Registerform.submitted && cpassword.errors?.pattern">  *Password didn't matched</span>
                           
                       </div>

@@ -113,7 +113,7 @@
                         <input formControlName="state" class="form-control" aria-label="city" placeholder="Ex:Harayana" required required [(ngModel)] = "user.state"/>
                         <div *ngIf="state.invalid && (state.touched || state.dirty)">
                         <span class="error" *ngIf="state.errors?.required"> *state is required</span>
-                        <span class="error" *ngIf="state.errors?.pattern"> *Only Characters allowed</span>
+                        <span class="error" *ngIf="state.errors?.pattern"> *Only Characters and - allowed</span>
                         </div>
                     </div>
                     <div class="col">
@@ -128,10 +128,10 @@
                     </div>
                     <div class="col">
                         <label>Birth date<span style="color: red;">*</span></label>
-                        <input formControlName="dateOfBirth" class="form-control" aria-label="contact" placeholder="DD/MM/YYYY" required required [(ngModel)] = "user. dateOfBirth"/>
+                        <input formControlName="dateOfBirth" class="form-control" aria-label="contact" placeholder="YYYY-MM-DD" required required [(ngModel)] = "user. dateOfBirth"/>
                         <div *ngIf="dateOfBirth.invalid && (dateOfBirth.touched || dateOfBirth.dirty)">
                             <span class="error" *ngIf="dateOfBirth.errors?.required"> *Date is required</span>
-                            <span class="error" *ngIf="dateOfBirth.errors?.pattern"> *Should be in formate(DD/MM/YYYY)</span>
+                            <span class="error" *ngIf="dateOfBirth.errors?.pattern"> *Should be in formate(YYYY-MM-DD)</span>
                              </div>
                     </div>
 
@@ -194,6 +194,8 @@
                         <span class="error" *ngIf="member.errors?.required"> *member is required</span>
                          
                        </div>
+                       <br>
+                       <small style="color: blue;">{{selectmembermessage}}</small>
                 </div>
             </div>
 

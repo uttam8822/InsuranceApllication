@@ -36,21 +36,22 @@ export class DentalVisionComponent implements OnInit {
      selectGlasses:string='';
      selectEyeDisses:string='';
      selectEyeOperation:string='';
+     selectmembermessage:string='';
   
  selectChangeHandler(event:any){
   this.selectedDay=event.target.value;
   if(this.selectedDay=="Individual"){
-    this.onOpenDialogClick("Your yearly policy will be Rs-10000/- would you like to proceed.");
+    this.selectmembermessage ="Your yearly policy will be Rs-10000/-";
   }
   if(this.selectedDay=="Individual & Spouse"){
-   this.onOpenDialogClick("Your yearly policy will be Rs-20000/- would you like to proceed.");
+    this.selectmembermessage ="Your yearly policy will be Rs-20000/-";
  }
  
  if(this.selectedDay=="Individual Spouse & Child"){
-   this.onOpenDialogClick("Your yearly policy will be Rs-30000/- would you like to proceed.");
+  this.selectmembermessage ="Your yearly policy will be Rs-30000/-";
  }
  if(this.selectedDay=="Individual Spouse & Parents"){
-   this.onOpenDialogClick("Your yearly policy will be Rs-40000/- would you like to proceed.");
+  this.selectmembermessage ="Your yearly policy will be Rs-40000/-";
  }
 }
 
@@ -114,7 +115,7 @@ export class DentalVisionComponent implements OnInit {
       "contact": new FormControl(null,[Validators.required,Validators.maxLength(10),Validators.minLength(10),Validators.pattern('[0-9]*')]),
       "income" : new FormControl(null, [Validators.required,Validators.maxLength(2),Validators.pattern('[0-9]*')]),
       "address" : new FormControl(null,[Validators.required]),
-      "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
+      "state": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z0-9_.-]*')]),
       "gender": new FormControl("",[Validators.required,Validators.pattern('[?:MALE\bmale|female\bFEMALE]*')]),
       "selectPlane": new FormControl('',[Validators.required,Validators.pattern('[1-5]')]),
       "Tobacco": new FormControl('',[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
@@ -127,7 +128,10 @@ export class DentalVisionComponent implements OnInit {
       "lastDentalCkeck": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
       "cancellingInsurance": new FormControl("",[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]*')]),
      "healthIssue"   : new FormControl(null),
-      "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
+      "dateOfBirth": new FormControl(null,[Validators.required,Validators.pattern("^((2000|2400|2800|(19|2[0-9](0[48]|[2468][048]|[13579][26])))-02-29)$" 
+      + "|^(((19|2[0-9])[0-9]{2})-02-(0[1-9]|1[0-9]|2[0-8]))$"
+      + "|^(((19|2[0-9])[0-9]{2})-(0[13578]|10|12)-(0[1-9]|[12][0-9]|3[01]))$" 
+      + "|^(((19|2[0-9])[0-9]{2})-(0[469]|11)-(0[1-9]|[12][0-9]|30))$")]),
       "occupation" : new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       "additionalComments"   : new FormControl(null),
       "member": new FormControl("", Validators.required)
