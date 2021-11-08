@@ -35,7 +35,7 @@
                 <button type="button" class="btn btn-danger"*ngIf="user.status=='No'"disabled>Rejected</button>
                  </ng-template>
                 </td>
-            <td><button type="button" class="btn btn-info"routerLink="/UWDVDetails11">Details</button></td>
+            <td><button type="button" class="btn btn-info"[routerLink]="['/UWDVDetails11/'+user.aadhar]">Details</button></td>
         </tr>
        </tbody> 
     </table>

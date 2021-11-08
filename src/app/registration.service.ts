@@ -48,6 +48,21 @@ export class RegistrationService {
     let apiurl ="http://localhost:8067/getdentalvisiondata";
     return this._http.get(apiurl);
   } 
+
+  //GET DENTAL DETA BY ID
+  getDentalDataByID(id):Observable<object>{
+    return this._http.get(`http://localhost:8067/getdentaldatabyID/${id}`);
+  }
+
+  //GET life DETA BY ID
+  getLifeDataByID(id):Observable<object>{
+    return this._http.get(`http://localhost:8067/getlifedatabyID/${id}`);
+  }
+
+  //GET DENTAL VISION DETA BY ID
+  getDvDataByID(id):Observable<object>{
+    return this._http.get(`http://localhost:8067/getdvdatabyID/${id}`);
+  }
   
    //update dental application status
    updateStatusOfLife(user:LifeRegistration):Observable<object>{

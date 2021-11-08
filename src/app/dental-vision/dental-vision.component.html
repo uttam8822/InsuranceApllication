@@ -33,7 +33,7 @@
                 </div>
                 <div class="col">
                     <label>Middle Name</label>
-                    <input formControlName="middlename" class="form-control"  aria-label="Last name" placeholder="Enter Middle Name" required required [(ngModel)] = "user.middleNmme">
+                    <input formControlName="middlename" class="form-control"  aria-label="Last name" placeholder="Enter Middle Name" [(ngModel)] = "user.middleNmme">
                     <div *ngIf="middlename.invalid && (middlename.touched || middlename.dirty)">
                         <span class="error" *ngIf="middlename.errors?.pattern"> *Enter Only Characters.</span>
                     </div>
