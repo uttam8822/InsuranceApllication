@@ -50,7 +50,7 @@
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example3c">Your Email</label>
                         <input name ="email" type="email" id="form3Example3c" class="form-control" placeholder="Enter your email" required="required" #email="ngModel" [(ngModel)]="user.emailId" email="ngModel" [class.is.invalid]="email.invalid && email.touched" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"/>
-                        <small class="text-danger" [class.d-none]="email.valid || email.untouched" >emailId is required field</small>
+                        <small class="text-danger" [class.d-none]="email.valid || email.untouched" >*Email is required field.</small>
 
                       
                       </div>

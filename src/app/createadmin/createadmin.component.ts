@@ -29,10 +29,10 @@ export class CreateadminComponent implements OnInit {
   submitted  = false;
 
   createAdmin() {
-    // this.submitted = true;
-    // if(this.createadmin.invalid){
-    //   this.validateAllFormFields(this.createadmin);
-    //   return;}
+    this.submitted = true;
+    if(this.createadmin.invalid){
+      this.validateAllFormFields(this.createadmin);
+      return;}
 
 
     this._service.createAdminFromRemote(this.createAd).subscribe(
@@ -46,19 +46,19 @@ export class CreateadminComponent implements OnInit {
     }
     );
 }
-// isFieldValid(field: string) {
-//   return (
-//     (!this.createadmin.get(field).valid && this.createadmin.get(field).touched) ||
-//     (this.createadmin.get(field).untouched && this.formSubmitAttempt)
-//   );
-// }
+isFieldValid(field: string) {
+  return (
+    (!this.createadmin.get(field).valid && this.createadmin.get(field).touched) ||
+    (this.createadmin.get(field).untouched && this.formSubmitAttempt)
+  );
+}
 
-// displayFieldCss(field: string) {
-//   return {
-//     'has-error': this.isFieldValid(field),
-//     'has-feedback': this.isFieldValid(field)
-//   };
-// }
+displayFieldCss(field: string) {
+  return {
+    'has-error': this.isFieldValid(field),
+    'has-feedback': this.isFieldValid(field)
+  };
+}
 
 
 get adminname() {return this.createadmin.get('adminname');}
@@ -66,27 +66,27 @@ get adminemail() {return this.createadmin.get('adminemail');}
 get adminid() {return this.createadmin.get('adminid');}
 get adminpassword() {return this.createadmin.get('adminpassword');}
 
-// validateAllFormFields(formGroup: FormGroup) {
+validateAllFormFields(formGroup: FormGroup) {
 
-//   Object.keys(formGroup.controls).forEach(field => {
+  Object.keys(formGroup.controls).forEach(field => {
 
-//     console.log(field);
+    console.log(field);
 
-//     const control = formGroup.get(field);
+    const control = formGroup.get(field);
 
 
 
-//     if (control instanceof FormControl) {
+    if (control instanceof FormControl) {
 
-//       control.markAsTouched({ onlySelf: true });
+      control.markAsTouched({ onlySelf: true });
 
-//     } else if (control instanceof FormGroup) {
+    } else if (control instanceof FormGroup) {
 
-//       this.validateAllFormFields(control);
+      this.validateAllFormFields(control);
 
-//     }
+    }
 
-//   });
+  });
 
-// }
+}
 }

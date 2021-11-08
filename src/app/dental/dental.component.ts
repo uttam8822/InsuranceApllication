@@ -108,7 +108,7 @@ export class DentalComponent implements OnInit {
       "groupInsurance": new FormControl('',[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "cancellingInsurance": new FormControl('',[Validators.required,Validators.pattern('[?:YES\byes|NO\bno]+')]),
        "gender": new FormControl('',[Validators.required,Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
-      "state": new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z0-9- ]*')]),
+      "state": new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z0-9-]*')]),
       "selectPlane": new FormControl('',[Validators.required,Validators.pattern('[1-5]')]),
       "healthIssue"   : new FormControl(null),
       "additionalComments"   : new FormControl(null),
@@ -190,10 +190,10 @@ export class DentalComponent implements OnInit {
 
     // }
     // for dental
- if(this.user.groupInsurance=="No" && this.user.tobacco=="No")
- {
-   this.user.status="Yes"
- }
+//  if(this.user.groupInsurance=="No" && this.user.tobacco=="No")
+//  {
+//    this.user.status="Yes"
+//  }
     this._service.applyUserForDental(this.user).subscribe(
       data=>{
         console.log("response received");

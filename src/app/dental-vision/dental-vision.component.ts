@@ -204,10 +204,10 @@ export class DentalVisionComponent implements OnInit {
     // }
     //for dental and vision
 
-if(this.user.oralOperation=="No" && this.user.anyCavity=="No" && this.user.tobacco=="No" && this.user.anyEyeOperation=="No")
-{
-  this.user.status="Yes"
-}
+// if(this.user.oralOperation=="No" && this.user.anyCavity=="No" && this.user.tobacco=="No" && this.user.anyEyeOperation=="No")
+// {
+//   this.user.status="Yes"
+// }
     this._service.applyUserForDVService(this.user).subscribe(
       data=>{
         console.log("response received");
