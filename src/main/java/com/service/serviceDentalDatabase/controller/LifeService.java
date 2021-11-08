@@ -8,11 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.service.serviceDentalDatabase.model.LifeUser;
+import com.service.serviceDentalDatabase.model.ServiceUser;
 import com.service.serviceDentalDatabase.repo.LifeRepo;
 import com.service.serviceDentalDatabase.service.EmailSendService;
 import com.service.serviceDentalDatabase.service.LifeRegistrationService;
@@ -116,6 +118,12 @@ public class LifeService {
 	@CrossOrigin(origins="http://localhost:4200")
 	List<LifeUser> getUser(){
 		return repo.findAll();
+	}
+	
+	@GetMapping("/getlifedatabyID/{aadhar}")
+	@CrossOrigin(origins="http://localhost:4200")
+	public LifeUser getUser(@PathVariable String aadhar){
+		return repo.findAll().stream().filter(t-> aadhar.equals(t.getAadhar())).findFirst().orElse(null);
 	}
 	
 }

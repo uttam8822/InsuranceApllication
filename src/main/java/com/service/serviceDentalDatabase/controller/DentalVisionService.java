@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.service.serviceDentalDatabase.model.DentalVisionUser;
+import com.service.serviceDentalDatabase.model.LifeUser;
 import com.service.serviceDentalDatabase.repo.DentalVisionRepo;
 import com.service.serviceDentalDatabase.service.DentalVisionRegistration;
 import com.service.serviceDentalDatabase.service.EmailSendService;
@@ -113,5 +115,11 @@ public class DentalVisionService {
 	@CrossOrigin(origins="http://localhost:4200")
 	List<DentalVisionUser> getUser(){
 		return repo.findAll();
+	}
+	
+	@GetMapping("/getdvdatabyID/{aadhar}")
+	@CrossOrigin(origins="http://localhost:4200")
+	public DentalVisionUser getUser(@PathVariable String aadhar){
+		return repo.findAll().stream().filter(t-> aadhar.equals(t.getAadhar())).findFirst().orElse(null);
 	}
 }
