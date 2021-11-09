@@ -18,20 +18,20 @@ import com.service.serviceDentalDatabase.service.EmailSendService;
 
 @RestController                            //Controller
 public class DentalVisionService {
-  //Wiring
+	//Wiring
 	@Autowired 
 	private DentalVisionRegistration service;
-    @Autowired
-    private DentalVisionRepo repo;
+	@Autowired
+	private DentalVisionRepo repo;
 	@Autowired
 	private EmailSendService service1;
-	
+
 	@PostMapping("/registerdentalvisionservice")                  //Mapping for Application Submission
 	@CrossOrigin(origins = "http://localhost:4200")
 	public DentalVisionUser resisterUserService(@RequestBody DentalVisionUser user) throws Exception {
-		 String tempAadhar=user.getAadhar();
-		 // Chechking Error for Null Values
-		 
+		String tempAadhar=user.getAadhar();
+		// Chechking Error for Null Values
+
 		if(user.getFirstName()==null)
 			throw new Exception("Error");
 		if(user.getLastName()==null) throw new Exception("Error");	
@@ -59,31 +59,31 @@ public class DentalVisionService {
 		if(user.getAnyEyeDisease()==null) throw new Exception("Error");
 		if(user.getAnyEyeOperation()==null) throw new Exception("Error");
 		DentalVisionUser userObj = null;                                     // Creating Object
-		
-		 //Checking Exsiting Application
-	        if(tempAadhar != null && !"".equals(tempAadhar))
-	        {
-		     DentalVisionUser userobj=service.fetchUserByAadhar(tempAadhar);
-		     if(userobj != null) {
-		    	 throw new Exception("user with" +tempAadhar + "id already exist");
-		     }
-	        }
-	        //Auto Approval 
-	        if("No".equals(user.getAnyCavity()) && "No".equals(user.getOralOperation()) && "No".equals(user.getTobacco()) && "No".equals(user.getAnyEyeOperation())) {
-	        	user.setStatus("Yes");
-	        	userObj = service.saveUser(user);
-	        	System.out.println(userObj.getEmail());
-	        	//Sending Email for Approval
-	        	service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been approved for Life service"+"\n In case if you have any query please feel free to connect with us."+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
-	    				"\nPhone : " + 
-	    				"+91-120-4018100"+"\nEmail : support@impetus.com"
-	    		,"Application Approved");
-	        }
-	        else {
-	        	//Saving Application
+
+		//Checking Exsiting Application
+		if(tempAadhar != null && !"".equals(tempAadhar))
+		{
+			DentalVisionUser userobj=service.fetchUserByAadhar(tempAadhar);
+			if(userobj != null) {
+				throw new Exception("user with" +tempAadhar + "id already exist");
+			}
+		}
+		//Auto Approval 
+		if("No".equals(user.getAnyCavity()) && "No".equals(user.getOralOperation()) && "No".equals(user.getTobacco()) && "No".equals(user.getAnyEyeOperation())) {
+			user.setStatus("Yes");
 			userObj = service.saveUser(user);
-	        }
-		
+			System.out.println(userObj.getEmail());
+			//Sending Email for Approval
+			service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been approved for Life service"+"\n In case if you have any query please feel free to connect with us."+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+					"\nPhone : " + 
+					"+91-120-4018100"+"\nEmail : support@impetus.com"
+					,"Application Approved");
+		}
+		else {
+			//Saving Application
+			userObj = service.saveUser(user);
+		}
+
 		return userObj;
 	}
 	@PutMapping("/statusdv/{aadhar}")                       //Mapping for Status Approved
@@ -91,16 +91,16 @@ public class DentalVisionService {
 	public DentalVisionUser updateStatus(@RequestBody DentalVisionUser user)throws Exception{
 		user.setStatus("Yes");
 		DentalVisionUser userObj;
-		
+
 		userObj=service.saveUser(user);	
 		//Sending Approval Message
 		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+userObj.getFirstName()+"\nYour application has been approved for Dental Vision service."+"\n In case if you have any query please feel free to connect with us."+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
 				"\nPhone : " + 
 				"+91-120-4018100"+"\nEmail : support@impetus.com"
-		,"Application Approved");
-				
+				,"Application Approved");
+
 		return userObj;
-	    
+
 	}
 	@PutMapping("/status1dv/{aadhar}")                             //Mapping for Rejection
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -109,21 +109,21 @@ public class DentalVisionService {
 		String temp=user.getReason();
 		user.setReason(temp);
 		DentalVisionUser userObj;
-		
+
 		userObj=service.saveUser(user);		
 		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+userObj.getFirstName()+"\nYour application has been rejected for Life service because of"+user.getReason()+"\n In case if you have any query please feel free to connect with us."+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
 				"\nPhone : " + 
 				"+91-120-4018100"+"\nEmail : support@impetus.com"
-		,"Application Rejected");
+				,"Application Rejected");
 		return userObj;
-	    
+
 	}
 	@GetMapping("/getdentalvisiondata")                               // Mapping for Getting Data of Application
 	@CrossOrigin(origins="http://localhost:4200")
 	List<DentalVisionUser> getUser(){
 		return repo.findAll();
 	}
-	
+
 	@GetMapping("/getdvdatabyID/{aadhar}")                                //Mapping for Fetting Application data by aadhar
 	@CrossOrigin(origins="http://localhost:4200")
 	public DentalVisionUser getUser(@PathVariable String aadhar){

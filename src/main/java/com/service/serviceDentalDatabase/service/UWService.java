@@ -14,11 +14,11 @@ public class UWService {
 	//Wiring
 	@Autowired
 	private UWRepo repo;
-	
+
 	public UWUser fetchByWriterIdAndPassword(String writerId, String password) {
 		return repo.findByWriterIdAndPassword(writerId, password);
-		}
-	
+	}
+
 	public UWUser saveUser(UWUser user) {
 		return repo.save(user);
 	}

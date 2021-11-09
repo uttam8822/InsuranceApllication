@@ -15,7 +15,7 @@ public class Registration {
 	private String firstName;
 	private String lastName;
 	private String password;
-	
+
 	public Registration() {
 		super();
 	}
@@ -28,7 +28,7 @@ public class Registration {
 		this.lastName = lastName;
 		this.password = password;
 	}
-	
+
 	//Getter and Setter Method
 	public int getId() {
 		return id;

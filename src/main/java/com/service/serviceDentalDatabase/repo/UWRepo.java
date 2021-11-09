@@ -9,6 +9,6 @@ import com.service.serviceDentalDatabase.model.UWUser;
 public interface UWRepo extends CrudRepository<UWUser,Integer> {
 	//Methods for Fetching Data
 	UWUser findByWriterIdAndPassword(String writerId, String password);
-    UWUser findByEmail(String emailId);
-    UWUser findByWriterId(String Id);
+	UWUser findByEmail(String emailId);
+	UWUser findByWriterId(String Id);
 }

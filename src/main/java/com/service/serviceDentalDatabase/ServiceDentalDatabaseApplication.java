@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication                                                   //Springboot app annotation
 @EnableScheduling                                                          // Enablinge Scheduler 
 public class ServiceDentalDatabaseApplication {
-  // Main Method
+	// Main Method
 	public static void main(String[] args) {
 		SpringApplication.run(ServiceDentalDatabaseApplication.class, args);
 	}

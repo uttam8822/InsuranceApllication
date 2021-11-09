@@ -15,16 +15,16 @@ public class RegistrationUserService
 	private RegistrationRepository repo;
 	//Fetching Data
 	public Registration saveUser(Registration user) {
-	    return	repo.save(user);
-		
+		return	repo.save(user);
+
 	}
-	
+
 	public Registration fetchUserByEmailId(String email)
 	{
 		return repo.findByEmailId(email);
 	}
-	
-	
+
+
 	public Registration fetchUserByEmailIdAndPassword(String email, String password)
 	{
 		return repo.findByEmailIdAndPassword(email, password);

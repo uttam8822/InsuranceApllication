@@ -8,36 +8,36 @@ import javax.persistence.Id;
 
 @Entity                         //Database Objects
 public class LifeUser {
-	
-	   private String firstName;
-	   private String middleNmme;
-	   private String lastName;
-	   @Id
-	   private String aadhar;
-	   private String email;
-	   
-	   private String pan;
-	   private String address;
-	   private String zip;
-	   private String city;
-	   private String state;
-	   private String contact;
-	  // @DateTimeFormat(pattern = "dd/MM/yyyy")
-	   private String dateOfBirth;
-	   private String occupation;
-	   private String income;
-	   private String selectPlane;
-	   private String gender;
-	   private String healthIssue;
-	   private String cancellingInsurance;
-	   private String groupInsurance;
-	   private String tobacco;
-	   private String hivIssue;
-	   private String lungsIssue;
-	   private String additionalComments;
-	   private String status;
-	   private String member;
-	   private String reason;
+
+	private String firstName;
+	private String middleNmme;
+	private String lastName;
+	@Id
+	private String aadhar;
+	private String email;
+
+	private String pan;
+	private String address;
+	private String zip;
+	private String city;
+	private String state;
+	private String contact;
+	// @DateTimeFormat(pattern = "dd/MM/yyyy")
+	private String dateOfBirth;
+	private String occupation;
+	private String income;
+	private String selectPlane;
+	private String gender;
+	private String healthIssue;
+	private String cancellingInsurance;
+	private String groupInsurance;
+	private String tobacco;
+	private String hivIssue;
+	private String lungsIssue;
+	private String additionalComments;
+	private String status;
+	private String member;
+	private String reason;
 	public LifeUser() {
 		super();
 	}
@@ -80,7 +80,7 @@ public class LifeUser {
 	public String getFirstName() {
 		return firstName;
 	}
-	
+
 	public String getReason() {
 		return reason;
 	}

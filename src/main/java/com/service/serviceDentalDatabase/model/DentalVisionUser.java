@@ -6,42 +6,42 @@ import javax.persistence.Id;
 
 @Entity                                    //Database Objects
 public class DentalVisionUser {
-	
-	  private String firstName;
-	   private String middleNmme;
-	   private String lastName;
-	   @Id
-	   private String aadhar;
-	   private String email;
-	   private String pan;
-	   private String address;
-	   private String zip;
-	   private String city;
-	   private String state;
-	   private String contact;
-	  // @DateTimeFormat(pattern = "dd/MM/yyyy")
-	   private String dateOfBirth;
-	   private String occupation;
-	   private String income;
-	   private String selectPlane;
-	   private String gender;
-	   private String healthIssue;
-	   private String cancellingInsurance;
-	   private String groupInsurance;
-	   private String tobacco;
-	   private String oralOperation;
-	   private String lastDentalCkeck;
-	   private String anyCavity;
-	   private String wearGlasses;
-	   private String anyEyeDisease;
-	   private String anyEyeOperation;
-	   private String additionalComments;
-	   private String status;
-	   private String member;
-	   private String reason;
-	   
-	   
-	   
+
+	private String firstName;
+	private String middleNmme;
+	private String lastName;
+	@Id
+	private String aadhar;
+	private String email;
+	private String pan;
+	private String address;
+	private String zip;
+	private String city;
+	private String state;
+	private String contact;
+	// @DateTimeFormat(pattern = "dd/MM/yyyy")
+	private String dateOfBirth;
+	private String occupation;
+	private String income;
+	private String selectPlane;
+	private String gender;
+	private String healthIssue;
+	private String cancellingInsurance;
+	private String groupInsurance;
+	private String tobacco;
+	private String oralOperation;
+	private String lastDentalCkeck;
+	private String anyCavity;
+	private String wearGlasses;
+	private String anyEyeDisease;
+	private String anyEyeOperation;
+	private String additionalComments;
+	private String status;
+	private String member;
+	private String reason;
+
+
+
 	public DentalVisionUser() {
 		super();
 	}
@@ -83,10 +83,10 @@ public class DentalVisionUser {
 		this.status=status;
 		this.member=member;
 		this.reason=reason;
-				
+
 	}
-	
-    //Getter and Setter Method
+
+	//Getter and Setter Method
 	public String getReason() {
 		return reason;
 	}

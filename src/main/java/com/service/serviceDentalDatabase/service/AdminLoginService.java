@@ -14,7 +14,7 @@ public class AdminLoginService {
 	private AdminLoginRepo repo;
 	//Fetching data
 	public Admin fetchByAdminIdAndPassword(String adminId, String password) {
-	return repo.findByAdminIdAndPassword(adminId, password);
+		return repo.findByAdminIdAndPassword(adminId, password);
 	}
 	@Autowired
 	private AdminLoginRepo repo1;

@@ -12,9 +12,9 @@ public interface LifeRepo extends JpaRepository<LifeUser,Integer> {
 	//Methods for Data Fetching
 	@Override
 	List<LifeUser> findAll();
-	
+
 	public LifeUser findByAadhar(String aadhar);
-	
+
 	public LifeUser findByEmail(String email);
 
 }

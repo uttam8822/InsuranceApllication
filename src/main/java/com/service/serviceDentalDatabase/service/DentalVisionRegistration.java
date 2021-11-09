@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.service.serviceDentalDatabase.model.DentalVisionUser;
 import com.service.serviceDentalDatabase.repo.DentalVisionRepo;
- 
+
 @Service
 public class DentalVisionRegistration {
 	//Wiring
@@ -19,5 +19,5 @@ public class DentalVisionRegistration {
 	{
 		return repo.findByAadhar(aadhar);
 	}
-	
+
 }
