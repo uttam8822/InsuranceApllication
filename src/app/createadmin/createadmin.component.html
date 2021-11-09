@@ -29,7 +29,7 @@
 
   <div>
   <label for="userid"><b>Generate UserId</b></label>
-  <input formControlName = "adminid"  type="text" placeholder="Admin1, Admin2" name="userid" required [(ngModel)]="createAd.adminId" />
+  <input formControlName = "adminid"  type="text" placeholder="EX: Admin2" name="userid" required [(ngModel)]="createAd.adminId" />
   <div *ngIf="adminid.invalid && (adminid.touched || adminid.dirty)">
     <span class="error" *ngIf="adminid.errors?.required"> *Admin Userid is required.</span>
     <span class="error" *ngIf="adminid.errors?.pattern"> *Invalid UserID and Characters and Numbers allowed.</span>

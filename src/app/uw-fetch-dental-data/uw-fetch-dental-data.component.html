@@ -56,8 +56,9 @@
                    <div class="row">
                        <div class="col-sm-6">
                            <div class="form-group">
+                            <span class="text-danger">Reason must be valid.</span>
                                <label>Fill Reason of Rejection</label>
-                               <input type="text" class="form-control" [ngModelOptions]="{standalone:true}" required [(ngModel)]="reason" />
+                               <input type="text" class="form-control" [ngModelOptions]="{standalone:true}" required [(ngModel)]="reason" minlength=""/>
                            </div>
                        </div>
                    </div>

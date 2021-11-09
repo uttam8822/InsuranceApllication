@@ -27,7 +27,7 @@
     
     <div>
     <label for="userid"><b>Generate UserId</b></label>
-    <input formControlName ="underwriterid" type="text" placeholder="UnderWriter1, UnderWriter2" name="userid" required [(ngModel)]="uwriter.writerId" />
+    <input formControlName ="underwriterid" type="text" placeholder="EX: UnderWriter2" name="userid" required [(ngModel)]="uwriter.writerId" />
     <div *ngIf="underwriterid.invalid && (underwriterid.touched || underwriterid.dirty)">
         <span class="error" *ngIf="underwriterid.errors?.required"> *Underwriter Userid is required.</span>
         <span class="error" *ngIf="underwriterid.errors?.pattern"> *Invalid UserID Only Characters and Numbers allowed.</span>

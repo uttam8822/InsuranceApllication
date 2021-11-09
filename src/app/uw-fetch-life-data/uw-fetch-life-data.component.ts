@@ -60,6 +60,7 @@ al:boolean;
     )
     }
     public rejectForm(){
+      if(this.reason.length>0){
       let getActiveUserInfo = this.activeUser;
       getActiveUserInfo.reason = this.reason;
       this.userRegistration.rejectStatusOfLife(getActiveUserInfo).subscribe(
@@ -73,6 +74,7 @@ al:boolean;
         error=>{alert("Unsuccessfull")}
       )
     }
+  }
     public detailsForm(){
     this.userRegistration.getLifeData().subscribe(data=>{
       console.log(data);
