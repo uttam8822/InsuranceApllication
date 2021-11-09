@@ -23,6 +23,8 @@ export class UwloginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  //uw login function
   loginUw() {
     this._service.loginUwriter(this.uwriter).subscribe(
     data=>{

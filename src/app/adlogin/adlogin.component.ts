@@ -19,7 +19,7 @@ export class AdloginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+//admin login function
   loginAdmin() {
     this._service.loginAdminFromRemote(this.admin).subscribe(
       data => {

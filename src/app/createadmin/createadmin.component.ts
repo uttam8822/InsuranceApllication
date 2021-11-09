@@ -28,6 +28,7 @@ export class CreateadminComponent implements OnInit {
   private formSubmitAttempt: boolean;
   submitted  = false;
 
+  //create admin function
   createAdmin() {
     this.submitted = true;
     if(this.createadmin.invalid){

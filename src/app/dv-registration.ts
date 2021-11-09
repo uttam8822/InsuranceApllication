@@ -1,3 +1,4 @@
+//dental vision pojo class
 export class DVRegistration {
     firstName: string;
     middleNmme: string;

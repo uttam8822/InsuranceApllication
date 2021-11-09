@@ -1,3 +1,4 @@
+//this is ts file for applying authentication on admin dashboard using router gaurd so we can not go directly admin page by hitting url
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';

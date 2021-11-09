@@ -1,3 +1,4 @@
+//dental pojo class
 export class DentalUser {
          
         firstName: string;
