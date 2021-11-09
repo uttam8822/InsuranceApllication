@@ -1,3 +1,5 @@
+//routing ts file
+
 import { FetchuserdetailsComponent } from './fetchuserdetails/fetchuserdetails.component';
 import { FetchuwdetailsComponent } from './fetchuwdetails/fetchuwdetails.component';
 import { DentalvisiondetailsComponent } from './dentalvisiondetails/dentalvisiondetails.component';

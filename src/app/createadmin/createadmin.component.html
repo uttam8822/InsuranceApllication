@@ -1,8 +1,6 @@
+<!--This is create admin component on admin dashboard-->
 <body>
-
-
-
-  <h2 style="text-align: center; margin-top: 50px; color: blue;">Create Admin</h2>
+<h2 style="text-align: center; margin-top: 50px; color: blue;">Create Admin</h2>
   
   <form #RegisterForm="ngForm" (ngSubmit)="createAdmin()" (ngSubmit) ="RegisterForm.reset()" class="mx-1 mx-md-4" [formGroup]="createadmin">
   <div class="imgcontainer">
@@ -31,7 +29,7 @@
 
   <div>
   <label for="userid"><b>Generate UserId</b></label>
-  <input formControlName = "adminid"  type="text" placeholder="Admin1, Admin2" name="userid" required [(ngModel)]="createAd.adminId" />
+  <input formControlName = "adminid"  type="text" placeholder="EX: Admin2" name="userid" required [(ngModel)]="createAd.adminId" />
   <div *ngIf="adminid.invalid && (adminid.touched || adminid.dirty)">
     <span class="error" *ngIf="adminid.errors?.required"> *Admin Userid is required.</span>
     <span class="error" *ngIf="adminid.errors?.pattern"> *Invalid UserID and Characters and Numbers allowed.</span>

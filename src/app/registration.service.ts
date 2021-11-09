@@ -69,39 +69,52 @@ export class RegistrationService {
      console.log(user.firstName);
      return this._http.put(`http://localhost:8067/status/user`,user);
    }
+   //reject status of life service
     rejectStatusOfLife(user:LifeRegistration):Observable<object>{
     console.log(user.firstName);
     return this._http.put(`http://localhost:8067/status1/user`,user);
   }
+
+  //update status of Dental Vision service
   updateStatusOfDV(user:DVRegistration):Observable<object>{
     console.log(user.firstName);
     return this._http.put(`http://localhost:8067/statusdv/user`,user);
   }
+
+  //reject status of dental vision service
    rejectStatusOfDV(user:DVRegistration):Observable<object>{
    console.log(user.firstName);
    return this._http.put(`http://localhost:8067/status1dv/user`,user);
  }
-
+ //update status of Dental  service
  updateStatusOfD(user:DentalUser):Observable<object>{
   console.log(user.firstName);
   return this._http.put(`http://localhost:8067/statusd/user`,user);
 }
+
+//reject status of dental service
  rejectStatusOfD(user:DentalUser):Observable<object>{
  console.log(user.firstName);
  return this._http.put(`http://localhost:8067/status1d/user`,user);
 }
+
+//get data of user
 getUserData():Observable<object>{
   return this._http.get("http://localhost:8067/userdetails");
-}    
+}  
+
+//get data of life
 getUWData():Observable<object>{
   return this._http.get("http://localhost:8067/uwdetails");
 } 
 
 
-   
+   //login user
   public loginUserFromRemote(user:User):Observable<any>{
   return this._http.post<any>("http://localhost:8067/login",user);
   }
+
+  //register user
   public registerUserFromRemote(user:User):Observable<any>{
     return this._http.post<any>("http://localhost:8067/registeruser",user);
   }
@@ -124,17 +137,21 @@ public sendEmailApproveLife(user:LifeRegistration):Observable<any>{
 
 
 
-
+//login admin
   public loginAdminFromRemote(admin:Admin):Observable<any>{
     return this._http.post<any>("http://localhost:8067/adlogin",admin);
     }
 
+    //create admin
     public createAdminFromRemote(admin:Admin):Observable<any>{
       return this._http.post<any>("http://localhost:8067/createadmin",admin);
       }
+     
+     // create under writer
   public registerUwriter(uwriter:Uwriter):Observable<any>{
     return this. _http.post<any>("http://localhost:8067/createUW",uwriter);
   }
+  //login under writer
   public loginUwriter(uwriter:Uwriter):Observable<any>{
     return this. _http.post<any>("http://localhost:8067/uwlogin",uwriter);
   }

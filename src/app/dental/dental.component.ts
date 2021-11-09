@@ -174,7 +174,7 @@ export class DentalComponent implements OnInit {
    user = new DentalUser();
 
   
-
+//apply dental application function
   applyDental(){this.submitted = true;
     if(this.Dental.invalid){
       this.validateAllFormFields(this.Dental);

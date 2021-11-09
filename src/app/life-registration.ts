@@ -1,3 +1,4 @@
+//Life service pojo class
 export class LifeRegistration {
 
     firstName: string;

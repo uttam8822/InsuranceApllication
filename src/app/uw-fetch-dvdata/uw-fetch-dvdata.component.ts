@@ -55,6 +55,7 @@ export class UwFetchDVDataComponent implements OnInit {
       )
       }
       public rejectForm1(){
+        if(this.reason.length>0){
         let getActiveUserInfo = this.activeUser;
       getActiveUserInfo.reason = this.reason;
         this.userRegistration.rejectStatusOfDV(getActiveUserInfo).subscribe(
@@ -68,6 +69,7 @@ export class UwFetchDVDataComponent implements OnInit {
           error=>{alert("Unsuccessfull")}
         )
       }
+    }
     
     
   ngOnInit(): void {

@@ -188,6 +188,8 @@ export class DentalVisionComponent implements OnInit {
   get additionalComments() {return this.DentalVisionForm.get('additionalComments');}
   get member() {return this.DentalVisionForm.get('member');}
   user = new DVRegistration();
+
+  //apply dental vision service
   applyDVService(){
     this.submitted = true;
     if(this.DentalVisionForm.invalid){

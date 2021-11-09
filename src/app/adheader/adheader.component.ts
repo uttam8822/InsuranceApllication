@@ -13,6 +13,7 @@ export class AdheaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //function for sidenav toggle
   public onToggleSidenav = () => { 
     this.sidenavToggle.emit();
   }

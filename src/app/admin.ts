@@ -1,3 +1,4 @@
+//admin pojo class
 export class Admin {
     id:number;
     fullName:string;

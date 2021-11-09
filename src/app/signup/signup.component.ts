@@ -50,7 +50,7 @@ export class SignupComponent implements OnInit {
 
    
 
-
+//signup function for user
 
   registerUser(){
     this._service.registerUserFromRemote(this.user).subscribe(
