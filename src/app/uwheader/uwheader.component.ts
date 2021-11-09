@@ -1,4 +1,4 @@
-import { Component, OnInit,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-uwheader',
@@ -13,7 +13,7 @@ export class UWheaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public onToggleSidenav = () => { 
+  public onToggleSidenav = () => {
     this.sidenavToggle.emit();
   }
 

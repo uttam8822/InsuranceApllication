@@ -1,22 +1,22 @@
 <!--This is user sign up page-->
 <div class="header">
   <div>
-  <a class="nav"routerLink="/home" style="background-color: white;">Impetus Insurance</a>
+    <a class="nav" routerLink="/home" style="background-color: white;">Impetus Insurance</a>
   </div>
-  <marquee width="20%" hieght="20%" hspace="150"direction="left" height="80px" >
+  <marquee width="20%" hieght="20%" hspace="150" direction="left" height="80px">
     Invest Today and Enjoy Tomorrow!
-    </marquee>
+  </marquee>
   <div class="header-right">
-    <a class="nav-link"routerLink="/home">Home</a>
-    <a class="nav-link"routerLink="/service">Our Services</a>
-    <a class="nav-link"routerLink="/contact">Contact Us</a>
-    <a class="nav-link"routerLink="/about">About Us</a>
+    <a class="nav-link" routerLink="/home">Home</a>
+    <a class="nav-link" routerLink="/service">Our Services</a>
+    <a class="nav-link" routerLink="/contact">Contact Us</a>
+    <a class="nav-link" routerLink="/about">About Us</a>
     <div class="dropdown">
       <button class="dropbtn">Login As</button>
       <div class="dropdown-content">
-        <a class="nav-link1"routerLink="/login">User</a>
-        <a class="nav-link1"routerLink="/uwlogin">UWriter</a>
-        <a class="nav-link1"routerLink="/adlogin">Admin</a>
+        <a class="nav-link1" routerLink="/login">User</a>
+        <a class="nav-link1" routerLink="/uwlogin">UWriter</a>
+        <a class="nav-link1" routerLink="/adlogin">Admin</a>
       </div>
     </div>
   </div>
@@ -42,27 +42,31 @@
 
 
                 <div *ngIf="alert" class="alert alert-success" role="alert">
-                  Registered Successfully <a class="abc" routerLink="/login"> LogIn  </a> here
+                  Registered Successfully <a class="abc" routerLink="/login"> LogIn </a> here
                 </div>
-                
+
                 <div *ngIf="alert1" class="alert alert-danger" role="alert">
                   User Already Exist<a class="abc" routerLink="/login"> LogIn </a> here
                 </div>
 
 
 
-                <form #Registerform="ngForm" (ngSubmit)="Registerform.form.valid && registerUser()" [formGroup]="SignupForm" class="mx-1 mx-md-4">
+                <form #Registerform="ngForm" (ngSubmit)="Registerform.form.valid && registerUser()"
+                  [formGroup]="SignupForm" class="mx-1 mx-md-4">
 
-               
+
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <label class="form-label" for="form3Example1c">First Name</label>
-                      <input formControlName = "firstname" class="form-control" aria-label="First Name" placeholder="Enter Your First Name" required required [(ngModel)] = "user.firstName"/>
+                      <input formControlName="firstname" class="form-control" aria-label="First Name"
+                        placeholder="Enter Your First Name" required required [(ngModel)]="user.firstName" />
                       <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
-                          <span class="error text-danger" *ngIf="firstname.errors?.required"> *First Name is Required.</span>
-                          <span class="error text-danger" *ngIf="firstname.errors?.pattern"> *Enter Only Characters.</span>
+                        <span class="error text-danger" *ngIf="firstname.errors?.required"> *First Name is
+                          Required.</span>
+                        <span class="error text-danger" *ngIf="firstname.errors?.pattern"> *Enter Only
+                          Characters.</span>
                       </div>
                     </div>
                   </div>
@@ -71,11 +75,13 @@
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <label class="form-label" for="form3Example1c">Last Name</label>
-                      <input formControlName="lastname" class="form-control"  aria-label="Last name" placeholder="Enter Your Last Name" required required [(ngModel)] = "user.lastName"/>
+                      <input formControlName="lastname" class="form-control" aria-label="Last name"
+                        placeholder="Enter Your Last Name" required required [(ngModel)]="user.lastName" />
                       <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
-                          <span class="error text-danger" *ngIf="lastname.errors?.required"> *Last Name is Required.</span>
-                          <span class="error text-danger" *ngIf="lastname.errors?.pattern"> *Enter Only Characters.</span>
-                      </div> 
+                        <span class="error text-danger" *ngIf="lastname.errors?.required"> *Last Name is
+                          Required.</span>
+                        <span class="error text-danger" *ngIf="lastname.errors?.pattern"> *Enter Only Characters.</span>
+                      </div>
                     </div>
                   </div>
 
@@ -84,11 +90,12 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <label class="form-label" for="form3Example3c">Your Email</label>
-                      <input formControlName="email" class="form-control"  aria-label="email" placeholder="Enter Your Email" required required [(ngModel)] = "user.emailId" />
-                    <div *ngIf="email.invalid && (email.touched || email.dirty)">
+                      <input formControlName="email" class="form-control" aria-label="email"
+                        placeholder="Enter Your Email" required required [(ngModel)]="user.emailId" />
+                      <div *ngIf="email.invalid && (email.touched || email.dirty)">
                         <span class="error text-danger" *ngIf="email.errors?.required">*Email required.</span>
-                    <span class="error text-danger" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
-                    </div> 
+                        <span class="error text-danger" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
+                      </div>
                     </div>
                   </div>
 
@@ -96,14 +103,18 @@
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <label class="form-label" for="form3Example4c">Password</label>
-                      <input formControlName="password" class="form-control" aria-label="adhar" type="password" placeholder="Enter Your Password"  required required [(ngModel)] = "user.password"/>
-                    <div *ngIf="password.invalid && (password.touched || password.dirty)">
+                      <input formControlName="password" class="form-control" aria-label="adhar" type="password"
+                        placeholder="Enter Your Password" required required [(ngModel)]="user.password" />
+                      <div *ngIf="password.invalid && (password.touched || password.dirty)">
                         <span class="error text-danger" *ngIf="password.errors?.required"> *Password is required.</span>
-                        <span class="error text-danger" *ngIf="password.errors?.pattern">  *Only numbers Characters @#! are allowed.</span>
-                        <span class="error text-danger" *ngIf="password.errors?.minlength"> *Password should be more than 8 Characters.</span>
-                        <span class="error text-danger" *ngIf="password.errors?.maxlength">*Password should be less than 20 Characters.</span>
-                        
-                    </div>
+                        <span class="error text-danger" *ngIf="password.errors?.pattern"> *Only numbers Characters @#!
+                          are allowed.</span>
+                        <span class="error text-danger" *ngIf="password.errors?.minlength"> *Password should be more
+                          than 8 Characters.</span>
+                        <span class="error text-danger" *ngIf="password.errors?.maxlength">*Password should be less than
+                          20 Characters.</span>
+
+                      </div>
                     </div>
                   </div>
 
@@ -111,16 +122,19 @@
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <label class="form-label" for="form3Example4cd"> Confirm Password</label>
-                      <input formControlName="cpassword" class="form-control" aria-label="adhar" type="password" placeholder="Confirm Password" pattern="{{user.password}}" required  />
+                      <input formControlName="cpassword" class="form-control" aria-label="adhar" type="password"
+                        placeholder="Confirm Password" pattern="{{user.password}}" required />
                       <div *ngIf="cpassword.invalid && (cpassword.touched || cpassword.dirty)">
-                          <span class="error text-danger" *ngIf="cpassword.errors?.required"> *Password is required.</span>
-                          <span class="text-danger" *ngIf="Registerform.submitted && cpassword.errors?.pattern">  *Password didn't matched.</span>
-                          
+                        <span class="error text-danger" *ngIf="cpassword.errors?.required"> *Password is
+                          required.</span>
+                        <span class="text-danger" *ngIf="Registerform.submitted && cpassword.errors?.pattern"> *Password
+                          didn't matched.</span>
+
                       </div>
                     </div>
                   </div>
 
-                  
+
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" class="btn btn-primary btn-lg">Register</button>
@@ -131,7 +145,8 @@
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png" class="img-fluid" alt="Sample image">
+                <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png"
+                  class="img-fluid" alt="Sample image">
 
               </div>
             </div>
@@ -141,9 +156,3 @@
     </div>
   </div>
 </section>
-
-
-
-
-
-

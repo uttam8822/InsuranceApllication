@@ -1,4 +1,4 @@
-import { Component, OnInit,Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-adheader',
@@ -14,7 +14,7 @@ export class AdheaderComponent implements OnInit {
   }
 
   //function for sidenav toggle
-  public onToggleSidenav = () => { 
+  public onToggleSidenav = () => {
     this.sidenavToggle.emit();
   }
 

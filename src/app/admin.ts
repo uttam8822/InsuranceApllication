@@ -1,10 +1,10 @@
 //admin pojo class
 export class Admin {
-    id:number;
-    fullName:string;
-    emailId:string;
-    adminId:string;
-    password:string;
+    id: number;
+    fullName: string;
+    emailId: string;
+    adminId: string;
+    password: string;
 
 }
 

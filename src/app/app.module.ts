@@ -11,7 +11,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule ,} from '@angular/forms';
+import { FormsModule, } from '@angular/forms';
 import { AdhomeComponent } from './adhome/adhome.component';
 import { UwhomeComponent } from './uwhome/uwhome.component';
 import { AdloginComponent } from './adlogin/adlogin.component';
@@ -25,7 +25,7 @@ import { CreatuwComponent } from './creatuw/creatuw.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatTabsModule } from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
@@ -40,7 +40,7 @@ import { FetchdatadentalvisionComponent } from './fetchdatadentalvision/fetchdat
 import { CreateadminComponent } from './createadmin/createadmin.component';
 import { SuccessfullcomponentComponent } from './successfullcomponent/successfullcomponent.component';
 import { LifeServiceUserDetailsComponent } from './life-service-user-details/life-service-user-details.component';
- import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { POPUPComponent } from './popup/popup.component';
 import { Service1Component } from './service1/service1.component';
 import { Aboutus1Component } from './aboutus1/aboutus1.component';
@@ -62,7 +62,7 @@ import { FetchuserdetailsComponent } from './fetchuserdetails/fetchuserdetails.c
 import { SendmailUWComponent } from './sendmail-uw/sendmail-uw.component';
 import { UserAuthGuard } from './Auth/user-auth.guard';
 import { RegistrationService } from './registration.service';
-import { UwriterAuthGuard} from './Auth/uwriter-auth.guard';
+import { UwriterAuthGuard } from './Auth/uwriter-auth.guard';
 import { AdminAuthGuard } from './Auth/admin-auth.guard';
 
 
@@ -117,7 +117,7 @@ import { AdminAuthGuard } from './Auth/admin-auth.guard';
     FetchuserdetailsComponent,
     SendEmailComponent,
     SendmailUWComponent
-    
+
 
 
 
@@ -141,9 +141,9 @@ import { AdminAuthGuard } from './Auth/admin-auth.guard';
     MatDialogModule
 
   ],
-  providers: [UserAuthGuard,RegistrationService,UwriterAuthGuard,AdminAuthGuard],
+  providers: [UserAuthGuard, RegistrationService, UwriterAuthGuard, AdminAuthGuard],
   bootstrap: [AppComponent],
-  entryComponents:[POPUPComponent]
+  entryComponents: [POPUPComponent]
 
 })
 export class AppModule { }

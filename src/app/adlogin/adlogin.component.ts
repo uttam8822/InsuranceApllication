@@ -15,29 +15,29 @@ export class AdloginComponent implements OnInit {
   alert: boolean = false;
   msg: String = '';
   admin = new Admin();
-  constructor(private _service: RegistrationService, private _route: Router,private auth:AdminAuthGuard) { }
+  constructor(private _service: RegistrationService, private _route: Router, private auth: AdminAuthGuard) { }
 
   ngOnInit(): void {
   }
-//admin login function
+  //admin login function
   loginAdmin() {
     this._service.loginAdminFromRemote(this.admin).subscribe(
       data => {
         console.log("response received");
         this.msg = "login success"
-        this.auth.response=true;
+        this.auth.response = true;
         this._route.navigate(["/adhome"])
       },
       error => {
         console.error("exception occour");
         this.msg = "Bad credentials, Please enter valid email and password";
         this.alert = false;
-        this.auth.response=false;
+        this.auth.response = false;
         this._route.navigate(["/adlogin"])
       }
 
     );
   }
- 
+
 
 }

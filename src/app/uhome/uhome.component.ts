@@ -10,12 +10,12 @@ export class UhomeComponent implements OnInit {
 
   constructor() { }
 
-   
-  name:any;
-  finalNameOfUser:any;
+
+  name: any;
+  finalNameOfUser: any;
   ngOnInit(): void {
-     this.name=localStorage.getItem("email");
-     this.finalNameOfUser=this.name.split("@",1);
+    this.name = localStorage.getItem("email");
+    this.finalNameOfUser = this.name.split("@", 1);
   }
 
 }

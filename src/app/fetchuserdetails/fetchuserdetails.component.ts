@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fetchuserdetails.component.css']
 })
 export class FetchuserdetailsComponent implements OnInit {
-userData:any=[];
-  constructor(private service:RegistrationService,) {
-    this.service.getUserData().subscribe(data=>{
+  userData: any = [];
+  constructor(private service: RegistrationService,) {
+    this.service.getUserData().subscribe(data => {
       console.log(data);
-      this.userData=data;
-     
+      this.userData = data;
+
     });
-   }
+  }
 
   ngOnInit(): void {
   }

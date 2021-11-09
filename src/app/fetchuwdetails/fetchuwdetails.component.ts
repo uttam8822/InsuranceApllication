@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fetchuwdetails.component.css']
 })
 export class FetchuwdetailsComponent implements OnInit {
-userData:any=[];
-  constructor(private service:RegistrationService) { 
-    this.service.getUWData().subscribe(data=>{
+  userData: any = [];
+  constructor(private service: RegistrationService) {
+    this.service.getUWData().subscribe(data => {
       console.log(data);
-      this.userData=data;
-     
+      this.userData = data;
+
     });
   }
 

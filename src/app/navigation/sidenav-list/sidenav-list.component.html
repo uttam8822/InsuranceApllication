@@ -3,8 +3,8 @@
     <a mat-list-item routerLink="/adminHome" routerLinkActive="active-link" (click)="onSidenavClose()">
         <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
     </a>
-     
-    
+
+
     <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
         <mat-icon>logout</mat-icon><span class="nav-caption">Logout</span>
     </a>
@@ -14,8 +14,8 @@
         <a matline>Create</a>
     </mat-list-item>
     <mat-menu #menu="matMenu">
-      <a routerLink="/cretuw" mat-menu-item (click)="onSidenavClose()" style="color: black;">Under Writer</a>
-      <a routerLink="/createAdmin" mat-menu-item (click)="onSidenavClose()" style="color: black;">Admin</a>
-     
+        <a routerLink="/cretuw" mat-menu-item (click)="onSidenavClose()" style="color: black;">Under Writer</a>
+        <a routerLink="/createAdmin" mat-menu-item (click)="onSidenavClose()" style="color: black;">Admin</a>
+
     </mat-menu>
-  </mat-nav-list>
+</mat-nav-list>

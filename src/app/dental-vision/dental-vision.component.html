@@ -1,76 +1,86 @@
 <!--This is dental vision form page-->
 <div class="header">
     <div style="padding-bottom: 10px;">
-    <a class="nav"routerLink="/service1">Impetus Insurance</a>
+        <a class="nav" routerLink="/service1">Impetus Insurance</a>
     </div>
-    <marquee width="20%" hieght="20%" hspace="150"direction="left" height="50px" style="padding-top: 10px;">
-      Invest Today and Enjoy Tomorrow!
-      </marquee>
+    <marquee width="20%" hieght="20%" hspace="150" direction="left" height="50px" style="padding-top: 10px;">
+        Invest Today and Enjoy Tomorrow!
+    </marquee>
     <div class="header-right">
-      <a class="nav-link"routerLink="/service1">Our Services</a>
-      <a class="nav-link"routerLink="/contact1">Contact Us</a>
-      <a class="nav-link"routerLink="/about1">About Us</a>
-      <a class="nav-link"routerLink="/login">Logout</a>
+        <a class="nav-link" routerLink="/service1">Our Services</a>
+        <a class="nav-link" routerLink="/contact1">Contact Us</a>
+        <a class="nav-link" routerLink="/about1">About Us</a>
+        <a class="nav-link" routerLink="/login">Logout</a>
     </div>
-  </div>
+</div>
 
 
-  <div  style="background-image: url('https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=872&q=80'); " class="scroll-ele" #scroll>
-    
+<div style="background-image: url('https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=872&q=80'); "
+    class="scroll-ele" #scroll>
+
     <div class="container">
-        <div  style="background-image: url('https://media.istockphoto.com/videos/cute-tooth-dental-cartoon-hd-animation-video-id975678004?s=640x640'); height: 75px; border-radius: 10px;">
-            <h1  style="color: rgb(53, 11, 45); text-align: center; font-weight: 900; font-size: xx-large;">Apply for Dental and Vision Insurance</h1></div>
-    
-        
-        <form [formGroup]="DentalVisionForm" #DVForm ="ngForm" (ngSubmit)="applyDVService()">
+        <div
+            style="background-image: url('https://media.istockphoto.com/videos/cute-tooth-dental-cartoon-hd-animation-video-id975678004?s=640x640'); height: 75px; border-radius: 10px;">
+            <h1 style="color: rgb(53, 11, 45); text-align: center; font-weight: 900; font-size: xx-large;">Apply for
+                Dental and Vision Insurance</h1>
+        </div>
+
+
+        <form [formGroup]="DentalVisionForm" #DVForm="ngForm" (ngSubmit)="applyDVService()">
             <div class="row g-3">
                 <div class="col">
                     <label>First Name<span style="color: red;">*</span></label>
-                    <input formControlName = "firstname" class="form-control" aria-label="First name" placeholder="Enter Your First Name" required required [(ngModel)] = "user.firstName"/>
-                <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
-                    <span class="error" *ngIf="firstname.errors?.required"> *First Name is required.</span>
-                    <span class="error" *ngIf="firstname.errors?.pattern"> *Enter Only Characters.</span>
-                </div>
+                    <input formControlName="firstname" class="form-control" aria-label="First name"
+                        placeholder="Enter Your First Name" required required [(ngModel)]="user.firstName" />
+                    <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
+                        <span class="error" *ngIf="firstname.errors?.required"> *First Name is required.</span>
+                        <span class="error" *ngIf="firstname.errors?.pattern"> *Enter Only Characters.</span>
+                    </div>
                 </div>
                 <div class="col">
                     <label>Middle Name</label>
-                    <input formControlName="middlename" class="form-control"  aria-label="Last name" placeholder="Enter Middle Name" [(ngModel)] = "user.middleNmme">
+                    <input formControlName="middlename" class="form-control" aria-label="Last name"
+                        placeholder="Enter Middle Name" [(ngModel)]="user.middleNmme">
                     <div *ngIf="middlename.invalid && (middlename.touched || middlename.dirty)">
                         <span class="error" *ngIf="middlename.errors?.pattern"> *Enter Only Characters.</span>
                     </div>
                 </div>
                 <div class="col">
                     <label>Last Name<span style="color: red;">*</span></label>
-                    <input formControlName="lastname" class="form-control"  aria-label="Last name" placeholder="Enter your Last Name" required required [(ngModel)] = "user.lastName">
+                    <input formControlName="lastname" class="form-control" aria-label="Last name"
+                        placeholder="Enter your Last Name" required required [(ngModel)]="user.lastName">
                     <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
                         <span class="error" *ngIf="lastname.errors?.required"> *Last Name is required.</span>
                         <span class="error" *ngIf="lastname.errors?.pattern"> *Enter Only Characters.</span>
                     </div>
                 </div>
-            </div> 
+            </div>
             <div class="row g-3">
                 <div class="col">
                     <label>Aadhar Number<span style="color: red;">*</span></label>
-                    <input formControlName="aadhar" class="form-control" aria-label="adhar" placeholder="Ex:279089095465" required required [(ngModel)] = "user.aadhar"/>
+                    <input formControlName="aadhar" class="form-control" aria-label="adhar"
+                        placeholder="Ex:279089095465" required required [(ngModel)]="user.aadhar" />
                     <div *ngIf="aadhar.invalid && (aadhar.touched || aadhar.dirty)">
                         <span class="error" *ngIf="aadhar.errors?.required"> *Aadhar is required.</span>
-                        <span class="error" *ngIf="aadhar.errors?.pattern">  *Only numbers are allowed.</span>
+                        <span class="error" *ngIf="aadhar.errors?.pattern"> *Only numbers are allowed.</span>
                         <span class="error" *ngIf="aadhar.errors?.minlength"> *Invalid Aadhar.</span>
                         <span class="error" *ngIf="aadhar.errors?.maxlength">*Invalid Aadhar.</span>
-                        
+
                     </div>
                 </div>
                 <div class="col">
                     <label>Email<span style="color: red;">*</span></label>
-                    <input formControlName="email" class="form-control"  aria-label="email" placeholder="Ex: abcdef@abc.com" required required [(ngModel)] = "user.email">
+                    <input formControlName="email" class="form-control" aria-label="email"
+                        placeholder="Ex: abcdef@abc.com" required required [(ngModel)]="user.email">
                     <div *ngIf="email.invalid && (email.touched || email.dirty)">
                         <span class="error" *ngIf="email.errors?.required">*Email is required.</span>
-                    <span class="error" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
-                    </div> 
+                        <span class="error" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
+                    </div>
                 </div>
                 <div class="col">
                     <label>PAN<span style="color: red;">*</span></label>
-                    <input formControlName="pannumber" class="form-control"  aria-label="pan" placeholder="Ex: EPCPL8909F" required required [(ngModel)] = "user.pan">
+                    <input formControlName="pannumber" class="form-control" aria-label="pan"
+                        placeholder="Ex: EPCPL8909F" required required [(ngModel)]="user.pan">
                     <div *ngIf="pannumber.invalid && (pannumber.touched || pannumber.dirty)">
                         <span class="error" *ngIf="pannumber.errors?.required"> PAN is required.</span>
                         <span class="error" *ngIf="pannumber.errors?.pattern"> Invalid PAN.</span>
@@ -81,45 +91,51 @@
                 <div class="row g-3">
                     <div class="col">
                         <label>Address<span style="color: red;">*</span></label>
-                        <input formControlName="address" class="form-control" aria-label="address" placeholder="Full Address" required required [(ngModel)] = "user.address"/>
+                        <input formControlName="address" class="form-control" aria-label="address"
+                            placeholder="Full Address" required required [(ngModel)]="user.address" />
                         <div *ngIf="address.invalid && (address.touched || address.dirty)">
                             <span class="error" *ngIf="address.errors?.required"> *Address is required.</span>
                         </div>
                     </div>
                     <div class="col">
                         <label>Zip code<span style="color: red;">*</span></label>
-                        <input formControlName="zipcode" class="form-control" aria-label="zip" placeholder="Ex:282008" required required [(ngModel)] = "user.zip"/>
+                        <input formControlName="zipcode" class="form-control" aria-label="zip" placeholder="Ex:282008"
+                            required required [(ngModel)]="user.zip" />
                         <div *ngIf="zipcode.invalid && (zipcode.touched || zipcode.dirty)">
-                        <span class="error" *ngIf="zipcode.errors?.required"> *Zip Code is required.</span>
-                        <span class="error" *ngIf="zipcode.errors?.pattern"> *Only Numbers are allowed.</span>
-                        <span class="error" *ngIf="zipcode.errors?.minlength">*Invalid Zip code.</span>
-                        <span class="error" *ngIf="zipcode.errors?.maxlength">*Invalid Zip code.</span>
-                    </div>
+                            <span class="error" *ngIf="zipcode.errors?.required"> *Zip Code is required.</span>
+                            <span class="error" *ngIf="zipcode.errors?.pattern"> *Only Numbers are allowed.</span>
+                            <span class="error" *ngIf="zipcode.errors?.minlength">*Invalid Zip code.</span>
+                            <span class="error" *ngIf="zipcode.errors?.maxlength">*Invalid Zip code.</span>
+                        </div>
                     </div>
                     <div class="col">
                         <label>City<span style="color: red;">*</span></label>
-                        <input formControlName="city" class="form-control" aria-label="city" placeholder="Ex: Agra" required required [(ngModel)] = "user.city"/>
+                        <input formControlName="city" class="form-control" aria-label="city" placeholder="Ex: Agra"
+                            required required [(ngModel)]="user.city" />
                         <div *ngIf="city.invalid && (city.touched || city.dirty)">
-                        <span class="error" *ngIf="city.errors?.required"> *city is required.</span>
-                        <span class="error" *ngIf="city.errors?.pattern"> *Only Characters allowed.</span>
+                            <span class="error" *ngIf="city.errors?.required"> *city is required.</span>
+                            <span class="error" *ngIf="city.errors?.pattern"> *Only Characters allowed.</span>
                         </div>
                     </div>
-                </div>    
-            </div> 
-            
+                </div>
+            </div>
+
             <div>
                 <div class="row g-3">
                     <div class="col">
                         <label>State<span style="color: red;">*</span></label>
-                        <input formControlName="state" class="form-control" aria-label="city" placeholder="Ex:Harayana" required required [(ngModel)] = "user.state"/>
+                        <input formControlName="state" class="form-control" aria-label="city" placeholder="Ex:Harayana"
+                            required required [(ngModel)]="user.state" />
                         <div *ngIf="state.invalid && (state.touched || state.dirty)">
-                        <span class="error" *ngIf="state.errors?.required"> *State is required.</span>
-                        <span class="error" *ngIf="state.errors?.pattern"> *Only Characters and Space allowed.</span>
+                            <span class="error" *ngIf="state.errors?.required"> *State is required.</span>
+                            <span class="error" *ngIf="state.errors?.pattern"> *Only Characters and Space
+                                allowed.</span>
                         </div>
                     </div>
                     <div class="col">
                         <label>Mobile No<span style="color: red;">*</span></label>
-                        <input formControlName="contact" class="form-control" aria-label="Mobile No" placeholder="Ex:7898086645" required required [(ngModel)] = "user.contact"/>
+                        <input formControlName="contact" class="form-control" aria-label="Mobile No"
+                            placeholder="Ex:7898086645" required required [(ngModel)]="user.contact" />
                         <div *ngIf="contact.invalid && (contact.touched || contact.dirty)">
                             <span class="error" *ngIf="contact.errors?.required"> *Mobile is required.</span>
                             <span class="error" *ngIf="contact.errors?.pattern"> *Only Numbers are allowed.</span>
@@ -129,20 +145,23 @@
                     </div>
                     <div class="col">
                         <label>Birth date<span style="color: red;">*</span></label>
-                        <input formControlName="dateOfBirth" class="form-control" aria-label="contact" placeholder="DD/MM/YYYY" required required [(ngModel)] = "user. dateOfBirth"/>
+                        <input formControlName="dateOfBirth" class="form-control" aria-label="contact"
+                            placeholder="DD/MM/YYYY" required required [(ngModel)]="user. dateOfBirth" />
                         <div *ngIf="dateOfBirth.invalid && (dateOfBirth.touched || dateOfBirth.dirty)">
                             <span class="error" *ngIf="dateOfBirth.errors?.required"> *Date is required.</span>
-                            <span class="error" *ngIf="dateOfBirth.errors?.pattern"> *Should be in format(DD/MM/YYYY).</span>
-                             </div>
+                            <span class="error" *ngIf="dateOfBirth.errors?.pattern"> *Should be in
+                                format(DD/MM/YYYY).</span>
+                        </div>
                     </div>
 
-               </div>
+                </div>
             </div>
             <div>
                 <div class="row g-2">
                     <div class="col">
                         <label>Occupation<span style="color: red;">*</span></label>
-                        <input formControlName="occupation" class="form-control" aria-label="zip" placeholder="Ex: Enginer, Teacher, etc" required required [(ngModel)] = "user.occupation"/>
+                        <input formControlName="occupation" class="form-control" aria-label="zip"
+                            placeholder="Ex: Enginer, Teacher, etc" required required [(ngModel)]="user.occupation" />
                         <div *ngIf="occupation.invalid && (occupation.touched || occupation.dirty)">
                             <span class="error" *ngIf="occupation.errors?.required"> *Occupation is required.</span>
                             <span class="error" *ngIf="occupation.errors?.pattern"> *Only Characters are allowed.</span>
@@ -150,53 +169,57 @@
                     </div>
                     <div class="col">
                         <label>Annual Income in Lacs <span style="color: red;">*</span></label>
-                    <input formControlName="income" class="form-control"  placeholder="Ex: 4" required required [(ngModel)] = "user.income"/>
+                        <input formControlName="income" class="form-control" placeholder="Ex: 4" required required
+                            [(ngModel)]="user.income" />
 
-                    <div *ngIf="income.invalid && (income.touched || income.dirty)">
-                        <span class="error" *ngIf="income.errors?.required"> *Income is required.</span>
-                        <span class="error" *ngIf="income.errors?.pattern"> *Only Numbers are allowed.</span>
-                        <span class="error" *ngIf="income.errors?.minlength">*Invalid income.</span>
-                        <span class="error" *ngIf="income.errors?.maxlength">*Invalid income.</span>
+                        <div *ngIf="income.invalid && (income.touched || income.dirty)">
+                            <span class="error" *ngIf="income.errors?.required"> *Income is required.</span>
+                            <span class="error" *ngIf="income.errors?.pattern"> *Only Numbers are allowed.</span>
+                            <span class="error" *ngIf="income.errors?.minlength">*Invalid income.</span>
+                            <span class="error" *ngIf="income.errors?.maxlength">*Invalid income.</span>
+                        </div>
                     </div>
-                    </div>
-                </div>    
+                </div>
             </div>
-             
+
 
             <div class="row g-2">
                 <div class="col">
-                    <label for ="selectPlane">Describe time in year for your plan ?<span style="color: red;">*</span></label>
-                    <br> 
-                    <select name="selectlist3" id="selectlist3" style="height: 45px; width: 490px;" (change)="selectPlanHandler($event)" formControlName="selectPlane"> 
+                    <label for="selectPlane">Describe time in year for your plan ?<span
+                            style="color: red;">*</span></label>
+                    <br>
+                    <select name="selectlist3" id="selectlist3" style="height: 45px; width: 490px;"
+                        (change)="selectPlanHandler($event)" formControlName="selectPlane">
                         <option value='' disabled selected>Please select year plan</option>
                         <option value="1">1 Year</option>
                         <option value="2">2 Years</option>
-                         <option value="3">3 Years</option>
-                        <option value="4">4 Years</option> 
+                        <option value="3">3 Years</option>
+                        <option value="4">4 Years</option>
                         <option value="5">5 Years</option>
                     </select>
                     <div *ngIf="selectPlane.invalid && (selectPlane.touched || selectPlane.dirty)">
                         <span class="error" *ngIf="selectPlane.errors?.required"> *Plan is required.</span>
-                         
-                       </div>
-                      
+
+                    </div>
+
                 </div>
                 <div class="col">
                     <label>Select member<span style="color: red;">*</span></label>
                     <br>
-                      <select name="selectlist4" id="selectlist4" style="height: 45px; width: 490px;" (change)="selectChangeHandler($event)" formControlName="member">
+                    <select name="selectlist4" id="selectlist4" style="height: 45px; width: 490px;"
+                        (change)="selectChangeHandler($event)" formControlName="member">
                         <option value="" disabled selected>Please select member</option>
                         <option value="Individual">Individual</option>
                         <option value="Individual & Spouse">Individual & Spouse</option>
                         <option value="Individual Spouse & Child">Individual Spouse & Child</option>
                         <option value="Individual Spouse & Parents">Individual Spouse & Parents</option>
-                      </select>
-                      <div *ngIf="member.invalid && (member.touched || member.dirty)">
+                    </select>
+                    <div *ngIf="member.invalid && (member.touched || member.dirty)">
                         <span class="error" *ngIf="member.errors?.required"> *Member is required.</span>
-                         
-                       </div>
-                       <br>
-                       <small style="color: blue;">{{selectmembermessage}}</small>
+
+                    </div>
+                    <br>
+                    <small style="color: blue;">{{selectmembermessage}}</small>
                 </div>
             </div>
 
@@ -206,30 +229,34 @@
             <div class="row g-2">
                 <div class="col ">
                     <label>Gender<span style="color: red;">*</span></label>
-                
-                    <select name="selectlist5" id="selectlist5" style="height: 45px; width: 490px;" (change)="selectGenderHandler($event)" formControlName="gender">
+
+                    <select name="selectlist5" id="selectlist5" style="height: 45px; width: 490px;"
+                        (change)="selectGenderHandler($event)" formControlName="gender">
                         <option value="" disabled selected> Please select your </option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                         
-                      </select>
-                      <div *ngIf="gender.invalid && (gender.touched || gender.dirty)">
-                        <span class="error" *ngIf="gender.errors?.required"> *Gender is required.</span>
-                       </div>
-                 </div>
 
-            
+                    </select>
+                    <div *ngIf="gender.invalid && (gender.touched || gender.dirty)">
+                        <span class="error" *ngIf="gender.errors?.required"> *Gender is required.</span>
+                    </div>
+                </div>
+
+
                 <div class="col">
-                    <label>Are you planning on cancelling any existing life insurance?<span style="color: red;">*</span></label>
-                       <select name="selectlist6" id="selectlist6" style="height: 45px; width: 490px;" (change)="selectCancelHandler($event)" formControlName="cancellingInsurance">
-                        <option value=""  selected>Please select </option>
+                    <label>Are you planning on cancelling any existing life insurance?<span
+                            style="color: red;">*</span></label>
+                    <select name="selectlist6" id="selectlist6" style="height: 45px; width: 490px;"
+                        (change)="selectCancelHandler($event)" formControlName="cancellingInsurance">
+                        <option value="" selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
-                      </select>
-                      <div *ngIf="cancellingInsurance.invalid && (cancellingInsurance.touched || cancellingInsurance.dirty)">
+                    </select>
+                    <div
+                        *ngIf="cancellingInsurance.invalid && (cancellingInsurance.touched || cancellingInsurance.dirty)">
                         <span class="error" *ngIf="cancellingInsurance.errors?.required"> *Feild is required.</span>
-                         
-                       </div>
+
+                    </div>
                 </div>
 
             </div>
@@ -239,55 +266,60 @@
             <div class="row g-2">
                 <div class="col ">
                     <label>Do you have group life insurance through work?<span style="color: red;">*</span></label>
-                      <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectGroupInsuranceHandler($event)" formControlName="groupInsurance">
+                    <select name="cars" id="cars" style="height: 45px; width: 490px;"
+                        (change)="selectGroupInsuranceHandler($event)" formControlName="groupInsurance">
                         <option value='' disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
                     <div *ngIf="groupInsurance.invalid && (groupInsurance.touched || groupInsurance.dirty)">
                         <span class="error" *ngIf="groupInsurance.errors?.required"> *Feild is required.</span>
-                         
-                       </div>
+
+                    </div>
                 </div>
                 <div class="col">
                     <label>Do you consume Tobacco Or Alcohol Or do Smoking?<span style="color: red;">*</span></label>
-                 
-                    <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectTobaccoHandler($event)" formControlName="Tobacco">
+
+                    <select name="cars" id="cars" style="height: 45px; width: 490px;"
+                        (change)="selectTobaccoHandler($event)" formControlName="Tobacco">
                         <option value='' disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
-                      </select>
-                      <div *ngIf="Tobacco.invalid && (Tobacco.touched || Tobacco.dirty)">
+                    </select>
+                    <div *ngIf="Tobacco.invalid && (Tobacco.touched || Tobacco.dirty)">
                         <span class="error" *ngIf="Tobacco.errors?.required"> *Feild is required.</span>
-                         
-                       </div>
+
+                    </div>
                 </div>
 
             </div>
 
 
-            
+
             <div class="row g-2">
                 <div class="col">
                     <label>Any Major Oral Operation in Past?<span style="color: red;">*</span></label>
-                     <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectOralHandler($event)" formControlName="oralOperation">
+                    <select name="cars" id="cars" style="height: 45px; width: 490px;"
+                        (change)="selectOralHandler($event)" formControlName="oralOperation">
                         <option value='' disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
                     <div *ngIf="oralOperation.invalid && (oralOperation.touched || oralOperation.dirty)">
                         <span class="error" *ngIf="oralOperation.errors?.required"> *Feild is required.</span>
-                         
-                       </div>
-                     
+
+                    </div>
+
                 </div>
                 <div class="col">
                     <label>When was your last Dental Check-Up?<span style="color: red;">*</span></label>
-                    <input formControlName="lastDentalCkeck" class="form-control" aria-label="contact" placeholder="DD/MM/YYYY" required required [(ngModel)] = "user. lastDentalCkeck"/>
-                        <div *ngIf="lastDentalCkeck.invalid && (lastDentalCkeck.touched || lastDentalCkeck.dirty)">
-                            <span class="error" *ngIf="lastDentalCkeck.errors?.required"> *Date is required.</span>
-                            <span class="error" *ngIf="lastDentalCkeck.errors?.pattern"> *Should be in formate(DD/MM/YYYY).</span>
-                             </div>
+                    <input formControlName="lastDentalCkeck" class="form-control" aria-label="contact"
+                        placeholder="DD/MM/YYYY" required required [(ngModel)]="user. lastDentalCkeck" />
+                    <div *ngIf="lastDentalCkeck.invalid && (lastDentalCkeck.touched || lastDentalCkeck.dirty)">
+                        <span class="error" *ngIf="lastDentalCkeck.errors?.required"> *Date is required.</span>
+                        <span class="error" *ngIf="lastDentalCkeck.errors?.pattern"> *Should be in
+                            formate(DD/MM/YYYY).</span>
+                    </div>
 
                 </div>
 
@@ -298,28 +330,30 @@
             <div class="row g-2">
                 <div class="col">
                     <label>Have/Had cavity any time Or any ungrown teeth? <span style="color: red;">*</span></label>
-                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectCavityHandler($event)" formControlName="anyCavity">
+                    <select name="cars" id="cars" style="height: 45px; width: 490px;"
+                        (change)="selectCavityHandler($event)" formControlName="anyCavity">
                         <option value='' disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
                     <div *ngIf="anyCavity.invalid && (anyCavity.touched || anyCavity.dirty)">
                         <span class="error" *ngIf="anyCavity.errors?.required"> *Feild is required.</span>
-                         
-                       </div>
+
+                    </div>
 
                 </div>
                 <div class="col">
                     <label>Are you wearing glasses?<span style="color: red;">*</span></label>
-                       <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectGlassesHandler($event)" formControlName="wearGlasses">
+                    <select name="cars" id="cars" style="height: 45px; width: 490px;"
+                        (change)="selectGlassesHandler($event)" formControlName="wearGlasses">
                         <option value='' disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
                     <div *ngIf="wearGlasses.invalid && (wearGlasses.touched || wearGlasses.dirty)">
                         <span class="error" *ngIf="wearGlasses.errors?.required"> *Feild is required.</span>
-                         
-                       </div>
+
+                    </div>
 
                 </div>
 
@@ -331,95 +365,97 @@
             <div class="row g-3">
                 <div class="col">
                     <label>Do you Have Cataract or any other Eye Disease?<span style="color: red;">*</span></label>
-                        <select name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectEyeDiseaseHandler($event)" formControlName="anyEyeDisease">
+                    <select name="cars" id="cars" style="height: 45px; width: 490px;"
+                        (change)="selectEyeDiseaseHandler($event)" formControlName="anyEyeDisease">
                         <option value='' disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
                     <div *ngIf="anyEyeDisease.invalid && (anyEyeDisease.touched || anyEyeDisease.dirty)">
                         <span class="error" *ngIf="anyEyeDisease.errors?.required"> *Feild is required.</span>
-                         
-                       </div>
+
+                    </div>
 
                 </div>
                 <div class="col">
                     <label>Have you ever undergone any Eyes Operation?<span style="color: red;">*</span></label>
-                       <select  name="cars" id="cars" style="height: 45px; width: 490px;" (change)="selectEyeOperationsHandler($event)" formControlName="anyEyeOperation">
+                    <select name="cars" id="cars" style="height: 45px; width: 490px;"
+                        (change)="selectEyeOperationsHandler($event)" formControlName="anyEyeOperation">
                         <option value='' disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
                     <div *ngIf="anyEyeOperation.invalid && (anyEyeOperation.touched || anyEyeOperation.dirty)">
                         <span class="error" *ngIf="anyEyeOperation.errors?.required"> *Feild is required.</span>
-                         
-                       </div>
+
+                    </div>
 
                 </div>
 
             </div>
-     
-             
-            
 
-            
 
-           
- 
 
-            
-              
-            
-            
-            
+
+
+
+
+
+
+
+
+
+
+
 
             <div>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Describe any other health issue/issues you are have or Suffered in Past?</label>
-                    <input formControlName="healthIssue" class="form-control" aria-label="zip" placeholder="Tell us about your health issue" [(ngModel)] = "user.healthIssue" maxlength="50" style="height: 100px;"/>    
+                    <label for="exampleFormControlTextarea1" class="form-label">Describe any other health issue/issues
+                        you are have or Suffered in Past?</label>
+                    <input formControlName="healthIssue" class="form-control" aria-label="zip"
+                        placeholder="Tell us about your health issue" [(ngModel)]="user.healthIssue" maxlength="50"
+                        style="height: 100px;" />
                 </div>
             </div>
 
 
             <div class="row g-3">
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Please add any additional comments or questions:</label>
-                    <input formControlName="additionalComments" class="form-control" aria-label="zip" placeholder=" Add your comments" [(ngModel)] = "user.additionalComments" maxlength="50" style="height: 100px;"/>
-                       
+                    <label for="exampleFormControlTextarea1" class="form-label">Please add any additional comments or
+                        questions:</label>
+                    <input formControlName="additionalComments" class="form-control" aria-label="zip"
+                        placeholder=" Add your comments" [(ngModel)]="user.additionalComments" maxlength="50"
+                        style="height: 100px;" />
+
                 </div>
             </div>
 
-            
-            
 
 
-            
+
+
+
             <div class="row">
                 <div class="col">
-            <button type="submit" class="btn btn-success"
+                    <button type="submit" class="btn btn-success" (click)="scrollTop()"
+                        (click)="user.gender=selectGender" (click)="user.tobacco=selectTobacco"
+                        (click)="user.selectPlane=selectPlaneYear" (click)="user.cancellingInsurance=cancelExixting"
+                        (click)="user.groupInsurance=groupInsuranceUser" (click)="user.oralOperation=oralOperationUser"
+                        (click)="user.anyCavity=selectCavity" (click)="user.wearGlasses=selectGlasses"
+                        (click)="user.anyEyeDisease=selectEyeDisses" (click)="user.anyEyeOperation=selectEyeOperation"
+                        (click)="user.member=selectedDay">Submit</button>
+                </div>
+                <div class="col">
+                    <button (click)="scrollTop()" style="background-color: rgb(240, 52, 52) " type="reset"
+                        class="btn btn-success" (click)="DentalVisionForm.reset()">Clear</button>
+                </div>
 
-            (click)="scrollTop()"
-            (click)="user.gender=selectGender"
-            (click)="user.tobacco=selectTobacco"
-            (click)="user.selectPlane=selectPlaneYear"
-            (click)="user.cancellingInsurance=cancelExixting"
-            (click)="user.groupInsurance=groupInsuranceUser"
-                (click)="user.oralOperation=oralOperationUser"
-                (click)="user.anyCavity=selectCavity"
-                (click)="user.wearGlasses=selectGlasses"
-                (click)="user.anyEyeDisease=selectEyeDisses"
-                (click)="user.anyEyeOperation=selectEyeOperation"
-                (click)="user.member=selectedDay"
-                 >Submit</button>
-        </div>
-        <div class="col">
-            <button (click)="scrollTop()" style="background-color: rgb(240, 52, 52) " type="reset" class="btn btn-success" (click)="DentalVisionForm.reset()">Clear</button>
+                <div class="col">
+                    <button routerLink="/service1" style="background-color: rgb(240, 52, 52) " type="reset"
+                        class="btn btn-success" (click)="DentalVisionForm.reset()">Cancel</button>
+                </div>
             </div>
-            
-            <div class="col">
-            <button routerLink="/service1" style="background-color: rgb(240, 52, 52) " type="reset" class="btn btn-success" (click)="DentalVisionForm.reset()">Cancel</button>
-            </div>
-             </div>    
-            
+
         </form>
     </div>
 </div>

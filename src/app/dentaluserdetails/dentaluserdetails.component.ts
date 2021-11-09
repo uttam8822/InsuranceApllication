@@ -9,20 +9,20 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./dentaluserdetails.component.css']
 })
 export class DentaluserdetailsComponent implements OnInit {
-user = new DentalUser();
-  config:any;
-  id:any;
-  userData:any=[];
+  user = new DentalUser();
+  config: any;
+  id: any;
+  userData: any = [];
 
-  constructor(private userRegistration:RegistrationService,private route:ActivatedRoute){}
+  constructor(private userRegistration: RegistrationService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id=this.route.snapshot.params['aadhar'];
+    this.id = this.route.snapshot.params['aadhar'];
     //console.log(this.id);
-    this.userRegistration.getDentalDataByID(this.id).subscribe(data=>{
+    this.userRegistration.getDentalDataByID(this.id).subscribe(data => {
       console.log(data);
-      this.userData=new Array(data);
-     
+      this.userData = new Array(data);
+
     });
   }
 

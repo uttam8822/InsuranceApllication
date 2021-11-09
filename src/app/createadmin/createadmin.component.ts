@@ -12,82 +12,83 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class CreateadminComponent implements OnInit {
 
   constructor(private _service: RegistrationService, private _route: Router) { }
-  createAd=new Admin();
-  msg1:string='';
-  createadmin : any;
+  createAd = new Admin();
+  msg1: string = '';
+  createadmin: any;
   ngOnInit(): void {
 
     this.createadmin = new FormGroup({
-      "adminname": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z ]*')]),
-      "adminemail": new FormControl(null,[Validators.required,Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]),
-      "adminid": new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z0-9_.-]*')]),
-      "adminpassword": new FormControl(null, [Validators.required,Validators.minLength(8),Validators.maxLength(20),Validators.pattern('[A-Za-z0-9@#]*')])
+      "adminname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
+      "adminemail": new FormControl(null, [Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]),
+      "adminid": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z0-9_.-]*')]),
+      "adminpassword": new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(20), Validators.pattern('[A-Za-z0-9@#]*')])
     });
   }
 
   private formSubmitAttempt: boolean;
-  submitted  = false;
+  submitted = false;
 
   //create admin function
   createAdmin() {
     this.submitted = true;
-    if(this.createadmin.invalid){
+    if (this.createadmin.invalid) {
       this.validateAllFormFields(this.createadmin);
-      return;}
+      return;
+    }
 
 
     this._service.createAdminFromRemote(this.createAd).subscribe(
-    data=>{
-      console.log("registered successfully");
-      this.msg1="Registered Successfully";
-    },
-    error=>{
-      console.error("exception occurred")
-      this.msg1="Please Fill Form Correctly or Id Already Exist(try with another id"
-    }
+      data => {
+        console.log("registered successfully");
+        this.msg1 = "Registered Successfully";
+      },
+      error => {
+        console.error("exception occurred")
+        this.msg1 = "Please Fill Form Correctly or Id Already Exist(try with another id"
+      }
     );
-}
-isFieldValid(field: string) {
-  return (
-    (!this.createadmin.get(field).valid && this.createadmin.get(field).touched) ||
-    (this.createadmin.get(field).untouched && this.formSubmitAttempt)
-  );
-}
+  }
+  isFieldValid(field: string) {
+    return (
+      (!this.createadmin.get(field).valid && this.createadmin.get(field).touched) ||
+      (this.createadmin.get(field).untouched && this.formSubmitAttempt)
+    );
+  }
 
-displayFieldCss(field: string) {
-  return {
-    'has-error': this.isFieldValid(field),
-    'has-feedback': this.isFieldValid(field)
-  };
-}
-
-
-get adminname() {return this.createadmin.get('adminname');}
-get adminemail() {return this.createadmin.get('adminemail');}
-get adminid() {return this.createadmin.get('adminid');}
-get adminpassword() {return this.createadmin.get('adminpassword');}
-
-validateAllFormFields(formGroup: FormGroup) {
-
-  Object.keys(formGroup.controls).forEach(field => {
-
-    console.log(field);
-
-    const control = formGroup.get(field);
+  displayFieldCss(field: string) {
+    return {
+      'has-error': this.isFieldValid(field),
+      'has-feedback': this.isFieldValid(field)
+    };
+  }
 
 
+  get adminname() { return this.createadmin.get('adminname'); }
+  get adminemail() { return this.createadmin.get('adminemail'); }
+  get adminid() { return this.createadmin.get('adminid'); }
+  get adminpassword() { return this.createadmin.get('adminpassword'); }
 
-    if (control instanceof FormControl) {
+  validateAllFormFields(formGroup: FormGroup) {
 
-      control.markAsTouched({ onlySelf: true });
+    Object.keys(formGroup.controls).forEach(field => {
 
-    } else if (control instanceof FormGroup) {
+      console.log(field);
 
-      this.validateAllFormFields(control);
+      const control = formGroup.get(field);
 
-    }
 
-  });
 
-}
+      if (control instanceof FormControl) {
+
+        control.markAsTouched({ onlySelf: true });
+
+      } else if (control instanceof FormGroup) {
+
+        this.validateAllFormFields(control);
+
+      }
+
+    });
+
+  }
 }
