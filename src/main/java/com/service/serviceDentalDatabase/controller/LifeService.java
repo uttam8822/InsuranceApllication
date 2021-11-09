@@ -1,11 +1,8 @@
+//Life Service Controller
 package com.service.serviceDentalDatabase.controller;
-
 import java.util.List;
-
 import javax.mail.MessagingException;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,14 +11,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.service.serviceDentalDatabase.model.LifeUser;
-import com.service.serviceDentalDatabase.model.ServiceUser;
 import com.service.serviceDentalDatabase.repo.LifeRepo;
 import com.service.serviceDentalDatabase.service.EmailSendService;
 import com.service.serviceDentalDatabase.service.LifeRegistrationService;
 
-@RestController
+@RestController                       //Controller
 public class LifeService {
-
+// Wiring
 	@Autowired
 	private LifeRegistrationService service;
 	@Autowired
@@ -30,12 +26,12 @@ public class LifeService {
 	@Autowired
 	private EmailSendService service1;
 
-	@PostMapping("/registerlifeservice")
+	@PostMapping("/registerlifeservice")                   // Mapping for Application Submission
 	@CrossOrigin(origins = "http://localhost:4200")
 	public LifeUser registerLifeService(@RequestBody LifeUser user) throws Exception {
         String tempAadhar=user.getAadhar();
         String tempEmail=user.getEmail();
-      //  System.out.println(tempEmail);
+        //Checking Error for null Values
         if(user.getLastName()==null) throw new Exception("Error");	
 		if(user.getEmail()==null) throw new Exception("Error");	
 		if(user.getPan()==null) throw new Exception("Error");	
@@ -55,7 +51,9 @@ public class LifeService {
 		if(user.getCancellingInsurance()==null) throw new Exception("Error");
 		if(user.getHivIssue()==null) throw new Exception("Error");
 		if(user.getLungsIssue()==null) throw new Exception("Error");
-		LifeUser userObj = null;
+		LifeUser userObj = null;                                                 //Creating Object
+		
+		//Checking Exsiting Application
         if(tempAadhar != null && !"".equals(tempAadhar))
         {
 	     LifeUser userobj=service.fetchUserByAadhar(tempAadhar);
@@ -64,6 +62,7 @@ public class LifeService {
 	     }
         }
         System.out.println(user.getStatus());
+        //Auto Approval
         if("No".equals(user.getTobacco()) && "No".equals(user.getLungsIssue()) && "No".equals(user.getHivIssue())) {
         	user.setStatus("Yes");
         	userObj = service.saveUser(user);
@@ -79,7 +78,7 @@ public class LifeService {
         }
 		return userObj;
 	}
-	@PutMapping("/status/{aadhar}")
+	@PutMapping("/status/{aadhar}")                                  //Mapping for Approval
 	@CrossOrigin(origins = "http://localhost:4200")
 	public LifeUser updateStatus(@RequestBody LifeUser user)throws Exception{
 		user.setStatus("Yes");
@@ -96,7 +95,7 @@ public class LifeService {
 }
 	    
 
-	@PutMapping("/status1/{aadhar}")
+	@PutMapping("/status1/{aadhar}")                                    // Mapping for Rejection
 	@CrossOrigin(origins = "http://localhost:4200")
 	public LifeUser updateStatus1(@RequestBody LifeUser user)throws Exception{
 		user.setStatus("No");
@@ -114,13 +113,13 @@ public class LifeService {
 	    
 	}
 	
-	@GetMapping("/getlifedata")
+	@GetMapping("/getlifedata")                               //Getting Application Data
 	@CrossOrigin(origins="http://localhost:4200")
 	List<LifeUser> getUser(){
 		return repo.findAll();
 	}
 	
-	@GetMapping("/getlifedatabyID/{aadhar}")
+	@GetMapping("/getlifedatabyID/{aadhar}")                   //Getting Application Data by Adhaar
 	@CrossOrigin(origins="http://localhost:4200")
 	public LifeUser getUser(@PathVariable String aadhar){
 		return repo.findAll().stream().filter(t-> aadhar.equals(t.getAadhar())).findFirst().orElse(null);

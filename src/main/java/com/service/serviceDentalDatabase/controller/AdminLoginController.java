@@ -1,5 +1,5 @@
+// Controller Class for Admin Activity
 package com.service.serviceDentalDatabase.controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,17 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.service.serviceDentalDatabase.model.Admin;
 import com.service.serviceDentalDatabase.service.AdminLoginService;
 
-
- 
-
-@RestController
+@RestController //Controller Annotation
 public class AdminLoginController {
-	@Autowired
+	@Autowired                       //Wiring 
 	private AdminLoginService service;
-	
 	 
-	@PostMapping("/createadmin")
-	@CrossOrigin(origins="http://localhost:4200")
+	@PostMapping("/createadmin")              //Mapping for Creation Admin
+	@CrossOrigin(origins="http://localhost:4200") // Cross Origin
 	public Admin resisterUserService(@RequestBody Admin user) throws Exception {
 		
 	    String tempEmail=user.getEmailId();
@@ -37,8 +33,7 @@ public class AdminLoginController {
 		return userObj;
 	}
 	
-	
-	@PostMapping("/adlogin")
+	@PostMapping("/adlogin")                       // Mapping for Admin Login
 	@CrossOrigin(origins = "http://localhost:4200")
 	public Admin loginAdmin(@RequestBody Admin admin) throws Exception {
 	String tempAdminId = admin.getAdminId();
@@ -51,7 +46,5 @@ public class AdminLoginController {
 	throw new Exception ("Bad Credentials");
 	}
 	return adminObj;
-	}
-
-	 
+	}	 
 }

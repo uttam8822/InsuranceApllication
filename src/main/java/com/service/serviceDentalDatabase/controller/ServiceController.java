@@ -1,4 +1,5 @@
- package com.service.serviceDentalDatabase.controller;
+//Dental User Controller
+package com.service.serviceDentalDatabase.controller;
 
 import java.util.List;
 
@@ -11,16 +12,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.service.serviceDentalDatabase.model.Registration;
 import com.service.serviceDentalDatabase.model.ServiceUser;
 import com.service.serviceDentalDatabase.repo.ServiceRepo;
 import com.service.serviceDentalDatabase.service.EmailSendService;
 import com.service.serviceDentalDatabase.service.RegistrationService;
 
-//submit method when user submit
 @RestController
 public class ServiceController {
-
+//Wiring
 	@Autowired
 	private RegistrationService service;
     @Autowired
@@ -29,10 +28,11 @@ public class ServiceController {
 	private EmailSendService service1;
     
     
-	@PostMapping("/registeruserservice")
+	@PostMapping("/registeruserservice")          //Mapping for Saving Application Data 
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ServiceUser resisterUserService(@RequestBody ServiceUser user) throws Exception {
 		 String tempAadhar=user.getAadhar();
+		 //Checking Value for null Values
 		 if(user.getLastName()==null) throw new Exception("NError");	
 			if(user.getEmail()==null) throw new Exception("eError");	
 			if(user.getPan()==null) throw new Exception("PError");	
@@ -50,17 +50,19 @@ public class ServiceController {
 			if(user.getCancellingInsurance()==null) throw new Exception("CIError");
 			if(user.getGroupInsurance()==null) throw new Exception("GIError");
 			if(user.getTobacco()==null) throw new Exception("TError");
-			ServiceUser userObj = null;
+			ServiceUser userObj = null;                                          //Object Creation
 	        if(tempAadhar != null && !"".equals(tempAadhar))
 	        {
-		     ServiceUser userobj=service.fetchUserByAadhar(tempAadhar);
+		     ServiceUser userobj=service.fetchUserByAadhar(tempAadhar);         //Checking Existing Account
 		     if(userobj != null) {
 		    	 throw new Exception("user with" +tempAadhar + "id already exist");
 		     }
 	        }
+	        
+	        //Auto Approval
 	        if("No".equals(user.getTobacco()) && "No".equals(user.getGroupInsurance()) && "No".equals(user.getCancellingInsurance())) {
 	        	user.setStatus("Yes");
-	        	userObj = service.saveUser(user);
+	        	userObj = service.saveUser(user);                          //Saving Application data with Approval
 	        	System.out.println(userObj.getEmail());
 	        	service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been approved for Life service"+"\n In case if you have any query please feel free to connect with us."+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
 	    				"\nPhone : " + 
@@ -73,7 +75,7 @@ public class ServiceController {
 		
 		return userObj;
 	}
-	@PutMapping("/status1d/{aadhar}")
+	@PutMapping("/status1d/{aadhar}")                             //Mapping for Approval
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ServiceUser updateStatus(@RequestBody ServiceUser user)throws Exception{
 		user.setStatus("No");
@@ -88,7 +90,7 @@ public class ServiceController {
 		,"Application Rejected");
 		return userObj;
 	}
-	@PutMapping("/statusd/{aadhar}")
+	@PutMapping("/statusd/{aadhar}")                            // Mapping for Rejection
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ServiceUser updateStatus2(@RequestBody ServiceUser user)throws Exception{
 		user.setStatus("Yes");
@@ -102,14 +104,14 @@ public class ServiceController {
 		return userObj;
 	    
 	}
-	@GetMapping("/getdentaldata{aadhar}")
+	@GetMapping("/getdentaldata{aadhar}")                               //Getting Dental Data Application
 	@CrossOrigin(origins="http://localhost:4200")
 	List<ServiceUser> getUser(){
 		return repo.findAll();
 	}
 	
 	
-	@GetMapping("/getdentaldatabyID/{aadhar}")
+	@GetMapping("/getdentaldatabyID/{aadhar}")                         //Getting Dental Application data with adhaar
 	@CrossOrigin(origins="http://localhost:4200")
 	public ServiceUser getUser(@PathVariable String aadhar){
 		return repo.findAll().stream().filter(t-> aadhar.equals(t.getAadhar())).findFirst().orElse(null);

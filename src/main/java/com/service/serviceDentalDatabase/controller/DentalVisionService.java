@@ -1,5 +1,5 @@
+//Dental and Vision Service Controller
 package com.service.serviceDentalDatabase.controller;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,25 +12,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.service.serviceDentalDatabase.model.DentalVisionUser;
-import com.service.serviceDentalDatabase.model.LifeUser;
 import com.service.serviceDentalDatabase.repo.DentalVisionRepo;
 import com.service.serviceDentalDatabase.service.DentalVisionRegistration;
 import com.service.serviceDentalDatabase.service.EmailSendService;
 
-@RestController
+@RestController                            //Controller
 public class DentalVisionService {
-
-	@Autowired
+  //Wiring
+	@Autowired 
 	private DentalVisionRegistration service;
     @Autowired
     private DentalVisionRepo repo;
 	@Autowired
 	private EmailSendService service1;
 	
-	@PostMapping("/registerdentalvisionservice")
+	@PostMapping("/registerdentalvisionservice")                  //Mapping for Application Submission
 	@CrossOrigin(origins = "http://localhost:4200")
 	public DentalVisionUser resisterUserService(@RequestBody DentalVisionUser user) throws Exception {
 		 String tempAadhar=user.getAadhar();
+		 // Chechking Error for Null Values
+		 
 		if(user.getFirstName()==null)
 			throw new Exception("Error");
 		if(user.getLastName()==null) throw new Exception("Error");	
@@ -57,7 +58,9 @@ public class DentalVisionService {
 		if(user.getWearGlasses()==null) throw new Exception("Error");
 		if(user.getAnyEyeDisease()==null) throw new Exception("Error");
 		if(user.getAnyEyeOperation()==null) throw new Exception("Error");
-		DentalVisionUser userObj = null;
+		DentalVisionUser userObj = null;                                     // Creating Object
+		
+		 //Checking Exsiting Application
 	        if(tempAadhar != null && !"".equals(tempAadhar))
 	        {
 		     DentalVisionUser userobj=service.fetchUserByAadhar(tempAadhar);
@@ -65,28 +68,32 @@ public class DentalVisionService {
 		    	 throw new Exception("user with" +tempAadhar + "id already exist");
 		     }
 	        }
+	        //Auto Approval 
 	        if("No".equals(user.getAnyCavity()) && "No".equals(user.getOralOperation()) && "No".equals(user.getTobacco()) && "No".equals(user.getAnyEyeOperation())) {
 	        	user.setStatus("Yes");
 	        	userObj = service.saveUser(user);
 	        	System.out.println(userObj.getEmail());
+	        	//Sending Email for Approval
 	        	service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been approved for Life service"+"\n In case if you have any query please feel free to connect with us."+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
 	    				"\nPhone : " + 
 	    				"+91-120-4018100"+"\nEmail : support@impetus.com"
 	    		,"Application Approved");
 	        }
 	        else {
+	        	//Saving Application
 			userObj = service.saveUser(user);
 	        }
 		
 		return userObj;
 	}
-	@PutMapping("/statusdv/{aadhar}")
+	@PutMapping("/statusdv/{aadhar}")                       //Mapping for Status Approved
 	@CrossOrigin(origins = "http://localhost:4200")
 	public DentalVisionUser updateStatus(@RequestBody DentalVisionUser user)throws Exception{
 		user.setStatus("Yes");
 		DentalVisionUser userObj;
 		
-		userObj=service.saveUser(user);		
+		userObj=service.saveUser(user);	
+		//Sending Approval Message
 		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+userObj.getFirstName()+"\nYour application has been approved for Dental Vision service."+"\n In case if you have any query please feel free to connect with us."+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
 				"\nPhone : " + 
 				"+91-120-4018100"+"\nEmail : support@impetus.com"
@@ -95,7 +102,7 @@ public class DentalVisionService {
 		return userObj;
 	    
 	}
-	@PutMapping("/status1dv/{aadhar}")
+	@PutMapping("/status1dv/{aadhar}")                             //Mapping for Rejection
 	@CrossOrigin(origins = "http://localhost:4200")
 	public DentalVisionUser updateStatus1(@RequestBody DentalVisionUser user)throws Exception{
 		user.setStatus("No");
@@ -111,13 +118,13 @@ public class DentalVisionService {
 		return userObj;
 	    
 	}
-	@GetMapping("/getdentalvisiondata")
+	@GetMapping("/getdentalvisiondata")                               // Mapping for Getting Data of Application
 	@CrossOrigin(origins="http://localhost:4200")
 	List<DentalVisionUser> getUser(){
 		return repo.findAll();
 	}
 	
-	@GetMapping("/getdvdatabyID/{aadhar}")
+	@GetMapping("/getdvdatabyID/{aadhar}")                                //Mapping for Fetting Application data by aadhar
 	@CrossOrigin(origins="http://localhost:4200")
 	public DentalVisionUser getUser(@PathVariable String aadhar){
 		return repo.findAll().stream().filter(t-> aadhar.equals(t.getAadhar())).findFirst().orElse(null);

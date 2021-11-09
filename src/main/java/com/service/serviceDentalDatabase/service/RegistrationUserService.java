@@ -1,3 +1,4 @@
+//Login Service for User
 package com.service.serviceDentalDatabase.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,10 @@ import com.service.serviceDentalDatabase.repo.RegistrationRepository;
 @Service
 public class RegistrationUserService
 {
+	//Wiring
 	@Autowired
 	private RegistrationRepository repo;
+	//Fetching Data
 	public Registration saveUser(Registration user) {
 	    return	repo.save(user);
 		
@@ -26,7 +29,5 @@ public class RegistrationUserService
 	{
 		return repo.findByEmailIdAndPassword(email, password);
 	}
-
-
 }
 

@@ -1,9 +1,10 @@
+//POJO class for Dental and Vision Service
 package com.service.serviceDentalDatabase.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+@Entity                                    //Database Objects
 public class DentalVisionUser {
 	
 	  private String firstName;
@@ -44,6 +45,7 @@ public class DentalVisionUser {
 	public DentalVisionUser() {
 		super();
 	}
+	//Parameterized Constructor
 	public DentalVisionUser(String status,String firstName, String middleNmme, String lastName, String aadhar, String email,
 			String pan, String address, String zip, String city, String state, String contact, String dateOfBirth,
 			String occupation, String income, String selectPlane, String gender, String healthIssue,
@@ -84,7 +86,7 @@ public class DentalVisionUser {
 				
 	}
 	
-    
+    //Getter and Setter Method
 	public String getReason() {
 		return reason;
 	}
@@ -264,8 +266,6 @@ public class DentalVisionUser {
 	}
 	public void setAdditionalComments(String additionalComments) {
 		this.additionalComments = additionalComments;
-	}
-	   
-	   
+	}   
 
 }

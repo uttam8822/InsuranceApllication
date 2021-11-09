@@ -1,3 +1,4 @@
+//UnderWriter Services
 package com.service.serviceDentalDatabase.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +9,9 @@ import com.service.serviceDentalDatabase.model.UWUser;
 import com.service.serviceDentalDatabase.repo.DentalVisionRepo;
 import com.service.serviceDentalDatabase.repo.UWRepo;
 
- 
-
 @Service
 public class UWService {
+	//Wiring
 	@Autowired
 	private UWRepo repo;
 	

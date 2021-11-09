@@ -1,3 +1,4 @@
+//POJO class for UnderWriter
 package com.service.serviceDentalDatabase.model;
 
 import javax.persistence.Entity;
@@ -5,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity                       //Database Objects
 public class UWUser {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -16,7 +17,7 @@ public class UWUser {
 	private String password;
 	
 	public UWUser() {}
-	
+	//Parameterized Constructor
 	public UWUser(int id,String fullName,String email,String writerId, String password) {
 	super();
 	this.id = id;
@@ -26,7 +27,7 @@ public class UWUser {
 	this.password = password;
 	}
 	
-	
+	//Getter and Setter Method
 	public String getFullName() {
 		return fullName;
 	}

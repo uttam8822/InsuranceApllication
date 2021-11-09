@@ -1,3 +1,4 @@
+//POJO class for User
 package com.service.serviceDentalDatabase.model;
 
 import javax.persistence.Entity;
@@ -5,8 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-@Entity
+@Entity                     //Database Objects
 public class Registration {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,16 +16,10 @@ public class Registration {
 	private String lastName;
 	private String password;
 	
-	
-	
-	
-	
-	
-	
-	
 	public Registration() {
 		super();
 	}
+	//Parameterized Constructor
 	public Registration(int id, String emailId, String firstName, String lastName, String password) {
 		super();
 		this.id = id;
@@ -34,6 +28,8 @@ public class Registration {
 		this.lastName = lastName;
 		this.password = password;
 	}
+	
+	//Getter and Setter Method
 	public int getId() {
 		return id;
 	}
@@ -63,11 +59,5 @@ public class Registration {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
-	
-	
-	
-	
-	
+	}	
 }

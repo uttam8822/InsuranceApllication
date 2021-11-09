@@ -1,3 +1,4 @@
+//Services for Admin for Fetching data using JPA repository
 package com.service.serviceDentalDatabase.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,12 +7,12 @@ import org.springframework.stereotype.Service;
 import com.service.serviceDentalDatabase.model.Admin;
 import com.service.serviceDentalDatabase.repo.AdminLoginRepo;
 
- 
 @Service
 public class AdminLoginService {
+	//Wiring
 	@Autowired
 	private AdminLoginRepo repo;
-	 
+	//Fetching data
 	public Admin fetchByAdminIdAndPassword(String adminId, String password) {
 	return repo.findByAdminIdAndPassword(adminId, password);
 	}

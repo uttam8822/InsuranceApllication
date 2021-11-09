@@ -1,3 +1,4 @@
+//Scheduler for Life Services
 package com.service.serviceDentalDatabase.service;
 
 import org.slf4j.LoggerFactory;
@@ -22,16 +23,11 @@ private LifeScheduleRepo repo;
 private EmailSendService service1;
 Logger log = LoggerFactory.getLogger(LifeScheduleService.class);
 
-
-@Scheduled(fixedRate = 30000)
+@Scheduled(fixedRate = 30000)                                //Schdeuler 
 public void updateStatus() {
 	
 	List<LifeUser> users= repo.findAll();
 	for(LifeUser user : users) {
-	//LifeUser user = new LifeUser();
- /* @Trasactinal
-  @Modifying
-  @Query("UPDATE LifeUser SET status='Yes' Where status=null and tobacco='Yes' and hivIssue='No'")*/
 		if(user.getStatus()==null) {
 			if("No".equals(user.getHivIssue()) && "Yes".equals(user.getTobacco())) {
 			System.out.println(user.getTobacco());
@@ -45,12 +41,5 @@ public void updateStatus() {
 	       repo.save(user);
 		}
 	}
- 
 }
-/*@Scheduled(initialDelay = 15000 , fixedDelay=15000)
-public void fetchLifeData() {
-	List<LifeUser> users= repo.findAll();
-	log.info("users : {}", users);
-}*/
-
 }

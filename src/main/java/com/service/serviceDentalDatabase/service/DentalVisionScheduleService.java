@@ -1,3 +1,4 @@
+//Schedueler for Dental Vision Service
 package com.service.serviceDentalDatabase.service;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import com.service.serviceDentalDatabase.repo.DentalVisionScheduleRepo;
 
 @Service
 public class DentalVisionScheduleService {
- 
+    //Wiring
 	@Autowired
 	private DentalVisionScheduleRepo repo;
 	@Autowired
@@ -21,8 +22,7 @@ public class DentalVisionScheduleService {
 
 	Logger log = LoggerFactory.getLogger(LifeScheduleService.class);
 
-
-	@Scheduled(fixedRate = 30000)
+	@Scheduled(fixedRate = 30000)              //Scheduler 
 	public void updateStatus() {
 		List<DentalVisionUser> users= repo.findAll();
 	//	DentalVisionUser user = new DentalVisionUser();
@@ -43,9 +43,4 @@ public class DentalVisionScheduleService {
 	}
 		}
 	}
-/*	@Scheduled(initialDelay = 15000 , fixedDelay=15000)
-	public void fetchLifeData() {
-		List<DentalVisionUser> users= repo.findAll();
-		log.info("users : {}", users);
-	}*/
 

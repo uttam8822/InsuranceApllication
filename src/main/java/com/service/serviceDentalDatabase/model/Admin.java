@@ -1,3 +1,4 @@
+//POJO class for Admin Data
 package com.service.serviceDentalDatabase.model;
 
 import javax.persistence.Entity;
@@ -5,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity                              //defining databse object
 public class Admin {
 			
 	        @Id
@@ -16,9 +17,8 @@ public class Admin {
 			private String adminId;
 			private String password;
 			
-			
 			public Admin() {}
-			
+			//Parameterized Constructor
 			public Admin(int id, String fullName,String email,String adminId, String password) {
 			super();
 			this.id = id;
@@ -28,7 +28,7 @@ public class Admin {
 			this.password = password;
 			}
 			
-			
+			//Getter and Setter method
 			public String getFullName() {
 				return fullName;
 			}

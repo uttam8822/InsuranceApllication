@@ -1,3 +1,4 @@
+//POJO class for Life Services
 package com.service.serviceDentalDatabase.model;
 
 import javax.persistence.Entity;
@@ -5,12 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-//@Access(value=AccessType.FIELD)
+@Entity                         //Database Objects
 public class LifeUser {
-	 // @Id
-	 // @GeneratedValue(strategy=GenerationType.IDENTITY)
-	 // private int id;
+	
 	   private String firstName;
 	   private String middleNmme;
 	   private String lastName;
@@ -43,6 +41,7 @@ public class LifeUser {
 	public LifeUser() {
 		super();
 	}
+	//Paramertized Constructor
 	public LifeUser(String firstName, String middleNmme, String lastName, String aadhar, String email, String pan,
 			String address, String zip, String city, String state, String contact, String dateOfBirth,
 			String occupation, String income, String selectPlane, String gender, String healthIssue,
@@ -77,14 +76,7 @@ public class LifeUser {
 		this.member=member;
 		this.reason=reason;
 	}
-	/*public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id=id;
-	}*/
-	
-	
+	//Getter and Setter Methods
 	public String getFirstName() {
 		return firstName;
 	}

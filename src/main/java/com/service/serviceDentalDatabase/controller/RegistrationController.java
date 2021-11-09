@@ -1,3 +1,4 @@
+//User Signup Controller
 package com.service.serviceDentalDatabase.controller;
 
 import java.util.List;
@@ -19,7 +20,7 @@ import com.service.serviceDentalDatabase.service.RegistrationUserService;
 @RestController
 public class RegistrationController {
 	
-	
+	//Wiring
 	@Autowired
 	private RegistrationUserService service;
 	@Autowired
@@ -27,7 +28,7 @@ public class RegistrationController {
 	@Autowired
 	private EmailSendService service1;
 	
-	@PostMapping("/registeruser")
+	@PostMapping("/registeruser")                            //Saving User Details
 	@CrossOrigin(origins="http://localhost:4200")
 	public Registration registerUser(@RequestBody Registration user) throws Exception
 	{
@@ -46,7 +47,7 @@ public class RegistrationController {
 	
 	
 	
-	@PostMapping("/login")
+	@PostMapping("/login")                                 //Mapping for User Login
 	@CrossOrigin(origins="http://localhost:4200")
 	public Registration loginUser(@RequestBody Registration user)throws Exception
 	{
@@ -64,7 +65,7 @@ public class RegistrationController {
 		
 		return userobj;
 	}
-	@GetMapping("/userdetails")
+	@GetMapping("/userdetails")                       //Mapping for Getting user Details
 	@CrossOrigin(origins="http://localhost:4200")
 	List<Registration> getuser(){
 	return repo.findAll();
@@ -72,7 +73,7 @@ public class RegistrationController {
 	}
 	
 	
-	@PostMapping("/sendmail")
+	@PostMapping("/sendmail")                //Mapping for Sending Email in Forget Password
 	@CrossOrigin(origins="http://localhost:4200")
 	public void triggerMail(@RequestBody Registration user) throws MessagingException {
 	String tempEmailId = user.getEmailId();
@@ -81,8 +82,9 @@ public class RegistrationController {
 	}
 	if(tempEmailId != null && !"".equals(tempEmailId))
 	{
-	Registration userobj= service.fetchUserByEmailId(tempEmailId);
+	Registration userobj= service.fetchUserByEmailId(tempEmailId);          //Checking Existing EmailId
 	if(userobj != null) {
+		//Sending Message
 	service1.sendSimpleEmail(tempEmailId,"Dear User,\nYour request for password reset has been sent successfully"
 	+"\nYour emailId is : "+tempEmailId+"\nYour Name : "+userobj.getFirstName()+" "+userobj.getLastName()+"\nYour new password is : "
 	+userobj.getPassword()+"\n\nWe request you please do not share your credentials.In case if you "

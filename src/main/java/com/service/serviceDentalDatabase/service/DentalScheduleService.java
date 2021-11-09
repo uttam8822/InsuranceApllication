@@ -1,3 +1,4 @@
+//Scheduler for Dental Service
 package com.service.serviceDentalDatabase.service;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import com.service.serviceDentalDatabase.repo.DentalScheduleRepo;
 
 @Service
 public class DentalScheduleService {
+	//Wiring
 	@Autowired
 	private DentalScheduleRepo repo;
 	@Autowired
@@ -21,7 +23,7 @@ public class DentalScheduleService {
 	Logger log = LoggerFactory.getLogger(DentalScheduleService.class);
 
 
-	@Scheduled(fixedRate = 30000)
+	@Scheduled(fixedRate = 30000)              //Scheduler for 30 sec
 	public void updateStatus() {
 		List<ServiceUser> users= repo.findAll();
 		for(ServiceUser user:users) {
@@ -37,13 +39,7 @@ public class DentalScheduleService {
 			}
 
 	          repo.save(user);
-		}
+		   } 
+	    }
 	}
-		}
-	}
-/*	@Scheduled(initialDelay = 15000 , fixedDelay=15000)
-	public void fetchLifeData() {
-		List<ServiceUser> users= repo.findAll();
-		log.info("users : {}", users);
-	}
-*/
+}

@@ -1,9 +1,8 @@
+//UnderWriter Controller
 package com.service.serviceDentalDatabase.controller;
 
 import java.util.List;
-
 import javax.mail.MessagingException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,28 +10,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.service.serviceDentalDatabase.model.Registration;
 import com.service.serviceDentalDatabase.model.UWUser;
 import com.service.serviceDentalDatabase.repo.UWRepo;
 import com.service.serviceDentalDatabase.service.EmailSendService;
 import com.service.serviceDentalDatabase.service.UWService;
 
- 
-
- 
 @RestController
 public class UWController {
-	
+	//Wiring
 	@Autowired
 	private UWService service;
 	@Autowired
 	private UWRepo repo;
-	
 	@Autowired
 	private EmailSendService service1;
 	
-	@PostMapping("/createUW")
+	@PostMapping("/createUW")                                 //Creating UnderWriter
 	@CrossOrigin(origins="http://localhost:4200")
 	public UWUser resisterUserService(@RequestBody UWUser user) throws Exception {
 
@@ -52,7 +45,7 @@ public class UWController {
 	}
 	
 	 
-	@PostMapping("/uwlogin")
+	@PostMapping("/uwlogin")                                 //UnderWriter Login Mapping
 	@CrossOrigin(origins="http://localhost:4200")
 	public UWUser loginwriter(@RequestBody UWUser writer) throws Exception {
 	String tempWriterId = writer.getWriterId();
@@ -74,7 +67,7 @@ public class UWController {
 	
 	
 	
-	@PostMapping("/sendmailUW")
+	@PostMapping("/sendmailUW")                                             //UnderWriter forget passowrd email
 	@CrossOrigin(origins="http://localhost:4200")
 	public void triggerMail(@RequestBody UWUser user) throws MessagingException {
 	String tempEmailId = user.getEmailId();
