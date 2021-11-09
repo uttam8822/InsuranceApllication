@@ -7,7 +7,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.service.serviceDentalDatabase.model.Registration;
 
 public interface RegistrationRepository extends JpaRepository<Registration, Integer> {
-	//Methods for Data Fetching 
+	 /*
+	  Methods for Fetching data from Database.
+	  @Parameter= adminId,password,emailId.
+	  @Auther=Uttam kumar singh
+	 */
 	@Override
 	List<Registration> findAll();
 	public Registration findByEmailId(String emailId);

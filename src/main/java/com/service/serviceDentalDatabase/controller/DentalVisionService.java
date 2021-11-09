@@ -26,6 +26,11 @@ public class DentalVisionService {
 	@Autowired
 	private EmailSendService service1;
 	
+	 /*
+	  This is a service for applying dental vision service
+	  @Parameter=/registerdentalvisionservice ==>this is used as an URL for hitting this service
+	  @Auther=Uttam kumar singh
+	 */
 	@PostMapping("/registerdentalvisionservice")                  //Mapping for Application Submission
 	@CrossOrigin(origins = "http://localhost:4200")
 	public DentalVisionUser resisterUserService(@RequestBody DentalVisionUser user) throws Exception {
@@ -86,6 +91,12 @@ public class DentalVisionService {
 		
 		return userObj;
 	}
+	
+	/*
+	  This is a service for send an email when application will be approved 
+	  @Parameter=//statusdv/{aadhar} ==>this is used as an URL for hitting this service
+	  @Auther=Ambikesh Mishra.
+	 */
 	@PutMapping("/statusdv/{aadhar}")                       //Mapping for Status Approved
 	@CrossOrigin(origins = "http://localhost:4200")
 	public DentalVisionUser updateStatus(@RequestBody DentalVisionUser user)throws Exception{
@@ -102,6 +113,12 @@ public class DentalVisionService {
 		return userObj;
 	    
 	}
+	
+	/*
+	  This is a service for send an email when application will be rejected
+	  @Parameter=/status1dv/{aadhar} ==>this is used as an URL for hitting this service
+	  @Auther=Ambikesh Mishra
+	 */
 	@PutMapping("/status1dv/{aadhar}")                             //Mapping for Rejection
 	@CrossOrigin(origins = "http://localhost:4200")
 	public DentalVisionUser updateStatus1(@RequestBody DentalVisionUser user)throws Exception{
@@ -118,12 +135,23 @@ public class DentalVisionService {
 		return userObj;
 	    
 	}
+	
+	/*
+	  This is a service for get all data of application
+	  @Parameter=/getdentalvisiondata ==>this is used as an URL for hitting this service
+	  @Auther=Uttam Kumar Singh
+	 */
 	@GetMapping("/getdentalvisiondata")                               // Mapping for Getting Data of Application
 	@CrossOrigin(origins="http://localhost:4200")
 	List<DentalVisionUser> getUser(){
 		return repo.findAll();
 	}
 	
+	/*
+	  This is a service for get data of single user by id of application
+	  @Parameter=/getdvdatabyID/{aadhar} ==>this is used as an URL for hitting this service
+	  @Auther=Uttam Kumar Singh
+	 */
 	@GetMapping("/getdvdatabyID/{aadhar}")                                //Mapping for Fetting Application data by aadhar
 	@CrossOrigin(origins="http://localhost:4200")
 	public DentalVisionUser getUser(@PathVariable String aadhar){

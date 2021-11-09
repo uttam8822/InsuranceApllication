@@ -22,8 +22,12 @@ public class DentalScheduleService {
 
 	Logger log = LoggerFactory.getLogger(DentalScheduleService.class);
 
-
-	@Scheduled(fixedRate = 30000)              //Scheduler for 30 sec
+	 /*
+	  Scheduler for 30 sec.
+	  @Parameter= No parameter.
+	  @Auther= Ambikesh Mishra.
+	 */
+	@Scheduled(fixedRate = 30000)              
 	public void updateStatus() {
 		List<ServiceUser> users= repo.findAll();
 		for(ServiceUser user:users) {

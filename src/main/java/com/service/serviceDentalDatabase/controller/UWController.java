@@ -25,6 +25,11 @@ public class UWController {
 	@Autowired
 	private EmailSendService service1;
 	
+	/*
+	  This is a service for create under writer by admin.
+	  @Parameter=/createUW ==>this is used as an URL for hitting this service.
+	  @Auther=Ambikesh Mishra
+	 */
 	@PostMapping("/createUW")                                 //Creating UnderWriter
 	@CrossOrigin(origins="http://localhost:4200")
 	public UWUser resisterUserService(@RequestBody UWUser user) throws Exception {
@@ -44,7 +49,11 @@ public class UWController {
 		return userObj;
 	}
 	
-	 
+	/*
+	  This is a service for login under writer
+	  @Parameter=/uwlogin ==>this is used as an URL for hitting this service.
+	  @Auther=Ambikesh Mishra
+	 */
 	@PostMapping("/uwlogin")                                 //UnderWriter Login Mapping
 	@CrossOrigin(origins="http://localhost:4200")
 	public UWUser loginwriter(@RequestBody UWUser writer) throws Exception {
@@ -65,7 +74,11 @@ public class UWController {
 		return (List<UWUser>) repo.findAll();
 		}
 	
-	
+	/*
+	  This is a service for send an email to under writer at the time of password reset.
+	  @Parameter=/sendmailUW ==>this is used as an URL for hitting this service.
+	  @Auther=Ambikesh Mishra
+	 */
 	
 	@PostMapping("/sendmailUW")                                             //UnderWriter forget passowrd email
 	@CrossOrigin(origins="http://localhost:4200")

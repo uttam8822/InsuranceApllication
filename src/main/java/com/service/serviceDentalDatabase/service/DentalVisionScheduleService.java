@@ -22,6 +22,11 @@ public class DentalVisionScheduleService {
 
 	Logger log = LoggerFactory.getLogger(LifeScheduleService.class);
 
+	 /*
+	  Scheduler for 30 sec.
+	  @Parameter= No parameter.
+	  @Auther= Ambikesh Mishra.
+	 */
 	@Scheduled(fixedRate = 30000)              //Scheduler 
 	public void updateStatus() {
 		List<DentalVisionUser> users= repo.findAll();

@@ -13,7 +13,11 @@ import com.service.serviceDentalDatabase.service.AdminLoginService;
 public class AdminLoginController {
 	@Autowired                       //Wiring 
 	private AdminLoginService service;
-	 
+	 /*
+	  This is a service of create admin 
+	  @Parameter=/createadmin ==>this is used as an URL for hitting this service
+	  @Auther=Uttam kumar singh
+	 */
 	@PostMapping("/createadmin")              //Mapping for Creation Admin
 	@CrossOrigin(origins="http://localhost:4200") // Cross Origin
 	public Admin resisterUserService(@RequestBody Admin user) throws Exception {
@@ -33,6 +37,11 @@ public class AdminLoginController {
 		return userObj;
 	}
 	
+	 /*
+	  This is a service of login admin 
+	  @Parameter=/adlogin ==>this is used as an URL for hitting this service
+	  @Auther=Ambikesh Mishra
+	 */
 	@PostMapping("/adlogin")                       // Mapping for Admin Login
 	@CrossOrigin(origins = "http://localhost:4200")
 	public Admin loginAdmin(@RequestBody Admin admin) throws Exception {

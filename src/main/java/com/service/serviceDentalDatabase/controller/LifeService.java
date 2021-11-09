@@ -25,7 +25,11 @@ public class LifeService {
 	
 	@Autowired
 	private EmailSendService service1;
-
+	/*
+	  This is a service for applying life service
+	  @Parameter=/registerlifeservice ==>this is used as an URL for hitting this service
+	  @Auther=Ambikesh Mishra
+	 */
 	@PostMapping("/registerlifeservice")                   // Mapping for Application Submission
 	@CrossOrigin(origins = "http://localhost:4200")
 	public LifeUser registerLifeService(@RequestBody LifeUser user) throws Exception {
@@ -78,6 +82,11 @@ public class LifeService {
         }
 		return userObj;
 	}
+	/*
+	  This is a service for send an email when application will be approved 
+	  @Parameter=//status/{aadhar} ==>this is used as an URL for hitting this service
+	  @Auther=Uttam kumar singh
+	 */
 	@PutMapping("/status/{aadhar}")                                  //Mapping for Approval
 	@CrossOrigin(origins = "http://localhost:4200")
 	public LifeUser updateStatus(@RequestBody LifeUser user)throws Exception{
@@ -94,7 +103,11 @@ public class LifeService {
 		
 }
 	    
-
+	/*
+	  This is a service for send an email when application will be rejected.
+	  @Parameter=//statusdv/{aadhar} ==>this is used as an URL for hitting this service.
+	  @Auther=Ambikesh Mishra
+	 */
 	@PutMapping("/status1/{aadhar}")                                    // Mapping for Rejection
 	@CrossOrigin(origins = "http://localhost:4200")
 	public LifeUser updateStatus1(@RequestBody LifeUser user)throws Exception{
@@ -113,12 +126,22 @@ public class LifeService {
 	    
 	}
 	
+	/*
+	  This is a service for get all data of application.
+	  @Parameter=/getlifedata ==>this is used as an URL for hitting this service.
+	  @Auther=Uttam Kumar Singh
+	 */
 	@GetMapping("/getlifedata")                               //Getting Application Data
 	@CrossOrigin(origins="http://localhost:4200")
 	List<LifeUser> getUser(){
 		return repo.findAll();
 	}
 	
+	/*
+	  This is a service for get data of single user by id of application.
+	  @Parameter=/getlifedatabyID/{aadhar} ==>this is used as an URL for hitting this service.
+	  @Auther=Ambikesh Mishra
+	 */
 	@GetMapping("/getlifedatabyID/{aadhar}")                   //Getting Application Data by Adhaar
 	@CrossOrigin(origins="http://localhost:4200")
 	public LifeUser getUser(@PathVariable String aadhar){

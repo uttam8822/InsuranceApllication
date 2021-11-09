@@ -27,7 +27,11 @@ public class ServiceController {
     @Autowired
 	private EmailSendService service1;
     
-    
+    /*
+	  This is a service for applying dental service.
+	  @Parameter=/registeruserservice ==>this is used as an URL for hitting this service.
+	  @Auther=Uttam Kumar Singh.
+	 */
 	@PostMapping("/registeruserservice")          //Mapping for Saving Application Data 
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ServiceUser resisterUserService(@RequestBody ServiceUser user) throws Exception {
@@ -75,6 +79,11 @@ public class ServiceController {
 		
 		return userObj;
 	}
+	/*
+	  This is a service for send an email when application will be approved 
+	  @Parameter=//status1d/{aadhar} ==>this is used as an URL for hitting this service
+	  @Auther=Ambikesh Mishra
+	 */
 	@PutMapping("/status1d/{aadhar}")                             //Mapping for Approval
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ServiceUser updateStatus(@RequestBody ServiceUser user)throws Exception{
@@ -90,6 +99,12 @@ public class ServiceController {
 		,"Application Rejected");
 		return userObj;
 	}
+	
+	/*
+	  This is a service for send an email when application will be rejected.
+	  @Parameter=//statusd/{aadhar} ==>this is used as an URL for hitting this service.
+	  @Auther=Ambikesh Mishra.
+	 */
 	@PutMapping("/statusd/{aadhar}")                            // Mapping for Rejection
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ServiceUser updateStatus2(@RequestBody ServiceUser user)throws Exception{
@@ -104,13 +119,22 @@ public class ServiceController {
 		return userObj;
 	    
 	}
+	/*
+	  This is a service for get all data of application.
+	  @Parameter=/getdentaldata{aadhar} ==>this is used as an URL for hitting this service.
+	  @Auther=Uttam Kumar Singh
+	 */
 	@GetMapping("/getdentaldata{aadhar}")                               //Getting Dental Data Application
 	@CrossOrigin(origins="http://localhost:4200")
 	List<ServiceUser> getUser(){
 		return repo.findAll();
 	}
 	
-	
+	/*
+	  This is a service for get data of single user by id of application.
+	  @Parameter=/getdentaldatabyID/{aadhar} ==>this is used as an URL for hitting this service.
+	  @Auther=Uttam Kumar Singh.
+	 */
 	@GetMapping("/getdentaldatabyID/{aadhar}")                         //Getting Dental Application data with adhaar
 	@CrossOrigin(origins="http://localhost:4200")
 	public ServiceUser getUser(@PathVariable String aadhar){

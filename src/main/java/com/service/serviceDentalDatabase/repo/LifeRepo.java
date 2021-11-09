@@ -9,7 +9,12 @@ import com.service.serviceDentalDatabase.model.LifeUser;
 
 
 public interface LifeRepo extends JpaRepository<LifeUser,Integer> {
-	//Methods for Data Fetching
+
+	 /*
+	  Methods for Fetching data from Database.
+	  @Parameter= aadhar,email.
+	  @Auther=Uttam kumar singh
+	 */
 	@Override
 	List<LifeUser> findAll();
 	

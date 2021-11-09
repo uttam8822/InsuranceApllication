@@ -7,7 +7,11 @@ import org.springframework.data.repository.CrudRepository;
 import com.service.serviceDentalDatabase.model.UWUser;
 
 public interface UWRepo extends CrudRepository<UWUser,Integer> {
-	//Methods for Fetching Data
+	 /*
+	  Methods for Fetching data from Database.
+	  @Parameter= adminId,password,emailId,Id.
+	  @Auther=Uttam kumar singh
+	 */
 	UWUser findByWriterIdAndPassword(String writerId, String password);
     UWUser findByEmail(String emailId);
     UWUser findByWriterId(String Id);

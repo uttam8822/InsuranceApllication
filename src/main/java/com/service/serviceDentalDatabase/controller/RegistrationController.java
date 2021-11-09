@@ -28,6 +28,11 @@ public class RegistrationController {
 	@Autowired
 	private EmailSendService service1;
 	
+	/*
+	  This is a service sign up user.
+	  @Parameter=/registeruser ==>this is used as an URL for hitting this service.
+	  @Auther=uttam Kumar Singh.
+	 */
 	@PostMapping("/registeruser")                            //Saving User Details
 	@CrossOrigin(origins="http://localhost:4200")
 	public Registration registerUser(@RequestBody Registration user) throws Exception
@@ -46,6 +51,11 @@ public class RegistrationController {
 	}
 	
 	
+	/*
+	  This is a service sign in user.
+	  @Parameter=/login ==>this is used as an URL for hitting this service.
+	  @Auther=uttam Kumar Singh.
+	 */
 	
 	@PostMapping("/login")                                 //Mapping for User Login
 	@CrossOrigin(origins="http://localhost:4200")
@@ -65,6 +75,11 @@ public class RegistrationController {
 		
 		return userobj;
 	}
+	/*
+	  This is a service for get all register user data.
+	  @Parameter=/userdetails ==>this is used as an URL for hitting this service.
+	  @Auther=Ambikesh Mishra
+	 */
 	@GetMapping("/userdetails")                       //Mapping for Getting user Details
 	@CrossOrigin(origins="http://localhost:4200")
 	List<Registration> getuser(){
@@ -72,6 +87,11 @@ public class RegistrationController {
 	
 	}
 	
+	/*
+	  This is a service for send an email at the time of password reset.
+	  @Parameter=/sendmail ==>this is used as an URL for hitting this service.
+	  @Auther=Uttam Kumar Singh
+	 */
 	
 	@PostMapping("/sendmail")                //Mapping for Sending Email in Forget Password
 	@CrossOrigin(origins="http://localhost:4200")
