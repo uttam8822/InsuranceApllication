@@ -79,6 +79,10 @@ public class LifeService {
         else {
 		//LifeUser userObj = null;
 		userObj = service.saveUser(user);
+		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been received successfully Life Insurance, we will contact you soon after reviewing your application."+"\n In case if you have any query please feel free to connect with us."+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+				"\nPhone : " + 
+				"+91-120-4018100"+"\nEmail : support@impetus.com"
+		,"Application Received ");
         }
 		return userObj;
 	}
