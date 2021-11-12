@@ -13,10 +13,8 @@ import { Event } from '@angular/router';
 export class SignupComponent implements OnInit {
   user = new User();
   msg = '';
-
   alert: boolean = false;
   alert1: boolean = false;
-
 
   SignupForm: any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
@@ -41,13 +39,6 @@ export class SignupComponent implements OnInit {
   get email() { return this.SignupForm.get('email'); }
   get password() { return this.SignupForm.get('password'); }
   get cpassword() { return this.SignupForm.get('cpassword'); }
-
-
-
-
-
-
-
 
 
   //signup function for user

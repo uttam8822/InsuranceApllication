@@ -28,7 +28,7 @@
                     <td>{{user.aadhar}}</td>
                     <td>{{user.firstName}}</td>
                     <td>{{user.email}}</td>
-                    <td><button type="button" class="btn btn-success" *ngIf="user.status=='Yes';else abc"
+                    <td><button type="button" class="btn btn-success" *ngIf="user.status=='Approved';else abc"
                             disabled>Approved</button>
                         <ng-template #abc>
                             <button type="button" class="btn btn-success" (click)="approvealForm(user)"
@@ -38,7 +38,7 @@
                     <td><button type="button" class="btn btn-danger" (click)="show(user);"
                             *ngIf="user.status==null;else abcd">Reject</button>
                         <ng-template #abcd>
-                            <button type="button" class="btn btn-danger" *ngIf="user.status=='No'"
+                            <button type="button" class="btn btn-danger" *ngIf="user.status=='Rejected'"
                                 disabled>Rejected</button>
                         </ng-template>
                     </td>

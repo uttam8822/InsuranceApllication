@@ -116,8 +116,8 @@
           <td>Status</td>
           <td>{{user.status}}</td>
         </tr>
-        <tr>
-          <td>Reason</td>
+        <tr *ngIf="user.status=='Rejected'" >
+          <td>Reason of Rejection</td>
           <td>{{user.reason}}</td>
         </tr>
 
