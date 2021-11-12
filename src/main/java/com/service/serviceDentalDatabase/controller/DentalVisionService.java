@@ -75,7 +75,7 @@ public class DentalVisionService {
 	        }
 	        //Auto Approval 
 	        if("No".equals(user.getAnyCavity()) && "No".equals(user.getOralOperation()) && "No".equals(user.getTobacco()) && "No".equals(user.getAnyEyeOperation())) {
-	        	user.setStatus("Yes");
+	        	user.setStatus("Approved");
 	        	userObj = service.saveUser(user);
 	        	System.out.println(userObj.getEmail());
 	        	//Sending Email for Approval
@@ -104,7 +104,7 @@ public class DentalVisionService {
 	@PutMapping("/statusdv/{aadhar}")                       //Mapping for Status Approved
 	@CrossOrigin(origins = "http://localhost:4200")
 	public DentalVisionUser updateStatus(@RequestBody DentalVisionUser user)throws Exception{
-		user.setStatus("Yes");
+		user.setStatus("Approved");
 		DentalVisionUser userObj;
 		
 		userObj=service.saveUser(user);	
@@ -126,7 +126,7 @@ public class DentalVisionService {
 	@PutMapping("/status1dv/{aadhar}")                             //Mapping for Rejection
 	@CrossOrigin(origins = "http://localhost:4200")
 	public DentalVisionUser updateStatus1(@RequestBody DentalVisionUser user)throws Exception{
-		user.setStatus("No");
+		user.setStatus("Rejected");
 		String temp=user.getReason();
 		user.setReason(temp);
 		DentalVisionUser userObj;

@@ -68,7 +68,7 @@ public class LifeService {
         System.out.println(user.getStatus());
         //Auto Approval
         if("No".equals(user.getTobacco()) && "No".equals(user.getLungsIssue()) && "No".equals(user.getHivIssue())) {
-        	user.setStatus("Yes");
+        	user.setStatus("Approved");
         	userObj = service.saveUser(user);
         	System.out.println(userObj.getEmail());
         	service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been approved for Life service"+"\n In case if you have any query please feel free to connect with us."+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
@@ -79,7 +79,7 @@ public class LifeService {
         else {
 		//LifeUser userObj = null;
 		userObj = service.saveUser(user);
-		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been received successfully Life Insurance, we will contact you soon after reviewing your application."+"\n In case if you have any query please feel free to connect with us."+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
+		service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been received successfully  Life Insurance, we will contact you soon after reviewing your application."+"\n In case if you have any query please feel free to connect with us."+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
 				"\nPhone : " + 
 				"+91-120-4018100"+"\nEmail : support@impetus.com"
 		,"Application Received ");
@@ -94,7 +94,7 @@ public class LifeService {
 	@PutMapping("/status/{aadhar}")                                  //Mapping for Approval
 	@CrossOrigin(origins = "http://localhost:4200")
 	public LifeUser updateStatus(@RequestBody LifeUser user)throws Exception{
-		user.setStatus("Yes");
+		user.setStatus("Approved");
 		LifeUser userObj;
 		
 		userObj=service.saveUser(user);	
@@ -115,7 +115,7 @@ public class LifeService {
 	@PutMapping("/status1/{aadhar}")                                    // Mapping for Rejection
 	@CrossOrigin(origins = "http://localhost:4200")
 	public LifeUser updateStatus1(@RequestBody LifeUser user)throws Exception{
-		user.setStatus("No");
+		user.setStatus("Rejected");
 		String tempReason=user.getReason();
 		user.setReason(tempReason);
 		

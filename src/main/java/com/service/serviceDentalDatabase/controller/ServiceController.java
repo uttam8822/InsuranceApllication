@@ -65,7 +65,7 @@ public class ServiceController {
 	        
 	        //Auto Approval
 	        if("No".equals(user.getTobacco()) && "No".equals(user.getGroupInsurance()) && "No".equals(user.getCancellingInsurance())) {
-	        	user.setStatus("Yes");
+	        	user.setStatus("Approved");
 	        	userObj = service.saveUser(user);                          //Saving Application data with Approval
 	        	System.out.println(userObj.getEmail());
 	        	service1.sendSimpleEmail(userObj.getEmail(),"Dear User, "+user.getFirstName()+"\nYour application has been approved for Dental service"+"\n In case if you have any query please feel free to connect with us."+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd."+"\nSDF No. K-13 to 16, NSEZ"+"\nPhase-II Noida-201305 (U.P.)" + 
@@ -91,7 +91,7 @@ public class ServiceController {
 	@PutMapping("/status1d/{aadhar}")                             //Mapping for Approval
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ServiceUser updateStatus(@RequestBody ServiceUser user)throws Exception{
-		user.setStatus("No");
+		user.setStatus("Rejected");
 		String temp=user.getReason();
 		user.setReason(temp);
 		ServiceUser userObj;
@@ -112,7 +112,7 @@ public class ServiceController {
 	@PutMapping("/statusd/{aadhar}")                            // Mapping for Rejection
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ServiceUser updateStatus2(@RequestBody ServiceUser user)throws Exception{
-		user.setStatus("Yes");
+		user.setStatus("Approved");
 		ServiceUser userObj;
 		
 		userObj=service.saveUser(user);		
