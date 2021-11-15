@@ -103,8 +103,8 @@
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <label class="form-label" for="form3Example4c">Password</label>
-                      <input formControlName="password" class="form-control" aria-label="adhar" type="password"
-                        placeholder="Enter Your Password" required required [(ngModel)]="user.password" />
+                      <input formControlName="password" class="form-control" aria-label="adhar"  
+                        placeholder="Enter Your Password" required required [(ngModel)]="user.password"  [type]=" result?'text' : 'password' " />
                       <div *ngIf="password.invalid && (password.touched || password.dirty)">
                         <span class="error text-danger" *ngIf="password.errors?.required"> *Password is required.</span>
                         <span class="error text-danger" *ngIf="password.errors?.pattern"> *Only numbers Characters @#!
@@ -113,6 +113,7 @@
                           than 8 Characters.</span>
                         <span class="error text-danger" *ngIf="password.errors?.maxlength">*Password should be less than
                           20 Characters.</span>
+                         
 
                       </div>
                     </div>
@@ -136,8 +137,16 @@
 
 
 
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                  <div class="row">
+                    <div class="col">
+                      
+                        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                      
+                    </div>
+                    <div class="col">
+      
+                       
+                    </div>
                   </div>
 
                 </form>

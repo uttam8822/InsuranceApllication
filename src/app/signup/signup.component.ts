@@ -13,9 +13,13 @@ import { Event } from '@angular/router';
 export class SignupComponent implements OnInit {
   user = new User();
   msg = '';
+  showHideBtn:string='Show Password';
+  showPass:boolean=false;
+  result:boolean=false;   
 
   alert: boolean = false;
   alert1: boolean = false;
+  isActive:boolean;
 
 
   SignupForm: any;
@@ -72,4 +76,23 @@ export class SignupComponent implements OnInit {
     );
   }
 
+  showPassword(){
+    if (this.showPass==false) {
+      this.result=true;
+      this.showHideBtn="Hide Password";
+      this.showPass=true;
+    }else{
+      this.result=false;
+      this.showHideBtn="Show Password";
+      this.showPass=false;
+    }
+    
+     
+   
+  }
+
+  
+   
+
 }
+

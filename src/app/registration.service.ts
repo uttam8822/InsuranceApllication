@@ -129,6 +129,11 @@ export class RegistrationService {
     return this._http.post<any>("http://localhost:8067/sendmailUW", user);
   }
 
+  //send email admin
+  public sendEmailAdminFromRemote(user:Admin):Observable<any> {
+    return this._http.post<any>("http://localhost:8067/sendmailadmin", user);
+  }
+
   // send approve email Life User
   public sendEmailApproveLife(user: LifeRegistration): Observable<any> {
     return this._http.post<any>("http://localhost:8067/sendApproveEmailLifeUser", user);
