@@ -33,7 +33,7 @@
         </tr>
         <tr>
           <td>Middle Name</td>
-          <td>{{user.middleName}}</td>
+          <td>{{user.middleNmme}}</td>
         </tr>
         <tr>
           <td>Last Name</td>
@@ -116,8 +116,8 @@
           <td>Status</td>
           <td>{{user.status}}</td>
         </tr>
-        <tr>
-          <td>Reason</td>
+        <tr *ngIf="user.status=='Rejected'">
+          <td  >Reason of Rejection</td>
           <td>{{user.reason}}</td>
         </tr>
 
