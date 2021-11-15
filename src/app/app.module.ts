@@ -64,6 +64,7 @@ import { UserAuthGuard } from './Auth/user-auth.guard';
 import { RegistrationService } from './registration.service';
 import { UwriterAuthGuard } from './Auth/uwriter-auth.guard';
 import { AdminAuthGuard } from './Auth/admin-auth.guard';
+import { SendemailAdminComponent } from './sendemail-admin/sendemail-admin.component';
 
 
 
@@ -116,7 +117,8 @@ import { AdminAuthGuard } from './Auth/admin-auth.guard';
     FetchuwdetailsComponent,
     FetchuserdetailsComponent,
     SendEmailComponent,
-    SendmailUWComponent
+    SendmailUWComponent,
+    SendemailAdminComponent
 
 
 
