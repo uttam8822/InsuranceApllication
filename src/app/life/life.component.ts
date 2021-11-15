@@ -30,6 +30,7 @@ export class LifeComponent implements OnInit {
   selectHIV: string = '';
   selectLungsIssue = '';
   selectmembermessage: String = '';
+  showModal: boolean;
 
   selectChangeHandler(event: any) {
     this.selectedDay = event.target.value;
@@ -80,19 +81,6 @@ export class LifeComponent implements OnInit {
   selectLungHandler(event: any) {
     this.selectLungsIssue = event.target.value;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
