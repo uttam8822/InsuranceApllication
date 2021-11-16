@@ -13,13 +13,12 @@ import { Event } from '@angular/router';
 export class SignupComponent implements OnInit {
   user = new User();
   msg = '';
-<<<<<<< HEAD
+
   showHideBtn:string='Show Password';
   showPass:boolean=false;
   result:boolean=false;   
 
-=======
->>>>>>> 8382f8afc960f3d7c5b209efedb7dc070c9adbb5
+
   alert: boolean = false;
   alert1: boolean = false;
   isActive:boolean;

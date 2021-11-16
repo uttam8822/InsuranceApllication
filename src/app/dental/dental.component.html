@@ -19,12 +19,13 @@
 <div style="background-image: url('https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=872&q=80');"
     class="scroll-ele" #scroll>
 
-    <<div class="container">
+  <div class="container">
         <div
             style="background-image: url('https://media.istockphoto.com/videos/cute-tooth-dental-cartoon-hd-animation-video-id975678004?s=640x640'); height: 75px; border-radius: 10px;">
             <h1 style="color: rgb(53, 11, 45); text-align: center; font-weight: 900; font-size: xx-large;">Apply for
                 Dental Insurance</h1>
         </div>
+         
         <form [formGroup]="Dental" #dentalForm="ngForm" (ngSubmit)="applyDental()">
             <div class="row g-3">
                 <div class="col">

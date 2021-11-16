@@ -42,6 +42,7 @@ import { UserAuthGuard } from './Auth/user-auth.guard';
 import { UwriterAuthGuard } from './Auth/uwriter-auth.guard';
 import { AdminAuthGuard } from './Auth/admin-auth.guard';
 import { SendemailAdminComponent } from './sendemail-admin/sendemail-admin.component';
+
 const routes: Routes = [
   { path: '', pathMatch: "full", redirectTo: "home" },
   { path: 'login', component: LoginComponent },
@@ -82,6 +83,7 @@ const routes: Routes = [
   { path: "sendEmail", component: SendEmailComponent },
   { path: "sendEmailUW", component: SendmailUWComponent },
   {path:"sendEmailAdmin",component:SendemailAdminComponent}
+   
 ];
 
 @NgModule({

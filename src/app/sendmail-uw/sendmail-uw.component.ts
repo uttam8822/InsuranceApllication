@@ -16,12 +16,15 @@ export class SendmailUWComponent implements OnInit {
 
   alert: boolean = false;
   alert1: boolean = false;
+  isClicked:boolean=false;
 
   ngOnInit(): void {
 
   }
 
-
+  loadingBar(){
+    this.isClicked=true;
+  }
 
   sendEmailUW() {
     this._service.sendEmailUWFromRemote(this.user).subscribe(
@@ -30,6 +33,7 @@ export class SendmailUWComponent implements OnInit {
         this.msg = "Email sent successfull";
         this.alert = true;
         this.alert1 = false;
+        this.isClicked=false;
 
       },
       error => {
@@ -37,6 +41,7 @@ export class SendmailUWComponent implements OnInit {
         this.msg = "It seems you are not a valid user please check your email";
         this.alert = false;
         this.alert1 = true;
+        this.isClicked=false;
 
       }
 
