@@ -76,6 +76,8 @@
                         <span class="error" *ngIf="email.errors?.required">*Email required.</span>
                         <span class="error" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
                     </div>
+                    <img *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px;"/> 
+                   
                 </div>
                 <div class="col">
                     <label>PAN<span style="color: red;">*</span></label>
@@ -363,7 +365,7 @@
                         (click)="user.gender=selectGender" (click)="user.tobacco=selectTobacco"
                         (click)="user.selectPlane=selectPlaneYear" (click)="user.cancellingInsurance=cancelExixting"
                         (click)="user.groupInsurance=groupInsuranceUser" (click)="user.hivIssue=selectHIV"
-                        (click)="user.lungsIssue=selectLungsIssue" (click)="user.member=selectedDay">Submit</button>
+                        (click)="user.lungsIssue=selectLungsIssue" (click)="user.member=selectedDay" (click)="formProgress()">Submit</button>
                 </div>
 
                 <div class="col">

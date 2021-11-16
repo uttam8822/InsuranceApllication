@@ -18,7 +18,7 @@ export class LifeComponent implements OnInit {
 
   private formSubmitAttempt: boolean;
   al: boolean = false;
-
+  isClicked:boolean=false;
   selectGender: string = '';
   selectedDay: string = '';
   selectPlaneYear: string = '';
@@ -187,15 +187,18 @@ futureDateDisable() { 
     this.submitted = true;
     if (this.LifeForm.invalid) {
       this.validateAllFormFields(this.LifeForm);
+      this.isClicked=false;
       return;
     }
     this._service.applyUserForLife(this.user).subscribe(
       data => {
         console.log("response received");
+        this.isClicked=false;
         this._route.navigate(["/success"])
       },
       error => {
         console.log("exception occred");
+        this.isClicked=false;
         // alert("Please fill all Reqiured feild mark with (*).");
       }
 
@@ -246,4 +249,8 @@ futureDateDisable() { 
   // scrollToMiddle(){
   //   this.scroll.nativeElement.scrollTop = 0 ;
   // }
+
+  formProgress(){
+    this.isClicked=true;
+   }
 }
