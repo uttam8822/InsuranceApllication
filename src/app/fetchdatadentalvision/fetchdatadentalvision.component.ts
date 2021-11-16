@@ -14,7 +14,6 @@ export class FetchdatadentalvisionComponent implements OnInit {
   activeUser: any = null;
   reason: string = '';//Get user reason, on Modal window
   showModal: boolean;
-
   constructor(private userRegistration: RegistrationService, private _router: Router) {
     this.userRegistration.getDentalVisionData().subscribe(data => {
       console.log(data);
@@ -50,7 +49,7 @@ export class FetchdatadentalvisionComponent implements OnInit {
       },
 
       error => {
-
+         
         alert("Unsuccessfull");
 
       }
@@ -68,7 +67,10 @@ export class FetchdatadentalvisionComponent implements OnInit {
             this._router.navigate([curl]);
           });
         },
-        error => { alert("Unsuccessfull") }
+        error => { 
+         
+          alert("Unsuccessfull")
+      }
       )
     }
   }

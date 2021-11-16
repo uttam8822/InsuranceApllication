@@ -18,6 +18,7 @@ export class FetchdatalifeComponent implements OnInit {
   reason: string = '';//Get user reason, on Modal window
   showModal: boolean;
   al: boolean;
+
   constructor(private userRegistration: RegistrationService, private _router: Router) {
     this.userRegistration.getLifeData().subscribe(data => {
       console.log(data);
@@ -26,7 +27,6 @@ export class FetchdatalifeComponent implements OnInit {
     });
 
   }
-
   show(user) {
     this.showModal = true; // Show-Hide Modal Check
     this.activeUser = user; // Preserving user info for later use
@@ -53,6 +53,7 @@ export class FetchdatalifeComponent implements OnInit {
       data => {
 
         alert("Approved  Successfully");
+       
         let curl = this._router.url;
         this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this._router.navigate([curl]);
@@ -60,6 +61,7 @@ export class FetchdatalifeComponent implements OnInit {
       },
       error => {
         alert("Unsuccessfull");
+      
 
       }
     )
@@ -77,7 +79,8 @@ export class FetchdatalifeComponent implements OnInit {
             this._router.navigate([curl]);
           });
         },
-        error => { alert("Unsuccessfull") }
+        error => {
+          alert("Unsuccessfull") }
       )
     }
   }

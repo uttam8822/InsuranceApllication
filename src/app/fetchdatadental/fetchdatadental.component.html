@@ -32,12 +32,14 @@
                     <td><button type="button" class="btn btn-success" *ngIf="user.status=='Approved';else abc"
                             disabled>Approved</button>
                         <ng-template #abc>
-                            <button type="button" class="btn btn-success" (click)="approvealForm2(user)"
-                                *ngIf="user.status==null">Approve</button>
+                            <button type="button" class="btn btn-success" (click)="approvealForm2(user);"
+                                *ngIf="user.status==null">
+                                 Approve</button>
                         </ng-template>
                     </td>
-                    <td><button type="button" class="btn btn-danger" (click)="show(user)"
-                            *ngIf="user.status==null;else abcd">Reject</button>
+                    <td><button type="button" class="btn btn-danger" (click)="show(user);"
+                            *ngIf="user.status==null;else abcd">
+                             Reject</button>
                         <ng-template #abcd>
                             <button type="button" class="btn btn-danger" *ngIf="user.status=='Rejected'"
                                 disabled>Rejected</button>

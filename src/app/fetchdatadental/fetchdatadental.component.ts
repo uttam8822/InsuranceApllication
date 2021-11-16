@@ -25,9 +25,6 @@ export class FetchdatadentalComponent implements OnInit {
 
     });
 
-
-
-
   }
   show(user) {
     this.showModal = true; // Show-Hide Modal Check
@@ -45,12 +42,15 @@ export class FetchdatadentalComponent implements OnInit {
       data => {
         alert("Approved Successfully");
         let curl = this._router.url;
+        
         this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this._router.navigate([curl]);
         });
       },
       error => {
+        
         alert("Unsuccessfull");
+        
       }
 
     )
@@ -62,13 +62,19 @@ export class FetchdatadentalComponent implements OnInit {
       getActiveUserInfo.reason = this.reason;
       this.userRegistration.rejectStatusOfD(getActiveUserInfo).subscribe(
         data => {
+          
           alert("Rejected Successfully");
+         
           let curl = this._router.url;
           this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
             this._router.navigate([curl]);
           });
         },
-        error => { alert("Unsuccessfull") }
+        error => { 
+          
+          alert("Unsuccessfull") 
+         
+        }
       )
     }
   }
