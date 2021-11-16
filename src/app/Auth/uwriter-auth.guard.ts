@@ -1,6 +1,5 @@
 //this is ts file for applying authentication on under writer dashboard using router gaurd so we can not go directly under writer page by hitting url
 
-
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
