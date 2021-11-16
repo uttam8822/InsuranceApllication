@@ -16,8 +16,6 @@ export class LifeComponent implements OnInit {
 
   @ViewChild('scroll') scroll: ElementRef;
 
-
-
   private formSubmitAttempt: boolean;
   al: boolean = false;
 
@@ -89,7 +87,23 @@ export class LifeComponent implements OnInit {
   submitted = false;
   constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { }
 
+
+maxDate:any;
+futureDateDisable() { 
+   var date:any = new Date(); 
+    var todayDate:any = date.getDate();  
+    var month:any = date.getMonth() + 1; 
+     var year:any = date.getFullYear(); 
+      if(todayDate < 10){    todayDate = '0' + todayDate;  } 
+       if(month < 10){    month = '0' + month;  } 
+        this.maxDate = year + "-" + month + "-" + todayDate; 
+        console.log(this.maxDate);
+  }
+
+
+
   ngOnInit(): void {
+    this.futureDateDisable();
     this.LifeForm = new FormGroup({
       "firstname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       "lastname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
@@ -113,7 +127,7 @@ export class LifeComponent implements OnInit {
       "lungDisease": new FormControl("", [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "additionalComments": new FormControl(null),
       "healthIssue": new FormControl(null),
-      "dateOfBirth": new FormControl("", [Validators.required, Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
+      "dateOfBirth": new FormControl("", [Validators.required]),
       "member": new FormControl("", Validators.required)
     });
   }
@@ -175,8 +189,6 @@ export class LifeComponent implements OnInit {
       this.validateAllFormFields(this.LifeForm);
       return;
     }
-
-
     this._service.applyUserForLife(this.user).subscribe(
       data => {
         console.log("response received");

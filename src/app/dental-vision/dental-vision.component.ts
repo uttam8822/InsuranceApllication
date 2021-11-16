@@ -24,7 +24,18 @@ export class DentalVisionComponent implements OnInit {
   DentalVisionForm: any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { }
-
+  maxDate:any;
+  futureDateDisable() {
+     var date:any = new Date();  
+    var todayDate:any = date.getDate();  
+    var month:any = date.getMonth() + 1;  
+    var year:any = date.getFullYear(); 
+     if(todayDate < 10){    todayDate = '0' + todayDate;  }  
+     if(month < 10){    month = '0' + month;  }  
+     this.maxDate = year + "-" + month + "-" + todayDate;  
+     console.log(this.maxDate);}
+  
+  
   selectGender: string = '';
   selectedDay: string = '';
   selectPlaneYear: string = '';
@@ -102,7 +113,7 @@ export class DentalVisionComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    this.futureDateDisable();
     this.DentalVisionForm = new FormGroup({
       "firstname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       "lastname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
@@ -125,10 +136,10 @@ export class DentalVisionComponent implements OnInit {
       "groupInsurance": new FormControl('', [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]*')]),
       "anyEyeOperation": new FormControl('', [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]*')]),
       "oralOperation": new FormControl('', [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]*')]),
-      "lastDentalCkeck": new FormControl(null, [Validators.required, Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
+      "lastDentalCkeck": new FormControl(null, [Validators.required]),
       "cancellingInsurance": new FormControl("", [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]*')]),
       "healthIssue": new FormControl(null),
-      "dateOfBirth": new FormControl(null, [Validators.required, Validators.pattern('[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}')]),
+      "dateOfBirth": new FormControl(null, [Validators.required]),
       "occupation": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       "additionalComments": new FormControl(null),
       "member": new FormControl("", Validators.required)

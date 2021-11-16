@@ -145,12 +145,10 @@
                     </div>
                     <div class="col">
                         <label>Birth date<span style="color: red;">*</span></label>
-                        <input formControlName="dateOfBirth" class="form-control" aria-label="contact"
+                        <input type="date" max="{{maxDate}}" formControlName="dateOfBirth" class="form-control" aria-label="contact"
                             placeholder="DD/MM/YYYY" required required [(ngModel)]="user. dateOfBirth" />
                         <div *ngIf="dateOfBirth.invalid && (dateOfBirth.touched || dateOfBirth.dirty)">
                             <span class="error" *ngIf="dateOfBirth.errors?.required"> *Date is required.</span>
-                            <span class="error" *ngIf="dateOfBirth.errors?.pattern"> *Should be in
-                                format(DD/MM/YYYY).</span>
                         </div>
                     </div>
 
@@ -313,12 +311,10 @@
                 </div>
                 <div class="col">
                     <label>When was your last Dental Check-Up?<span style="color: red;">*</span></label>
-                    <input formControlName="lastDentalCkeck" class="form-control" aria-label="contact"
+                    <input type="date" max="{{maxDate}}" formControlName="lastDentalCkeck" class="form-control" aria-label="contact"
                         placeholder="DD/MM/YYYY" required required [(ngModel)]="user. lastDentalCkeck" />
                     <div *ngIf="lastDentalCkeck.invalid && (lastDentalCkeck.touched || lastDentalCkeck.dirty)">
                         <span class="error" *ngIf="lastDentalCkeck.errors?.required"> *Date is required.</span>
-                        <span class="error" *ngIf="lastDentalCkeck.errors?.pattern"> *Should be in
-                            formate(DD/MM/YYYY).</span>
                     </div>
 
                 </div>
@@ -393,19 +389,6 @@
                 </div>
 
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             <div>
