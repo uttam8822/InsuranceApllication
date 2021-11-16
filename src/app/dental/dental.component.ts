@@ -180,6 +180,7 @@ export class DentalComponent implements OnInit {
     this.submitted = true;
     if (this.Dental.invalid) {
       this.validateAllFormFields(this.Dental);
+      this.isClicked=false;
       return;
     }
 
@@ -190,12 +191,12 @@ export class DentalComponent implements OnInit {
       data => {
         console.log("response received");
         console.log(this.Dental.value);
-         
+        this.isClicked=false; 
         this._route.navigate(["/success"])
       },
       error => {
         console.log("exception occred");
-         
+        this.isClicked=false; 
       }
 
     );
@@ -245,8 +246,8 @@ export class DentalComponent implements OnInit {
     this.scroll.nativeElement.scrollTop = 0;
   }
 
-  loadingBarMark(){
-    this.isClicked=true;
+  formProgress(){
+   this.isClicked=true;
   }
 
 

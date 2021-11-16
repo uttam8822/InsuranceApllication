@@ -18,6 +18,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class DentalVisionComponent implements OnInit {
 
   submitted = false;
+  isClicked:boolean=false;
   @ViewChild('scroll') scroll: ElementRef;
 
   private formSubmitAttempt: boolean;
@@ -194,16 +195,19 @@ export class DentalVisionComponent implements OnInit {
     this.submitted = true;
     if (this.DentalVisionForm.invalid) {
       this.validateAllFormFields(this.DentalVisionForm);
+      this.isClicked=false;
       return;
     }
   
     this._service.applyUserForDVService(this.user).subscribe(
       data => {
         console.log("response received");
+        this.isClicked=false;
         this._route.navigate(["/success"])
       },
       error => {
         console.log("exception occred")
+        this.isClicked=false;
         // alert("Please fill all Reqiured feild mark with (*).");
       }
 
@@ -246,6 +250,9 @@ export class DentalVisionComponent implements OnInit {
   scrollTop() {
     this.scroll.nativeElement.scrollTop = 0;
   }
+  formProgress(){
+    this.isClicked=true;
+   }
 
 }
 

@@ -27,6 +27,7 @@
         </div>
          
         <form [formGroup]="Dental" #dentalForm="ngForm" (ngSubmit)="applyDental()">
+          
             <div class="row g-3">
                 <div class="col">
                     <label>First Name<span style="color: red;">*</span></label>
@@ -67,13 +68,16 @@
                     </div>
                 </div>
                 <div class="col">
-                    <label>Email<span style="color: red;">*</span></label>
+                     <label>Email<span style="color: red;">*</span></label>
                     <input formControlName="email" class="form-control" aria-label="email"
                         placeholder="Ex: abcdef@abc.com" required required [(ngModel)]="user.email">
                     <div *ngIf="email.invalid && (email.touched || email.dirty)">
                         <span class="error" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
                         <span class="error" *ngIf="email.errors?.required"> *Email is required.</span>
+                      
                     </div>
+                    <img *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px;"/> 
+                   
                 </div>
                 <div class="col">
                     <label>PAN<span style="color: red;">*</span></label>
@@ -140,6 +144,7 @@
                             <span class="error" *ngIf="contact.errors?.pattern"> *Only Numbers are allowed.</span>
                             <span class="error" *ngIf="contact.errors?.minlength">*Invalid Mobile.</span>
                             <span class="error" *ngIf="contact.errors?.maxlength">*Invalid Mobile.</span>
+   
                         </div>
                     </div>
                     <div class="col">
@@ -336,7 +341,8 @@
                         (click)="user.gender=selectGender" (click)="user.tobacco=selectTobacco"
                         (click)="user.selectPlane=selectPlaneYear" (click)="user.cancellingInsurance=cancelExixting"
                         (click)="user.member=selectedDay"
-                        (click)="user.groupInsurance=groupInsuranceUser">Submit</button>
+                        (click)="user.groupInsurance=groupInsuranceUser"
+                        (click)="formProgress()">Submit</button>
                 </div>
                 <div class="col">
                     <button (click)="scrollTop()" s style="background-color: rgb(240, 52, 52) " type="reset"
