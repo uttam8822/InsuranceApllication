@@ -151,7 +151,9 @@
 
       <div class="row">
         <div class="col">
-          <button type="submit">Send Email</button>
+          <button type="submit" (click)="loadingBar()">
+            <img *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 20px; width: 20px;"/>
+            Send Email</button>
           
         </div>
     <div class="col">

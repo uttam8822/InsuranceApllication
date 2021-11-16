@@ -21,6 +21,7 @@ export class DentalComponent implements OnInit {
 
 
   submitted = false;
+  isClicked:boolean=false;
   Dental: any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
 
@@ -182,15 +183,19 @@ export class DentalComponent implements OnInit {
       return;
     }
 
+    
+    
 
     this._service.applyUserForDental(this.user).subscribe(
       data => {
         console.log("response received");
         console.log(this.Dental.value);
+         
         this._route.navigate(["/success"])
       },
       error => {
-        console.log("exception occred")
+        console.log("exception occred");
+         
       }
 
     );
@@ -238,6 +243,10 @@ export class DentalComponent implements OnInit {
   // method to scroll up on clicking clear button
   scrollTop() {
     this.scroll.nativeElement.scrollTop = 0;
+  }
+
+  loadingBarMark(){
+    this.isClicked=true;
   }
 
 

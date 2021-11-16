@@ -56,7 +56,6 @@ import { UwLifeDetailsComponent } from './uw-life-details/uw-life-details.compon
 import { UwDVDetailsComponent } from './uw-dvdetails/uw-dvdetails.component';
 import { UwDentalDetailsComponent } from './uw-dental-details/uw-dental-details.component';
 import { SendEmailComponent } from './send-email/send-email.component';
-
 import { FetchuwdetailsComponent } from './fetchuwdetails/fetchuwdetails.component';
 import { FetchuserdetailsComponent } from './fetchuserdetails/fetchuserdetails.component';
 import { SendmailUWComponent } from './sendmail-uw/sendmail-uw.component';
@@ -65,6 +64,7 @@ import { RegistrationService } from './registration.service';
 import { UwriterAuthGuard } from './Auth/uwriter-auth.guard';
 import { AdminAuthGuard } from './Auth/admin-auth.guard';
 import { SendemailAdminComponent } from './sendemail-admin/sendemail-admin.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -118,7 +118,8 @@ import { SendemailAdminComponent } from './sendemail-admin/sendemail-admin.compo
     FetchuserdetailsComponent,
     SendEmailComponent,
     SendmailUWComponent,
-    SendemailAdminComponent
+    SendemailAdminComponent,
+    
 
 
 
@@ -140,7 +141,8 @@ import { SendemailAdminComponent } from './sendemail-admin/sendemail-admin.compo
     MatListModule,
     MatMenuModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [UserAuthGuard, RegistrationService, UwriterAuthGuard, AdminAuthGuard],

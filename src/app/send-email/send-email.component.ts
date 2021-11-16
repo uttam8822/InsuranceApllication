@@ -17,11 +17,16 @@ export class SendEmailComponent implements OnInit {
 
   alert: boolean = false;
   alert1: boolean = false;
+  isClicked:boolean=false;
 
   ngOnInit(): void {
 
   }
 
+  loadingBar(){
+    this.isClicked=true;
+  }
+ 
 
 
   sendEmail() {
@@ -31,6 +36,7 @@ export class SendEmailComponent implements OnInit {
         this.msg = "Email sent successfull";
         this.alert = true;
         this.alert1 = false;
+        this.isClicked=false;
 
       },
       error => {
@@ -38,6 +44,7 @@ export class SendEmailComponent implements OnInit {
         this.msg = "It seems you are not a valid user please check your email";
         this.alert = false;
         this.alert1 = true;
+        this.isClicked=false;
 
       }
 
