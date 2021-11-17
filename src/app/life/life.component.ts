@@ -30,23 +30,6 @@ export class LifeComponent implements OnInit {
   selectmembermessage: String = '';
   showModal: boolean;
 
-  selectChangeHandler(event: any) {
-    this.selectedDay = event.target.value;
-    if (this.selectedDay == "Individual") {
-      this.selectmembermessage = "Your yearly policy will be Rs-10000/-";
-    }
-    if (this.selectedDay == "Individual & Spouse") {
-      this.selectmembermessage = "Your yearly policy will be Rs-20000/-";
-    }
-
-    if (this.selectedDay == "Individual Spouse & Child") {
-      this.selectmembermessage = "Your yearly policy will be Rs-30000/-";
-    }
-    if (this.selectedDay == "Individual Spouse & Parents") {
-      this.selectmembermessage = "Your yearly policy will be Rs-40000/-";
-    }
-  }
-
   //for select plane
   selectPlanHandler(event: any) {
     this.selectPlaneYear = event.target.value;
@@ -79,8 +62,23 @@ export class LifeComponent implements OnInit {
   selectLungHandler(event: any) {
     this.selectLungsIssue = event.target.value;
   }
+  
+  selectChangeHandler(event: any) {
 
+    if (this.selectedDay == "Individual") {
+      this.selectmembermessage = "Your yearly policy will be Rs-10000";
+    }
+    if (this.selectedDay == "Individual & Spouse") {
+      this.selectmembermessage = "Your yearly policy will be Rs-20000/-";
+    }
 
+    if (this.selectedDay == "Individual Spouse & Child") {
+      this.selectmembermessage = "Your yearly policy will be Rs-30000/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Parents") {
+      this.selectmembermessage = "Your yearly policy will be Rs-40000/-";
+    }
+  }
 
   LifeForm: any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
