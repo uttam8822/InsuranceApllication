@@ -18,7 +18,7 @@ export class LifeComponent implements OnInit {
 
   private formSubmitAttempt: boolean;
   al: boolean = false;
-  isClicked:boolean=false;
+  isClicked: boolean = false;
   selectGender: string = '';
   selectedDay: string = '';
   selectPlaneYear: string = '';
@@ -30,6 +30,28 @@ export class LifeComponent implements OnInit {
   selectmembermessage: String = '';
   showModal: boolean;
 
+
+  selectChangeHandler(event: any) {
+    this.selectedDay = event.target.value;
+    if (this.selectedDay == "Individual") {
+      this.selectmembermessage = "Your yearly policy will be Rs-10000";
+    }
+    if (this.selectedDay == "Individual & Spouse") {
+      this.selectmembermessage = "Your yearly policy will be Rs-20000/-";
+    }
+
+    if (this.selectedDay == "Individual Spouse & Child") {
+      this.selectmembermessage = "Your yearly policy will be Rs-30000/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Parents") {
+      this.selectmembermessage = "Your yearly policy will be Rs-40000/-";
+    }
+  }
+
+  LifeForm: any;
+  emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+  submitted = false;
+  constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { }
   //for select plane
   selectPlanHandler(event: any) {
     this.selectPlaneYear = event.target.value;
@@ -62,40 +84,18 @@ export class LifeComponent implements OnInit {
   selectLungHandler(event: any) {
     this.selectLungsIssue = event.target.value;
   }
-  
-  selectChangeHandler(event: any) {
-
-    if (this.selectedDay == "Individual") {
-      this.selectmembermessage = "Your yearly policy will be Rs-10000";
-    }
-    if (this.selectedDay == "Individual & Spouse") {
-      this.selectmembermessage = "Your yearly policy will be Rs-20000/-";
-    }
-
-    if (this.selectedDay == "Individual Spouse & Child") {
-      this.selectmembermessage = "Your yearly policy will be Rs-30000/-";
-    }
-    if (this.selectedDay == "Individual Spouse & Parents") {
-      this.selectmembermessage = "Your yearly policy will be Rs-40000/-";
-    }
-  }
-
-  LifeForm: any;
-  emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-  submitted = false;
-  constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { }
 
 
-maxDate:any;
-futureDateDisable() { 
-   var date:any = new Date(); 
-    var todayDate:any = date.getDate();  
-    var month:any = date.getMonth() + 1; 
-     var year:any = date.getFullYear(); 
-      if(todayDate < 10){    todayDate = '0' + todayDate;  } 
-       if(month < 10){    month = '0' + month;  } 
-        this.maxDate = year + "-" + month + "-" + todayDate; 
-        console.log(this.maxDate);
+  maxDate: any;
+  futureDateDisable() {
+    var date: any = new Date();
+    var todayDate: any = date.getDate();
+    var month: any = date.getMonth() + 1;
+    var year: any = date.getFullYear();
+    if (todayDate < 10) { todayDate = '0' + todayDate; }
+    if (month < 10) { month = '0' + month; }
+    this.maxDate = year + "-" + month + "-" + todayDate;
+    console.log(this.maxDate);
   }
 
 
@@ -185,18 +185,18 @@ futureDateDisable() { 
     this.submitted = true;
     if (this.LifeForm.invalid) {
       this.validateAllFormFields(this.LifeForm);
-      this.isClicked=false;
+      this.isClicked = false;
       return;
     }
     this._service.applyUserForLife(this.user).subscribe(
       data => {
         console.log("response received");
-        this.isClicked=false;
+        this.isClicked = false;
         this._route.navigate(["/success"])
       },
       error => {
         console.log("exception occred");
-        this.isClicked=false;
+        this.isClicked = false;
         // alert("Please fill all Reqiured feild mark with (*).");
       }
 
@@ -248,7 +248,7 @@ futureDateDisable() { 
   //   this.scroll.nativeElement.scrollTop = 0 ;
   // }
 
-  formProgress(){
-    this.isClicked=true;
-   }
+  formProgress() {
+    this.isClicked = true;
+  }
 }

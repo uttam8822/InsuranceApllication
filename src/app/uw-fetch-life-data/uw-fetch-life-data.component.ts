@@ -20,6 +20,7 @@ export class UwFetchLifeDataComponent implements OnInit {
   reason: string = '';//Get user reason, on Modal window
   showModal: boolean;
   al: boolean;
+  showModal1: boolean=false;
   constructor(private userRegistration: RegistrationService, private _router: Router) {
     this.userRegistration.getLifeData().subscribe(data => {
       console.log(data);
@@ -47,6 +48,7 @@ export class UwFetchLifeDataComponent implements OnInit {
       data => {
 
         alert("Approved  Successfully");
+        this.showModal1=false;
         let curl = this._router.url;
         this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this._router.navigate([curl]);
@@ -54,6 +56,7 @@ export class UwFetchLifeDataComponent implements OnInit {
       },
       error => {
         alert("Unsuccessfull");
+        this.showModal1=false;
 
       }
     )
@@ -65,12 +68,14 @@ export class UwFetchLifeDataComponent implements OnInit {
       this.userRegistration.rejectStatusOfLife(getActiveUserInfo).subscribe(
         data => {
           alert("Rejected Successfully");
+          this.showModal1=false;
           let curl = this._router.url;
           this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
             this._router.navigate([curl]);
           });
         },
-        error => { alert("Unsuccessfull") }
+        error => { alert("Unsuccessfull")
+        this.showModal1=false; }
       )
     }
   }
@@ -87,5 +92,7 @@ export class UwFetchLifeDataComponent implements OnInit {
     this._router.navigate(['/UWLifeDetails11'], { state: { data: this.user } });
 
   }
-
+  progressBar(){
+    this.showModal1=true;
+  }
 }

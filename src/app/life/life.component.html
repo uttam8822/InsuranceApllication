@@ -207,17 +207,22 @@
 
                 </div>
                 <div class="col">
-                    <label>Do you Have any Lung Disease Or Heart Desease?<span style="color: red;">*</span></label>
-                    <select name="selectlist8" id="selectlist8" style="height: 45px; width: 490px;"
-                        (change)="selectLungHandler($event)" formControlName="lungDisease" required>
-                        <option value="" disabled selected>Please select </option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
+                    <label>Select Member<span style="color: red;">*</span></label>
+                    <br>
+                    <select name="selectlist2" id="selectlist2" style="height: 45px; width: 490px;"
+                        (change)="selectChangeHandler($event)" formControlName="member" required>
+                        <option value="" disabled selected>Please select members</option>
+                        <option value="Individual">Individual</option>
+                        <option value="Individual & Spouse">Individual & Spouse</option>
+                        <option value="Individual Spouse & Child">Individual Spouse & Child</option>
+                        <option value="Individual Spouse & Parents">Individual Spouse & Parents</option>
                     </select>
-                    <div *ngIf="lungDisease.invalid && (lungDisease.touched || lungDisease.dirty)">
-                        <span class="error" *ngIf="lungDisease.errors?.required"> *Feild is required.</span>
+                    <div *ngIf="member.invalid && (member.touched || member.dirty)">
+                        <span class="error" *ngIf="member.errors?.required"> *Member is required.</span>
 
                     </div>
+                    <br>
+                    <small style="color: blue;">{{selectmembermessage}}</small>
                 </div>
 
             </div>
@@ -318,23 +323,19 @@
                     </div>
                 </div>
                 <div class="col">
-                    <label>Select Member<span style="color: red;">*</span></label>
-                    <br>
-                    <select name="selectlist2" id="selectlist2" style="height: 45px; width: 490px;"
-                        (change)="selectChangeHandler($event)" formControlName="member" required>
-                        <option value="" disabled selected>Please select members</option>
-                        <option value="Individual">Individual</option>
-                        <option value="Individual & Spouse">Individual & Spouse</option>
-                        <option value="Individual Spouse & Child">Individual Spouse & Child</option>
-                        <option value="Individual Spouse & Parents">Individual Spouse & Parents</option>
+                    <label>Do you Have any Lung Disease Or Heart Desease?<span style="color: red;">*</span></label>
+                    <select name="selectlist8" id="selectlist8" style="height: 45px; width: 490px;"
+                        (change)="selectLungHandler($event)" formControlName="lungDisease" required>
+                        <option value="" disabled selected>Please select </option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                     </select>
-                    <div *ngIf="member.invalid && (member.touched || member.dirty)">
-                        <span class="error" *ngIf="member.errors?.required"> *Member is required.</span>
+                    <div *ngIf="lungDisease.invalid && (lungDisease.touched || lungDisease.dirty)">
+                        <span class="error" *ngIf="lungDisease.errors?.required"> *Feild is required.</span>
 
                     </div>
-                    <br>
-                    <small style="color: blue;">{{selectmembermessage}}</small>
                 </div>
+
             </div>
 
 

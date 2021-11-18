@@ -14,6 +14,7 @@ export class UwFetchDVDataComponent implements OnInit {
   activeUser: any = null;
   reason: string = '';//Get user reason, on Modal window
   showModal: boolean;
+  showModal1: boolean=false;
   constructor(private userRegistration: RegistrationService, private _router: Router) {
     this.userRegistration.getDentalVisionData().subscribe(data => {
       console.log(data);
@@ -39,6 +40,7 @@ export class UwFetchDVDataComponent implements OnInit {
       data => {
 
         alert("Approved Successfully");
+        this.showModal1=false;
         let curl = this._router.url;
         this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this._router.navigate([curl]);
@@ -49,6 +51,7 @@ export class UwFetchDVDataComponent implements OnInit {
       error => {
 
         alert("Unsuccessfull");
+        this.showModal1=false;
 
       }
     )
@@ -60,12 +63,14 @@ export class UwFetchDVDataComponent implements OnInit {
       this.userRegistration.rejectStatusOfDV(getActiveUserInfo).subscribe(
         data => {
           alert("Rejected Successfully");
+          this.showModal1=false;
           let curl = this._router.url;
           this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
             this._router.navigate([curl]);
           });
         },
-        error => { alert("Unsuccessfull") }
+        error => { alert("Unsuccessfull") 
+        this.showModal1=false;}
       )
     }
   }
@@ -73,5 +78,7 @@ export class UwFetchDVDataComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  progressBar(){
+    this.showModal1=true;
+  }
 }

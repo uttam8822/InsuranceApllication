@@ -32,7 +32,7 @@
                     <td><button type="button" class="btn btn-success" *ngIf="user.status=='Approved';else abc"
                             disabled>Approved</button>
                         <ng-template #abc>
-                            <button type="button" class="btn btn-success" (click)="approvealForm2(user)"
+                            <button type="button" class="btn btn-success" (click)="approvealForm2(user);progressBar()"
                                 *ngIf="user.status==null">Approve</button>
                         </ng-template>
                     </td>
@@ -50,6 +50,13 @@
         </table>
 
     </div>
+
+    <div [style.display]="showModal1 ? 'block' : 'none' " class="modal" id="imagemodal" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+     <img *ngIf="showModal1"
+        src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif"
+        style="height: 100px; width: 100px;margin-left: 50%;margin-top: 18%;"/>
+</div>
 
 
     <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
@@ -71,7 +78,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" (click)="hide();rejectForm2()" class="btn btn-primary">Submit</button>
+                        <button type="submit" (click)="hide();rejectForm2();progressBar()" class="btn btn-primary">Submit</button>
                     </form>
 
 

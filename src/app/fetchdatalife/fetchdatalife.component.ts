@@ -18,6 +18,7 @@ export class FetchdatalifeComponent implements OnInit {
   reason: string = '';//Get user reason, on Modal window
   showModal: boolean;
   al: boolean;
+  showModal1: boolean;
 
   constructor(private userRegistration: RegistrationService, private _router: Router) {
     this.userRegistration.getLifeData().subscribe(data => {
@@ -53,13 +54,14 @@ export class FetchdatalifeComponent implements OnInit {
       data => {
 
         alert("Approved  Successfully");
-       
+        this.showModal1=false;
         let curl = this._router.url;
         this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this._router.navigate([curl]);
         });
       },
       error => {
+        this.showModal1=false;
         alert("Unsuccessfull");
       
 
@@ -73,6 +75,7 @@ export class FetchdatalifeComponent implements OnInit {
       this.userRegistration.rejectStatusOfLife(getActiveUserInfo).subscribe(
         data => {
           alert("Rejected Successfully");
+          this.showModal1=false;
           this.activeUser = null
           let curl = this._router.url;
           this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -80,6 +83,7 @@ export class FetchdatalifeComponent implements OnInit {
           });
         },
         error => {
+          this.showModal1=false;
           alert("Unsuccessfull") }
       )
     }
@@ -91,34 +95,10 @@ export class FetchdatalifeComponent implements OnInit {
     })
   }
 
-
-  sendEmailLifeApprove() {
-    this.userRegistration.sendEmailApproveLife(this.user1).subscribe(
-      data => {
-        console.log("response received");
-        this.msg = "Email sent successfull";
-        this.alert = true;
-        this.alert1 = false;
-
-      },
-      error => {
-        console.error("exception occour");
-        this.msg = "It seems you are not a valid user please check your email";
-        this.alert = false;
-        this.alert1 = true;
-
-      }
-
-    );
-  }
   ngOnInit(): void {
 
   }
-  clickShow() {
-    this.userRegistration.getLifeData().subscribe(data => {
-      console.log(data);
-      this.userData = data;
-    });
-
+  progressBar(){
+    this.showModal1=true;
   }
 }

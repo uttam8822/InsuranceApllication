@@ -17,6 +17,7 @@ export class UwFetchDentalDataComponent implements OnInit {
   showModal: boolean;
   config: any;
   userData: any = [];
+  showModal1: boolean=false;
   constructor(private userRegistration: RegistrationService, private _router: Router) {
     this.userRegistration.getDentalData().subscribe(data => {
       console.log(data);
@@ -44,6 +45,7 @@ export class UwFetchDentalDataComponent implements OnInit {
     this.userRegistration.updateStatusOfD(user).subscribe(
       data => {
         alert("Approved Successfully");
+        this.showModal1=false;
         let curl = this._router.url;
         this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this._router.navigate([curl]);
@@ -63,12 +65,15 @@ export class UwFetchDentalDataComponent implements OnInit {
       this.userRegistration.rejectStatusOfD(getActiveUserInfo).subscribe(
         data => {
           alert("Rejected Successfully");
+          this.showModal1=false;
           let curl = this._router.url;
           this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
             this._router.navigate([curl]);
           });
         },
-        error => { alert("Unsuccessfull") }
+        error => { alert("Unsuccessfull") 
+        this.showModal1=false;
+      }
       )
     }
   }
@@ -76,5 +81,9 @@ export class UwFetchDentalDataComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  progressBar(){
+    this.showModal1=true;
+  }
+
 
 }

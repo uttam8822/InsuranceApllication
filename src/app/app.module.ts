@@ -69,9 +69,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -119,9 +116,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     SendEmailComponent,
     SendmailUWComponent,
     SendemailAdminComponent,
-    
-
-
+ 
+  
 
 
   ],
