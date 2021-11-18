@@ -39,17 +39,31 @@ export class DentalComponent implements OnInit {
     this.selectedDay = event.target.value;
 
 
-    if (this.selectedDay == "Individual") {
+    if (this.selectedDay == "Individual" && this.selectTobacco == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-10500/-";
+    }
+    if (this.selectedDay == "Individual" && this.selectTobacco == "No") {
       this.selectmembermessage = "Your yearly policy will be Rs-10000/-";
     }
-    if (this.selectedDay == "Individual & Spouse") {
+
+    if (this.selectedDay == "Individual & Spouse" && this.selectTobacco == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-20500/-";
+    }
+    if (this.selectedDay == "Individual & Spouse" && this.selectTobacco == "No") {
       this.selectmembermessage = "Your yearly policy will be Rs-20000/-";
     }
 
-    if (this.selectedDay == "Individual Spouse & Child") {
+    if (this.selectedDay == "Individual Spouse & Child" && this.selectTobacco == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-30500/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Child" && this.selectTobacco == "No") {
       this.selectmembermessage = "Your yearly policy will be Rs-30000/-";
     }
-    if (this.selectedDay == "Individual Spouse & Parents") {
+    if (this.selectedDay == "Individual Spouse & Parents" && this.selectTobacco == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-40500/-";
+    }
+
+    if (this.selectedDay == "Individual Spouse & Parents" && this.selectTobacco == "No") {
       this.selectmembermessage = "Your yearly policy will be Rs-40000/-";
     }
 

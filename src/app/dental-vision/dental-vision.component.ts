@@ -52,17 +52,59 @@ export class DentalVisionComponent implements OnInit {
 
   selectChangeHandler(event: any) {
     this.selectedDay = event.target.value;
-    if (this.selectedDay == "Individual") {
+    if (this.selectedDay == "Individual" && this.selectEyeOperation == "Yes" && this.oralOperationUser == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-11000/-";
+    }
+    if (this.selectedDay == "Individual" && (this.selectEyeOperation == "No" && this.oralOperationUser == "Yes") ) {
+      this.selectmembermessage = "Your yearly policy will be Rs-10500/-";
+    }
+    if (this.selectedDay == "Individual" && (this.selectEyeOperation == "Yes" && this.oralOperationUser == "No") ) {
+      this.selectmembermessage = "Your yearly policy will be Rs-10500/-";
+    }
+    if (this.selectedDay == "Individual" && this.selectEyeOperation == "No" && this.oralOperationUser == "No") {
       this.selectmembermessage = "Your yearly policy will be Rs-10000/-";
     }
-    if (this.selectedDay == "Individual & Spouse") {
+
+
+
+    if (this.selectedDay == "Individual & Spouse"  && this.selectEyeOperation == "Yes" && this.oralOperationUser == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-21000/-";
+    }
+    if (this.selectedDay == "Individual & Spouse"  && (this.selectEyeOperation == "No" && this.oralOperationUser == "Yes")) {
+      this.selectmembermessage = "Your yearly policy will be Rs-20500/-";
+    }
+    if (this.selectedDay == "Individual & Spouse"  && (this.selectEyeOperation == "Yes" && this.oralOperationUser == "No")) {
+      this.selectmembermessage = "Your yearly policy will be Rs-20500/-";
+    }
+   
+    if (this.selectedDay == "Individual & Spouse"  && this.selectEyeOperation == "No" && this.oralOperationUser == "No") {
       this.selectmembermessage = "Your yearly policy will be Rs-20000/-";
     }
 
-    if (this.selectedDay == "Individual Spouse & Child") {
+    if (this.selectedDay == "Individual Spouse & Child" && this.selectEyeOperation == "Yes" && this.oralOperationUser == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-31000/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Child" && (this.selectEyeOperation == "No" && this.oralOperationUser == "Yes")) {
+      this.selectmembermessage = "Your yearly policy will be Rs-30500/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Child" && (this.selectEyeOperation == "Yes" && this.oralOperationUser == "No")) {
+      this.selectmembermessage = "Your yearly policy will be Rs-30500/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Child" && this.selectEyeOperation == "No" && this.oralOperationUser == "No") {
       this.selectmembermessage = "Your yearly policy will be Rs-30000/-";
     }
-    if (this.selectedDay == "Individual Spouse & Parents") {
+
+
+    if (this.selectedDay == "Individual Spouse & Parents" && this.selectEyeOperation == "Yes" && this.oralOperationUser == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-41000/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Parents" && (this.selectEyeOperation == "No" && this.oralOperationUser == "Yes")) {
+      this.selectmembermessage = "Your yearly policy will be Rs-40500/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Parents" && (this.selectEyeOperation == "Yes" && this.oralOperationUser == "No")) {
+      this.selectmembermessage = "Your yearly policy will be Rs-40500/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Parents" && this.selectEyeOperation == "No" && this.oralOperationUser == "No") {
       this.selectmembermessage = "Your yearly policy will be Rs-40000/-";
     }
   }

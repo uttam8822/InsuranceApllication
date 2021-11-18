@@ -33,17 +33,60 @@ export class LifeComponent implements OnInit {
 
   selectChangeHandler(event: any) {
     this.selectedDay = event.target.value;
-    if (this.selectedDay == "Individual") {
+    if (this.selectedDay == "Individual" && this.selectHIV == "Yes" && this.selectTobacco == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-11000";
+    }
+    if (this.selectedDay == "Individual" && this.selectHIV == "Yes" && this.selectTobacco == "No") {
+      this.selectmembermessage = "Your yearly policy will be Rs-10500";
+    }
+    if (this.selectedDay == "Individual" && this.selectHIV == "No" && this.selectTobacco == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-10500";
+    }
+    if (this.selectedDay == "Individual" && this.selectHIV == "No" && this.selectTobacco == "No") {
       this.selectmembermessage = "Your yearly policy will be Rs-10000";
     }
-    if (this.selectedDay == "Individual & Spouse") {
+
+
+    if (this.selectedDay == "Individual & Spouse" && this.selectHIV == "Yes" && this.selectTobacco == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-21000/-";
+    }
+    if (this.selectedDay == "Individual & Spouse" && this.selectHIV == "No" && this.selectTobacco == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-20500/-";
+    }
+    if (this.selectedDay == "Individual & Spouse" && this.selectHIV == "Yes" && this.selectTobacco == "No") {
+      this.selectmembermessage = "Your yearly policy will be Rs-20500/-";
+    }
+    if (this.selectedDay == "Individual & Spouse" && this.selectHIV == "No" && this.selectTobacco == "No") {
       this.selectmembermessage = "Your yearly policy will be Rs-20000/-";
     }
 
-    if (this.selectedDay == "Individual Spouse & Child") {
+
+
+    if (this.selectedDay == "Individual Spouse & Child" && this.selectHIV == "Yes" && this.selectTobacco == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-31000/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Child" && this.selectHIV == "No" && this.selectTobacco == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-30500/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Child" && this.selectHIV == "Yes" && this.selectTobacco == "No") {
+      this.selectmembermessage = "Your yearly policy will be Rs-30500/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Child" && this.selectHIV == "No" && this.selectTobacco == "No") {
       this.selectmembermessage = "Your yearly policy will be Rs-30000/-";
     }
-    if (this.selectedDay == "Individual Spouse & Parents") {
+
+
+
+    if (this.selectedDay == "Individual Spouse & Parents" && this.selectHIV == "Yes" && this.selectTobacco == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-41000/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Parents" && this.selectHIV == "No" && this.selectTobacco == "Yes") {
+      this.selectmembermessage = "Your yearly policy will be Rs-40500/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Parents" && this.selectHIV == "Yes" && this.selectTobacco == "No") {
+      this.selectmembermessage = "Your yearly policy will be Rs-40500/-";
+    }
+    if (this.selectedDay == "Individual Spouse & Parents" && this.selectHIV == "No" && this.selectTobacco == "No") {
       this.selectmembermessage = "Your yearly policy will be Rs-40000/-";
     }
   }

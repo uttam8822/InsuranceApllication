@@ -204,22 +204,18 @@
 
                 </div>
                 <div class="col">
-                    <label>Select member<span style="color: red;">*</span></label>
-                    <br>
-                    <select name="selectlist4" id="selectlist4" style="height: 45px; width: 490px;"
-                        (change)="selectChangeHandler($event)" formControlName="member">
-                        <option value="" disabled selected>Please select member</option>
-                        <option value="Individual">Individual</option>
-                        <option value="Individual & Spouse">Individual & Spouse</option>
-                        <option value="Individual Spouse & Child">Individual Spouse & Child</option>
-                        <option value="Individual Spouse & Parents">Individual Spouse & Parents</option>
+                    <label>Have you ever undergone any Eyes Operation?<span style="color: red;">*</span></label>
+                    <select name="cars" id="cars" style="height: 45px; width: 490px;"
+                        (change)="selectEyeOperationsHandler($event)" formControlName="anyEyeOperation">
+                        <option value='' disabled selected>Please select </option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                     </select>
-                    <div *ngIf="member.invalid && (member.touched || member.dirty)">
-                        <span class="error" *ngIf="member.errors?.required"> *Member is required.</span>
+                    <div *ngIf="anyEyeOperation.invalid && (anyEyeOperation.touched || anyEyeOperation.dirty)">
+                        <span class="error" *ngIf="anyEyeOperation.errors?.required"> *Feild is required.</span>
 
                     </div>
-                    <br>
-                    <small style="color: blue;">{{selectmembermessage}}</small>
+
                 </div>
             </div>
 
@@ -376,18 +372,22 @@
 
                 </div>
                 <div class="col">
-                    <label>Have you ever undergone any Eyes Operation?<span style="color: red;">*</span></label>
-                    <select name="cars" id="cars" style="height: 45px; width: 490px;"
-                        (change)="selectEyeOperationsHandler($event)" formControlName="anyEyeOperation">
-                        <option value='' disabled selected>Please select </option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
+                    <label>Select member<span style="color: red;">*</span></label>
+                    <br>
+                    <select name="selectlist4" id="selectlist4" style="height: 45px; width: 490px;"
+                        (change)="selectChangeHandler($event)" formControlName="member">
+                        <option value="" disabled selected>Please select member</option>
+                        <option value="Individual">Individual</option>
+                        <option value="Individual & Spouse">Individual & Spouse</option>
+                        <option value="Individual Spouse & Child">Individual Spouse & Child</option>
+                        <option value="Individual Spouse & Parents">Individual Spouse & Parents</option>
                     </select>
-                    <div *ngIf="anyEyeOperation.invalid && (anyEyeOperation.touched || anyEyeOperation.dirty)">
-                        <span class="error" *ngIf="anyEyeOperation.errors?.required"> *Feild is required.</span>
+                    <div *ngIf="member.invalid && (member.touched || member.dirty)">
+                        <span class="error" *ngIf="member.errors?.required"> *Member is required.</span>
 
                     </div>
-
+                    <br>
+                    <small style="color: blue;">{{selectmembermessage}}</small>
                 </div>
 
             </div>

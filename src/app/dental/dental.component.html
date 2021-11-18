@@ -202,24 +202,20 @@
                     </div>
                 </div>
                 <div class="col">
-                    <label>Select Member<span style="color: red;">*</span></label>
-                    <br>
+                    <p>Do you consume Tobacco Or Alcohol Or do Smoking?<span style="color: red;">*</span></p>
+                     
                     <select name="cars" id="cars" style="height: 45px; width: 490px;"
-                        (change)="selectChangeHandler($event)" formControlName="member">
-                        <option value='' disabled selected>Please select member</option>
-                        <option value="Individual">Individual</option>
-                        <option value="Individual & Spouse">Individual & Spouse</option>
-                        <option value="Individual Spouse & Child">Individual Spouse & Child</option>
-                        <option value="Individual Spouse & Parents">Individual Spouse & Parents</option>
+                        (change)="selectTobaccoHandler($event)" formControlName="Tobacco">
+                        <option value='' disabled selected>Please select </option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                     </select>
-                    <div *ngIf="member.invalid && (member.touched || member.dirty)">
-                        <span class="error" *ngIf="member.errors?.required"> *Member is required.</span>
+                    <div *ngIf="Tobacco.invalid && (Tobacco.touched || Tobacco.dirty)">
+                        <span class="error" *ngIf="Tobacco.errors?.required"> *Feild is required</span>
 
                     </div>
-                    <br>
-                    <small style="color: blue;">{{selectmembermessage}}</small>
-
                 </div>
+
             </div>
 
 
@@ -286,20 +282,24 @@
                     </div>
                 </div>
                 <div class="col">
-                    <p>Do you consume Tobacco Or Alcohol Or do Smoking?<span style="color: red;">*</span></p>
-                     
+                    <label>Select Member<span style="color: red;">*</span></label>
+                    <br>
                     <select name="cars" id="cars" style="height: 45px; width: 490px;"
-                        (change)="selectTobaccoHandler($event)" formControlName="Tobacco">
-                        <option value='' disabled selected>Please select </option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
+                        (change)="selectChangeHandler($event)" formControlName="member">
+                        <option value='' disabled selected>Please select member</option>
+                        <option value="Individual">Individual</option>
+                        <option value="Individual & Spouse">Individual & Spouse</option>
+                        <option value="Individual Spouse & Child">Individual Spouse & Child</option>
+                        <option value="Individual Spouse & Parents">Individual Spouse & Parents</option>
                     </select>
-                    <div *ngIf="Tobacco.invalid && (Tobacco.touched || Tobacco.dirty)">
-                        <span class="error" *ngIf="Tobacco.errors?.required"> *Feild is required</span>
+                    <div *ngIf="member.invalid && (member.touched || member.dirty)">
+                        <span class="error" *ngIf="member.errors?.required"> *Member is required.</span>
 
                     </div>
-                </div>
+                    <br>
+                    <small style="color: blue;">{{selectmembermessage}}</small>
 
+                </div>
             </div>
 
 
