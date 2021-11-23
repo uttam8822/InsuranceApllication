@@ -74,7 +74,7 @@ public class AdminLoginController {
 	Admin userobj= service.fetchByEmail(tempEmailId);
 	if(userobj != null) {
 	service1.sendSimpleEmail(tempEmailId,"Dear Admin,\nYour request for password reset has been sent successfully"
-	+"\nYour emailId is : "+tempEmailId+"\nYour Name : "+userobj.getFullName()+"\nYour ID : "+userobj.getAdminId()+"\nYour new password is : "
+	+"\nYour emailId is : "+tempEmailId+"\nYour Name : "+userobj.getFullName()+"\nYour ID : "+userobj.getAdminId()+"\nYour password is : "
 	+userobj.getPassword()+"\n\nWe request you please do not share your credentials.In case if you "
 	+ "have any issue please contact us at the address given below"+"\n\n\n\nThank You!"
 	+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd. \nSDF No. K-13 to 16, NSEZ\nPhase-II Noida-201305 (U.P.)"
