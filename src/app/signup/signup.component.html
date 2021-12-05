@@ -1,165 +1,179 @@
 <!--This is user sign up page-->
-<div class="header">
-  <div>
-    <a class="nav" routerLink="/home" style="background-color: white;">Impetus Insurance</a>
-  </div>
-  <marquee width="20%" hieght="20%" hspace="150" direction="left" height="80px">
-    Invest Today and Enjoy Tomorrow!
-  </marquee>
-  <div class="header-right">
-    <a class="nav-link" routerLink="/home">Home</a>
-    <a class="nav-link" routerLink="/service">Our Services</a>
-    <a class="nav-link" routerLink="/contact">Contact Us</a>
-    <a class="nav-link" routerLink="/about">About Us</a>
-    <div class="dropdown">
-      <button class="dropbtn">Login As</button>
-      <div class="dropdown-content">
-        <a class="nav-link1" routerLink="/login">User</a>
-        <a class="nav-link1" routerLink="/uwlogin">UWriter</a>
-        <a class="nav-link1" routerLink="/adlogin">Admin</a>
-      </div>
+<div style=" height: 850px;   background: linear-gradient(to top left, #0099ff 0%, #000099 100%);">
+  <div class="header">
+    <div>
+      <a class="nav" routerLink="/home" style="background-color: white;">Impetus Insurance</a>
     </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-<section class="vh-100" style="background-color:white; margin-top: 50px; ">
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign Up</p>
-
-
-                <div *ngIf="alert" class="alert alert-success" role="alert">
-                  Registered Successfully <a class="abc" routerLink="/login"> LogIn </a> here
-                </div>
-
-                <div *ngIf="alert1" class="alert alert-danger" role="alert">
-                  User Already Exist<a class="abc" routerLink="/login"> LogIn </a> here
-                </div>
-
-
-
-                <form #Registerform="ngForm" (ngSubmit)="Registerform.form.valid && registerUser()"
-                  [formGroup]="SignupForm" class="mx-1 mx-md-4">
-
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="form3Example1c">First Name</label>
-                      <input formControlName="firstname" class="form-control" aria-label="First Name"
-                        placeholder="Enter Your First Name" required required [(ngModel)]="user.firstName" />
-                      <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
-                        <span class="error text-danger" *ngIf="firstname.errors?.required"> *First Name is
-                          Required.</span>
-                        <span class="error text-danger" *ngIf="firstname.errors?.pattern"> *Enter Only
-                          Characters.</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="form3Example1c">Last Name</label>
-                      <input formControlName="lastname" class="form-control" aria-label="Last name"
-                        placeholder="Enter Your Last Name" required required [(ngModel)]="user.lastName" />
-                      <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
-                        <span class="error text-danger" *ngIf="lastname.errors?.required"> *Last Name is
-                          Required.</span>
-                        <span class="error text-danger" *ngIf="lastname.errors?.pattern"> *Enter Only Characters.</span>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="form3Example3c">Your Email</label>
-                      <input formControlName="email" class="form-control" aria-label="email"
-                        placeholder="Enter Your Email" required required [(ngModel)]="user.emailId" />
-                      <div *ngIf="email.invalid && (email.touched || email.dirty)">
-                        <span class="error text-danger" *ngIf="email.errors?.required">*Email required.</span>
-                        <span class="error text-danger" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="form3Example4c">Password</label>
-                      <input formControlName="password" class="form-control" aria-label="adhar"  
-                        placeholder="Enter Your Password" required required [(ngModel)]="user.password"  [type]=" result?'text' : 'password' " />
-                      <div *ngIf="password.invalid && (password.touched || password.dirty)">
-                        <span class="error text-danger" *ngIf="password.errors?.required"> *Password is required.</span>
-                        <span class="error text-danger" *ngIf="password.errors?.pattern"> *Only numbers Characters @#!
-                          are allowed.</span>
-                        <span class="error text-danger" *ngIf="password.errors?.minlength"> *Password should be more
-                          than 8 Characters.</span>
-                        <span class="error text-danger" *ngIf="password.errors?.maxlength">*Password should be less than
-                          20 Characters.</span>
-                         
-
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="form3Example4cd"> Confirm Password</label>
-                      <input formControlName="cpassword" class="form-control" aria-label="adhar" type="password"
-                        placeholder="Confirm Password" pattern="{{user.password}}" required />
-                      <div *ngIf="cpassword.invalid && (cpassword.touched || cpassword.dirty)">
-                        <span class="error text-danger" *ngIf="cpassword.errors?.required"> *Password is
-                          required.</span>
-                        <span class="text-danger" *ngIf="Registerform.submitted && cpassword.errors?.pattern"> *Password
-                          didn't matched.</span>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-                  <div class="row">
-                    <div class="col">
-                      
-                        <button type="submit" class="btn btn-primary btn-lg">Register</button>
-                      
-                    </div>
-                    <div class="col">
-      
-                       
-                    </div>
-                  </div>
-
-                </form>
-
-              </div>
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png"
-                  class="img-fluid" alt="Sample image">
-
-              </div>
-            </div>
-          </div>
+    <marquee width="20%" hieght="20%" hspace="150" direction="left" height="80px">
+      Invest Today and Enjoy Tomorrow!
+    </marquee>
+    <div class="header-right">
+      <a class="nav-link" routerLink="/home">Home</a>
+      <a class="nav-link" routerLink="/service">Our Services</a>
+      <a class="nav-link" routerLink="/contact">Contact Us</a>
+      <a class="nav-link" routerLink="/about">About Us</a>
+      <div class="dropdown">
+        <button class="dropbtn">Login As</button>
+        <div class="dropdown-content">
+          <a class="nav-link1" routerLink="/login">User</a>
+          <a class="nav-link1" routerLink="/uwlogin">UWriter</a>
+          <a class="nav-link1" routerLink="/adlogin">Admin</a>
         </div>
       </div>
     </div>
   </div>
-</section>
+  
+  
+  
+  <div class="row" style="margin: 60px;">
+      
+      <div class="col" style="color:yellow; height: 100%; opacity: 0.6;">
+        <section>
+          <h1 style="font-size: 30px;">Welcome,</h1>
+          <p style="font-size: 30px;">Please Sign up From Here</p>
+          <br>
+          <br>
+          <ul style="font-size: 20px;">
+            <li> Affordable Premiums</li>
+            <br>
+            <li>  1 Day Claim Settlement</li>
+            <br>
+            <li>  34 Critical Illnesses Cover</li>
+            <br>
+            <li>  Accidental Death Cover
+              (Optional)</li>
+            <br>
+            <li>  Tax Benefits</li>
+            <br>
+            <li>   Terminal Illness Benefit</li>
+            <br>
+            <li>   Permanent Disability Waiver</li>
+            <br>
+          </ul>
+        </section>
+     </div>
+     <div class="col" style="margin-right: 50px; margin-left: 70px; width: 600px;" > 
+      <section style="background-color: rgb(0, 0, 0); border: 4px solid rgb(255, 255, 0);   border-radius: 20px; opacity: 0.6;">
+     
+  
+        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: yellow;">Sign Up</p>
+  
+  
+        <div *ngIf="alert" class="alert alert-success" role="alert">
+          Registered Successfully <a class="abc" routerLink="/login"> LogIn </a> here
+        </div>
+  
+        <div *ngIf="alert1" class="alert alert-danger" role="alert">
+          User Already Exist<a class="abc" routerLink="/login"> LogIn </a> here
+        </div>
+  
+  
+  
+        <form #Registerform="ngForm" (ngSubmit)="Registerform.form.valid && registerUser()"
+          [formGroup]="SignupForm" class="mx-1 mx-md-4">
+  
+  
+          <div class="d-flex flex-row align-items-center mb-4">
+            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+            <div class="form-outline flex-fill mb-0">
+              <label class="form-label" for="form3Example1c" style="color: yellow;">First Name</label>
+              <input formControlName="firstname" class="form-control" aria-label="First Name"
+                placeholder="Enter Your First Name" required required [(ngModel)]="user.firstName" />
+              <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
+                <span class="error text-danger" *ngIf="firstname.errors?.required"> *First Name is
+                  Required.</span>
+                <span class="error text-danger" *ngIf="firstname.errors?.pattern"> *Enter Only
+                  Characters.</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="d-flex flex-row align-items-center mb-4">
+            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+            <div class="form-outline flex-fill mb-0">
+              <label class="form-label" for="form3Example1c" style="color: yellow;">Last Name</label>
+              <input formControlName="lastname" class="form-control" aria-label="Last name"
+                placeholder="Enter Your Last Name" required required [(ngModel)]="user.lastName" />
+              <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
+                <span class="error text-danger" *ngIf="lastname.errors?.required"> *Last Name is
+                  Required.</span>
+                <span class="error text-danger" *ngIf="lastname.errors?.pattern"> *Enter Only Characters.</span>
+              </div>
+            </div>
+          </div>
+  
+  
+          <div class="d-flex flex-row align-items-center mb-4">
+            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+            <div class="form-outline flex-fill mb-0">
+              <label class="form-label" for="form3Example3c" style="color: yellow;">Your Email</label>
+              <input formControlName="email" class="form-control" aria-label="email"
+                placeholder="Enter Your Email" required required [(ngModel)]="user.emailId" />
+              <div *ngIf="email.invalid && (email.touched || email.dirty)">
+                <span class="error text-danger" *ngIf="email.errors?.required">*Email required.</span>
+                <span class="error text-danger" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="d-flex flex-row align-items-center mb-4">
+            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+            <div class="form-outline flex-fill mb-0">
+              <label class="form-label" for="form3Example4c" style="color: yellow;">Password</label>
+              <input formControlName="password" class="form-control" aria-label="adhar"  
+                placeholder="Enter Your Password" required required [(ngModel)]="user.password"  [type]=" result?'text' : 'password' " />
+              <div *ngIf="password.invalid && (password.touched || password.dirty)">
+                <span class="error text-danger" *ngIf="password.errors?.required"> *Password is required.</span>
+                <span class="error text-danger" *ngIf="password.errors?.pattern"> *Only numbers Characters @#!
+                  are allowed.</span>
+                <span class="error text-danger" *ngIf="password.errors?.minlength"> *Password should be more
+                  than 8 Characters.</span>
+                <span class="error text-danger" *ngIf="password.errors?.maxlength">*Password should be less than
+                  20 Characters.</span>
+                 
+  
+              </div>
+            </div>
+          </div>
+  
+          <div class="d-flex flex-row align-items-center mb-4">
+            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+            <div class="form-outline flex-fill mb-0">
+              <label class="form-label" for="form3Example4cd" style="color: yellow;"> Confirm Password</label>
+              <input formControlName="cpassword" class="form-control" aria-label="adhar" type="password"
+                placeholder="Confirm Password" pattern="{{user.password}}" required />
+              <div *ngIf="cpassword.invalid && (cpassword.touched || cpassword.dirty)">
+                <span class="error text-danger" *ngIf="cpassword.errors?.required"> *Password is
+                  required.</span>
+                <span class="text-danger" *ngIf="Registerform.submitted && cpassword.errors?.pattern"> *Password
+                  didn't matched.</span>
+  
+              </div>
+            </div>
+          </div>
+  
+  
+  
+           
+              
+          <div class="row">
+            <div class="col">
+              <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+            <div class="col">
+              <button  routerLink="/login" class="btn btn-danger">Login</button>
+            </div>
+          </div>
+              
+            
+  
+        </form>
+  
+       
+  </section>
+     </div>
+  </div>
+  
+</div>
+
+

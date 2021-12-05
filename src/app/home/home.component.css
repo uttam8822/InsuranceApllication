@@ -28,20 +28,20 @@
   
   /* Change the background color on mouse-over */
   .header a.nav-link:hover {
-    background-color: rgb(9, 247, 116);
+    background-color: rgb(255, 255, 255);
     color: black;
   }
   
   /* Style the active/current link*/
   .header a.nav-link {
-    background-color: dodgerblue;
+    background-color: rgb(251, 253, 255);
     color: rgb(17, 23, 105);
   }
   
   /* Float the link section to the right */
   .header-right {
     float: right;
-    background-color: rgb(8, 132, 233);
+    background-color: ff6600
    
     
   }
@@ -60,7 +60,7 @@
   marquee {
     font-size:large;
     margin-top: 0px;
-    color: rgb(255, 255, 255);
+    color: rgb(255, 0, 0);
   }
   h5{
       margin-left: 0px;
@@ -74,7 +74,7 @@
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: dodgerblue;
+  background-color: rgb(255, 255, 255);
   height: 45px;
   color: rgb(5, 5, 5);
   padding: 10px;
@@ -127,7 +127,7 @@
 
 
 #home{
-    background: url('https://wallpapercave.com/wp/hPLjH8C.jpg') no-repeat center center fixed;
+   
     display: table;
     height: 600px;
     position: relative;
@@ -276,3 +276,13 @@
       font-size:13px;
       margin-bottom:0;
     }
+
+
+ /*calculator*/   
+
+ #xab1:hover{
+  background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+  animation:slidebg 5s linear infinite;
+}
+
+

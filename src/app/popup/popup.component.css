@@ -1,1 +1,729 @@
- 
+@media screen and (min-width: 320px) {
+    .app-container {
+      position: absolute;
+      width: 100%;
+      height: calc(100vh - 32px);
+      margin: 16px auto;
+      left: 0px;
+      background: linear-gradient(180deg, #272F32 0%, #9DBDC6 100%);
+      border-radius: 8px;
+    }
+  
+    .app-title {
+      position: absolute;
+      height: 40px;
+      left: 15px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 40px;
+      color: #fff;
+    }
+  
+    main {
+      position: absolute;
+      width: 100%;
+      margin: 0px auto 0px auto;
+      height: calc(100% - 40px);
+      top: 40px;
+      background: #fff;
+      box-shadow: 0px 11px 24px rgba(14, 42, 59, 0.25);
+      border-radius: 8px;
+    }
+  
+    .section-container {
+      position: relative;
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  
+    .insurance-sum {
+      position: absolute;
+      top: 25px;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: normal;
+      color: #2C3E50;
+    }
+  
+    .slider-container {
+      width: 100%;
+      margin: 0;
+    }
+  
+  
+    .mt-slider-container {
+      position: absolute;
+      top: calc(55px - 16px);
+      width: 100%;
+    }
+  
+    ::ng-root.mat-slider.mat-focus-indicator.slider.mat-accent.mat-slider-horizontal.ng-untouched.ng-pristine.ng-valid {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+  
+    ::ng-deep.mat-slider-horizontal {
+      width: 100%;
+  
+    }
+  
+    ::ng-deep.mat-slider.mat-slider-horizontal ::ng-deep.mat-slider-track-wrapper {
+      width: 100%;
+      height: 5px;
+      border-radius: 2.5px;
+    }
+  
+    ::ng-deep.mat-slider.mat-slider-horizontal,
+    ::ng-deep.mat-slider.mat-slider-horizontal ::ng-deep.mat-slider-track-fill {
+      height: 5px;
+    }
+  
+    ::ng-deep.mat-slider-track-background {
+      position: relative;
+      top: 2px;
+      background-color: #e5e5e5;
+      height: 2px;
+    }
+  
+    ::ng-deep.mat-slider.mat-slider-horizontal ::ng-deep.mat-slider-track-fill {
+      background-color: #1c8121;
+    }
+  
+    ::ng-deep.mat-accent ::ng-deep.mat-slider-thumb {
+      height: 17px;
+      width: 17px;
+      background-color: #1c8121;
+      bottom: -11px;
+      right: -11px;
+    }
+  
+    ::ng-deep.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+      background-color: #1c8121;
+  
+    }
+  
+    ::ng-root.mat-slider.mat-focus-indicator.slider.mat-accent.mat-slider-horizontal.ng-untouched.ng-pristine.ng-valid {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+  
+    ::ng-deep.mat-slider.mat-slider-horizontal ::ng-deep.mat-slider-wrapper {
+      width: 100%;
+      transform: translateX(-8px);
+    }
+  
+    .mobile {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      top: 42px;
+      font-size: 10px;
+      color: #9dbdc6;
+    }
+  
+    .mobile-slider-container {
+      position: relative;
+      margin-top: 75px;
+      height: 30px;
+      display: flex;
+    }
+  
+    .btn-left,
+    .btn-right {
+      position: relative;
+      border: 1px solid #9dbdc6;
+      color: #9dbdc6;
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+      background: none;
+    }
+  
+    .num {
+      display: none;
+    }
+  
+    .mobile-num {
+      position: relative;
+      outline: none;
+      -webkit-appearance: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(100% - 60px);
+      height: 30px;
+      border-top: 1px solid #9dbdc6;
+      border-bottom: 1px solid #9dbdc6;
+      color: #ff3d2e;
+      font-weight: 600;
+    }
+  
+    hr {
+      position: absolute;
+      top: 130px;
+      height: 2px;
+      width: 100%;
+      border: 1px solid #f1f1f1;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  
+    .installments-number {
+      position: absolute;
+      top: 140px;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: normal;
+      color: #2C3E50;
+    }
+  
+    .btn-container {
+      position: relative;
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 10px;
+    }
+  
+    .btn-one,
+    .btn-two,
+    .btn-three,
+    .btn-four,
+    .btn-no-damage,
+    .btn-damage-done {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 18.5px;
+      height: 2.4em;
+      background: #daeaef;
+      border: none;
+      color: #9dbdc6;
+      font-size: 10px;
+    }
+  
+    .active {
+      background-color: #ff3d2e;
+      color: #fff;
+      transition: .2s;
+    }
+  
+    .state {
+      position: absolute;
+      top: 70%;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: normal;
+      color: #2C3E50;
+    }
+  
+  
+    .info {
+      position: relative;
+      text-align: center;
+      margin-top: 2%;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: normal;
+      color: #9dbdc6;
+    }
+  
+  
+    footer {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      bottom: 0;
+      width: 100%;
+      height: 100px;
+      background: #e8f3f7;
+      border-radius: 0px 0px 8px 8px;
+      box-shadow: 0px 11px 24px rgba(14, 42, 59, 0.25);
+    }
+  
+    .btn-calculate {
+      position: relative;
+      margin-top: 10px;
+      margin-right: 15px;
+      margin-left: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 28px;
+      background: linear-gradient(90deg, #1f8a70 40.85%, #bedb39 100%);
+      box-shadow: 0px 5px 6px rgba(252, 67, 73, 0.35);
+      border-radius: 24.5px;
+      border: none;
+      font-size: 10px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+  
+    .warning {
+      position: absolute;
+      width: 100%;
+      top: 36%;
+      font-size: 10px;
+      height: 10px;
+      text-align: center;
+      color: #ff3d2e;
+    }
+  
+    .result-container {
+      position: relative;
+      display: flex;
+      margin-top: 4%;
+      margin-right: 15px;
+      margin-left: 15px;
+      align-items: center;
+      justify-content: center;
+      height: 35px;
+      background: #fff;
+      box-shadow: 0px 11px 24px rgba(14, 42, 59, 0.25);
+    }
+  
+    .result {
+      font-size: 20px;
+      font-weight: 600;
+      color: #000;
+    }
+  
+    .currency {
+      font-size: 12px;
+      color: #000;
+    }
+  }
+  
+  @media screen and (min-width: 320px) and (max-height: 600px) {
+    .btn-container {
+      margin-top: 50px;
+    }
+  
+    .btn-one,
+    .btn-two,
+    .btn-three,
+    .btn-four,
+    .btn-no-damage,
+    .btn-damage-done {
+      height: 1.5em;
+    }
+  
+    .state {
+      top: 72%;
+    }
+  
+    .info {
+      margin-top: 1%;
+    }
+  }
+  
+  @media screen and (min-width: 320px) and (min-height: 700px) {
+    .btn-container {
+      margin-top: 70px;
+    }
+  
+    .btn-one,
+    .btn-two,
+    .btn-three,
+    .btn-four,
+    .btn-no-damage,
+    .btn-damage-done {
+      height: 2.7em;
+    }
+  
+    footer {
+      height: 125px;
+    }
+  
+    .btn-calculate {
+      margin-top: 15px;
+      height: 32px;
+    }
+  
+    .warning {
+      top: 37%;
+    }
+  
+    .result-container {
+      margin-top: 5%;
+      height: 37px;
+  
+    }
+  }
+  
+  @media screen and (min-width: 320px) and (min-height: 800px) {
+    .btn-container {
+      margin-top: 80px;
+    }
+  
+    .installments-number {
+      top: 155px;
+    }
+  
+    .btn-one,
+    .btn-two,
+    .btn-three,
+    .btn-four,
+    .btn-no-damage,
+    .btn-damage-done {
+      height: 3em;
+  
+    }
+  
+    .state {
+      top: 72%;
+    }
+  
+    .info {
+      margin-top: 3%;
+    }
+  
+    footer {
+      height: 135px;
+    }
+  
+    .btn-calculate {
+      margin-top: 15px;
+      height: 32px;
+    }
+  
+    .result-container {
+      margin-top: 6%;
+      height: 37px;
+  
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+  
+    .insurance-sum {
+      font-size: 16px;
+    }
+  
+    .mobile {
+      top: 48px;
+    }
+  
+    ::ng-root.mat-slider.mat-focus-indicator.slider.mat-accent.mat-slider-horizontal.ng-untouched.ng-pristine.ng-valid {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+  
+    ::ng-deep.mat-slider.mat-slider-horizontal ::ng-deep.mat-slider-wrapper {
+      width: 100%;
+      transform: translateX(-8px);
+  
+    }
+  
+    ::ng-deep.mat-slider.mat-slider-horizontal ::ng-deep.mat-slider-track-wrapper {
+      height: 7px;
+      border-radius: 2.5px;
+  
+    }
+  
+    ::ng-deep.mat-slider.mat-slider-horizontal,
+    ::ng-deep.mat-slider.mat-slider-horizontal ::ng-deep.mat-slider-track-fill {
+      height: 7px;
+    }
+  
+    ::ng-deep.mat-slider-track-background {
+      position: relative;
+      top: 3px;
+      height: 2px;
+    }
+  
+  
+    ::ng-deep.mat-accent ::ng-deep.mat-slider-thumb {
+      height: 17px;
+      width: 17px;
+      bottom: -11px;
+      right: -11px;
+    }
+  
+    .mobile-slider-container {
+      margin-top: 80px;
+      height: 40px;
+    }
+  
+    .btn-left,
+    .btn-right {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .mobile-num {
+      height: 40px;
+  
+    }
+  
+    hr {
+      top: 155px;
+    }
+  
+    .installments-number {
+      font-size: 16px;
+      top: 165px;
+    }
+  
+    .btn-container {
+      margin-top: 90px;
+      gap: 20px;
+    }
+  
+    .btn-one,
+    .btn-two,
+    .btn-three,
+    .btn-four,
+    .btn-no-damage,
+    .btn-damage-done {
+      height: 3.2em;
+      font-size: 14px;
+    }
+  
+    .state {
+      top: 70%;
+      font-size: 16px;
+    }
+  
+    .info {
+      margin-top: 3%;
+      font-size: 14px;
+    }
+  
+    footer {
+      height: 150px;
+    }
+  
+    .btn-calculate {
+      height: 37px;
+      font-size: 14px;
+    }
+  
+    .result-container {
+      margin-top: 4%;
+      height: 37px;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .app-container {
+      margin: 0;
+      width: 850px;
+      height: 602px;
+      left: calc(50% - 425px);
+      top: calc(50% - 301px);
+    }
+  
+    .app-title {
+      height: 64px;
+      font-size: 22px;
+      color: #fff;
+      margin-left: 30px;
+      left: 0;
+    }
+  
+    main {
+      margin-left: 1px;
+      margin-right: 1px;
+      width: 848px;
+      height: 535px;
+    }
+  
+    .section-container {
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+  
+    .insurance-sum {
+      position: absolute;
+      top: 38px;
+      font-size: 18px;
+    }
+  
+    .mobile {
+      top: 88px;
+      font-size: 14px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .num {
+      position: absolute;
+      display: inline;
+      text-align: center;
+      top: 86px;
+      left: calc(50% - 28px);
+      height: 30px;
+      width: 56px;
+      color: #ff3d2e;
+      font-size: 24px;
+      font-weight: 600;
+    }
+  
+    .mt-slider-container {
+      position: absolute;
+      width: 788px;
+      top: calc(140px - 24px);
+    }
+  
+    ::ng-root.mat-slider.mat-focus-indicator.slider.mat-accent.mat-slider-horizontal.ng-untouched.ng-pristine.ng-valid {
+      width: 788px;
+      padding: 0;
+      margin: 0;
+    }
+  
+    ::ng-deep.mat-slider.mat-slider-horizontal ::ng-deep.mat-slider-wrapper {
+      width: 788px;
+      transform: translateX(-7px);
+  
+    }
+  
+    ::ng-deep.mat-slider.mat-slider-horizontal ::ng-deep.mat-slider-track-wrapper {
+      height: 7px;
+      border-radius: 2.5px;
+    }
+  
+    ::ng-deep.mat-slider.mat-slider-horizontal,
+    ::ng-deep.mat-slider.mat-slider-horizontal ::ng-deep.mat-slider-track-fill {
+      height: 7px;
+    }
+  
+    ::ng-deep.mat-slider-track-background {
+      position: relative;
+      top: 3px;
+      height: 2px;
+    }
+  
+  
+    ::ng-deep.mat-accent ::ng-deep.mat-slider-thumb {
+      height: 17px;
+      width: 17px;
+      bottom: -11px;
+      right: -11px;
+    }
+  
+  
+    .mobile-slider-container {
+      display: none;
+    }
+  
+    hr {
+      display: none;
+    }
+  
+    .installments-number {
+      top: 173px;
+      font-size: 17px;
+    }
+  
+    .btn-container {
+      position: absolute;
+      margin-top: 215px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 30px;
+    }
+  
+    .btn-one,
+    .btn-two,
+    .btn-three,
+    .btn-four,
+    .btn-no-damage,
+    .btn-damage-done {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 37px;
+      width: 175px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  
+    .second {
+      position: absolute;
+      margin-top: 347px;
+    }
+  
+    .btn-no-damage,
+    .btn-damage-done {
+      font-size: 14px;
+    }
+  
+    .state {
+      position: absolute;
+      font-size: 18px;
+      top: 305px;
+    }
+  
+    p.info {
+      display: flex;
+      align-items: center;
+    }
+  
+    .info {
+      margin-top: 0;
+      font-size: 13px;
+    }
+  
+    br {
+      display: none;
+    }
+  
+    footer {
+      width: 848px;
+      height: 106px;
+      margin-left: 1px;
+      margin-left: 1px;
+    }
+  
+    .btn-calculate {
+      margin: 0;
+      top: 27px;
+      margin-left: 30px;
+      width: 219px;
+      height: 51px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+  
+    .btn-calculate:active {
+      transform: translateY(2px);
+    }
+  
+    .result-container {
+      position: absolute;
+      justify-content: flex-start;
+      margin: 0;
+      width: 290px;
+      height: 62px;
+      right: 30px;
+      bottom: 22px;
+    }
+  
+    .result {
+      position: absolute;
+      font-size: 30px;
+      left: 47px;
+    }
+  
+    .currency {
+      font-size: 16px;
+    }
+  
+    .warning {
+      position: absolute;
+      top: 84px;
+      width: 219px;
+      height: 11px;
+      left: 30px;
+      font-size: 12px;
+    }
+  }
+   

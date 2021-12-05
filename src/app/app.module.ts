@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatSliderModule } from '@angular/material/slider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -138,7 +138,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatMenuModule,
     MatSelectModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+     MatSliderModule  
+
 
   ],
   providers: [UserAuthGuard, RegistrationService, UwriterAuthGuard, AdminAuthGuard],

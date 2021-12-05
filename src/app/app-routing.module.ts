@@ -43,6 +43,7 @@ import { UwriterAuthGuard } from './Auth/uwriter-auth.guard';
 import { AdminAuthGuard } from './Auth/admin-auth.guard';
 import { SendemailAdminComponent } from './sendemail-admin/sendemail-admin.component';
 
+
 const routes: Routes = [
   { path: '', pathMatch: "full", redirectTo: "home" },
   { path: 'login', component: LoginComponent },

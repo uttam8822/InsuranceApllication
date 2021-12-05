@@ -1,27 +1,85 @@
 <!--This is POPUP component for alert -->
 <div>
 
-    <div style="margin-left: 500px;">
+    <div>
         <button mat-button class="close-icon" [mat-dialog-close]="true" style="margin-right: 0%;">
             <mat-icon>close</mat-icon>
         </button>
     </div>
 
 
-    <h1><b>{{data.age}}</b></h1>
+    
 
 
-    <div class="row" style="margin-top: 60px;">
-        <div class="col">
-            <button class="btn btn-danger" [mat-dialog-close]="true" style="width: 100%;">No</button>
-
-        </div>
-        <div class="col">
-            <button mat-button class="close-icon btn btn-success" [mat-dialog-close]="true" style="width: 100%;">
-                Yes
-            </button>
-        </div>
-    </div>
+    <div class="app-container">
+        <!--App title-->
+        <header>
+          <h1 class="app-title">Our Premium Calculator</h1>
+        </header>
+        <form [formGroup]="insuranceForm" (ngSubmit)="onSubmit">
+          <main>
+            <!--Slider Section-->
+            <div class="section-container">
+              <div>
+                <p class="insurance-sum">Sum to be Insured</p>
+              </div>
+              <div class="slider-container">
+                <span class="num">{{ inpt.value }} </span>
+                <div class="mt-slider-container">
+                  <mat-slider min="100" max="10000" value="5550" class="slider" formControlName="inputValue"
+                    (change)="updateSetting($event)" [value]="value" #inpt>
+                  </mat-slider>
+                </div>
+                <p class="mobile"><span>₹ 100</span><span>₹ 10,000</span></p>
+              </div>
+              <div class="mobile-slider-container">
+                <button class="btn-left" (click)="removeOne()">&#60;</button>
+                <span class="mobile-num">{{ inpt.value }}</span>
+                <button class="btn-right" (click)="addOne()">&#62;</button>
+              </div>
+              
+              <div>
+                <p class="installments-number">Number of Members</p>
+              </div>
+              <div class="btn-container first" id="installments">
+                <button class="btn-one" (click)="onClick(1)" [ngClass]="{'active': tab==='tab1'}" (click)="toggleClass1()"
+                  [class.active]="classApplied1" #btn1>
+                  Individual</button>
+                <button class="btn-two" (click)="onClick(2)" [ngClass]="{'active': tab==='tab2'}" (click)="toggleClass2()"
+                  [class.active]="classApplied2" #btn2>Individual and Spouse</button>
+                <button class="btn-three" (click)="onClick(3)" [ngClass]="{'active': tab==='tab3'}" (click)="toggleClass3()"
+                 [class.active]="classApplied3" #btn3>Individual, Spouse and Child</button>
+                <button class="btn-four" (click)="onClick(4)" [ngClass]="{'active': tab==='tab4'}" (click)="toggleClass4()"
+                  [class.active]="classApplied4" #btn4>Individual, Spouse and Parent</button>
+              </div>
+              <!--State Section-->
+              <div>
+                <p class="state">Age</p>
+              </div>
+              <div class="btn-container second">
+                <button class="btn-no-damage" [ngClass]="{'active': step==='step1'}" (click)="step='step1'"
+                  (click)="toggleClass5()" [class.active]="classApplied5">Age Between 18-30</button>
+                <button class="btn-damage-done" [ngClass]="{'active': step==='step2'}" (click)="step='step2'"
+                  (click)="toggleClass6()" [class.active]="classApplied6">Age Between 30-45</button>
+                  <button class="btn-damage-done" [ngClass]="{'active': step==='step3'}" (click)="step='step3'"
+                  (click)="toggleClass7()" [class.active]="classApplied7">Age Between 45-60</button>
+              
+              </div>
+            </div>
+            <hr />
+          </main>
+          <!--Footer Section with Calculation Result-->
+          <footer>
+            <button type="submit" class="btn-calculate"
+              (click)="(!this.btn1.classList.contains('active')) && (!this.btn2.classList.contains('active')) && (!this.btn3.classList.contains('active')) && (!this.btn4.classList.contains('active')) ? onNotSubmit() : onSubmit()">Calculate annual Premium</button>
+            <p class="warning" *ngIf="isShown">Complete the form to the end</p>
+            <div class="result-container">
+              <p class="result"><span class="currency">₹</span>{{ clc }}</p>
+            </div>
+          </footer>
+        </form>
+      </div>
+      
 
 
 </div>

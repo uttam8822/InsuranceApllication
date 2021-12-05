@@ -210,3 +210,20 @@ display: block;
     color: red;
     font-size: small;
   }
+
+
+
+   .form-control{
+    border-radius: 25px;
+    border: 2px solid yellow;
+    padding: 20px; 
+    height:40px;    
+}
+
+li:before {
+
+  content: "\00BB";
+}
+ul {
+list-style: none;
+}

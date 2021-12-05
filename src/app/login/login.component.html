@@ -1,5 +1,6 @@
 <!--This is user login component-->
-<div class="header">
+<div style=" height: 100%;   background: linear-gradient(to top left, #0099ff 0%, #000099 100%);">
+  <div class="header">
   <div>
     <a class="nav" routerLink="/home" style="background-color: white;">Impetus Insurance</a>
   </div>
@@ -23,129 +24,109 @@
 </div>
 
 
-
-<section class="vh-100" style="background-color: #eee;">
-
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign In</p>
-
-
-                <form #loginform="ngForm" (ngSubmit)="loginUser()" class="mx-1 mx-md-4">
-
-                  <small class="text-danger">{{msg}}</small>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="form3Example3c">Your Email</label>
-                      <input name="email" type="email" id="form3Example3c" class="form-control"
-                        placeholder="Enter your email"  required="required"  #email="ngModel"
-                         [(ngModel)]="user.emailId"  email="ngModel" [class.is.invalid]="email.invalid && email.touched"
-                         pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" />
-                      <small class="text-danger" [class.d-none]="email.valid || email.untouched">*Email is required
-                        field.</small>
-
-
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-
-                    <div class="form-outline flex-fill mb-0">
-
-                      <label class="form-label" for="form3Exam">Password</label>
-
-                      <input name="password" type="password" id="form3Example4c" class="form-control"
-                        placeholder="Enter your password" required  #password="ngModel" [(ngModel)]="user.password"
-                        password="ngModel" />
-
-                    </div>
-
-                  </div>
-
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-
-                    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Login</button>
-                  </div>
-
-                </form>
-
-                <div class="row">
-
-                  <label class="form-check-label col" for="form2Example88">
-                    <button class="btn btn-link" routerLink="/signup">Don't have an account? Sign Up</button>
-                    <br>
-                  </label>
-                  <br>
-
-                  <label class="form-check-label col" for="form2Example3">
-                    <button routerLink="/sendEmail" class="btn btn-link">Forgot password? Click Here</button>
-
-                  </label>
-
-
-                </div>
-
-              </div>
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png"
-                  class="img-fluid" alt="Sample image">
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+ 
+  <div class="row" style="margin: 50px;">
+     <div class="col" style="color:yellow; height: 100%; opacity: 0.6;">
+      <section>
+        <h1 style="font-size: 30px;">Welcome,</h1>
+        <p style="font-size: 30px;">Please Sign in From Here</p>
+        <br>
+        <br>
+        <ul style="font-size: 20px;">
+          <li> Affordable Premiums</li>
+          <br>
+          <li>  1 Day Claim Settlement</li>
+          <br>
+          <li>  34 Critical Illnesses Cover</li>
+          <br>
+          <li>  Accidental Death Cover
+            (Optional)</li>
+          <br>
+          <li>  Tax Benefits</li>
+          <br>
+          <li>   Terminal Illness Benefit</li>
+          <br>
+          <li>   Permanent Disability Waiver</li>
+          <br>
+        </ul>
+      </section>
+      
+     </div>
+     <div class="col" style="margin-right: 50px; margin-left: 70px;">
+       
+    
+        <section style="background-color: rgb(0, 0, 0); border: 4px solid rgb(255, 255, 0);   border-radius: 20px; opacity: 0.6;">
+   
+      
+   
+                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: yellow;">Sign In</p>
+   
+   
+                   <form #loginform="ngForm" (ngSubmit)="loginUser()" class="mx-1 mx-md-4">
+   
+                     <small class="text-danger">{{msg}}</small>
+   
+                     <div class="d-flex flex-row align-items-center mb-4">
+                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                       <div class="form-outline flex-fill mb-0">
+                         <label class="form-label" for="form3Example3c" style="color: yellow;">Your Email</label>
+                         <input name="email" type="email" id="form3Example3c" class="form-control"
+                           placeholder="Enter your email"  required="required"  #email="ngModel"
+                            [(ngModel)]="user.emailId"  email="ngModel" [class.is.invalid]="email.invalid && email.touched"
+                            pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" />
+                         <small class="text-danger" [class.d-none]="email.valid || email.untouched">*Email is required
+                           field.</small>
+   
+   
+                       </div>
+                     </div>
+   
+                     <div class="d-flex flex-row align-items-center mb-4">
+   
+                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+   
+                       <div class="form-outline flex-fill mb-0">
+   
+                         <label class="form-label" for="form3Exam" style="color: yellow;">Password</label>
+   
+                         <input name="password" type="password" id="form3Example4c" class="form-control"
+                           placeholder="Enter your password" required  #password="ngModel" [(ngModel)]="user.password"
+                           password="ngModel"/>
+   
+                       </div>
+   
+                     </div>
+   
+                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+   
+                       <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Login</button>
+                     </div>
+   
+                   </form>
+   
+                   <div class="row">
+   
+                     <label class="form-check-label col" for="form2Example88">
+                       <button class="btn btn-link" routerLink="/signup">Don't have an account? Sign Up</button>
+                       <br>
+                     </label>
+                     <br>
+   
+                     <label class="form-check-label col" for="form2Example3">
+                       <button routerLink="/sendEmail" class="btn btn-link">Forgot password? Click Here</button>
+   
+                     </label>
+   
+   
+                   </div>
+   
+                
+   </section>
+     
+     </div>
   </div>
 
-</section>
-
-
-
-<div class="footer-dark">
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-md-3 item">
-          <h3>Services</h3>
-          <ul>
-            <li><a href="#">Life Insurance</a></li>
-            <li><a href="#">Dental & Vision Insurance</a></li>
-            <li><a href="#">Dental Insurance</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-6 col-md-3 item">
-          <h3>Know Us</h3>
-          <ul>
-            <li><a class="nav" routerLink="/about">About Us</a></li>
-            <li><a class="nav" routerLink="/signup">Create Account</a></li>
-            <li><a class="nav" routerLink="/contact">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="col-md-6 item text">
-          <h3>Impetus Insurance</h3>
-          <p>
-            Understand the value of harmonious relationship based on trust, respect and other naturally acceptable
-            feelings in human-human relationships and explore their role in ensuring a harmonious society
-            Understand the harmony in nature and existence, and work out their mutually fulfilling participation in the
-            nature.
-          </p>
-        </div>
-      </div>
-      <p class="copyright">All Copyright Reserved by Impetus © 2021</p>
-    </div>
-  </footer>
 </div>
+
+
+
