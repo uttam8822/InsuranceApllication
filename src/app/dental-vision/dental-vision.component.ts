@@ -24,7 +24,19 @@ export class DentalVisionComponent implements OnInit {
   private formSubmitAttempt: boolean;
   DentalVisionForm: any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-  constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { }
+  mail: any;
+  id: any;
+  userdata: any;
+  constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { 
+    this.id=localStorage.getItem("email");
+    this._service.userDetails(this.id).subscribe(
+      data=>{
+        console.log("Response");
+        console.log(data);
+        this.userdata=data;
+      }
+    )
+  }
   maxDate:any;
   futureDateDisable() {
      var date:any = new Date();  
@@ -187,6 +199,8 @@ export class DentalVisionComponent implements OnInit {
       "additionalComments": new FormControl(null),
       "member": new FormControl("", Validators.required)
     });
+    this.mail=localStorage.getItem("email");
+    this.user.email=this.mail;
   }
   isFieldValid(field: string) {
 

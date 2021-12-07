@@ -11,8 +11,14 @@
     <a class="nav-link" routerLink="/service1">Our Services</a>
     <a class="nav-link" routerLink="/contact1">Contact Us</a>
     <a class="nav-link" routerLink="/about1">About Us</a>
-    <a class="nav-link" routerLink="/login">Logout</a>
-  </div>
+    <div class="dropdown">
+      <button class="dropbtn">Welcome, {{userdata.firstName}}</button>
+      <div class="dropdown-content">
+        <a class="nav-link1" routerLink="/details">Dashboard</a>
+        <a class="nav-link1" routerLink="/login">Logout</a>
+      </div>
+    </div>
+</div>
 </div>
 
 
