@@ -1,3 +1,4 @@
+//import { DetailsComponent } from './details/details.component';
 //routing ts file
 
 import { FetchuserdetailsComponent } from './fetchuserdetails/fetchuserdetails.component';
@@ -86,8 +87,12 @@ const routes: Routes = [
   { path: "sendEmail", component: SendEmailComponent },
   { path: "sendEmailUW", component: SendmailUWComponent },
   {path:"sendEmailAdmin",component:SendemailAdminComponent},
+ 
   {path:"sendOTPUser",component:SendOtpUserComponent},
-  {path:"ComparePlans",component:ComparePlansComponent}
+  {path:"ComparePlans",component:ComparePlansComponent},
+ 
+ // {path:"details",component:DetailsComponent,canActivate: [UserAuthGuard] }
+ 
    
 ];
 
