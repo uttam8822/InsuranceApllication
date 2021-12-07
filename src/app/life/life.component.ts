@@ -29,6 +29,10 @@ export class LifeComponent implements OnInit {
   selectLungsIssue = '';
   selectmembermessage: String = '';
   showModal: boolean;
+  mail: any;
+  user=new LifeRegistration();
+  id: any;
+  userdata: any;
 
 
   selectChangeHandler(event: any) {
@@ -94,7 +98,16 @@ export class LifeComponent implements OnInit {
   LifeForm: any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   submitted = false;
-  constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { }
+  constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { 
+    this.id=localStorage.getItem("email");
+    this._service.userDetails(this.id).subscribe(
+      data=>{
+        console.log("Response");
+        console.log(data);
+        this.userdata=data;
+      }
+    )
+  }
   //for select plane
   selectPlanHandler(event: any) {
     this.selectPlaneYear = event.target.value;
@@ -171,6 +184,8 @@ export class LifeComponent implements OnInit {
       "dateOfBirth": new FormControl("", [Validators.required]),
       "member": new FormControl("", Validators.required)
     });
+    this.mail=localStorage.getItem("email");
+    this.user.email=this.mail;
   }
   isFieldValid(field: string) {
 
@@ -222,7 +237,7 @@ export class LifeComponent implements OnInit {
   get additionalComments() { return this.LifeForm.get('additionalComments'); }
   get member() { return this.LifeForm.get('member'); }
 
-  user = new LifeRegistration();
+  //user = new LifeRegistration();
 
   applyLife() {
     this.submitted = true;

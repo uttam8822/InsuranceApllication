@@ -64,6 +64,21 @@ export class RegistrationService {
     return this._http.get(`http://localhost:8067/getdvdatabyID/${id}`);
   }
 
+    //user details
+    public userDetails(id):Observable<object> {
+      return this._http.get(`http://localhost:8067/getuser/${id}`);
+    }
+    //history
+  public userHistory(id):Observable<object> {
+    return this._http.get(`http://localhost:8067/getlifedatabymail/${id}`);
+  }
+  public userHistory2(id):Observable<object> {
+    return this._http.get(`http://localhost:8067/getdvdatabymail/${id}`);
+  }
+  public userHistory3(id):Observable<object> {
+    return this._http.get(`http://localhost:8067/getdentaldatabymail/${id}`);
+  }
+
   //update dental application status
   updateStatusOfLife(user: LifeRegistration): Observable<object> {
     console.log(user.firstName);

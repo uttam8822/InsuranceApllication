@@ -19,7 +19,7 @@ export class DentalComponent implements OnInit {
   @ViewChild('scroll') scroll: ElementRef;
   private formSubmitAttempt: boolean;
 
-
+  mail:any;
   submitted = false;
   isClicked:boolean=false;
   Dental: any;
@@ -34,6 +34,8 @@ export class DentalComponent implements OnInit {
   selectTobacco: string = '';
 
   selectmembermessage: String = '';
+  id: any;
+  userdata: any;;
 
   selectChangeHandler(event: any) {
     this.selectedDay = event.target.value;
@@ -99,7 +101,16 @@ export class DentalComponent implements OnInit {
   }
 
 
-  constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { }
+  constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) {
+    this.id=localStorage.getItem("email");
+    this._service.userDetails(this.id).subscribe(
+      data=>{
+        console.log("Response");
+        console.log(data);
+        this.userdata=data;
+      }
+    )
+   }
 
   maxDate:any;futureDateDisable() {
       var date:any = new Date();
@@ -139,6 +150,8 @@ export class DentalComponent implements OnInit {
       //selectPlane: new FormControl('', Validators.required)
       member: new FormControl('', Validators.required)
     });
+    this.mail=localStorage.getItem("email");
+    this.user.email=this.mail;
   }
   isFieldValid(field: string) {
 

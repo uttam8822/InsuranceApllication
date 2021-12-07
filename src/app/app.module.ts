@@ -65,6 +65,7 @@ import { UwriterAuthGuard } from './Auth/uwriter-auth.guard';
 import { AdminAuthGuard } from './Auth/admin-auth.guard';
 import { SendemailAdminComponent } from './sendemail-admin/sendemail-admin.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { DetailsComponent } from './details/details.component';
 
 
 
@@ -116,6 +117,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     SendEmailComponent,
     SendmailUWComponent,
     SendemailAdminComponent,
+    DetailsComponent,
  
   
 
