@@ -67,7 +67,7 @@ import { SendemailAdminComponent } from './sendemail-admin/sendemail-admin.compo
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SendOtpUserComponent } from './send-otp-user/send-otp-user.component';
 import { ComparePlansComponent } from './compare-plans/compare-plans.component';
-
+ 
 
 
 
@@ -120,6 +120,7 @@ import { ComparePlansComponent } from './compare-plans/compare-plans.component';
     SendemailAdminComponent,
     SendOtpUserComponent,
     ComparePlansComponent,
+    
  
   
 
