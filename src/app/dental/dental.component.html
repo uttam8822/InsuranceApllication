@@ -27,7 +27,9 @@
         </div>
          
         <form [formGroup]="Dental" #dentalForm="ngForm" (ngSubmit)="applyDental()">
-          
+            <mat-stepper>
+                <mat-step >
+                  <ng-template matStepLabel>Personal Details</ng-template>  
             <div class="row g-3">
                 <div class="col">
                     <label>First Name<span style="color: red;">*</span></label>
@@ -182,6 +184,15 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <br>
+            <div>  
+                
+                <button mat-button matStepperNext>Next</button>  
+              </div>  
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Health Details</ng-template> 
             <div class="row g-2">
                 <div class="col">
                     <label for="selectPlane">Describe time in year for your plan ?<span
@@ -202,7 +213,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <p>Do you consume Tobacco Or Alcohol Or do Smoking?<span style="color: red;">*</span></p>
+                    <p>Do you consume Tobacco?<span style="color: red;">*</span></p>
                      
                     <select name="cars" id="cars" style="height: 45px; width: 490px;"
                         (change)="selectTobaccoHandler($event)" formControlName="Tobacco">
@@ -225,7 +236,7 @@
                 <div class="col ">
 
 
-                    <label>Gender<span style="color: red;">*</span></label>
+                    <label>Gender<span style="color: red;">*</span></label><br>
 
                     <select name="gender" id="gender" style="height: 45px; width: 490px;"
                         (change)="selectGenderHandler($event)" formControlName='gender'>
@@ -302,37 +313,50 @@
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Do you have any other health Issue
-                        please Describe:</label>
-                    <input formControlName="healthIssue" class="form-control" aria-label="zip"
-                        placeholder="Tell us about your health issue" [(ngModel)]="user.healthIssue" maxlength="50"
-                        style="height: 100px;" />
-                </div>
-            </div>
-            <div class="row g-3">
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Please add any additional comments or
-                        questions:</label>
-                    <input formControlName="additionalComments" class="form-control" aria-label="zip"
-                        placeholder=" Add your comments" [(ngModel)]="user.additionalComments" maxlength="50"
-                        style="height: 100px;" />
-                </div>
-            </div>
+            <br>
+            <br>
+                        <div>  
+                            <button mat-button matStepperPrevious>Back</button>  
+                            <button mat-button matStepperNext>Next</button>  
+                          </div>  
+            
+            
+                    </mat-step>
+                        <mat-step >
+                            <ng-template matStepLabel>Payment Details</ng-template> 
+            
+                        <div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Bank Account Number.</label>
+                                <input formControlName="healthIssue" class="form-control" aria-label="zip"
+                                    placeholder="Ex: 11241241124444" [(ngModel)]="user.healthIssue" maxlength="50"
+                                    style="height: 100px;" />
+                                    <div *ngIf="healthIssue.invalid && (healthIssue.touched || healthIssue.dirty)">
+                                        <span class="error" *ngIf="healthIssue.errors?.required"> *Bank Account Number is required.</span>
+                                        <span class="error" *ngIf="healthIssue.errors?.pattern"> *Only numbers are allowed.</span>
+                                        <span class="error" *ngIf="healthIssue.errors?.minlength">*Invalid Account Number.</span>
+                                        <span class="error" *ngIf="healthIssue.errors?.maxlength">*Invalid Account Number.</span>
+                
+                                    </div>
+                            </div>
+                            <div style="margin-left: 50%;">
+                            <img  *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px; align-content: center;"/> 
+                        </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Bank IFSC Code.</label>
+                                <input formControlName="additionalComments" class="form-control" aria-label="zip"
+                                    placeholder="Ex: SBIN17683" [(ngModel)]="user.additionalComments" maxlength="50"
+                                    style="height: 100px;" />
+                                    <div *ngIf="additionalComments.invalid && (additionalComments.touched || additionalComments.dirty)">
+                                        <span class="error" *ngIf="additionalComments.errors?.required"> *IFSC Code is required.</span>
+                                        <span class="error" *ngIf="additionalComments.errors?.pattern"> *Invalid IFSC Code.</span>
+                                        
+                                    </div>
+                                    
+                            </div>
+                        </div>
             <div class="row">
                 <div class="col">
                     <button type="submit" class="btn btn-success" (click)="scrollTop()"
@@ -354,6 +378,14 @@
 
 
             </div>
+            <br>
+            <div>  
+                <button mat-button matStepperPrevious>Back</button>   
+              </div> 
+
+        </mat-step>
+
+         </mat-stepper>
         </form>
 
 

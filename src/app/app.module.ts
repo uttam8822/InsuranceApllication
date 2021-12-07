@@ -71,6 +71,7 @@ import { ComparePlansComponent } from './compare-plans/compare-plans.component';
  
  
 import { DetailsComponent } from './details/details.component';
+import { MatStepperModule } from '@angular/material/stepper';
 
   
 
@@ -153,7 +154,8 @@ import { DetailsComponent } from './details/details.component';
     MatSelectModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-     MatSliderModule  
+     MatSliderModule  ,
+      MatStepperModule
 
 
   ],

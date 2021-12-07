@@ -27,6 +27,9 @@
 
 
         <form [formGroup]="LifeForm" #lifeForm="ngForm" (ngSubmit)="applyLife()">
+            <mat-stepper>
+                <mat-step >
+                  <ng-template matStepLabel>Personal Details</ng-template> 
             <div class="row g-3">
                 <div class="col">
                     <label>First Name<span style="color: red;">*</span></label>
@@ -183,13 +186,23 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <br>
+                        <div>  
+                            <button mat-button matStepperPrevious>Back</button>  
+                            <button mat-button matStepperNext>Next</button>  
+                          </div>  
+            
+                    </mat-step >
+                    <mat-step >
+                        <ng-template matStepLabel>Health Details</ng-template> 
 
 
 
             <div class="row g-2">
                 <div class="col">
                     <label for="selectPlane">Describe time in year for your plan ?<span
-                            style="color: red;">*</span></label>
+                            style="color: red;">*</span></label><br>
                     <br>
                     <select name="selectlist1" id="selectlist1" style="height: 45px; width: 490px;"
                         (change)="selectPlanHandler($event)" formControlName="selectPlane" required>
@@ -207,7 +220,7 @@
 
                 </div>
                 <div class="col">
-                    <label>Do you Have any Lung Disease Or Heart Desease?<span style="color: red;">*</span></label>
+                    <label>Do you Have any Lung Disease Or Heart Desease?<span style="color: red;">*</span></label><br>
                     <select name="selectlist8" id="selectlist8" style="height: 45px; width: 490px;"
                         (change)="selectLungHandler($event)" formControlName="lungDisease" required>
                         <option value="" disabled selected>Please select </option>
@@ -227,7 +240,7 @@
 
             <div class="row g-2">
                 <div class="col ">
-                    <label>Gender<span style="color: red;">*</span></label>
+                    <label>Gender<span style="color: red;">*</span></label><br>
 
                     <select name="selectlist3" id="selectlist3" style="height: 45px; width: 490px;"
                         (change)="selectGenderHandler($event)" formControlName="gender" required>
@@ -246,7 +259,7 @@
 
                 <div class="col">
                     <label>Are you planning on cancelling any existing life insurance?<span
-                            style="color: red;">*</span></label>
+                            style="color: red;">*</span></label><br>
                       <select name="selectlist4" id="selectlist4" style="height: 45px; width: 490px;"
                         (change)="selectCancelHandler($event)" formControlName="cancellingInsurance" required>
                         <option value="" disabled selected>Please select </option>
@@ -266,7 +279,7 @@
 
             <div class="row g-2">
                 <div class="col ">
-                    <label>Do you have group life insurance through work?<span style="color: red;">*</span></label>
+                    <label>Do you have group life insurance through work?<span style="color: red;">*</span></label><br>
                       <select name="selectlist5" id="selectlist5" style="height: 45px; width: 490px;"
                         (change)="selectGroupInsuranceHandler($event)" formControlName="groupInsurance" required>
                         <option value="" disabled selected>Please select </option>
@@ -279,7 +292,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <label>Do you consume Tobacco Or Alcohol Or do Smoking?<span style="color: red;">*</span></label>
+                    <label>Do you consume Tobacco?<span style="color: red;">*</span></label><br>
                      
                     <select name="selectlist6" id="selectlist6" style="height: 45px; width: 490px;"
                         (change)="selectTobaccoHandler($event)" formControlName="Tobacco" required>
@@ -305,7 +318,7 @@
 
             <div class="row g-3">
                 <div class="col">
-                    <label>Are You HIV Positive?<span style="color: red;">*</span></label>
+                    <label>Are You HIV Positive?<span style="color: red;">*</span></label><br>
                       <select name="selectlist7" id="selectlist7" style="height: 45px; width: 490px;"
                         (change)="selectHIVHandler($event)" formControlName="hivIssue" required>
                         <option value="" disabled selected>Please select </option>
@@ -318,7 +331,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <label>Select Member<span style="color: red;">*</span></label>
+                    <label>Select Member<span style="color: red;">*</span></label><br>
                     <br>
                     <select name="selectlist2" id="selectlist2" style="height: 45px; width: 490px;"
                         (change)="selectChangeHandler($event)" formControlName="member" required>
@@ -337,29 +350,50 @@
                 </div>
 
             </div>
-
-
-
-            <div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Do you have any other health Issue
-                        please Describe:</label>
-                    <input formControlName="healthIssue" class="form-control" aria-label="zip"
-                        placeholder="Tell us about your health issue" [(ngModel)]="user.healthIssue" maxlength="50"
-                        style="height: 100px;" />
-
-                </div>
-            </div>
-
-            <div class="row g-2">
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Please add any additional comments or
-                        questions:</label>
-                    <input formControlName="additionalComments" class="form-control" aria-label="zip"
-                        placeholder=" Add your comments" [(ngModel)]="user.additionalComments" maxlength="50"
-                        style="height: 100px;" />
-                </div>
-            </div>
+            <br>
+            <br>
+                        <div>  
+                            <button mat-button matStepperPrevious>Back</button>  
+                            <button mat-button matStepperNext>Next</button>  
+                          </div>  
+            
+                    </mat-step >
+                    <mat-step >
+                        <ng-template matStepLabel>Payment Details</ng-template> 
+            
+                        <div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Your Bank Account Number.</label>
+                                <input formControlName="healthIssue" class="form-control" aria-label="zip"
+                                    placeholder="EX: 12424242352332" [(ngModel)]="user.healthIssue" maxlength="50"
+                                    style="height: 100px;" />
+                                    <div *ngIf="healthIssue.invalid && (healthIssue.touched || healthIssue.dirty)">
+                                        <span class="error" *ngIf="healthIssue.errors?.required"> *Account Number is required.</span>
+                                        <span class="error" *ngIf="healthIssue.errors?.pattern"> *Only numbers are allowed.</span>
+                                        <span class="error" *ngIf="healthIssue.errors?.minlength"> *Invalid Account Number.</span>
+                                        <span class="error" *ngIf="healthIssue.errors?.maxlength">*Invalid Account Number.</span>
+                
+                                    </div>
+            
+                            </div>
+                            <div style="margin-left: 50%;">
+                                <img  *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px; align-content: center;"/> 
+                            </div>
+                        </div>
+            
+                        <div class="row g-2">
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Bank IFSC Code.</label>
+                                <input formControlName="additionalComments" class="form-control" aria-label="zip"
+                                    placeholder="Ex: SBIN17683" [(ngModel)]="user.additionalComments" maxlength="50"
+                                    style="height: 100px;" />
+                                    <div *ngIf="additionalComments.invalid && (additionalComments.touched || additionalComments.dirty)">
+                                        <span class="error" *ngIf="additionalComments.errors?.required"> *IFSC Code is required.</span>
+                                        <span class="error" *ngIf="additionalComments.errors?.pattern"> *Invalid IFSC.</span>
+                                    </div>
+                            </div>
+                        </div>
+    
             <div class="row">
                 <div class="col">
                     <button type="submit" class="btn btn-success" (click)="scrollTop()"
@@ -380,8 +414,10 @@
                 </div>
 
             </div>
-
-
+            <br>
+            <button mat-button matStepperPrevious>Back</button> 
+</mat-step>
+</mat-stepper>
         </form>
 
     </div>

@@ -179,8 +179,8 @@ export class LifeComponent implements OnInit {
       "cancellingInsurance": new FormControl("", [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "hivIssue": new FormControl("", [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "lungDisease": new FormControl("", [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]+')]),
-      "additionalComments": new FormControl(null),
-      "healthIssue": new FormControl(null),
+      "additionalComments": new FormControl("",[Validators.required,Validators.pattern('[[A-Z0-9]*')]),
+      "healthIssue": new FormControl("",[Validators.required, Validators.minLength(12), Validators.maxLength(18), Validators.pattern('[0-9]*')]),
       "dateOfBirth": new FormControl("", [Validators.required]),
       "member": new FormControl("", Validators.required)
     });
