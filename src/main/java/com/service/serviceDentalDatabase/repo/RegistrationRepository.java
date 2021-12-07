@@ -18,4 +18,8 @@ public interface RegistrationRepository extends JpaRepository<Registration, Inte
 
 	public Registration findByEmailIdAndPassword(String email, String password);
 
+	public Registration findByotpOfUserAndEmailId(int otpOfUser,String emailId);
+
+
+
 }

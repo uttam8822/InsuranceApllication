@@ -38,7 +38,8 @@ public class RegistrationController {
 	@PostMapping("/registeruser")                            //Saving User Details
 	@CrossOrigin(origins="http://localhost:4200")
 	public Registration registerUser(@RequestBody Registration user) throws Exception
-	{   String npassword=user.getPassword();
+	{  
+		
 		String tempEmailId = user.getEmailId();
 		if(tempEmailId != null && !"".equals(tempEmailId))
         {
@@ -47,7 +48,10 @@ public class RegistrationController {
 	    	 throw new Exception("user with" +tempEmailId + "id already exist");
 	     }
         }
-		Registration userObj = null;
+		int a = (int)(Math.random()*(99999999-11111111+1)+11111111);
+		user.setOtpOfUser(a);
+		System.out.println(a);
+		Registration userObj=null;
 		userObj = service.saveUser(user);
 		return userObj;	
 	}
@@ -132,4 +136,65 @@ public class RegistrationController {
 		return obj;
 		//return repo.findAll().stream().filter(t-> email.equals(t.getEmailId())).findFirst().orElse(null);
 	}
+	
+	@PostMapping("/sendmailOTP") //Mapping for Sending Email in Forget Password
+	@CrossOrigin(origins="http://localhost:4200")
+	public void triggerMailOTP(@RequestBody Registration user) throws MessagingException {
+	String tempEmailId = user.getEmailId();
+	System.out.println(tempEmailId);
+	if(tempEmailId == null) {
+	throw new MessagingException("Bad credentials");
+	}
+	if(tempEmailId != null && !"".equals(tempEmailId))
+	{
+	Registration userobj= service.fetchUserByEmailId(tempEmailId); //Checking Existing EmailId
+	if(userobj != null) {
+	//Sending Message
+	service1.sendSimpleEmail(tempEmailId,"Dear User,\nyour One Time Password (OTP) is "+userobj.getOtpOfUser()
+
+	+ ". have any issue please contact us at the address given below"+"\n\n\n\nThank You!"
+	+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd. \nSDF No. K-13 to 16, NSEZ\nPhase-II Noida-201305 (U.P.)"
+	+ "\nPhone " +
+	"+91-120-4018100"+"\nEmail : support@impetus.com"
+	, "Request for password reset");
+	}
+	if(userobj ==null)
+	{
+	throw new MessagingException("Bad credentials");
+	}
+	}else {
+	throw new MessagingException("Bad credentials");
+	}
+	}
+	
+	
+	
+	// verfy OTP of user
+	@PostMapping("/verifyOTPOfUser123") //Mapping for Sending Email in Forget Password
+	@CrossOrigin(origins="http://localhost:4200")
+	public Registration verifyOTPOfUser(@RequestBody Registration user) throws Exception {
+	int tempOTP = user.getOtpOfUser();
+	String tempEmailId = user.getEmailId();
+	System.out.println(tempOTP);
+	Registration userobj = null;
+	if(tempOTP != 0 && tempEmailId != null)
+	{
+	userobj =service.fetchUserByOtp(tempOTP,tempEmailId);
+	service1.sendSimpleEmail(tempEmailId,"Dear User,\nYour request for password reset has been sent successfully"
+	+"\nYour emailId is : "+tempEmailId+"\nYour Name : "+userobj.getFirstName()+" "+userobj.getLastName()+"\nYour new password is : "
+	+userobj.getPassword()+"\n\nWe request you please do not share your credentials.In case if you "
+	+ "have any issue please contact us at the address given below"+"\n\n\n\nThank You!"
+	+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd. \nSDF No. K-13 to 16, NSEZ\nPhase-II Noida-201305 (U.P.)"
+	+ "\nPhone " +
+	"+91-120-4018100"+"\nEmail : support@impetus.com"
+	, "Request for password reset");
+	}
+	if(userobj ==null)
+	{
+	throw new Exception("Bad credentials");
+	}
+	return userobj;
+	}
+
+
 }

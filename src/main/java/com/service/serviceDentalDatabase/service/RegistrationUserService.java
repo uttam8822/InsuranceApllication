@@ -29,5 +29,10 @@ public class RegistrationUserService
 	{
 		return repo.findByEmailIdAndPassword(email, password);
 	}
+	
+	public Registration fetchUserByOtp(int otp,String email)
+	{
+	return repo.findByotpOfUserAndEmailId(otp, email);
+	}
 }
 
