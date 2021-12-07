@@ -1,5 +1,5 @@
 <!--This is user sign up page-->
-<div style=" height: 850px;   background: linear-gradient(to top left, #0099ff 0%, #000099 100%);">
+<div style=" height: 850px;   background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%);">
   <div class="header">
     <div>
       <a class="nav" routerLink="/home" style="background-color: white;">Impetus Insurance</a>
@@ -27,7 +27,7 @@
   
   <div class="row" style="margin: 60px;">
       
-      <div class="col" style="color:yellow; height: 100%; opacity: 0.6;">
+      <div class="col" style="color:#ff6600; height: 100%; ">
         <section>
           <h1 style="font-size: 30px;">Welcome,</h1>
           <p style="font-size: 30px;">Please Sign up From Here</p>
@@ -53,10 +53,10 @@
         </section>
      </div>
      <div class="col" style="margin-right: 50px; margin-left: 70px; width: 600px;" > 
-      <section style="background-color: rgb(0, 0, 0); border: 4px solid rgb(255, 255, 0);   border-radius: 20px; opacity: 0.6;">
+      <section style="background-color: rgb(0, 0, 0); border: 4px solid #ff6600;   border-radius: 20px;">
      
   
-        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: yellow;">Sign Up</p>
+        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: #ff6600;">Sign Up</p>
   
   
         <div *ngIf="alert" class="alert alert-success" role="alert">
@@ -76,7 +76,7 @@
           <div class="d-flex flex-row align-items-center mb-4">
             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example1c" style="color: yellow;">First Name</label>
+              <label class="form-label" for="form3Example1c" style="color: #ff6600;">First Name</label>
               <input formControlName="firstname" class="form-control" aria-label="First Name"
                 placeholder="Enter Your First Name" required required [(ngModel)]="user.firstName" />
               <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
@@ -91,7 +91,7 @@
           <div class="d-flex flex-row align-items-center mb-4">
             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example1c" style="color: yellow;">Last Name</label>
+              <label class="form-label" for="form3Example1c" style="color: #ff6600;">Last Name</label>
               <input formControlName="lastname" class="form-control" aria-label="Last name"
                 placeholder="Enter Your Last Name" required required [(ngModel)]="user.lastName" />
               <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
@@ -106,7 +106,7 @@
           <div class="d-flex flex-row align-items-center mb-4">
             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example3c" style="color: yellow;">Your Email</label>
+              <label class="form-label" for="form3Example3c" style="color: #ff6600;">Your Email</label>
               <input formControlName="email" class="form-control" aria-label="email"
                 placeholder="Enter Your Email" required required [(ngModel)]="user.emailId" />
               <div *ngIf="email.invalid && (email.touched || email.dirty)">
@@ -119,7 +119,7 @@
           <div class="d-flex flex-row align-items-center mb-4">
             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example4c" style="color: yellow;">Password</label>
+              <label class="form-label" for="form3Example4c" style="color: #ff6600;">Password</label>
               <input formControlName="password" class="form-control" aria-label="adhar"  
                 placeholder="Enter Your Password" required required [(ngModel)]="user.password"  [type]=" result?'text' : 'password' " />
               <div *ngIf="password.invalid && (password.touched || password.dirty)">
@@ -139,7 +139,7 @@
           <div class="d-flex flex-row align-items-center mb-4">
             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example4cd" style="color: yellow;"> Confirm Password</label>
+              <label class="form-label" for="form3Example4cd" style="color: #ff6600;"> Confirm Password</label>
               <input formControlName="cpassword" class="form-control" aria-label="adhar" type="password"
                 placeholder="Confirm Password" pattern="{{user.password}}" required />
               <div *ngIf="cpassword.invalid && (cpassword.touched || cpassword.dirty)">

@@ -42,6 +42,8 @@ import { UserAuthGuard } from './Auth/user-auth.guard';
 import { UwriterAuthGuard } from './Auth/uwriter-auth.guard';
 import { AdminAuthGuard } from './Auth/admin-auth.guard';
 import { SendemailAdminComponent } from './sendemail-admin/sendemail-admin.component';
+import { SendOtpUserComponent } from './send-otp-user/send-otp-user.component';
+import { ComparePlansComponent } from './compare-plans/compare-plans.component';
 
 
 const routes: Routes = [
@@ -83,7 +85,9 @@ const routes: Routes = [
   { path: "UWDVDetails11", component: UwDVDetailsComponent },
   { path: "sendEmail", component: SendEmailComponent },
   { path: "sendEmailUW", component: SendmailUWComponent },
-  {path:"sendEmailAdmin",component:SendemailAdminComponent}
+  {path:"sendEmailAdmin",component:SendemailAdminComponent},
+  {path:"sendOTPUser",component:SendOtpUserComponent},
+  {path:"ComparePlans",component:ComparePlansComponent}
    
 ];
 

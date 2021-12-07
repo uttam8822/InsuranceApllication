@@ -1,11 +1,7 @@
 <!--This is POPUP component for alert -->
 <div>
 
-    <div>
-        <button mat-button class="close-icon" [mat-dialog-close]="true" style="margin-right: 0%;">
-            <mat-icon>close</mat-icon>
-        </button>
-    </div>
+    
 
 
     
@@ -15,6 +11,9 @@
         <!--App title-->
         <header>
           <h1 class="app-title">Our Premium Calculator</h1>
+          <button mat-button class="close-icon" [mat-dialog-close]="true" style="color:yellow;margin-left: 790px;">
+            <mat-icon>close</mat-icon>
+        </button>
         </header>
         <form [formGroup]="insuranceForm" (ngSubmit)="onSubmit">
           <main>
