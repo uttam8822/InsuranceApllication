@@ -1,6 +1,7 @@
 //Dental and Vision Service Controller
 package com.service.serviceDentalDatabase.controller;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -160,5 +161,12 @@ public class DentalVisionService {
 	@CrossOrigin(origins="http://localhost:4200")
 	public DentalVisionUser getUser(@PathVariable String aadhar){
 		return repo.findAll().stream().filter(t-> aadhar.equals(t.getAadhar())).findFirst().orElse(null);
+	}
+	@GetMapping("/getdvdatabymail/{email}")                   //Getting Application Data by Adhaar
+	@CrossOrigin(origins="http://localhost:4200")
+	public Stream<DentalVisionUser> getDetails(@PathVariable String email){
+		//LifeUser obj=service.fetchByEmail(email);
+		//System.out.println(obj);
+		return repo.findAll().stream().filter(t-> email.equals(t.getEmail()));
 	}
 }

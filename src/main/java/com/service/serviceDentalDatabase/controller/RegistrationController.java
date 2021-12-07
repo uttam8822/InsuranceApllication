@@ -8,6 +8,7 @@ import javax.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -122,5 +123,13 @@ public class RegistrationController {
 	}else {
 	throw new MessagingException("Bad credentials");
 	}
+	}
+	
+	@GetMapping("/getuser/{email}")                   //Getting Application Data by Adhaar
+	@CrossOrigin(origins="*")
+	public Registration getUser(@PathVariable String email){
+		Registration obj=service.fetchUserByEmailId(email);
+		return obj;
+		//return repo.findAll().stream().filter(t-> email.equals(t.getEmailId())).findFirst().orElse(null);
 	}
 }
