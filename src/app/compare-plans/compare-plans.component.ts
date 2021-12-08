@@ -24,16 +24,12 @@ export class ComparePlansComponent implements OnInit {
 
     this.matDialog.open(POPUPComponent, {
 
-       
+
 
       height: "250px",
 
       width: "600px",
 
-
-
     });
-
 }
-
 }

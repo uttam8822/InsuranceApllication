@@ -101,6 +101,24 @@
               </div>
             </div>
           </div>
+
+
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+            <div class="form-outline flex-fill mb-0">
+              <label class="form-label" for="form3Example1cd" style="color: #ff6600;">Age</label>
+              <input formControlName="age" class="form-control" aria-label="Age"
+                placeholder="Enter Your Age Here" required required [(ngModel)]="user.age" />
+              <div *ngIf="age.invalid && (age.touched || age.dirty)">
+                <span class="error text-danger" *ngIf="age.errors?.required"> *Age is
+                  Required.</span>
+                <span class="error text-danger" *ngIf="age.errors?.pattern"> *Enter Only Numbers.</span>
+                <span class="error" *ngIf="age.errors?.min"> *Age should be between 18-60.</span>
+                <span class="error" *ngIf="age.errors?.max">*Age should be between 18-60.</span>
+              </div>
+            </div>
+          </div>
   
   
           <div class="d-flex flex-row align-items-center mb-4">

@@ -144,8 +144,8 @@ export class DentalComponent implements OnInit {
       "gender": new FormControl('', [Validators.required, Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
       "state": new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z0-9-]*')]),
       "selectPlane": new FormControl('', [Validators.required, Validators.pattern('[1-5]')]),
-      "healthIssue": new FormControl(null),
-      "additionalComments": new FormControl(null),
+      "additionalComments": new FormControl("",[Validators.required,Validators.pattern('[[A-Z0-9]*')]),
+      "healthIssue": new FormControl("",[Validators.required, Validators.minLength(12), Validators.maxLength(18), Validators.pattern('[0-9]*')]),
       "dateOfBirth": new FormControl(null, [Validators.required]),
       //selectPlane: new FormControl('', Validators.required)
       member: new FormControl('', Validators.required)

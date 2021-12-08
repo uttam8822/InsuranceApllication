@@ -29,7 +29,7 @@
         <form [formGroup]="LifeForm" #lifeForm="ngForm" (ngSubmit)="applyLife()" style="font-size: small;">
             <mat-stepper>
                 <mat-step >
-                  <ng-template matStepLabel>Personal Details</ng-template> 
+                  <ng-template matStepLabel>Personal Details</ng-template>
             <div class="row g-3">
                 <div class="col">
                     <label>First Name<span style="color: red;">*</span></label>
@@ -40,7 +40,7 @@
                         <span class="error" *ngIf="firstname.errors?.pattern"> *Enter Only Characters.</span>
                     </div>
                 </div>
-                
+
                 <div class="col">
                     <label>Middle Name</label>
                     <input formControlName="middlename" class="form-control" aria-label="Last name"
@@ -80,8 +80,8 @@
                         <span class="error" *ngIf="email.errors?.required">*Email required.</span>
                         <span class="error" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
                     </div>
-                    <img *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px;"/> 
-                   
+                    <img *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px;"/>
+
                 </div>
                 <div class="col">
                     <label>PAN<span style="color: red;">*</span></label>
@@ -189,14 +189,14 @@
             </div>
             <br>
             <br>
-                        <div>  
-                            <button mat-button matStepperPrevious>Back</button>  
-                            <button mat-button matStepperNext>Next</button>  
-                          </div>  
-            
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                          </div>
+
                     </mat-step >
                     <mat-step >
-                        <ng-template matStepLabel>Health Details</ng-template> 
+                        <ng-template matStepLabel>Health Details</ng-template>
 
 
 
@@ -350,35 +350,35 @@
             </div>
             <br>
             <br>
-                        <div>  
-                            <button mat-button matStepperPrevious>Back</button>  
-                            <button mat-button matStepperNext>Next</button>  
-                          </div>  
-            
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                          </div>
+
                     </mat-step >
                     <mat-step >
-                        <ng-template matStepLabel>Payment Details</ng-template> 
-            
+                        <ng-template matStepLabel>Payment Details</ng-template>
+
                         <div>
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Your Bank Account Number.</label>
                                 <input formControlName="healthIssue" class="form-control" aria-label="zip"
-                                    placeholder="EX: 12424242352332" [(ngModel)]="user.healthIssue" maxlength="50"
+                                    placeholder="EX: 12424242352332" required [(ngModel)]="user.healthIssue" maxlength="50"
                                     style="height: 35px;" />
                                     <div *ngIf="healthIssue.invalid && (healthIssue.touched || healthIssue.dirty)">
                                         <span class="error" *ngIf="healthIssue.errors?.required"> *Account Number is required.</span>
                                         <span class="error" *ngIf="healthIssue.errors?.pattern"> *Only numbers are allowed.</span>
                                         <span class="error" *ngIf="healthIssue.errors?.minlength"> *Invalid Account Number.</span>
                                         <span class="error" *ngIf="healthIssue.errors?.maxlength">*Invalid Account Number.</span>
-                
+
                                     </div>
-            
+
                             </div>
                             <div style="margin-left: 50%;">
-                                <img  *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px; align-content: center;"/> 
+                                <img  *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px; align-content: center;"/>
                             </div>
                         </div>
-            
+
                         <div class="row g-2">
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Bank IFSC Code.</label>
@@ -391,7 +391,7 @@
                                     </div>
                             </div>
                         </div>
-    
+
             <div class="row">
                 <div class="col">
                     <button type="submit" class="btn btn-success" (click)="scrollTop()"
@@ -413,7 +413,7 @@
 
             </div>
             <br>
-            <button mat-button matStepperPrevious>Back</button> 
+            <button mat-button matStepperPrevious>Back</button>
 </mat-step>
 </mat-stepper>
         </form>
