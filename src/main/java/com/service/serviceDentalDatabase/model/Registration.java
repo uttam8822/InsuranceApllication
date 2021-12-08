@@ -14,6 +14,7 @@ public class Registration {
 	private String emailId;
 	private String firstName;
 	private String lastName;
+	private int age;
 	private String password;
 	private int otpOfUser;
 
@@ -21,7 +22,7 @@ public class Registration {
 		super();
 	}
 	//Parameterized Constructor
-	public Registration(int id, String emailId, String firstName, String lastName, String password,int otpOfUser) {
+	public Registration(int id, String emailId, String firstName, String lastName, String password,int otpOfUser,int age) {
 		super();
 		this.id = id;
 		this.emailId = emailId;
@@ -29,6 +30,7 @@ public class Registration {
 		this.lastName = lastName;
 		this.password = password;
 		this.otpOfUser=otpOfUser;
+		this.age=age;
 
 	}
 	
@@ -64,6 +66,12 @@ public class Registration {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
 	}
 	public int getOtpOfUser() {
 		return otpOfUser;

@@ -29,6 +29,7 @@ public class RegistrationController {
 	private RegistrationRepository repo;
 	@Autowired
 	private EmailSendService service1;
+
 	
 	/*
 	  This is a service sign up user.
@@ -137,6 +138,7 @@ public class RegistrationController {
 		//return repo.findAll().stream().filter(t-> email.equals(t.getEmailId())).findFirst().orElse(null);
 	}
 	
+	@SuppressWarnings("null")
 	@PostMapping("/sendmailOTP") //Mapping for Sending Email in Forget Password
 	@CrossOrigin(origins="http://localhost:4200")
 	public void triggerMailOTP(@RequestBody Registration user) throws MessagingException {
@@ -149,6 +151,7 @@ public class RegistrationController {
 	{
 	Registration userobj= service.fetchUserByEmailId(tempEmailId); //Checking Existing EmailId
 	if(userobj != null) {
+
 	//Sending Message
 	service1.sendSimpleEmail(tempEmailId,"Dear User,\nyour One Time Password (OTP) is "+userobj.getOtpOfUser()
 
@@ -196,5 +199,5 @@ public class RegistrationController {
 	return userobj;
 	}
 
-
+  
 }

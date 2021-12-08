@@ -19,16 +19,23 @@ public class RegistrationScheduler {
 	Logger log = LoggerFactory.getLogger(RegistrationScheduler.class);
 
 	
-	@Scheduled(fixedRate = 30000)                                //Schdeuler 
+	@Scheduled(fixedRate = 10000)                                //Schdeuler 
 	public void updateStatus() {
+		System.out.println("Hello");
 		List<Registration> users= rs.findAll();
+		int l=users.size();
+		System.out.println(l);
 		for(Registration user : users) {
 			int a = (int)(Math.random()*(99999999-11111111+1)+11111111);
-			if(user.getOtpOfUser()!=0) {
+			for(int i=1;i<=l;i++) {
+				if(user.getOtpOfUser()!=0) {
 			user.setOtpOfUser(a);
 			System.out.println(a);
+			
+				}
+				  rs.save(user);
 			}
-		       rs.save(user);
+		     
 			}
 		}
 	}
