@@ -114,8 +114,8 @@
                 <span class="error text-danger" *ngIf="age.errors?.required"> *Age is
                   Required.</span>
                 <span class="error text-danger" *ngIf="age.errors?.pattern"> *Enter Only Numbers.</span>
-                <span class="error" *ngIf="age.errors?.min"> *Invalid Age.</span>
-                <span class="error" *ngIf="age.errors?.max">*Invalid Age.</span>
+                <span class="error" *ngIf="age.errors?.min"> *Age should be between 18-60.</span>
+                <span class="error" *ngIf="age.errors?.max">*Age should be between 18-60.</span>
               </div>
             </div>
           </div>
