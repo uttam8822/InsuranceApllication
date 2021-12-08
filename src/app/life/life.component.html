@@ -156,6 +156,7 @@
                             placeholder="DD/MM/YYYY" required required [(ngModel)]="user. dateOfBirth" />
                         <div *ngIf="dateOfBirth.invalid && (dateOfBirth.touched || dateOfBirth.dirty)">
                             <span class="error" *ngIf="dateOfBirth.errors?.required"> *Date is required.</span>
+
                         </div>
 
                     </div>
