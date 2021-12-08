@@ -141,8 +141,6 @@ export class LifeComponent implements OnInit {
     this.selectLungsIssue = event.target.value;
   }
 
- date:any;
- age:any;
   maxDate: any;
   futureDateDisable() {
     var date: any = new Date();
@@ -154,23 +152,13 @@ export class LifeComponent implements OnInit {
     this.maxDate = year + "-" + month + "-" + todayDate;
     console.log(this.maxDate);
   }
-  public CalculateAge(): void
-  {
-      if(this.user.dateOfBirth){
-       this.date=parseInt(this.user.dateOfBirth);
-         var timeDiff = Math.abs(Date.now() - this.date);
-         //Used Math.floor instead of Math.ceil
-         //so 26 years and 140 days would be considered as 26, not 27.
-         this.age = Math.floor((timeDiff / (1000 * 3600 * 24))/365);
-     }
-     console.log(this.age);
- }
+
 
 
 
   ngOnInit(): void {
     this.futureDateDisable();
-    this.CalculateAge();
+   
     this.LifeForm = new FormGroup({
       "firstname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       "lastname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
@@ -194,7 +182,7 @@ export class LifeComponent implements OnInit {
       "lungDisease": new FormControl("", [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "additionalComments": new FormControl("",[Validators.required,Validators.pattern('[[A-Z0-9]*')]),
       "healthIssue": new FormControl("",[Validators.required, Validators.minLength(12), Validators.maxLength(18), Validators.pattern('[0-9]*')]),
-      "dateOfBirth": new FormControl("", [Validators.required,Validators.max(this.age),Validators.min(this.age)]),
+      "dateOfBirth": new FormControl("", [Validators.required]),
       "member": new FormControl("", Validators.required)
     });
     this.mail=localStorage.getItem("email");
