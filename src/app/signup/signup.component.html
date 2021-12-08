@@ -1,5 +1,5 @@
 <!--This is user sign up page-->
-<div style=" height: 850px;   background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%);">
+<div style=" height: 950px;   background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%);">
   <div class="header">
     <div>
       <a class="nav" routerLink="/home" style="background-color: white;">Impetus Insurance</a>
@@ -53,17 +53,17 @@
         </section>
      </div>
      <div class="col" style="margin-right: 50px; margin-left: 70px; width: 600px;" > 
-      <section style="background-color: rgb(0, 0, 0); border: 4px solid #ff6600;   border-radius: 20px;">
+      <section style="background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%); border: 4px solid #ff6600;   border-radius: 20px;">
      
   
         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: #ff6600;">Sign Up</p>
   
   
-        <div *ngIf="alert" class="alert alert-success" role="alert">
+        <div *ngIf="alert" class="alert alert-dark" role="alert">
           Registered Successfully <a class="abc" routerLink="/login"> LogIn </a> here
         </div>
   
-        <div *ngIf="alert1" class="alert alert-danger" role="alert">
+        <div *ngIf="alert1" class="alert alert-dark" role="alert">
           User Already Exist<a class="abc" routerLink="/login"> LogIn </a> here
         </div>
   
@@ -80,9 +80,9 @@
               <input formControlName="firstname" class="form-control" aria-label="First Name"
                 placeholder="Enter Your First Name" required required [(ngModel)]="user.firstName" />
               <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
-                <span class="error text-danger" *ngIf="firstname.errors?.required"> *First Name is
+                <span class="error text-dark" *ngIf="firstname.errors?.required"> *First Name is
                   Required.</span>
-                <span class="error text-danger" *ngIf="firstname.errors?.pattern"> *Enter Only
+                <span class="error text-dark" *ngIf="firstname.errors?.pattern"> *Enter Only
                   Characters.</span>
               </div>
             </div>
@@ -95,9 +95,9 @@
               <input formControlName="lastname" class="form-control" aria-label="Last name"
                 placeholder="Enter Your Last Name" required required [(ngModel)]="user.lastName" />
               <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
-                <span class="error text-danger" *ngIf="lastname.errors?.required"> *Last Name is
+                <span class="error text-dark" *ngIf="lastname.errors?.required"> *Last Name is
                   Required.</span>
-                <span class="error text-danger" *ngIf="lastname.errors?.pattern"> *Enter Only Characters.</span>
+                <span class="error text-dark" *ngIf="lastname.errors?.pattern"> *Enter Only Characters.</span>
               </div>
             </div>
           </div>
@@ -110,8 +110,8 @@
               <input formControlName="email" class="form-control" aria-label="email"
                 placeholder="Enter Your Email" required required [(ngModel)]="user.emailId" />
               <div *ngIf="email.invalid && (email.touched || email.dirty)">
-                <span class="error text-danger" *ngIf="email.errors?.required">*Email required.</span>
-                <span class="error text-danger" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
+                <span class="error text-dark" *ngIf="email.errors?.required">*Email required.</span>
+                <span class="error text-dark" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
               </div>
             </div>
           </div>
@@ -123,12 +123,12 @@
               <input formControlName="password" class="form-control" aria-label="adhar"  
                 placeholder="Enter Your Password" required required [(ngModel)]="user.password"  [type]=" result?'text' : 'password' " />
               <div *ngIf="password.invalid && (password.touched || password.dirty)">
-                <span class="error text-danger" *ngIf="password.errors?.required"> *Password is required.</span>
-                <span class="error text-danger" *ngIf="password.errors?.pattern"> *Only numbers Characters @#!
+                <span class="error text-dark" *ngIf="password.errors?.required"> *Password is required.</span>
+                <span class="error text-dark" *ngIf="password.errors?.pattern"> *Only numbers Characters @#!
                   are allowed.</span>
-                <span class="error text-danger" *ngIf="password.errors?.minlength"> *Password should be more
+                <span class="error text-dark" *ngIf="password.errors?.minlength"> *Password should be more
                   than 8 Characters.</span>
-                <span class="error text-danger" *ngIf="password.errors?.maxlength">*Password should be less than
+                <span class="error text-dark" *ngIf="password.errors?.maxlength">*Password should be less than
                   20 Characters.</span>
                  
   
@@ -143,9 +143,9 @@
               <input formControlName="cpassword" class="form-control" aria-label="adhar" type="password"
                 placeholder="Confirm Password" pattern="{{user.password}}" required />
               <div *ngIf="cpassword.invalid && (cpassword.touched || cpassword.dirty)">
-                <span class="error text-danger" *ngIf="cpassword.errors?.required"> *Password is
+                <span class="error text-dark" *ngIf="cpassword.errors?.required"> *Password is
                   required.</span>
-                <span class="text-danger" *ngIf="Registerform.submitted && cpassword.errors?.pattern"> *Password
+                <span class="text-dark" *ngIf="Registerform.submitted && cpassword.errors?.pattern"> *Password
                   didn't matched.</span>
   
               </div>
@@ -158,7 +158,7 @@
               
           <div class="row">
             <div class="col">
-              <button type="submit" class="btn btn-primary">Register</button>
+              <button type="submit" class="btn btn-primary" style="margin-block-end:20px ;">Register</button>
             </div>
             <div class="col">
               <button  routerLink="/login" class="btn btn-danger">Login</button>

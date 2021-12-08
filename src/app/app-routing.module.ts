@@ -71,7 +71,7 @@ const routes: Routes = [
   { path: "success", component: SuccessfullcomponentComponent, canActivate: [UserAuthGuard] },
   { path: "lifeServiceDetails/:aadhar", component: LifeServiceUserDetailsComponent, canActivate: [AdminAuthGuard] },
   { path: "about1", component: Aboutus1Component, canActivate: [UserAuthGuard] },
-  { path: "service1", component: Service1Component, canActivate: [UserAuthGuard] },
+  { path: "service1", component: Service1Component},
   { path: "contact1", component: Contact1Component, canActivate: [UserAuthGuard] },
   { path: "dentaldetails/:aadhar", component: DentaluserdetailsComponent, canActivate: [AdminAuthGuard] },
   { path: "dvdetails/:aadhar", component: DentalvisiondetailsComponent, canActivate: [AdminAuthGuard] },

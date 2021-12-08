@@ -1,6 +1,6 @@
 .header {
     overflow: visible;
-    background-color: #167abd;
+    background-color: #ff6600;;
     padding: 10px 10px;
   }
   
@@ -33,7 +33,7 @@
   
   /* Style the active/current link*/
   .header a.nav-link {
-    background-color: dodgerblue;
+    background-color: rgb(255, 255, 255);
     color: rgb(17, 23, 105);
   }
   
@@ -70,7 +70,7 @@
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: dodgerblue;
+  background-color: rgb(255, 255, 255);
   height: 45px;
   color: rgb(5, 5, 5);
   padding: 10px;

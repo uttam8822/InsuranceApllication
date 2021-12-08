@@ -1,6 +1,6 @@
 .header {
   overflow: visible;
-  background-color: #167abd;
+  background-color: #ff6600;
   padding: 10px 10px;
 }
 
@@ -34,7 +34,7 @@
 
 /* Style the active/current link*/
 .header a.nav-link {
-  background-color: dodgerblue;
+  background-color: rgb(255, 255, 255);
   color: rgb(17, 23, 105);
 }
 
@@ -71,7 +71,7 @@ h5{
 
 /* Dropdown Button */
 .dropbtn {
-background-color: dodgerblue;
+background-color: rgb(255, 255, 255);
 height: 45px;
 color: rgb(5, 5, 5);
 padding: 10px;
@@ -212,4 +212,20 @@ display: block;
         background-image: url("https://coolbackgrounds.io/images/backgrounds/index/compute-ea4c57a4.png");
     
     }
+
+
+    #form3,#form3Example4c {
+      border-radius: 25px;
+      border: 2px solid #ff6600;
+      padding: 20px; 
+      height:40px;    
+  }
+  
+  li:before {
+  
+    content: "\00BB";
+  }
+  ul {
+  list-style: none;
+  }
     

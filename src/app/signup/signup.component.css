@@ -215,7 +215,7 @@ display: block;
 
    .form-control{
     border-radius: 25px;
-    border: 2px solid yellow;
+    border: 2px solid #ff6600;;
     padding: 20px; 
     height:40px;    
 }

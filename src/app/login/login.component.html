@@ -55,7 +55,7 @@
      <div class="col" style="margin-right: 50px; margin-left: 70px;">
        
     
-        <section style="background-color: rgb(0, 0, 0); border: 4px solid #ff6600;   border-radius: 20px; ">
+        <section style="background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%); border: 4px solid #ff6600;   border-radius: 20px; ">
    
       
    
@@ -64,7 +64,7 @@
    
                    <form #loginform="ngForm" (ngSubmit)="loginUser()" class="mx-1 mx-md-4">
    
-                     <small class="text-danger">{{msg}}</small>
+                     <small class="text-dark">{{msg}}</small>
    
                      <div class="d-flex flex-row align-items-center mb-4">
                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
@@ -74,7 +74,7 @@
                            placeholder="Enter your email"  required="required"  #email="ngModel"
                             [(ngModel)]="user.emailId"  email="ngModel" [class.is.invalid]="email.invalid && email.touched"
                             pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" />
-                         <small class="text-danger" [class.d-none]="email.valid || email.untouched">*Email is required
+                         <small class="text-dark" [class.d-none]="email.valid || email.untouched">*Email is required
                            field.</small>
    
    
@@ -99,7 +99,7 @@
    
                      <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
    
-                       <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; background-color: #ff6600; border: solid 3px #e06336;">Login</button>
+                       <button type="submit" class="btn btn-primary btn-lg" style="background-color: #ff6600; border: solid 3px #e06336; margin-left: 70px; margin-right: 70px;">Login</button>
                      </div>
    
                    </form>
@@ -107,7 +107,7 @@
                    <div class="row">
    
                      <label class="form-check-label col" for="form2Example88">
-                       <button class="btn btn-link" routerLink="/signup">Don't have an account? Sign Up</button>
+                       <button class="btn btn-link" routerLink="/signup" >Don't have an account? Sign Up</button>
                        <br>
                      </label>
                      <br>

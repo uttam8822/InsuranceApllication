@@ -65,7 +65,7 @@ import { UwriterAuthGuard } from './Auth/uwriter-auth.guard';
 import { AdminAuthGuard } from './Auth/admin-auth.guard';
 import { SendemailAdminComponent } from './sendemail-admin/sendemail-admin.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import { MatStepperModule } from '@angular/material/stepper';
 import { SendOtpUserComponent } from './send-otp-user/send-otp-user.component';
 import { ComparePlansComponent } from './compare-plans/compare-plans.component';
  
@@ -127,7 +127,8 @@ import { DetailsComponent } from './details/details.component';
     SendOtpUserComponent,
     ComparePlansComponent,
     
- 
+   
+     
     DetailsComponent,
  
  
@@ -153,7 +154,8 @@ import { DetailsComponent } from './details/details.component';
     MatSelectModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-     MatSliderModule  
+     MatSliderModule,
+     MatStepperModule,
 
 
   ],

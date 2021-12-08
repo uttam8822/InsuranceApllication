@@ -19,11 +19,11 @@ export class POPUPComponent implements OnInit {
   }
 
   title = 'angular-insurance-premium-calculator';
-  value: any = 5550;
+  value: any = 500000;
   clc: number = 0;
 
   public insuranceForm: FormGroup = new FormGroup({
-    inputValue: new FormControl(5550, Validators.required)
+    inputValue: new FormControl(500000, Validators.required)
   });
 
   addOne() {
@@ -107,11 +107,11 @@ export class POPUPComponent implements OnInit {
 
 
   Rates(value: any): number {
-    if (value <= 1000) return 20;
-    else if (value > 1000 && value <= 3000) return 70;
-    else if (value > 3000 && value <= 6000) return 130;
-    else if (value > 6000 && value <= 9000) return 180;
-    else return 200;
+    if (value <= 100000) return 2000;
+    else if (value > 100000 && value <= 300000) return 7000;
+    else if (value > 300000 && value <= 600000) return 13000;
+    else if (value > 600000 && value <= 900000) return 18000;
+    else return 20000;
   }
 
   rate: any;

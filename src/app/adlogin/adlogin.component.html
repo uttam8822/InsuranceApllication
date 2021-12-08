@@ -1,7 +1,8 @@
-<!--This component for admin login-->
-<div class="header">
+<!--This is user login component-->
+<div style=" height: 100%;   background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%);">
+  <div class="header">
   <div>
-    <a class="nav" routerLink="/home" style="margin-top: 0%; background-color: whitesmoke;">Impetus Insurance</a>
+    <a class="nav" routerLink="/home" style="background-color: white;">Impetus Insurance</a>
   </div>
   <marquee width="20%" hieght="20%" hspace="150" direction="left" height="80px" style="padding-top: 15px;">
     Invest Today and Enjoy Tomorrow!
@@ -11,7 +12,6 @@
     <a class="nav-link" routerLink="/service">Our Services</a>
     <a class="nav-link" routerLink="/contact">Contact Us</a>
     <a class="nav-link" routerLink="/about">About Us</a>
-    <!--a class="nav-link"routerLink="/login">LogIn</a>-->
     <div class="dropdown">
       <button class="dropbtn">Login As</button>
       <div class="dropdown-content">
@@ -23,117 +23,102 @@
   </div>
 </div>
 
-<div id="admin" class="container-fluid">
 
-  <section class="vh-100">
+ 
+  <div class="row" style="margin: 50px;">
+     <div class="col" style="color:#ff6905; height: 100%;">
+      <section>
+        <h1 style="font-size: 30px;">Welcome,</h1>
+        <p style="font-size: 30px;">Please Sign in From Here</p>
+        <br>
+        <br>
+        <ul style="font-size: 20px;">
+          <li> Affordable Premiums</li>
+          <br>
+          <li>  1 Day Claim Settlement</li>
+          <br>
+          <li>  34 Critical Illnesses Cover</li>
+          <br>
+          <li>  Accidental Death Cover
+            (Optional)</li>
+          <br>
+          <li>  Tax Benefits</li>
+          <br>
+          <li>   Terminal Illness Benefit</li>
+          <br>
+          <li>   Permanent Disability Waiver</li>
+          <br>
+        </ul>
+      </section>
+      
+     </div>
+     <div class="col" style="margin-right: 50px; margin-left: 70px;">
+       
+    
+        <section style="background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%); border: 4px solid #ff6600;   border-radius: 20px; ">
+   
+         
 
-    <div class="container h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-lg-12 col-xl-11">
-          <div class="card text-black" style="border-radius: 25px;">
-            <div class="card-body p-md-5">
-              <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+     
+            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: #ff6600">Admin Login
+            </p>
 
-                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: rgb(7, 250, 169);">Admin Login
-                  </p>
+            <form #loginform="ngForm" (ngSubmit)="loginAdmin()" class="mx-1 mx-md-4">
 
-                  <form #loginform="ngForm" (ngSubmit)="loginAdmin()" class="mx-1 mx-md-4">
+              <p style="color: red;">{{msg}}</p>
 
-                    <p style="color: red;">{{msg}}</p>
+              <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
 
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-
-                      <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="form3Example3c">Your UserID</label>
-                        <input name="email" type="email" id="form3" class="form-control" placeholder="Enter your ID"
-                          required="required" #adminID=ngModel [(ngModel)]="admin.adminId" email="ngModel" />
-                      </div>
-                    </div>
-
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="form3Exam">Password</label>
-                        <input name="password" type="password" id="form3Example4c" class="form-control"
-                          placeholder="Enter your Password" required="required" #password="ngModel"
-                          [(ngModel)]="admin.password" password="ngModel" />
-
-                      </div>
-                    </div>
-
-
-
-
-
-                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-
-                      <button type="submit" class="btn btn-info">Login</button>
-                    </div>
-
-                  </form>
-                  <div class="row">
-
-
-                    <label class="form-check-label col" for="form2Example3">
-                      <button routerLink="/sendEmailAdmin" class="btn btn-link">Forgot password? Click Here</button>
-
-                    </label>
-
-                  </div>
-
+                <div class="form-outline flex-fill mb-0">
+                  <label class="form-label" for="form3Example3c">Your UserID</label>
+                  <input name="email" type="email" id="form3" class="form-control" placeholder="Enter your ID"
+                    required="required" #adminID=ngModel [(ngModel)]="admin.adminId" email="ngModel" />
                 </div>
-                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                  <img src="https://s37564.pcdn.co/wp-content/uploads/2017/09/Admin-14917-scaled.jpeg.optimal.jpeg"
-                    class="img-fluid" alt="Sample image">
-
-                </div>
-
               </div>
+
+              <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                  <label class="form-label" for="form3Exam">Password</label>
+                  <input name="password" type="password" id="form3Example4c" class="form-control"
+                    placeholder="Enter your Password" required="required" #password="ngModel"
+                    [(ngModel)]="admin.password" password="ngModel" />
+
+                </div>
+              </div>
+
+
+
+
+
+              <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+
+                <button type="submit" class="btn btn-primary btn-lg" style="background-color: #ff6600; border: solid 3px #e06336; margin-left: 70px; margin-right: 70px;">Login</button>
+              </div>
+
+            </form>
+            <div class="row">
+
+
+              <label class="form-check-label col" for="form2Example3">
+                <button routerLink="/sendEmailAdmin" class="btn btn-link">Forgot password? Click Here</button>
+
+              </label>
+
             </div>
-          </div>
-        </div>
-      </div>
 
-    </div>
+          
+        
 
-  </section>
+ 
+                
+   </section>
+     
+     </div>
+  </div>
 
 </div>
 
-<div class="footer-dark" style="margin-top: 0%;">
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-md-3 item">
-          <a routerLink="/service" style="text-decoration: none; color: white; scroll-behavior: auto;">Services</a>
-          <ul>
-            <li>Life Insurance</li>
-            <li>Dental & Vision Insurance</li>
-            <li> Dental Insurance</li>
-          </ul>
-        </div>
-        <div class="col-sm-6 col-md-3 item">
-          <h3>Know Us</h3>
-          <ul>
-            <li><a class="nav" routerLink="/about">About Us</a></li>
-            <li><a class="nav" routerLink="/signup">Create Account</a></li>
-            <li><a class="nav" routerLink="/contact">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="col-md-6 item text">
-          <h3>Impetus Insurance</h3>
-          <p>
-            Understand the value of harmonious relationship based on trust, respect and other naturally acceptable
-            feelings in human-human relationships and explore their role in ensuring a harmonious society
-            Understand the harmony in nature and existence, and work out their mutually fulfilling participation in the
-            nature.
-          </p>
-        </div>
-      </div>
-      <p class="copyright">All Copyright Reserved by Impetus © 2021</p>
-    </div>
-  </footer>
-</div>
+
+

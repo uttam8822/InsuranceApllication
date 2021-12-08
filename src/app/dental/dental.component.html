@@ -20,19 +20,21 @@
     class="scroll-ele" #scroll>
 
   <div class="container">
-        <div
+        <!-- <div
             style="background-image: url('https://media.istockphoto.com/videos/cute-tooth-dental-cartoon-hd-animation-video-id975678004?s=640x640'); height: 75px; border-radius: 10px;">
             <h1 style="color: rgb(53, 11, 45); text-align: center; font-weight: 900; font-size: xx-large;">Apply for
                 Dental Insurance</h1>
-        </div>
+        </div> -->
          
-        <form [formGroup]="Dental" #dentalForm="ngForm" (ngSubmit)="applyDental()">
-          
+        <form [formGroup]="Dental" #dentalForm="ngForm" (ngSubmit)="applyDental()" style="font-size: small;">
+            <mat-stepper>
+                <mat-step >
+                  <ng-template matStepLabel>Personal Details</ng-template>  
             <div class="row g-3">
                 <div class="col">
                     <label>First Name<span style="color: red;">*</span></label>
                     <input formControlName="firstname" class="form-control" aria-label="First name"
-                        placeholder="Enter your First Name" required [(ngModel)]="user.firstName" />
+                        placeholder="Enter your First Name" required [(ngModel)]="user.firstName" style="height: 35px;"/>
                     <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
                         <span class="error" *ngIf="firstname.errors?.required"> *First Name is required.</span>
                         <span class="error" *ngIf="firstname.errors?.pattern"> *Enter Only Characters.</span>
@@ -41,13 +43,13 @@
                 <div class="col">
                     <label>Middle Name</label>
                     <input formControlName="middlename" class="form-control" aria-label="Last name"
-                        placeholder="Enter Middle Name" required [(ngModel)]="user.middleNmme">
+                        placeholder="Enter Middle Name" required [(ngModel)]="user.middleNmme" style="height: 35px;">
 
                 </div>
                 <div class="col">
                     <label>Last Name<span style="color: red;">*</span></label>
                     <input formControlName="lastname" class="form-control" aria-label="Last name"
-                        placeholder="Enter your Last Name" required required [(ngModel)]="user.lastName">
+                        placeholder="Enter your Last Name" required required [(ngModel)]="user.lastName" style="height: 35px;">
                     <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
                         <span class="error" *ngIf="lastname.errors?.required"> *Last Name is required.</span>
                         <span class="error" *ngIf="lastname.errors?.pattern"> *Enter Only Characters.</span>
@@ -58,7 +60,7 @@
                 <div class="col">
                     <label>Aadhar Number<span style="color: red;">*</span></label>
                     <input formControlName="aadhar" class="form-control" aria-label="adhar"
-                        placeholder="Ex: 279089095465" required required [(ngModel)]="user.aadhar" />
+                        placeholder="Ex: 279089095465" required required [(ngModel)]="user.aadhar" style="height: 35px;"/>
                     <div *ngIf="aadhar.invalid && (aadhar.touched || aadhar.dirty)">
                         <span class="error" *ngIf="aadhar.errors?.required"> *Aadhar is required.</span>
                         <span class="error" *ngIf="aadhar.errors?.pattern"> *Only numbers are allowed.</span>
@@ -70,7 +72,7 @@
                 <div class="col">
                      <label>Email<span style="color: red;">*</span></label>
                     <input formControlName="email" class="form-control" aria-label="email"
-                        placeholder="Ex: abcdef@abc.com" readonly required required [(ngModel)]="user.email">
+                        placeholder="Ex: abcdef@abc.com" readonly required required [(ngModel)]="user.email" style="height: 35px;"/>
                     <div *ngIf="email.invalid && (email.touched || email.dirty)">
                         <span class="error" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
                         <span class="error" *ngIf="email.errors?.required"> *Email is required.</span>
@@ -82,7 +84,7 @@
                 <div class="col">
                     <label>PAN<span style="color: red;">*</span></label>
                     <input formControlName="pannumber" class="form-control" aria-label="pan"
-                        placeholder="Ex: EPCPL8909F" required required [(ngModel)]="user.pan">
+                        placeholder="Ex: EPCPL8909F" required required [(ngModel)]="user.pan" style="height: 35px;"/>
                     <div *ngIf="pannumber.invalid && (pannumber.touched || pannumber.dirty)">
                         <span class="error" *ngIf="pannumber.errors?.required"> *PAN is required.</span>
                         <span class="error" *ngIf="pannumber.errors?.pattern"> *Invalid PAN.</span>
@@ -94,7 +96,7 @@
                     <div class="col">
                         <label>Address <span style="color: red;">*</span></label>
                         <input formControlName="address" class="form-control" aria-label="address"
-                            placeholder="Full Address" required required [(ngModel)]="user.address" />
+                            placeholder="Full Address" required required [(ngModel)]="user.address" style="height: 35px;" />
                         <div *ngIf="address.invalid && (address.touched || address.dirty)">
                             <span class="error" *ngIf="address.errors?.required"> *Address is required.</span>
                         </div>
@@ -102,7 +104,7 @@
                     <div class="col">
                         <label>Zip code<span style="color: red;">*</span></label>
                         <input formControlName="zipcode" class="form-control" aria-label="zip" placeholder="Ex:282008"
-                            required required [(ngModel)]="user.zip" />
+                            required required [(ngModel)]="user.zip" style="height: 35px;" />
                         <div *ngIf="zipcode.invalid && (zipcode.touched || zipcode.dirty)">
                             <span class="error" *ngIf="zipcode.errors?.required"> *Zip Code is required.</span>
                             <span class="error" *ngIf="zipcode.errors?.pattern"> *Only Numbers are allowed.</span>
@@ -113,7 +115,7 @@
                     <div class="col">
                         <label>City<span style="color: red;">*</span></label>
                         <input formControlName="city" class="form-control" aria-label="city" placeholder="Ex: Agra"
-                            required required [(ngModel)]="user.city" />
+                            required required [(ngModel)]="user.city" style="height: 35px;"/>
                         <div *ngIf="city.invalid && (city.touched || city.dirty)">
                             <span class="error" *ngIf="city.errors?.required"> *city is required.</span>
                             <span class="error" *ngIf="city.errors?.pattern"> *Only Characters allowed.</span>
@@ -127,7 +129,7 @@
                     <div class="col">
                         <label>State<span style="color: red;">*</span></label>
                         <input formControlName="state" class="form-control" aria-label="city" placeholder="Ex:Harayana"
-                            required required [(ngModel)]="user.state" />
+                            required required [(ngModel)]="user.state" style="height: 35px;" />
                         <div *ngIf="state.invalid && (state.touched || state.dirty)">
                             <span class="error" *ngIf="state.errors?.required"> *State is required.</span>
                             <span class="error" *ngIf="state.errors?.pattern"> *Only Characters allowed and space
@@ -138,7 +140,7 @@
                     <div class="col">
                         <label>Mobile No<span style="color: red;">*</span></label>
                         <input formControlName="contact" class="form-control" aria-label="contact"
-                            placeholder="Ex: 7659085543" required required [(ngModel)]="user. contact" />
+                            placeholder="Ex: 7659085543" required required [(ngModel)]="user. contact" style="height: 35px;" />
                         <div *ngIf="contact.invalid && (contact.touched || contact.dirty)">
                             <span class="error" *ngIf="contact.errors?.required"> *Mobile is required.</span>
                             <span class="error" *ngIf="contact.errors?.pattern"> *Only Numbers are allowed.</span>
@@ -150,7 +152,7 @@
                     <div class="col">
                         <label>Birth date<span style="color: red;">*</span></label>
                         <input type="date" max="{{maxDate}}" formControlName="dateOfBirth" class="form-control" aria-label="contact"
-                            placeholder="DD/MM/YYYY" required required [(ngModel)]="user. dateOfBirth" />
+                            placeholder="DD/MM/YYYY" required required [(ngModel)]="user. dateOfBirth" style="height: 35px;" />
                         <div *ngIf="dateOfBirth.invalid && (dateOfBirth.touched || dateOfBirth.dirty)">
                             <span class="error" *ngIf="dateOfBirth.errors?.required"> *Date is required.</span>
                         </div>
@@ -163,7 +165,7 @@
                     <div class="col">
                         <label>Occupation<span style="color: red;">*</span></label>
                         <input formControlName="occupation" class="form-control" aria-label="zip"
-                            placeholder="Ex: Enginer, Teacher, etc" required required [(ngModel)]="user.occupation" />
+                            placeholder="Ex: Enginer, Teacher, etc" required required [(ngModel)]="user.occupation" style="height: 35px;" />
                         <div *ngIf="occupation.invalid && (occupation.touched || occupation.dirty)">
                             <span class="error" *ngIf="occupation.errors?.required"> *Occupation is required.</span>
                             <span class="error" *ngIf="occupation.errors?.pattern"> *Only Characters are allowed.</span>
@@ -172,7 +174,7 @@
                     <div class="col">
                         <label>Annual Income in Lacs<span style="color: red;">*</span></label>
                         <input formControlName="income" class="form-control" placeholder="Ex: 4" required required
-                            [(ngModel)]="user.income" />
+                            [(ngModel)]="user.income" style="height: 35px;" />
                         <div *ngIf="income.invalid && (income.touched || income.dirty)">
                             <span class="error" *ngIf="income.errors?.required"> *Income is required.</span>
                             <span class="error" *ngIf="income.errors?.pattern"> *Only Numbers are allowed.</span>
@@ -182,12 +184,21 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <br>
+            <div>  
+                
+                <button mat-button matStepperNext>Next</button>  
+              </div>  
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Health Details</ng-template> 
             <div class="row g-2">
                 <div class="col">
                     <label for="selectPlane">Describe time in year for your plan ?<span
                             style="color: red;">*</span></label>
                     <br>
-                    <select style="height: 45px; width: 490px;" (change)="selectPlanHandler($event)"
+                    <select style="height: 35px; width: 450px;" (change)="selectPlanHandler($event)"
                         formControlName="selectPlane">
                         <option value="" disabled selected>Choose your year plan</option>
                         <option value="1">1 Year</option>
@@ -202,9 +213,9 @@
                     </div>
                 </div>
                 <div class="col">
-                    <p>Do you consume Tobacco Or Alcohol Or do Smoking?<span style="color: red;">*</span></p>
+                    <p>Do you consume Tobacco?<span style="color: red;">*</span></p>
                      
-                    <select name="cars" id="cars" style="height: 45px; width: 490px;"
+                    <select name="cars" id="cars" style="height: 35px; width: 450px;"
                         (change)="selectTobaccoHandler($event)" formControlName="Tobacco">
                         <option value='' disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
@@ -225,9 +236,9 @@
                 <div class="col ">
 
 
-                    <label>Gender<span style="color: red;">*</span></label>
+                    <label>Gender<span style="color: red;">*</span></label><br>
 
-                    <select name="gender" id="gender" style="height: 45px; width: 490px;"
+                    <select name="gender" id="gender" style="height: 35px; width: 450px;"
                         (change)="selectGenderHandler($event)" formControlName='gender'>
                         <option value='' disabled selected>Please select your gender</option>
                         <option value="Male">Male</option>
@@ -248,7 +259,7 @@
                 <div class="col">
                     <label>Are you planning on cancelling any existing life insurance?<span
                             style="color: red;">*</span></label>
-                      <select name="cars" id="cars" style="height: 45px; width: 490px;"
+                      <select name="cars" id="cars" style="height: 35px; width: 450px;"
                         (change)="selectCancelHandler($event)" formControlName="cancellingInsurance">
                         <option value='' disabled selected>Please select </option>
                         <option value="Yes">Yes</option>
@@ -267,10 +278,11 @@
 
 
 
-            <div class="row g-3">
+            <div class="row g-2">
+    
                 <div class="col ">
                     <p>Do you have group life insurance through work?<span style="color: red;">*</span></p>
-                      <select name="cars" id="cars" style="height: 45px; width: 490px;"
+                      <select name="cars" id="cars" style="height: 35px; width: 450px;"
                         (change)="selectGroupInsuranceHandler($event)" formControlName="groupInsurance">
                         <option value='' disabled selected> Please select </option>
                         <option value="Yes">Yes</option>
@@ -284,7 +296,7 @@
                 <div class="col">
                     <label>Select Member<span style="color: red;">*</span></label>
                     <br>
-                    <select name="cars" id="cars" style="height: 45px; width: 490px;"
+                    <select name="cars" id="cars" style="height: 35px; width: 450px;"
                         (change)="selectChangeHandler($event)" formControlName="member">
                         <option value='' disabled selected>Please select member</option>
                         <option value="Individual">Individual</option>
@@ -302,37 +314,50 @@
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Do you have any other health Issue
-                        please Describe:</label>
-                    <input formControlName="healthIssue" class="form-control" aria-label="zip"
-                        placeholder="Tell us about your health issue" [(ngModel)]="user.healthIssue" maxlength="50"
-                        style="height: 100px;" />
-                </div>
-            </div>
-            <div class="row g-3">
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Please add any additional comments or
-                        questions:</label>
-                    <input formControlName="additionalComments" class="form-control" aria-label="zip"
-                        placeholder=" Add your comments" [(ngModel)]="user.additionalComments" maxlength="50"
-                        style="height: 100px;" />
-                </div>
-            </div>
+            <br>
+            <br>
+                        <div>  
+                            <button mat-button matStepperPrevious>Back</button>  
+                            <button mat-button matStepperNext>Next</button>  
+                          </div>  
+            
+            
+                    </mat-step>
+                        <mat-step >
+                            <ng-template matStepLabel>Payment Details</ng-template> 
+            
+                        <div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Bank Account Number.</label>
+                                <input formControlName="healthIssue" class="form-control" aria-label="zip"
+                                    placeholder="Ex: 11241241124444" [(ngModel)]="user.healthIssue" maxlength="50"
+                                    style="height: 35px;" />
+                                    <div *ngIf="healthIssue.invalid && (healthIssue.touched || healthIssue.dirty)">
+                                        <span class="error" *ngIf="healthIssue.errors?.required"> *Bank Account Number is required.</span>
+                                        <span class="error" *ngIf="healthIssue.errors?.pattern"> *Only numbers are allowed.</span>
+                                        <span class="error" *ngIf="healthIssue.errors?.minlength">*Invalid Account Number.</span>
+                                        <span class="error" *ngIf="healthIssue.errors?.maxlength">*Invalid Account Number.</span>
+                
+                                    </div>
+                            </div>
+                            <div style="margin-left: 45%;">
+                            <img  *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px; align-content: center;"/> 
+                        </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Bank IFSC Code.</label>
+                                <input formControlName="additionalComments" class="form-control" aria-label="zip"
+                                    placeholder="Ex: SBIN17683" [(ngModel)]="user.additionalComments" maxlength="50"
+                                    style="height: 35px;" />
+                                    <div *ngIf="additionalComments.invalid && (additionalComments.touched || additionalComments.dirty)">
+                                        <span class="error" *ngIf="additionalComments.errors?.required"> *IFSC Code is required.</span>
+                                        <span class="error" *ngIf="additionalComments.errors?.pattern"> *Invalid IFSC Code.</span>
+                                        
+                                    </div>
+                                    
+                            </div>
+                        </div>
             <div class="row">
                 <div class="col">
                     <button type="submit" class="btn btn-success" (click)="scrollTop()"
@@ -354,6 +379,14 @@
 
 
             </div>
+            <br>
+            <div>  
+                <button mat-button matStepperPrevious>Back</button>   
+              </div> 
+
+        </mat-step>
+
+         </mat-stepper>
         </form>
 
 
