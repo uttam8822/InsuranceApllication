@@ -25,7 +25,6 @@ public class DentalVisionUser {
 	   private String income;
 	   private String selectPlane;
 	   private String gender;
-	   private String healthIssue;
 	   private String cancellingInsurance;
 	   private String groupInsurance;
 	   private String tobacco;
@@ -39,6 +38,10 @@ public class DentalVisionUser {
 	   private String status;
 	   private String member;
 	   private String reason;
+	   private String bankAccountNumber;
+	   private String bankName;
+	   private String ifscCode;
+
 	   
 	   
 	   
@@ -46,12 +49,21 @@ public class DentalVisionUser {
 		super();
 	}
 	//Parameterized Constructor
-	public DentalVisionUser(String status,String firstName, String middleNmme, String lastName, String aadhar, String email,
+	
+	
+    //Getter and Setter Method
+	public String getReason() {
+		return reason;
+	}
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+	public DentalVisionUser(String firstName, String middleNmme, String lastName, String aadhar, String email,
 			String pan, String address, String zip, String city, String state, String contact, String dateOfBirth,
-			String occupation, String income, String selectPlane, String gender, String healthIssue,
-			String cancellingInsurance, String groupInsurance, String tobacco, String oralOperation,
-			String lastDentalCkeck, String anyCavity, String wearGlasses, String anyEyeDisease, String anyEyeOperation,
-			String additionalComments, String member,String reason) {
+			String occupation, String income, String selectPlane, String gender, String cancellingInsurance,
+			String groupInsurance, String tobacco, String oralOperation, String lastDentalCkeck, String anyCavity,
+			String wearGlasses, String anyEyeDisease, String anyEyeOperation, String additionalComments, String status,
+			String member, String reason, String bankAccountNumber, String bankName, String ifscCode) {
 		super();
 		this.firstName = firstName;
 		this.middleNmme = middleNmme;
@@ -69,7 +81,6 @@ public class DentalVisionUser {
 		this.income = income;
 		this.selectPlane = selectPlane;
 		this.gender = gender;
-		this.healthIssue = healthIssue;
 		this.cancellingInsurance = cancellingInsurance;
 		this.groupInsurance = groupInsurance;
 		this.tobacco = tobacco;
@@ -80,19 +91,15 @@ public class DentalVisionUser {
 		this.anyEyeDisease = anyEyeDisease;
 		this.anyEyeOperation = anyEyeOperation;
 		this.additionalComments = additionalComments;
-		this.status=status;
-		this.member=member;
-		this.reason=reason;
-				
-	}
-	
-    //Getter and Setter Method
-	public String getReason() {
-		return reason;
-	}
-	public void setReason(String reason) {
+		this.status = status;
+		this.member = member;
 		this.reason = reason;
+		this.bankAccountNumber = bankAccountNumber;
+		this.bankName = bankName;
+		this.ifscCode = ifscCode;
 	}
+
+
 	public String getMember() {
 		return member;
 	}
@@ -201,12 +208,39 @@ public class DentalVisionUser {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getHealthIssue() {
-		return healthIssue;
+	
+	
+
+	public String getBankAccountNumber() {
+		return bankAccountNumber;
 	}
-	public void setHealthIssue(String healthIssue) {
-		this.healthIssue = healthIssue;
+
+
+	public void setBankAccountNumber(String bankAccountNumber) {
+		this.bankAccountNumber = bankAccountNumber;
 	}
+
+
+	public String getBankName() {
+		return bankName;
+	}
+
+
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+
+
+	public String getIfscCode() {
+		return ifscCode;
+	}
+
+
+	public void setIfscCode(String ifscCode) {
+		this.ifscCode = ifscCode;
+	}
+
+
 	public String getCancellingInsurance() {
 		return cancellingInsurance;
 	}
