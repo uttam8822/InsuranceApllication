@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { LifeComponent } from '../life/life.component';
 import { RegistrationService } from '../registration.service';
 import { LifeRegistration } from '../life-registration';
- 
+import { Service1Component } from '../service1/service1.component'; 
 import { POPUPComponent } from '../popup/popup.component';
 import { DentalComponent } from '../dental/dental.component';
 import { DentalUser } from '../dental-user';
@@ -22,6 +22,16 @@ export class DetailsComponent implements OnInit {
  datadv:any;
  datalife:any;
  datadental:any;
+ userdata: any;
+  FirstLetter:string;
+  LastLetter:string;
+  finalShort:string;
+  StartLetter:string;
+
+  firstName:string;
+  lastName:string;
+  email:string;
+  
   constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { 
     this.mail=localStorage.getItem("email");
   this._service.userHistory(this.mail).subscribe(
@@ -45,7 +55,22 @@ export class DetailsComponent implements OnInit {
           console.log(this.datadental.firstName);
      
         });
-  
+   
+        this.mail=localStorage.getItem("email");
+       this._service.userDetails(this.mail).subscribe(
+      data=>{
+        console.log("Response");
+        console.log(data);
+        this.userdata=data;
+        this.StartLetter=this.userdata.firstName.toUpperCase();
+        this.FirstLetter=this.userdata.firstName.charAt(0).toUpperCase();
+        this.LastLetter=this.userdata.lastName.charAt(0).toUpperCase();
+        this.finalShort=this.FirstLetter+this.LastLetter;
+        this.firstName=this.userdata.firstName;
+        this.lastName=this.userdata.lastName;
+        this.email=this.userdata.emailId;
+      }
+    )
  
   }
   onOpenDialogClick() {
