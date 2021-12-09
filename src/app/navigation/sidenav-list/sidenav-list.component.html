@@ -5,8 +5,14 @@
     </a>
 
 
-    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
-        <mat-icon>logout</mat-icon><span class="nav-caption">Logout</span>
+    
+
+    <a mat-list-item routerLink="/fetchuserdetails" (click)="onSidenavClose()">
+        <mat-icon>people</mat-icon><span class="nav-caption">User Details</span>
+    </a>
+    
+    <a mat-list-item routerLink="/fetchuwdetails" (click)="onSidenavClose()">
+        <mat-icon>person</mat-icon><span class="nav-caption">UW Details</span>
     </a>
 
     <mat-list-item [matMenuTriggerFor]="menu">
@@ -18,4 +24,8 @@
         <a routerLink="/createAdmin" mat-menu-item (click)="onSidenavClose()" style="color: black;">Admin</a>
 
     </mat-menu>
+
+    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
+        <mat-icon>logout</mat-icon><span class="nav-caption">Logout</span>
+    </a>
 </mat-nav-list>

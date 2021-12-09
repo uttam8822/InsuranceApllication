@@ -1,6 +1,6 @@
 <!--This is admin dashboard header which will shown after admin login-->
 
-<mat-toolbar color="primary">
+<mat-toolbar style="background-color:  #ff6600;">
     <div fxHide.gt-xs>
         <button mat-icon-button (click)="onToggleSidenav()">
             <mat-icon>menu</mat-icon>
@@ -21,77 +21,65 @@
     </div>
 </mat-toolbar>
 
-<div style=" margin-left: 200px; margin-top: 50px; margin-right: 100px;">
 
-    <div class="row" style="margin-left: 10px;">
-        <div class="col">
-            <div class="row">
-                <div class="col">
-                    <a routerLink="/lifedata"><img border="0" alt="W3Schools"
-                            src="https://thumbs.dreamstime.com/b/insurance-abstract-digital-banner-yellow-background-isolated-154752023.jpg"
-                            style="height: 200px; width: 250px;"></a>
-                    <p
-                        style="background-color: rgb(53, 104, 247); padding-left: 60px; font-size: large; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:white; width: 250px;">
-                        Life service >></p>
-                </div>
-                <div class="col">
-                    <a routerLink="/detaldata"><img border="0" alt="W3Schools"
-                            src="https://clovedental.in/wp-content/uploads/2021/07/August-banner-mobile-min.jpg"
-                            style="height: 200px; width: 250px;"></a>
-                    <p
-                        style="background-color: rgb(53, 104, 247); padding-left: 60px; font-size: large; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:white; width: 250px;">
-                        Dental service >></p>
-                </div>
-                <div class="col">
-                    <a routerLink="/DVdata"><img border="0" alt="W3Schools"
-                            src="https://c8.alamy.com/comp/2BH0JR9/alarm-clock-and-dental-care-tools-on-yellow-background-top-view-2BH0JR9.jpg"
-                            style="height: 200px; width: 250px;"></a>
-                    <p
-                        style="background-color: rgb(53, 104, 247); padding-left: 60px; font-size: large; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:white; width: 250px;">
-                        Dental Vision service >></p>
+<div class="row" style=" margin-left: 200px; margin-top: 50px; margin-right: 100px;">
+    <div class="card">
+        <h1 class="card-header" style="background-color: #ff6600; color: white;">Dental Service</h1>
+        <div class="card-body">
+           
+            <p class="card-text">
 
-                </div>
-
-            </div>
-            <div class="row" style="margin-top: 60px;">
-                <div class="col">
-                    <a routerLink="/createAdmin"><img border="0" alt="W3Schools"
-                            src="https://s37564.pcdn.co/wp-content/uploads/2017/09/Admin-14917-scaled.jpeg.optimal.jpeg"
-                            style="height: 200px; width: 250px;"></a>
-                    <p
-                        style="background-color: rgb(53, 104, 247); padding-left: 60px; font-size: large; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:white; width: 250px;">
-                        Create Admin >></p>
-                </div>
-
-                <div class="col">
-                    <a routerLink="/cretuw"><img border="0" alt="W3Schools"
-                            src="https://www.yourfreecareertest.com/wp-content/uploads/2016/07/insurance_underwriter-1024x683.jpg"
-                            style="height: 200px; width: 250px;"></a>
-                    <p
-                        style="background-color: rgb(53, 104, 247); padding-left: 60px; font-size: large; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:white; width: 250px;">
-                        Create Under writer>></p>
-
-                </div>
-                <div class="col">
-                    <a routerLink="/fetchuwdetails"><img border="0" alt="W3Schools"
-                            src="https://thumbs.dreamstime.com/z/underwriter-insurance-icon-trendy-flat-vector-white-background-business-collection-illustration-can-be-use-web-130322613.jpg"
-                            style="height: 200px; width: 250px;"></a>
-                    <p
-                        style="background-color: rgb(53, 104, 247); padding-left: 60px; font-size: large; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:white; width: 250px;">
-                        Under Write Details>></p>
-                </div>
-
-                <div class="col">
-                    <a routerLink="/fetchuserdetails"><img border="0" alt="W3Schools"
-                            src="https://w7.pngwing.com/pngs/73/392/png-transparent-man-in-front-of-laptop-computer-computer-icons-end-user-end-user-computing-computing-blue-text-computer-thumbnail.png"
-                            style="height: 200px; width: 250px;"></a>
-                    <p
-                        style="background-color: rgb(53, 104, 247); padding-left: 60px; font-size: large; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:white; width: 250px;">
-                        User Details>></p>
-                </div>
-
-            </div>
+                Most health insurance companies in India do not provide any coverage for dental procedures as
+                they fall under the cosmetic treatment category but as the uncertainties are increasing you need
+                a dental Insurance also. 
+                You Can Apply in our company For Dental Insurance With Lot's of Attractive Plans.
+            </p>
+          <a routerLink="/detaldata" class="btn btn-primary" style="background-color: #ff6600; ">Cleck here to see application</a>
         </div>
-
-    </div>
+      </div>
 </div>
+
+
+<div class="row" style=" margin-left: 200px; margin-top: 50px; margin-right: 100px;">
+    <div class="card">
+        <h1 class="card-header" style="background-color: #ff6600; color: white;">Life Service</h1>
+        <div class="card-body">
+        
+            <p class="card-text">With uncertainties increasing all around, life insurance is proving to be an
+                ultimate lifeline. Having an insurance cover ensures that the dependents of the bread-winner of
+                the family do not suffer financially in their absence. Apply In Our Company by Paying a Minimal
+                Premium amount Every Year and get maximum Returns.</p>
+          <a routerLink="/lifedata" class="btn btn-primary" style="background-color: #ff6600; ">Cleck here to see application</a>
+        </div>
+      </div>
+</div>
+
+
+
+<div class="row" style=" margin-left: 200px; margin-top: 50px; margin-right: 100px;">
+    <div class="card">
+        <h1 class="card-header" style="background-color: #ff6600; color: white;">Vision & Dental</h1>
+        <div class="card-body">
+           
+           
+            <p class="card-text">
+                Vision insurance and vision benefits plans typically cover the cost of an annual eye exam and
+                prescription eyeglasses and/or contact lenses, vision plans also offer discounts on elective
+                vision correction surgery, such as LASIK and PRK.
+
+
+                You Can Apply For both Vision and Dental Insurance with this combo requires less and give you
+                More.
+
+            </p> <a  routerLink="/DVdata" class="btn btn-primary" style="background-color: #ff6600; ">Cleck here to see application</a>
+        </div>
+      </div>
+</div>
+
+
+
+
+
+ 
+
+ 
