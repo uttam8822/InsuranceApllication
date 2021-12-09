@@ -38,16 +38,53 @@ export class DentalVisionComponent implements OnInit {
     )
   }
   maxDate:any;
+
   futureDateDisable() {
-     var date:any = new Date();  
-    var todayDate:any = date.getDate();  
-    var month:any = date.getMonth() + 1;  
-    var year:any = date.getFullYear(); 
-     if(todayDate < 10){    todayDate = '0' + todayDate;  }  
-     if(month < 10){    month = '0' + month;  }  
-     this.maxDate = year + "-" + month + "-" + todayDate;  
-     console.log(this.maxDate);}
-  
+
+    var date:any = new Date();
+
+    var todayDate:any = date.getDate();
+
+    var month:any = date.getMonth() + 1;
+
+      var year:any = date.getFullYear() - 18;
+
+      if(todayDate < 10)
+
+      {todayDate = '0' + todayDate;}
+
+      if(month < 10)
+
+      {month = '0' + month;}
+
+       this.maxDate = year + "-" + month + "-" + todayDate;
+
+       console.log(this.maxDate);}
+
+       _maxDate:any;
+
+  _futureDateDisable() {
+
+    var date:any = new Date();
+
+    var todayDate:any = date.getDate();
+
+    var month:any = date.getMonth() + 1;
+
+      var year:any = date.getFullYear();
+
+      if(todayDate < 10)
+
+      {todayDate = '0' + todayDate;}
+
+      if(month < 10)
+
+      {month = '0' + month;}
+
+       this._maxDate = year + "-" + month + "-" + todayDate;
+
+       console.log(this._maxDate);
+      }
   
   selectGender: string = '';
   selectedDay: string = '';
@@ -169,6 +206,7 @@ export class DentalVisionComponent implements OnInit {
 
   ngOnInit(): void {
     this.futureDateDisable();
+    this._futureDateDisable();
     this.DentalVisionForm = new FormGroup({
       "firstname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       "lastname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
@@ -193,11 +231,18 @@ export class DentalVisionComponent implements OnInit {
       "oralOperation": new FormControl('', [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]*')]),
       "lastDentalCkeck": new FormControl(null, [Validators.required]),
       "cancellingInsurance": new FormControl("", [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]*')]),
-      "healthIssue": new FormControl(null),
+ 
       "dateOfBirth": new FormControl(null, [Validators.required]),
       "occupation": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
-      "additionalComments": new FormControl(null),
-      "member": new FormControl("", Validators.required)
+      "member": new FormControl("", Validators.required),
+      
+      "bankAccountNumber": new FormControl(null, [Validators.required, Validators.maxLength(18), Validators.minLength(9), Validators.pattern('[0-9]*')]),
+
+      "bankName": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
+
+      "ifscCode":new FormControl(null, [Validators.required, Validators.pattern('[[A-Z]{4}0[0-9]{6}]*')]),
+
+      "additionalComments": new FormControl('', [Validators.pattern('[a-zA-Z]*')]),
     });
     this.mail=localStorage.getItem("email");
     this.user.email=this.mail;
@@ -243,7 +288,7 @@ export class DentalVisionComponent implements OnInit {
   get dateOfBirth() { return this.DentalVisionForm.get('dateOfBirth'); }
   get selectPlane() { return this.DentalVisionForm.get('selectPlane'); }
   get gender() { return this.DentalVisionForm.get('gender'); }
-  get healthIssue() { return this.DentalVisionForm.get('healthIssue'); }
+  
   get Tobacco() { return this.DentalVisionForm.get('Tobacco'); }
   get groupInsurance() { return this.DentalVisionForm.get('groupInsurance'); }
   get cancellingInsurance() { return this.DentalVisionForm.get('cancellingInsurance'); }
@@ -253,8 +298,16 @@ export class DentalVisionComponent implements OnInit {
   get wearGlasses() { return this.DentalVisionForm.get('wearGlasses'); }
   get anyEyeDisease() { return this.DentalVisionForm.get('anyEyeDisease'); }
   get anyEyeOperation() { return this.DentalVisionForm.get('anyEyeOperation'); }
-  get additionalComments() { return this.DentalVisionForm.get('additionalComments'); }
+  
   get member() { return this.DentalVisionForm.get('member'); }
+  
+  get bankAccountNumber() { return this.DentalVisionForm.get('bankAccountNumber'); }
+
+  get bankName() { return this.DentalVisionForm.get('bankName'); }
+
+  get ifscCode() { return this.DentalVisionForm.get('ifscCode'); }
+
+  get additionalComments() { return this.DentalVisionForm.get('additionalComments'); }
   user = new DVRegistration();
 
   //apply dental vision service

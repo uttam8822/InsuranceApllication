@@ -1,0 +1,751 @@
+*, html {
+	letter-spacing: 0px;
+	scroll-behavior: smooth;
+}
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+/* @media all and (-ms-high-contrast:none) */
+*::-ms-backdrop, .pb-navbar-wrapper .pb-nav ul.nav li.user_signin.loggedin > a {
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+* {
+	outline: 0;
+	box-sizing: border-box;
+}
+* {
+	outline: none;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+.rowStreched, article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+	display: block;
+}
+.padding_margin, li, ol, ul {
+	padding: 0;
+	margin: 0;
+}
+.boxsizing, ::after, ::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.footer, ::after, ::before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.tabsWrapper {
+	padding-bottom: 0px !important;
+}
+.disPlanContent {
+	margin-top: 0px !important;
+}
+.featuresActionBar {
+	margin-top: 25px;
+	margin-bottom: 20px;
+}
+.check_premium_expand {
+	display: none;
+}
+.clearfix::after {
+	display: block;
+	visibility: hidden;
+	height: 0px;
+	font-size: 0px;
+	content: ".";
+	clear: both;
+}
+.container section {
+	padding: 16px 0;
+	position: relative;
+}
+/* @media only screen and (min-width:768px) */
+.container section {
+	padding: 20px 0;
+	background: #fff;
+	border-radius: 0;
+}
+/* @media only screen and (min-width:768px) */
+section.tabsWrapper {
+	background: #f1f3f5;
+	border-radius: 8px;
+	padding: 16px 16px 0 16px;
+}
+.leftSection, .rightSection {
+	position: relative;
+}
+.contentWrapper > div:first-child {
+	float: left;
+	width: calc(70% - 40px);
+}
+.container {
+	max-width: 1140px;
+	width: 100%;
+	margin: auto;
+}
+.container::after {
+	display: block;
+	visibility: hidden;
+	height: 0px;
+	font-size: 0px;
+	content: ".";
+	clear: both;
+}
+#policybazaar, #policybazaar .articleWrapper {
+	margin: 0 auto;
+}
+#policybazaar {
+	width: 95%;
+}
+#policybazaar {
+	width: 100%;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Roboto,Oxygen-Sans,Ubuntu,Cantarell,sans-serif;
+}
+body {
+	margin: 0;
+	font-size: 100%;
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-ms-overflow-style: scrollbar;
+}
+body, h1, h2, h3, h4, h5, h6, li, p, ul {
+	margin: 0;
+	padding: 0;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+body, ul, li, p, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-size: 14px;
+	line-height: 1.5;
+	color: #253858;
+	font-weight: 400;
+}
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+}
+.tabsWrapper .tabs {
+	border-bottom: 1px solid rgba(23, 43, 77, .1);
+	margin-bottom: 20px;
+}
+.tabsDetails {
+	position: relative;
+}
+.tabsDetails.top_plans {
+	display: block;
+}
+.card {
+	border-radius: 8px;
+	border: solid .8px rgba(23, 43, 77, .2);
+	padding: 6px 16px;
+	margin-bottom: 16px;
+	background: #fff;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.tabsDetails .card {
+	overflow: hidden;
+	border-radius: 8px !important;
+	padding: 6px 16px;
+	background: #fff;
+	-webkit-box-shadow: 0 2px 4px 0 rgba(37, 56, 88, .08);
+	box-shadow: 0px 2px 4px 0px rgba(37,56,88,0.08);
+	border: none;
+	position: relative;
+}
+.hide {
+	display: none !important;
+}
+.hide {
+	display: none;
+}
+.more_less.card {
+	position: absolute;
+	border-radius: 70px;
+	left: 0px;
+	right: 0px;
+	width: 170px;
+	text-align: center;
+	border-radius: 20px !important;
+	margin: 0 auto;
+	position: absolute;
+	background: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 0;
+	bottom: -16px;
+	z-index: 1;
+	color: #0065ff;
+	cursor: pointer;
+	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
+	box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.1);
+}
+.more_less.card .seeMorePlans {
+	padding: 8px 20px 8px 10px;
+	position: relative;
+}
+.more_less.card .seeMorePlans::after {
+	content: "";
+	border: solid #253858;
+	border-width: 0 2px 2px 0;
+	display: inline-block;
+	padding: 3px;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	position: absolute;
+	right: 15px;
+	top: 14px;
+}
+.insurer_card_top {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	margin-bottom: 22px;
+}
+.tag_tabs {
+	background: #eef0f2;
+	display: inline-block;
+	border-radius: 25px;
+	padding: 1px 12px;
+	font-size: 12px;
+	color: #253858;
+	position: absolute;
+	right: 16px;
+	top: 11px;
+}
+.tag_tabs {
+	background: #eef0f2;
+	display: inline-block;
+	border-radius: 25px;
+	padding: 1px 12px;
+	font-size: 12px;
+	color: #253858;
+	position: absolute;
+	right: 16px;
+	top: 11px;
+}
+.allOtherFeatures {
+	margin: 20px -16px;
+}
+.planFeatures {
+	margin-top: 15px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.planFeatures.expandedView {
+	background: #fff;
+	padding: 0 16px;
+	position: relative;
+}
+.planFeatures.expandedView::before, .planFeatures.expandedView::after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 10px;
+	position: absolute;
+	left: 0px;
+}
+.planFeatures.expandedView::before {
+	top: 0px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.planFeatures.expandedView::after {
+	bottom: 0px;
+	-webkit-box-shadow: 0 -6px 8px rgba(0, 0, 0, .06);
+	box-shadow: 0px -6px 8px rgba(0,0,0,0.06);
+}
+.featuresActionBar .priceBtn {
+	float: right;
+}
+.featuresActionBar .priceBtn .price {
+	display: inline-block;
+	color: #253858;
+	font-size: 20px;
+	font-weight: 500;
+	vertical-align: middle;
+	margin-right: 20px;
+}
+button, input, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+.btn {
+	-webkit-transition: all 0.7s ease;
+	transition: all 0.7s ease;
+	cursor: pointer;
+	font-weight: 500;
+	display: inline-block;
+	text-align: center;
+	letter-spacing: 0.05em;
+	text-decoration: none;
+	vertical-align: middle;
+	white-space: nowrap;
+	font-size: 14px;
+	padding: 10px 12px;
+	min-width: 191px;
+	line-height: 1.6;
+	max-width: 100%;
+	border: solid 1px #0065ff;
+	text-transform: uppercase;
+	-webkit-appearance: none;
+	border-radius: 4px;
+	background: #fff;
+	color: #0065ff;
+}
+.btn {
+	cursor: pointer;
+	font-weight: 300;
+	text-align: center;
+	padding: 8px 0;
+	border: solid 1px transparent;
+	border-radius: 4px;
+	background: #0065ff;
+	width: 100%;
+	font-size: 16px;
+	margin: 0 0 0 0;
+	color: #fff;
+	text-transform: uppercase;
+	height: 48px;
+	letter-spacing: 0.05em;
+	line-height: 1.6;
+}
+.btnCheckPremium {
+	-webkit-transition: all 0.7s ease;
+	transition: all 0.7s ease;
+	cursor: pointer;
+	font-weight: 500;
+	display: inline-block;
+	text-align: center;
+	letter-spacing: 0.05em;
+	font-size: 14px;
+	padding: 10px 12px;
+	width: 191px;
+	border: solid 1px #208d4e;
+	text-transform: uppercase;
+	border-radius: 4px;
+	background: #208d4e;
+	color: #fff;
+}
+.featuresActionBar .priceBtn .price span {
+	display: block;
+	font-size: 14px;
+	color: #253858;
+	font-weight: 400;
+}
+a {
+	text-decoration: none;
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+}
+a {
+	color: #0065ff;
+	text-decoration: none;
+}
+.planFeatures .featuresBlock {
+	font-size: 14px;
+	color: rgba(23, 43, 77, 0.8);
+	font-weight: 400;
+	width: 50%;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+.planFeatures.expandedView .featuresBlock {
+	margin-bottom: 25px;
+}
+.planFeatures .featuresBlock i {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	background: #f4f5f7;
+	text-align: center;
+	display: block;
+	float: left;
+}
+.planFeatures .featuresBlock .featuresIcon {
+	position: relative;
+}
+.planFeatures .featuresBlock .featuresIcon::before {
+	content: "";
+	background: url(https://th.bing.com/th/id/OIP.SNhSU4lBpr31x4JoHik_qAHaHa?pid=ImgDet&rs=1) no-repeat -209px -59px;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	background-size: 250px;
+}
+.planFeatures .featuresBlock i + div {
+	float: left;
+	width: calc(100% - 36px - 10px);
+	margin-left: 10px;
+	color: #253858;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
+	height: fit-content;
+}
+.planFeatures .featuresBlock p {
+	color: #253858;
+	font-weight: 500;
+	margin-bottom: 3px;
+	line-height: 24px;
+}
+.logo_top {
+	width: 110px;
+	height: 52px;
+}
+.tabsDetails .card .titleh6 {
+	color: #253858;
+	font-size: 20px;
+	font-weight: 500;
+	padding-right: 124px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	padding-left: 20px;
+}
+.insurer_card_top span {
+	font-size: 16px;
+	font-weight: 400;
+}
+.no-webp .logo-widget {
+	background: url(https://static.vecteezy.com/system/resources/previews/000/622/885/original/health-care-logo-vector-template.jpg) center no-repeat;
+}
+.leftSection .widget-insurer-logo {
+	width: 120px;
+	height: 40px;
+	border: 1px solid #fff;
+	float: left;
+	margin-right: 20px;
+	background-size: 100% !important;
+	background-position: 0 0;
+	margin-top: 6px;
+}
+.leftSection .widget-insurer-logo.future_generali_general_icon {
+	background-position: 0 -117px;
+}
+.leftSection .widget-insurer-logo.kotak_mahindra_general_icon {
+	background-position: 0 -472px;
+}
+.leftSection .widget-insurer-logo.oriental_insurance_general_icon {
+	background-position: 0 -630px;
+}
+.leftSection .widget-insurer-logo.liberty_general_icon {
+	background-position: 0 -196px;
+}
+.leftSection .widget-insurer-logo.universal_sompo_general_icon {
+	background-position: 0 -668px;
+}
+.leftSection .widget-insurer-logo.raheja_qbe_general_icon, .leftSection .widget-insurer-logo.raheja_qbe_insurance_general_icon {
+	background-position: 0 -1414px;
+}
+.leftSection .widget-insurer-logo.royal_sundaram_general_icon {
+	background-position: 0 -39px;
+}
+.leftSection .widget-insurer-logo.digit_general_icon {
+	background-position: 0 -434px;
+}
+.leftSection .widget-insurer-logo.aditya_birla_life_icon, .leftSection .widget-insurer-logo.aditya_birla_general_icon, .leftSection .widget-insurer-logo.aditya_birla_capital_general_icon {
+	background-position: 0 -823px;
+}
+.featureTitleMob {
+	position: relative;
+}
+/* @media only screen and (min-width:1025px) */
+.hideBig {
+	display: none !important;
+}
+/* @media only screen and (min-width:1025px) */
+.hideBig {
+	display: none !important;
+}
+.featureTitleMob .closeIcon {
+	position: fixed;
+	right: 10px;
+	top: 10px;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	overflow: hidden;
+	line-height: 600%;
+	background: #f4f5f7;
+}
+.featureTitleMob .closeIcon::before {
+	content: "";
+	position: absolute;
+	height: 16px;
+	width: 1px;
+	background: #000;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	left: 18px;
+	top: 10px;
+}
+.featureTitleMob .closeIcon::after {
+	content: "";
+	position: absolute;
+	height: 16px;
+	width: 1px;
+	background: #000;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	left: 18px;
+	top: 10px;
+}
+.leftSection .widget-insurer-logo.star_health_life_icon, .leftSection .widget-insurer-logo.star_health_general_icon {
+	background-position: 0 -1485px;
+}
+.leftSection .widget-insurer-logo.max_bupa_life_icon, .leftSection .widget-insurer-logo.max_bupa_health_insurance_icon {
+	background-position: 0 -1379px;
+}
+.leftSection .widget-insurer-logo.religare_life_icon, .leftSection .widget-insurer-logo.religare_health_general_icon {
+	background-position: 0 -1451px;
+}
+ul, li {
+	list-style: none;
+}
+.tabsWrapper .tabs ul {
+	font-size: 0px;
+}
+.tabsWrapper .tabs ul li {
+	display: inline-block;
+	margin-right: 10%;
+}
+.tabsWrapper .tabs ul li:last-child {
+	margin-right: 0px;
+}
+.tabsWrapper .tabs ul li a {
+	font-size: 16px;
+	color: #253858;
+	text-transform: uppercase;
+	padding-bottom: 13px;
+	display: inline-block;
+	font-weight: 400;
+	position: relative;
+}
+.tabsWrapper .tabs ul li.active a {
+	color: #0065ff;
+	font-weight: 500;
+}
+.tabsWrapper .tabs ul li.active a::after {
+	content: "";
+	height: 3px;
+	background: #0065ff;
+	position: absolute;
+	bottom: -2px;
+	left: 0px;
+	right: 0px;
+}
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+*, html {
+	letter-spacing: 0px;
+	scroll-behavior: smooth;
+}
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+/* @media all and (-ms-high-contrast:none) */
+*::-ms-backdrop, .pb-navbar-wrapper .pb-nav ul.nav li.user_signin.loggedin > a {
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+* {
+	outline: 0;
+	box-sizing: border-box;
+}
+* {
+	outline: none;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.rowStreched, article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+	display: block;
+}
+.boxsizing, ::after, ::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.footer, ::after, ::before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.insurer_card_top span {
+	font-size: 16px;
+	font-weight: 400;
+}
+.no-webp .logo-widget {
+	background: url(https://th.bing.com/th/id/OIP.ECn2u-BnomEDWwb3IhoTZQHaE8?pid=ImgDet&rs=1) center no-repeat;
+}
+.leftSection .widget-insurer-logo {
+	width: 120px;
+	height: 40px;
+	border: 1px solid #fff;
+	float: left;
+	margin-right: 20px;
+	background-size: 100% !important;
+	background-position: 0 0;
+	margin-top: 6px;
+}
+.leftSection .widget-insurer-logo.religare_life_icon, .leftSection .widget-insurer-logo.religare_health_general_icon {
+	background-position: 0 -1451px;
+}
+.logo_top {
+	width: 110px;
+	height: 52px;
+}
+.insurer_card_top {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	margin-bottom: 22px;
+}
+.card {
+	border-radius: 8px;
+	border: solid .8px rgba(23, 43, 77, .2);
+	padding: 6px 16px;
+	margin-bottom: 16px;
+	background: #fff;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.tabsDetails .card {
+	overflow: hidden;
+	border-radius: 8px !important;
+	padding: 6px 16px;
+	background: #fff;
+	-webkit-box-shadow: 0 2px 4px 0 rgba(37, 56, 88, .08);
+	box-shadow: 0px 2px 4px 0px rgba(37,56,88,0.08);
+	border: none;
+	position: relative;
+}
+.tabsDetails {
+	position: relative;
+}
+.tabsDetails.top_plans {
+	display: block;
+}
+.tabsWrapper {
+	padding-bottom: 0px !important;
+}
+.disPlanContent {
+	margin-top: 0px !important;
+}
+.clearfix::after {
+	display: block;
+	visibility: hidden;
+	height: 0px;
+	font-size: 0px;
+	content: ".";
+	clear: both;
+}
+.container section {
+	padding: 16px 0;
+	position: relative;
+}
+/* @media only screen and (min-width:768px) */
+.container section {
+	padding: 20px 0;
+	background: #fff;
+	border-radius: 0;
+}
+/* @media only screen and (min-width:768px) */
+section.tabsWrapper {
+	background: #f1f3f5;
+	border-radius: 8px;
+	padding: 16px 16px 0 16px;
+}
+.leftSection, .rightSection {
+	position: relative;
+}
+.contentWrapper > div:first-child {
+	float: left;
+	width: calc(70% - 40px);
+}
+.container {
+	max-width: 1140px;
+	width: 100%;
+	margin: auto;
+}
+.container::after {
+	display: block;
+	visibility: hidden;
+	height: 0px;
+	font-size: 0px;
+	content: ".";
+	clear: both;
+}
+#policybazaar, #policybazaar .articleWrapper {
+	margin: 0 auto;
+}
+#policybazaar {
+	width: 95%;
+}
+#policybazaar {
+	width: 100%;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Roboto,Oxygen-Sans,Ubuntu,Cantarell,sans-serif;
+}
+body {
+	margin: 0;
+	font-size: 100%;
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-ms-overflow-style: scrollbar;
+}
+body, h1, h2, h3, h4, h5, h6, li, p, ul {
+	margin: 0;
+	padding: 0;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+body, ul, li, p, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-size: 14px;
+	line-height: 1.5;
+	color: #253858;
+	font-weight: 400;
+}
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+}
