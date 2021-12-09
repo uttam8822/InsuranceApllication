@@ -112,15 +112,29 @@ export class DentalComponent implements OnInit {
     )
    }
 
-  maxDate:any;futureDateDisable() {
-      var date:any = new Date();
-      var todayDate:any = date.getDate(); 
-     var month:any = date.getMonth() + 1; 
-      var year:any = date.getFullYear();  
-      if(todayDate < 10){    todayDate = '0' + todayDate;  }  
-      if(month < 10){    month = '0' + month;  } 
-       this.maxDate = year + "-" + month + "-" + todayDate;  
-       console.log(this.maxDate);}
+   maxDate:any;
+
+   futureDateDisable() {
+ 
+     var date:any = new Date();
+ 
+     var todayDate:any = date.getDate();
+ 
+     var month:any = date.getMonth() + 1;
+ 
+       var year:any = date.getFullYear() - 18;
+ 
+       if(todayDate < 10)
+ 
+       {todayDate = '0' + todayDate;}
+ 
+       if(month < 10)
+ 
+       {month = '0' + month;}
+ 
+        this.maxDate = year + "-" + month + "-" + todayDate;
+ 
+        console.log(this.maxDate);}
   
   ngOnInit(): void {
 
@@ -144,11 +158,18 @@ export class DentalComponent implements OnInit {
       "gender": new FormControl('', [Validators.required, Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
       "state": new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z0-9-]*')]),
       "selectPlane": new FormControl('', [Validators.required, Validators.pattern('[1-5]')]),
-      "healthIssue": new FormControl(null),
-      "additionalComments": new FormControl(null),
+      
       "dateOfBirth": new FormControl(null, [Validators.required]),
+      "bankAccountNumber": new FormControl(null, [Validators.required, Validators.maxLength(18), Validators.minLength(9), Validators.pattern('[0-9]*')]),
+
+      
+
+      "ifscCode":new FormControl(null, [Validators.required, Validators.pattern('[[A-Z]{4}0[0-9]{6}]*')]),
+
+      "additionalComments": new FormControl('', [Validators.pattern('[a-zA-Z]*')]),
       //selectPlane: new FormControl('', Validators.required)
-      member: new FormControl('', Validators.required)
+      member: new FormControl('', Validators.required),
+      "bankName": new FormControl("",[Validators.required,Validators.pattern('[a-zA-Z- ]*')])
     });
     this.mail=localStorage.getItem("email");
     this.user.email=this.mail;
@@ -204,10 +225,19 @@ export class DentalComponent implements OnInit {
   get dateOfBirth() { return this.Dental.get('dateOfBirth'); }
   get selectPlane() { return this.Dental.get('selectPlane'); }
   get gender() { return this.Dental.get('gender'); }
-  get healthIssue() { return this.Dental.get('healthIssue'); }
-  get additionalComments() { return this.Dental.get('additionalComments'); }
+ 
+ 
   get member() { return this.Dental.get('member'); }
+
+  get bankAccountNumber() { return this.Dental.get('bankAccountNumber'); }
+
+  get bankName() { return this.Dental.get('bankName'); }
+
+  get ifscCode() { return this.Dental.get('ifscCode'); }
+
+  get additionalComments() { return this.Dental.get('additionalComments'); }
   user = new DentalUser();
+
 
 
   //apply dental application function

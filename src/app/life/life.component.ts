@@ -142,17 +142,29 @@ export class LifeComponent implements OnInit {
   }
 
 
-  maxDate: any;
+  maxDate:any;
+
   futureDateDisable() {
-    var date: any = new Date();
-    var todayDate: any = date.getDate();
-    var month: any = date.getMonth() + 1;
-    var year: any = date.getFullYear();
-    if (todayDate < 10) { todayDate = '0' + todayDate; }
-    if (month < 10) { month = '0' + month; }
-    this.maxDate = year + "-" + month + "-" + todayDate;
-    console.log(this.maxDate);
-  }
+
+    var date:any = new Date();
+
+    var todayDate:any = date.getDate();
+
+    var month:any = date.getMonth() + 1;
+
+      var year:any = date.getFullYear() - 18;
+
+      if(todayDate < 10)
+
+      {todayDate = '0' + todayDate;}
+
+      if(month < 10)
+
+      {month = '0' + month;}
+
+       this.maxDate = year + "-" + month + "-" + todayDate;
+
+       console.log(this.maxDate);}
 
 
 
@@ -179,10 +191,16 @@ export class LifeComponent implements OnInit {
       "cancellingInsurance": new FormControl("", [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "hivIssue": new FormControl("", [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "lungDisease": new FormControl("", [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]+')]),
-      "additionalComments": new FormControl(null),
-      "healthIssue": new FormControl(null),
       "dateOfBirth": new FormControl("", [Validators.required]),
-      "member": new FormControl("", Validators.required)
+      "member": new FormControl("", Validators.required),
+      
+      "bankAccountNumber": new FormControl(null, [Validators.required, Validators.maxLength(18), Validators.minLength(9), Validators.pattern('[0-9]*')]),
+
+      "bankName": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
+
+      "ifscCode":new FormControl(null, [Validators.required, Validators.pattern('[[A-Z]{4}0[0-9]{6}]*')]),
+
+      "additionalComments": new FormControl('', [Validators.pattern('[a-zA-Z]*')]),
     });
     this.mail=localStorage.getItem("email");
     this.user.email=this.mail;
@@ -228,14 +246,21 @@ export class LifeComponent implements OnInit {
   get dateOfBirth() { return this.LifeForm.get('dateOfBirth'); }
   get selectPlane() { return this.LifeForm.get('selectPlane'); }
   get gender() { return this.LifeForm.get('gender'); }
-  get healthIssue() { return this.LifeForm.get('healthIssue'); }
   get Tobacco() { return this.LifeForm.get('Tobacco'); }
   get groupInsurance() { return this.LifeForm.get('groupInsurance'); }
   get cancellingInsurance() { return this.LifeForm.get('cancellingInsurance'); }
   get hivIssue() { return this.LifeForm.get('hivIssue'); }
   get lungDisease() { return this.LifeForm.get('lungDisease'); }
-  get additionalComments() { return this.LifeForm.get('additionalComments'); }
+  
   get member() { return this.LifeForm.get('member'); }
+  
+  get bankAccountNumber() { return this.LifeForm.get('bankAccountNumber'); }
+
+  get bankName() { return this.LifeForm.get('bankName'); }
+
+  get ifscCode() { return this.LifeForm.get('ifscCode'); }
+
+  get additionalComments() { return this.LifeForm.get('additionalComments'); }
 
   //user = new LifeRegistration();
 

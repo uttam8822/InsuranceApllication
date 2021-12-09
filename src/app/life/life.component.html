@@ -32,7 +32,8 @@
                   <ng-template matStepLabel>Personal Details</ng-template> 
             <div class="row g-3">
                 <div class="col">
-                    <label>First Name<span style="color: red;">*</span></label>
+                    <label style="text-align: left;">First Name<span style="color: red;">*</span></label>
+                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                     <input formControlName="firstname" class="form-control" aria-label="First name"
                         placeholder="Enter Your First Name" required required [(ngModel)]="user.firstName" style="height: 35px;"/>
                     <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
@@ -196,7 +197,7 @@
             
                     </mat-step >
                     <mat-step >
-                        <ng-template matStepLabel>Health Details</ng-template> 
+                        <ng-template matStepLabel>Medical Information and Other Details</ng-template> 
 
 
 
@@ -358,39 +359,57 @@
                     </mat-step >
                     <mat-step >
                         <ng-template matStepLabel>Payment Details</ng-template> 
-            
-                        <div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">Your Bank Account Number.</label>
-                                <input formControlName="healthIssue" class="form-control" aria-label="zip"
-                                    placeholder="EX: 12424242352332" [(ngModel)]="user.healthIssue" maxlength="50"
-                                    style="height: 35px;" />
-                                    <div *ngIf="healthIssue.invalid && (healthIssue.touched || healthIssue.dirty)">
-                                        <span class="error" *ngIf="healthIssue.errors?.required"> *Account Number is required.</span>
-                                        <span class="error" *ngIf="healthIssue.errors?.pattern"> *Only numbers are allowed.</span>
-                                        <span class="error" *ngIf="healthIssue.errors?.minlength"> *Invalid Account Number.</span>
-                                        <span class="error" *ngIf="healthIssue.errors?.maxlength">*Invalid Account Number.</span>
-                
-                                    </div>
-            
-                            </div>
-                            <div style="margin-left: 50%;">
-                                <img  *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px; align-content: center;"/> 
-                            </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Name of your Bank.</label>
+                            <input formControlName="bankName" class="form-control" aria-label="zip"
+                                placeholder="Ex:Axis Bank" [(ngModel)]="user.bankName"
+                                style="height: 35px;" />
+                                <div *ngIf="bankName.invalid && (bankName.touched || bankName.dirty)">
+                                    <span class="error" *ngIf="bankName.errors?.required"> *Bank Account Number is required.</span>
+                                    <span class="error" *ngIf="bankName.errors?.pattern"> *Enter Only Characters.</span>
+                                </div>
                         </div>
-            
-                        <div class="row g-2">
-                            <div class="mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">Bank IFSC Code.</label>
-                                <input formControlName="additionalComments" class="form-control" aria-label="zip"
-                                    placeholder="Ex: SBIN17683" [(ngModel)]="user.additionalComments" maxlength="50"
-                                    style="height: 35px;" />
-                                    <div *ngIf="additionalComments.invalid && (additionalComments.touched || additionalComments.dirty)">
-                                        <span class="error" *ngIf="additionalComments.errors?.required"> *IFSC Code is required.</span>
-                                        <span class="error" *ngIf="additionalComments.errors?.pattern"> *Invalid IFSC.</span>
-                                    </div>
-                            </div>
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Your Bank Account Number.</label>
+                            <input formControlName="bankAccountNumber" class="form-control" aria-label="zip"
+                                placeholder="Ex: 11241241124444" required required [(ngModel)]="user.bankAccountNumber"
+                                style="height: 35px;" />
+                                <div *ngIf="bankAccountNumber.invalid && (bankAccountNumber.touched || bankAccountNumber.dirty)">
+                                    <span class="error" *ngIf="bankAccountNumber.errors?.required"> *Bank Account Number is required.</span>
+                                    <span class="error" *ngIf="bankAccountNumber.errors?.pattern"> *Only numbers are allowed.</span>
+                                    <span class="error" *ngIf="bankAccountNumber.errors?.minlength">*Invalid Account Number.</span>
+                                    <span class="error" *ngIf="bankAccountNumber.errors?.maxlength">*Invalid Account Number.</span>
+                                </div>
                         </div>
+
+                  
+                        <div style="margin-left: 45%;">
+                        <img  *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px; align-content: center;"/> 
+                    </div>
+                    
+                   
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Bank IFSC Code.</label>
+                            <input formControlName="ifscCode" class="form-control" aria-label="zip"
+                                placeholder="Ex: SBIN17683" [(ngModel)]="user.ifscCode"
+                                style="height: 35px;" />
+                                <div *ngIf="ifscCode.invalid && (ifscCode.touched || ifscCode.dirty)">
+                                    <span class="error" *ngIf="ifscCode.errors?.required"> *IFSC Code is required.</span>
+                                    <span class="error" *ngIf="ifscCode.errors?.pattern"> *Invalid IFSC Code.</span> 
+                                </div> 
+                        </div>
+                    
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Additional Comments.</label>
+                        <input formControlName="additionalComments" class="form-control" aria-label="zip"
+                             [(ngModel)]="user.additionalComments" maxlength="50"
+                            style="height: 35px;" />
+                            <div *ngIf="additionalComments.invalid && (additionalComments.touched || additionalComments.dirty)">
+                                <span class="error" *ngIf="additionalComments.errors?.pattern"> *Enter Only Characters.</span>
+                            </div>
+                    </div>
     
             <div class="row">
                 <div class="col">

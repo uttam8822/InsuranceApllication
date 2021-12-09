@@ -17,15 +17,17 @@ export class LifeRegistration {
     income: string;
     selectPlane: string;
     gender: string;
-    healthIssue: string;
     cancellingInsurance: string;
     groupInsurance: string;
     tobacco: string;
     hivIssue: string;
     lungsIssue: string;
-    additionalComments: string;
     status: string;
     member: string;
     reason: string;
+    bankName: string;
+    bankAccountNumber: string;
+    ifscCode: string;
+    additionalComments: string;
     constructor() { }
 }
