@@ -72,7 +72,7 @@ public class DentalVisionUser {
 		this.income = income;
 		this.selectPlane = selectPlane;
 		this.gender = gender;
-		this.healthIssue = healthIssue;
+		
 		this.cancellingInsurance = cancellingInsurance;
 		this.groupInsurance = groupInsurance;
 		this.tobacco = tobacco;
@@ -100,12 +100,7 @@ public class DentalVisionUser {
 	public String getReason() {
 		return reason;
 	}
-	public String getBankname() {
-		return bankname;
-	}
-	public void setBankname(String bankname) {
-		this.bankname = bankname;
-	}
+
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
