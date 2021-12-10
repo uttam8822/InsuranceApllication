@@ -25,7 +25,6 @@ public class DentalVisionUser {
 	   private String income;
 	   private String selectPlane;
 	   private String gender;
-	   private String healthIssue;
 	   private String cancellingInsurance;
 	   private String groupInsurance;
 	   private String tobacco;
@@ -39,7 +38,11 @@ public class DentalVisionUser {
 	   private String status;
 	   private String member;
 	   private String reason;
-	   private String bankname;
+	   private String bankAccountNumber;
+	   private String bankName;
+	   private String ifscCode;
+
+
 	   
 	   
 	public DentalVisionUser() {
@@ -51,7 +54,7 @@ public class DentalVisionUser {
 			String occupation, String income, String selectPlane, String gender, String healthIssue,
 			String cancellingInsurance, String groupInsurance, String tobacco, String oralOperation,
 			String lastDentalCkeck, String anyCavity, String wearGlasses, String anyEyeDisease, String anyEyeOperation,
-			String additionalComments, String member,String reason,String bankname) {
+			String additionalComments, String member,String reason) {
 		super();
 		this.firstName = firstName;
 		this.middleNmme = middleNmme;
@@ -80,17 +83,20 @@ public class DentalVisionUser {
 		this.anyEyeDisease = anyEyeDisease;
 		this.anyEyeOperation = anyEyeOperation;
 		this.additionalComments = additionalComments;
-		this.status=status;
-		this.member=member;
-		this.reason=reason;
-		this.bankname=bankname;
-				
+		this.status = status;
+		this.member = member;
+		this.reason = reason;
+		this.bankAccountNumber = bankAccountNumber;
+		this.bankName = bankName;
+		this.ifscCode = ifscCode;
 	}
-	
+
+
+
     //Getter and Setter Method
-	
-	
-	
+
+
+
 	public String getReason() {
 		return reason;
 	}
@@ -211,12 +217,39 @@ public class DentalVisionUser {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getHealthIssue() {
-		return healthIssue;
+
+
+
+	public String getBankAccountNumber() {
+		return bankAccountNumber;
 	}
-	public void setHealthIssue(String healthIssue) {
-		this.healthIssue = healthIssue;
+
+
+	public void setBankAccountNumber(String bankAccountNumber) {
+		this.bankAccountNumber = bankAccountNumber;
 	}
+
+
+	public String getBankName() {
+		return bankName;
+	}
+
+
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+
+
+	public String getIfscCode() {
+		return ifscCode;
+	}
+
+
+	public void setIfscCode(String ifscCode) {
+		this.ifscCode = ifscCode;
+	}
+
+
 	public String getCancellingInsurance() {
 		return cancellingInsurance;
 	}

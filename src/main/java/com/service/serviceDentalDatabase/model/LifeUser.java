@@ -28,8 +28,9 @@ public class LifeUser {
 	   private String income;
 	   private String selectPlane;
 	   private String gender;
-	   private String healthIssue;
-	   private String cancellingInsurance;
+
+
+	private String cancellingInsurance;
 	   private String groupInsurance;
 	   private String tobacco;
 	   private String hivIssue;
@@ -38,18 +39,21 @@ public class LifeUser {
 	   private String status;
 	   private String member;
 	   private String reason;
-	   private String bankname;
+	   private String  bankName ;
+	   private String  bankAccountNumber ;
+	   private String   ifscCode ;
+
 	public LifeUser() {
 		super();
 	}
 	//Paramertized Constructor
+
 	public LifeUser(String firstName, String middleNmme, String lastName, String aadhar, String email, String pan,
 			String address, String zip, String city, String state, String contact, String dateOfBirth,
-			String occupation, String income, String selectPlane, String gender, String healthIssue,
-			String cancellingInsurance, String groupInsurance, String tobacco, String hivIssue, String lungsIssue,
-			String additionalComments,String status,String member,String reason,String bankname) {
+			String occupation, String income, String selectPlane, String gender, String cancellingInsurance,
+			String groupInsurance, String tobacco, String hivIssue, String lungsIssue, String additionalComments,
+			String status, String member, String reason, String bankName, String bankAccountNumber, String ifscCode) {
 		super();
-		//this.id=id;
 		this.firstName = firstName;
 		this.middleNmme = middleNmme;
 		this.lastName = lastName;
@@ -66,30 +70,51 @@ public class LifeUser {
 		this.income = income;
 		this.selectPlane = selectPlane;
 		this.gender = gender;
-		this.healthIssue = healthIssue;
 		this.cancellingInsurance = cancellingInsurance;
 		this.groupInsurance = groupInsurance;
 		this.tobacco = tobacco;
 		this.hivIssue = hivIssue;
 		this.lungsIssue = lungsIssue;
 		this.additionalComments = additionalComments;
-		this.status=status;
-		this.member=member;
-		this.reason=reason;
-		this.bankname=bankname;
+		this.status = status;
+		this.member = member;
+		this.reason = reason;
+		this.bankName = bankName;
+		this.bankAccountNumber = bankAccountNumber;
+		this.ifscCode = ifscCode;
 	}
+
+
+
+
+
+
 	//Getter and Setter Methods
-	
+	public String getBankName() {
+		return bankName;
+	}
+
+
+
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+	public String getBankAccountNumber() {
+		return bankAccountNumber;
+	}
+	public void setBankAccountNumber(String bankAccountNumber) {
+		this.bankAccountNumber = bankAccountNumber;
+	}
+	public String getIfscCode() {
+		return ifscCode;
+	}
+	public void setIfscCode(String ifscCode) {
+		this.ifscCode = ifscCode;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
 	
-	public String getBankname() {
-		return bankname;
-	}
-	public void setBankname(String bankname) {
-		this.bankname = bankname;
-	}
 	public String getReason() {
 		return reason;
 	}
@@ -201,12 +226,8 @@ public class LifeUser {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getHealthIssue() {
-		return healthIssue;
-	}
-	public void setHealthIssue(String healthIssue) {
-		this.healthIssue = healthIssue;
-	}
+
+
 	public String getCancellingInsurance() {
 		return cancellingInsurance;
 	}
@@ -243,5 +264,4 @@ public class LifeUser {
 	public void setAdditionalComments(String additionalComments) {
 		this.additionalComments = additionalComments;
 	}  
-	
 }

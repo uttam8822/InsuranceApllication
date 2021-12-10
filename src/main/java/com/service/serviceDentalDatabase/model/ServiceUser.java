@@ -24,7 +24,6 @@ public class ServiceUser {
 	   private String income;
 	   private String selectPlane;
 	   private String gender;
-	   private String healthIssue;
 	   private String cancellingInsurance;
 	   private String groupInsurance;
 	   private String tobacco;
@@ -32,15 +31,24 @@ public class ServiceUser {
 	   private String status;
 	   private String member;
 	   private String reason;
-	   private String bankname;
+	   private String   bankName;
+	   private String   bankAccountNumber;
+	   private String   ifscCode;
+
    public ServiceUser() {
 		super();
 	}
 //Parameterized Constructor
-public ServiceUser(String status,String firstName, String middleNmme, String lastName, String aadhar, String email, String pan,
+
+//Getter and Setter Method
+
+public String getReason() {
+	return reason;
+}
+public ServiceUser(String firstName, String middleNmme, String lastName, String aadhar, String email, String pan,
 		String address, String zip, String city, String state, String contact, String dateOfBirth, String occupation,
 		String income, String selectPlane, String gender, String healthIssue, String cancellingInsurance,
-		String groupInsurance, String tobacco, String additionalComments,String member,String reason,String bankname) {
+		String groupInsurance, String tobacco, String additionalComments,String member,String reason) {
 	super();
 	this.firstName = firstName;
 	this.middleNmme = middleNmme;
@@ -58,28 +66,34 @@ public ServiceUser(String status,String firstName, String middleNmme, String las
 	this.income = income;
 	this.selectPlane = selectPlane;
 	this.gender = gender;
-	this.healthIssue = healthIssue;
 	this.cancellingInsurance = cancellingInsurance;
 	this.groupInsurance = groupInsurance;
 	this.tobacco = tobacco;
 	this.additionalComments = additionalComments;
-	this.status=status;
-	this.member=member;
-	this.reason=reason;
-	this.bankname=bankname;
+	this.status = status;
+	this.member = member;
+	this.reason = reason;
+	this.bankName = bankName;
+	this.bankAccountNumber = bankAccountNumber;
+	this.ifscCode = ifscCode;
 }
-
-//Getter and Setter Method
-
-
-public String getReason() {
-	return reason;
+public String getBankName() {
+	return bankName;
 }
-public String getBankname() {
-	return bankname;
+public void setBankName(String bankName) {
+	this.bankName = bankName;
 }
-public void setBankname(String bankname) {
-	this.bankname = bankname;
+public String getBankAccountNumber() {
+	return bankAccountNumber;
+}
+public void setBankAccountNumber(String bankAccountNumber) {
+	this.bankAccountNumber = bankAccountNumber;
+}
+public String getIfscCode() {
+	return ifscCode;
+}
+public void setIfscCode(String ifscCode) {
+	this.ifscCode = ifscCode;
 }
 public void setReason(String reason) {
 	this.reason = reason;
@@ -223,13 +237,7 @@ public void setGender(String gender) {
 	this.gender = gender;
 }
 
-public String getHealthIssue() {
-	return healthIssue;
-}
 
-public void setHealthIssue(String healthIssue) {
-	this.healthIssue = healthIssue;
-}
 
 public String getCancellingInsurance() {
 	return cancellingInsurance;
