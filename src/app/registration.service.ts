@@ -158,7 +158,7 @@ export class RegistrationService {
 public sendOTPEmailUser(user: User): Observable<any> {
   return this._http.post<any>("http://localhost:8067/sendmailOTP", user);
 }
-//verify otp of user
+//reset password
 public verifyOTPOfUser1(user: User): Observable<any> {
   return this._http.put<any>("http://localhost:8067/update?pass="+user.password+"&email="+user.emailId+"&token="+user.otpOfUser, user);
 }
@@ -166,6 +166,34 @@ public verifyOTPOfUser1(user: User): Observable<any> {
 public verifyOTPOfUser(user: User): Observable<any> {
   return this._http.post<any>("http://localhost:8067/verifyOTPOfUser123", user);
 }
+
+//send OTP user for password reset
+public sendOTPEmailUser1(user: Admin): Observable<any> {
+  return this._http.post<any>("http://localhost:8067/sendmailOTP1", user);
+}
+//reset password
+public verifyOTPOfUser3(user: Admin): Observable<any> {
+  return this._http.put<any>("http://localhost:8067/update1?pass="+user.password+"&email="+user.emailId+"&token="+user.otpOfUser, user);
+}
+//verify otp of user
+public verifyOTPOfUser2(user: Admin): Observable<any> {
+  return this._http.post<any>("http://localhost:8067/verifyOTPOfUser1234", user);
+}
+
+
+//send OTP user for password reset
+public sendOTPEmailUser2(user: Uwriter): Observable<any> {
+  return this._http.post<any>("http://localhost:8067/sendmailOTP2", user);
+}
+//reset password
+public verifyOTPOfUser4(user: Uwriter): Observable<any> {
+  return this._http.put<any>("http://localhost:8067/update2?pass="+user.password+"&email="+user.emailId+"&token="+user.otpOfUser, user);
+}
+//verify otp of user
+public verifyOTPOfUser5(user: Uwriter): Observable<any> {
+  return this._http.post<any>("http://localhost:8067/verifyOTPOfUser12345", user);
+}
+
 
   //login admin
   public loginAdminFromRemote(admin: Admin): Observable<any> {

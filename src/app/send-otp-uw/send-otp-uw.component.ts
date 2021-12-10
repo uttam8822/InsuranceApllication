@@ -1,3 +1,4 @@
+import { Uwriter } from './../uwriter';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { Router } from '@angular/router';
@@ -10,8 +11,8 @@ import { RegistrationService } from '../registration.service';
 export class SendOtpUwComponent implements OnInit {
 
   constructor(private _service: RegistrationService, private _router: Router) { }
-  user = new User();
-  user2=new User();
+  user = new Uwriter();
+  user2=new Uwriter();
   msg = '';
   msg1='';
   msg2='';
@@ -42,7 +43,7 @@ export class SendOtpUwComponent implements OnInit {
     this.isClicked3=true;
   }
   sendOTPUser() {
-    this._service.sendOTPEmailUser(this.user).subscribe(
+    this._service.sendOTPEmailUser2(this.user).subscribe(
       data => {
         console.log("response received");
         this.msg = "OTP sent successfull";
@@ -64,7 +65,7 @@ export class SendOtpUwComponent implements OnInit {
   }
 
   verifyOTPUser() {
-    this._service.verifyOTPOfUser(this.user).subscribe(
+    this._service.verifyOTPOfUser5(this.user).subscribe(
       data => {
         console.log("response received");
         this.msg1 = "Verification Done Check Your Email For Password";
@@ -88,7 +89,7 @@ export class SendOtpUwComponent implements OnInit {
 
 //add service remaining
   resetYourPassword() {
-    this._service.verifyOTPOfUser(this.user).subscribe(
+    this._service.verifyOTPOfUser4(this.user).subscribe(
       data => {
         console.log("response received");
         this.msg2 = "Password reset successfull";
