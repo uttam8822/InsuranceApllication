@@ -13,6 +13,7 @@ public interface UWRepo extends CrudRepository<UWUser,Integer> {
 	  @Auther=Uttam kumar singh
 	 */
 	UWUser findByWriterIdAndPassword(String writerId, String password);
-    UWUser findByEmail(String emailId);
+    UWUser findByEmailId(String emailId);
     UWUser findByWriterId(String Id);
+    UWUser findByotpOfUserAndEmailId(int otpOfUser,String emailId);
 }

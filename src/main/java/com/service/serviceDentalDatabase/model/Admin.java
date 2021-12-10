@@ -13,36 +13,44 @@ public class Admin {
 			@GeneratedValue(strategy=GenerationType.AUTO)
 			private int id;
 	        private String fullName;
-	        private String email;
+	        private String emailId;
 			private String adminId;
 			private String password;
-			
+			private int otpOfUser;
 			public Admin() {}
 			//Parameterized Constructor
-			public Admin(int id, String fullName,String email,String adminId, String password) {
+			public Admin(int id, String fullName,String emailId,String adminId, String password,int otpOfUser) {
 			super();
 			this.id = id;
-			this.email=email;
+			this.emailId=emailId;
 		    this.fullName=fullName;
 			this.adminId = adminId;
 			this.password = password;
+			this.otpOfUser=otpOfUser;
 			}
 			
 			//Getter and Setter method
+			
+			
+			
 			public String getFullName() {
 				return fullName;
 			}
 
+			public String getEmailId() {
+				return emailId;
+			}
+			public void setEmailId(String emailId) {
+				this.emailId = emailId;
+			}
+			public int getOtpOfUser() {
+				return otpOfUser;
+			}
+			public void setOtpOfUser(int otpOfUser) {
+				this.otpOfUser = otpOfUser;
+			}
 			public void setFullName(String fullName) {
 				this.fullName = fullName;
-			}
-
-			public String getEmailId() {
-				return email;
-			}
-
-			public void setEmailId(String emailId) {
-				this.email = emailId;
 			}
 
 			public int getId() {

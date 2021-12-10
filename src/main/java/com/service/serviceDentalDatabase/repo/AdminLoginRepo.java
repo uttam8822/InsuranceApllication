@@ -4,6 +4,7 @@ package com.service.serviceDentalDatabase.repo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.service.serviceDentalDatabase.model.Admin;
+
 //Jpa Repositiry
 public interface AdminLoginRepo extends JpaRepository<Admin,Integer> {
     
@@ -13,6 +14,7 @@ public interface AdminLoginRepo extends JpaRepository<Admin,Integer> {
 	  @Auther=Uttam kumar singh
 	 */
 	Admin findByAdminIdAndPassword(String adminId, String password);
-	Admin findByEmail(String emailId);
+	Admin findByEmailId(String emailId);
     Admin findByAdminId(String adminId);
+    public Admin findByotpOfUserAndEmailId(int otpOfUser,String emailId);
 }

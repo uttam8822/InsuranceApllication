@@ -4,6 +4,7 @@ package com.service.serviceDentalDatabase.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.service.serviceDentalDatabase.model.Admin;
 import com.service.serviceDentalDatabase.model.DentalVisionUser;
 import com.service.serviceDentalDatabase.model.UWUser;
 import com.service.serviceDentalDatabase.repo.DentalVisionRepo;
@@ -22,12 +23,16 @@ public class UWService {
 	public UWUser saveUser(UWUser user) {
 		return repo.save(user);
 	}
-	public UWUser fetchByEmail(String email)
+	public UWUser fetchByEmailId(String emailId)
 	{
-		return repo.findByEmail(email);
+		return repo.findByEmailId(emailId);
 	} 
 	public UWUser fetchByWriterId(String Id) {
 		return repo.findByWriterId(Id);
+	}
+	public UWUser fetchUserByOtp(int otp,String emailId)
+	{
+	return repo.findByotpOfUserAndEmailId(otp, emailId);
 	}
 
 }

@@ -25,11 +25,16 @@ public class AdminLoginService {
 	private AdminLoginRepo repo2;
 	public Admin fetchByEmail(String emailId)
 	{
-		return repo2.findByEmail(emailId);
+		return repo2.findByEmailId(emailId);
 	}
 	@Autowired
 	private AdminLoginRepo repo3;
 	public Admin fetchByAdminId(String  adminId) {
 		return repo3.findByAdminId(adminId);
+	}
+	
+	public Admin fetchUserByOtp(int otp,String email)
+	{
+	return repo.findByotpOfUserAndEmailId(otp, email);
 	}
 }

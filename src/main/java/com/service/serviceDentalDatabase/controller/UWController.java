@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.service.serviceDentalDatabase.model.UWUser;
 import com.service.serviceDentalDatabase.repo.UWRepo;
 import com.service.serviceDentalDatabase.service.EmailSendService;
@@ -37,13 +40,15 @@ public class UWController {
 		String tempEmail=user.getEmailId();
 		String tempId=user.getWriterId();
 	    if(tempEmail != null && !"".equals(tempEmail)) {
-			UWUser userObj=service.fetchByEmail(tempEmail);
+			UWUser userObj=service.fetchByEmailId(tempEmail);
 			if(userObj!=null) throw new Exception ("Email Id "+tempEmail+"already exist");
 		}              
 		if(tempId!=null && !"".equals(tempId)) {
 		UWUser userObj=service.fetchByWriterId(tempId);
 		if(userObj!=null) throw new Exception ("Id"+tempId+"already Exist");
 		}
+		int a = (int)(Math.random()*(99999999-11111111+1)+11111111);
+		user.setOtpOfUser(a);
 		UWUser userObj = null;
 		userObj = service.saveUser(user);
 		return userObj;
@@ -89,7 +94,7 @@ public class UWController {
 	}
 	if(tempEmailId != null && !"".equals(tempEmailId))
 	{
-		UWUser userobj= service.fetchByEmail(tempEmailId);
+		UWUser userobj= service.fetchByEmailId(tempEmailId);
 	if(userobj != null) {
 	service1.sendSimpleEmail(tempEmailId,"Dear Under Writer,\nYour request for password reset has been sent successfully"
 	+"\nYour emailId is : "+tempEmailId+"\nYour Name : "+userobj.getFullName()+"\nYour ID : "+userobj.getWriterId()+"\nYour password is : "
@@ -108,6 +113,83 @@ public class UWController {
 	throw new MessagingException("Bad credentials");
 	}
 	}
+	
+	@PostMapping("/sendmailOTP2") //Mapping for Sending Email in Forget Password
+	@CrossOrigin(origins="http://localhost:4200")
+	public void triggerMailOTP(@RequestBody UWUser user) throws MessagingException {
+		String tempEmailId = user.getEmailId();
+	System.out.println(tempEmailId);
+	String email=tempEmailId;
+	if(tempEmailId == null) {
+	throw new MessagingException("Bad credentials");
+	}
+	if(tempEmailId != null && !"".equals(tempEmailId))
+	{
+		UWUser userobj= service.fetchByEmailId(tempEmailId); //Checking Existing EmailId
+	if(userobj != null) {
+	//Sending Message
+	service1.sendSimpleEmail(email,"Dear User,\nyour One Time Password (OTP) is "+userobj.getOtpOfUser()
+
+	+ ". have any issue please contact us at the address given below"+"\n\n\n\nThank You!"
+	+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd. \nSDF No. K-13 to 16, NSEZ\nPhase-II Noida-201305 (U.P.)"
+	+ "\nPhone " +
+	"+91-120-4018100"+"\nEmail : support@impetus.com"
+	, "Request for password reset");
+	}
+	if(userobj ==null)
+	{
+	throw new MessagingException("Bad credentials");
+	}
+	}else {
+	throw new MessagingException("Bad credentials");
+	}
+	}
+	
+	
+	
+	// verfy OTP of user
+	@PostMapping("/verifyOTPOfUser12345") //Mapping for Sending Email in Forget Password
+	@CrossOrigin(origins="http://localhost:4200")
+	public UWUser verifyOTPOfUser(@RequestBody UWUser user) throws Exception {
+	int tempOTP = user.getOtpOfUser();
+	String tempEmailId = user.getEmailId();
+	System.out.println(tempOTP);
+	UWUser userobj = null;
+	if(tempOTP != 0 && tempEmailId != null)
+	{
+	userobj =service.fetchUserByOtp(tempOTP,tempEmailId);
+	service1.sendSimpleEmail(tempEmailId,"Dear User,\nYour request for password reset has been sent successfully"
+	+"\nYour emailId is : "+tempEmailId+"\nYour Name : "+userobj.getFullName()+"\nYour new password is : "
+	+userobj.getPassword()+"\n\nWe request you please do not share your credentials.In case if you "
+	+ "have any issue please contact us at the address given below"+"\n\n\n\nThank You!"
+	+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd. \nSDF No. K-13 to 16, NSEZ\nPhase-II Noida-201305 (U.P.)"
+	+ "\nPhone " +
+	"+91-120-4018100"+"\nEmail : support@impetus.com"
+	, "Request for password reset");
+	}
+	if(userobj ==null)
+	{
+	throw new Exception("Bad credentials");
+	}
+	return userobj;
+	}
+
+	 @PutMapping("/update2")
+	  @CrossOrigin("*")
+	  public UWUser updatePassword(@RequestParam String pass,@RequestParam String email, @RequestParam Integer token)throws Exception {
+		 UWUser userObj=null;
+		 UWUser user=service.fetchUserByOtp(token, email);
+		  if(user==null)
+			  throw new Exception("Error");
+		  
+		  else if(user!=null) {
+			  //user.setOtpOfUser(0);
+			  user.setPassword(pass);
+			  userObj=service.saveUser(user);
+			  
+		  }
+		  return userObj; 
+	  }
 
 	
 }
