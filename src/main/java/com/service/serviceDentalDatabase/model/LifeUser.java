@@ -38,6 +38,7 @@ public class LifeUser {
 	   private String status;
 	   private String member;
 	   private String reason;
+	   private String bankname;
 	public LifeUser() {
 		super();
 	}
@@ -46,7 +47,7 @@ public class LifeUser {
 			String address, String zip, String city, String state, String contact, String dateOfBirth,
 			String occupation, String income, String selectPlane, String gender, String healthIssue,
 			String cancellingInsurance, String groupInsurance, String tobacco, String hivIssue, String lungsIssue,
-			String additionalComments,String status,String member,String reason) {
+			String additionalComments,String status,String member,String reason,String bankname) {
 		super();
 		//this.id=id;
 		this.firstName = firstName;
@@ -75,12 +76,20 @@ public class LifeUser {
 		this.status=status;
 		this.member=member;
 		this.reason=reason;
+		this.bankname=bankname;
 	}
 	//Getter and Setter Methods
+	
 	public String getFirstName() {
 		return firstName;
 	}
 	
+	public String getBankname() {
+		return bankname;
+	}
+	public void setBankname(String bankname) {
+		this.bankname = bankname;
+	}
 	public String getReason() {
 		return reason;
 	}
@@ -234,4 +243,5 @@ public class LifeUser {
 	public void setAdditionalComments(String additionalComments) {
 		this.additionalComments = additionalComments;
 	}  
+	
 }

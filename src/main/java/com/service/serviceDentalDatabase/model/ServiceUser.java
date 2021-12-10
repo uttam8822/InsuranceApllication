@@ -32,6 +32,7 @@ public class ServiceUser {
 	   private String status;
 	   private String member;
 	   private String reason;
+	   private String bankname;
    public ServiceUser() {
 		super();
 	}
@@ -39,7 +40,7 @@ public class ServiceUser {
 public ServiceUser(String status,String firstName, String middleNmme, String lastName, String aadhar, String email, String pan,
 		String address, String zip, String city, String state, String contact, String dateOfBirth, String occupation,
 		String income, String selectPlane, String gender, String healthIssue, String cancellingInsurance,
-		String groupInsurance, String tobacco, String additionalComments,String member,String reason) {
+		String groupInsurance, String tobacco, String additionalComments,String member,String reason,String bankname) {
 	super();
 	this.firstName = firstName;
 	this.middleNmme = middleNmme;
@@ -65,11 +66,20 @@ public ServiceUser(String status,String firstName, String middleNmme, String las
 	this.status=status;
 	this.member=member;
 	this.reason=reason;
+	this.bankname=bankname;
 }
 
 //Getter and Setter Method
+
+
 public String getReason() {
 	return reason;
+}
+public String getBankname() {
+	return bankname;
+}
+public void setBankname(String bankname) {
+	this.bankname = bankname;
 }
 public void setReason(String reason) {
 	this.reason = reason;

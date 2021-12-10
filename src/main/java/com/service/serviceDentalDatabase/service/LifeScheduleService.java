@@ -12,13 +12,17 @@
 	import org.springframework.stereotype.Service;
 	
 	import com.service.serviceDentalDatabase.model.LifeUser;
-	import com.service.serviceDentalDatabase.repo.LifeScheduleRepo;
+import com.service.serviceDentalDatabase.model.Registration;
+import com.service.serviceDentalDatabase.repo.LifeScheduleRepo;
+import com.service.serviceDentalDatabase.repo.RegistrationSchedulerRepo;
 	
 	@Service
 	public class LifeScheduleService {
 	
 	@Autowired
 	private LifeScheduleRepo repo;
+	@Autowired
+	private RegistrationSchedulerRepo rs;
 	@Autowired
 	private EmailSendService service1;
 	Logger log = LoggerFactory.getLogger(LifeScheduleService.class);
@@ -46,5 +50,24 @@
 		       repo.save(user);
 			}
 		}
+		     
+		}
+
+	@Scheduled(fixedRate=600000)
+	public void otpToken() {
+	List<Registration> users1= rs.findAll();
+	int l=users1.size();
+	System.out.println(l);
+	for(Registration user : users1) {
+		int a = (int)(Math.random()*(99999999-11111111+1)+11111111);
+			if(user.getOtpOfUser()!=0)
+			{
+		      user.setOtpOfUser(a);
+		      System.out.println(a);
+			}
+			  rs.save(user);
+		}
+	     
 	}
 	}
+

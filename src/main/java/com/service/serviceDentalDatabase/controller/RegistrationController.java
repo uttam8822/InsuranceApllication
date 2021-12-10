@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.service.serviceDentalDatabase.model.Registration;
@@ -111,6 +112,7 @@ public class RegistrationController {
 	{
 	Registration userobj= service.fetchUserByEmailId(tempEmailId);          //Checking Existing EmailId
 	if(userobj != null) {
+		
 		//Sending Message
 	service1.sendSimpleEmail(tempEmailId,"Dear User,\nYour request for password reset has been sent successfully"
 	+"\nYour emailId is : "+tempEmailId+"\nYour Name : "+userobj.getFirstName()+" "+userobj.getLastName()+"\nYour new password is : "
@@ -138,12 +140,13 @@ public class RegistrationController {
 		//return repo.findAll().stream().filter(t-> email.equals(t.getEmailId())).findFirst().orElse(null);
 	}
 	
-	@SuppressWarnings("null")
+	
 	@PostMapping("/sendmailOTP") //Mapping for Sending Email in Forget Password
 	@CrossOrigin(origins="http://localhost:4200")
 	public void triggerMailOTP(@RequestBody Registration user) throws MessagingException {
 	String tempEmailId = user.getEmailId();
 	System.out.println(tempEmailId);
+	String email=tempEmailId;
 	if(tempEmailId == null) {
 	throw new MessagingException("Bad credentials");
 	}
@@ -151,9 +154,8 @@ public class RegistrationController {
 	{
 	Registration userobj= service.fetchUserByEmailId(tempEmailId); //Checking Existing EmailId
 	if(userobj != null) {
-
 	//Sending Message
-	service1.sendSimpleEmail(tempEmailId,"Dear User,\nyour One Time Password (OTP) is "+userobj.getOtpOfUser()
+	service1.sendSimpleEmail(email,"Dear User,\nyour One Time Password (OTP) is "+userobj.getOtpOfUser()
 
 	+ ". have any issue please contact us at the address given below"+"\n\n\n\nThank You!"
 	+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd. \nSDF No. K-13 to 16, NSEZ\nPhase-II Noida-201305 (U.P.)"
@@ -199,5 +201,20 @@ public class RegistrationController {
 	return userobj;
 	}
 
-  
+  @PutMapping("/update")
+  @CrossOrigin("*")
+  public Registration updatePassword(@RequestParam String pass,@RequestParam String email, @RequestParam Integer token)throws Exception {
+	  Registration userObj=null;
+	  Registration user=service.fetchUserByOtp(token, email);
+	  if(user==null)
+		  throw new Exception("Error");
+	  
+	  else if(user!=null) {
+		  //user.setOtpOfUser(0);
+		  user.setPassword(pass);
+		  userObj=service.saveUser(user);
+		  
+	  }
+	  return userObj; 
+  }
 }
