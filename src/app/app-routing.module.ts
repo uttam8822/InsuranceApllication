@@ -47,6 +47,7 @@ import { SendOtpUserComponent } from './send-otp-user/send-otp-user.component';
 import { ComparePlansComponent } from './compare-plans/compare-plans.component';
 import { SendOtpUwComponent } from './send-otp-uw/send-otp-uw.component';
 import { SendOtpAdminComponent } from './send-otp-admin/send-otp-admin.component';
+import { UWuserDetailsComponent } from './uwuser-details/uwuser-details.component';
 
 
 const routes: Routes = [
@@ -92,7 +93,7 @@ const routes: Routes = [
   {path:"sendOtpUW",component:SendOtpUwComponent},
   {path:"sendOtpAdmin",component:SendOtpAdminComponent},
  
- 
+ {path:"UWuserDetails",component:UWuserDetailsComponent},
   {path:"sendOTPUser",component:SendOtpUserComponent},
   {path:"ComparePlans",component:ComparePlansComponent},
  

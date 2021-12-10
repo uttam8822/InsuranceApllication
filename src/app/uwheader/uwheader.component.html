@@ -1,5 +1,6 @@
 <!--This is header of under writer page-->
-<mat-toolbar  style="background-color:  #ff6600;">
+<!--
+    <mat-toolbar  style="background-color:  #ff6600;">
     <div fxHide.gt-xs>
         <button mat-icon-button (click)="onToggleSidenav()">
             <mat-icon>menu</mat-icon>
@@ -19,61 +20,166 @@
         </ul>
     </div>
 </mat-toolbar>
+-->
+<!--This is admin dashboard header which will shown after admin login-->
 
+<!--
+    <mat-toolbar style="background-color:  #ff6600;">
+    <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+        <a routerLink="/home"></a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+            <li>
+                <a routerLink="#" style="margin-left: 200px;">Admin Dashboard</a>
+            </li>
+            <li>
+                <a routerLink="#"></a>
+            </li>
+        </ul>
+    </div>
+</mat-toolbar>
+-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<div class="row" style=" margin-left: 200px; margin-top: 50px; margin-right: 100px;">
-    <div class="card">
-        <h1 class="card-header" style="background-color: #ff6600; color: white;">Dental Service</h1>
-        <div class="card-body">
-           
-            <p class="card-text">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<body class="home">
+    <div class="container-fluid display-table">
+        <div class="row display-table-row">
+            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+                <div class="logo" style="border:3px solid #ff6600; border-radius:100%; height:130px;width: 130px; background-color: white; margin-left: 30px;">
+                    <h2 style="text-align: center; margin-top: 18%; color: #ff6600;">Hello<br>Welcome</h2>
+                </div>
+                <div class="navi" style="margin-top: 20px;">
+                    <ul>
+                        <li class="active"><a  routerLink="/uwriterhome"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm" style="color:#ff6600;"><b>Home</b></span></a></li>
+                        <li><a routerLink="/UWuserDetails"><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm" style="color:#ff6600;"><b>User <Details></Details></b></span></a></li>
+                   
+                        <li><a routerLink="/home"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="hidden-xs hidden-sm" style="color:#ff6600;"><b>LogOut</b></span></a></li>
+                   
+                    </ul>
+                </div>
+            </div>
+            <div class="col ">
+                 
+                <div class="user-dashboard" style="background-color: #ff6600;">
+                    <h1 style="color: #ffffff; margin-left: 20px;">Under Writer Dashboard</h1>
+                    
+                </div>
+                
+                <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
+                    <div class="card">
+                        <h2 class="card-header" style="background-color: #ff6600; color: white;">Dental Service</h2>
+                        <div class="card-body">
+                           
+                            <p class="card-text" style="font-size: 17px;">
+                
+                                Most health insurance companies in India do not provide any coverage for dental procedures as
+                                they fall under the cosmetic treatment category but as the uncertainties are increasing you need
+                                a dental Insurance also. 
+                                You Can Apply in our company For Dental Insurance With Lot's of Attractive Plans.
+                            </p>
+                          <a routerLink="/UWFetchDental11" class="btn btn-primary" style="background-color: #ff6600; ">Cleck here to see application</a>
+                        </div>
+                      </div>
+                </div>
+                
+                
+                <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
+                    <div class="card">
+                        <h2 class="card-header" style="background-color: #ff6600; color: white;">Life Service</h2>
+                        <div class="card-body">
+                        
+                            <p class="card-text" style="font-size: 17px;">With uncertainties increasing all around, life insurance is proving to be an
+                                ultimate lifeline. Having an insurance cover ensures that the dependents of the bread-winner of
+                                the family do not suffer financially in their absence. Apply In Our Company by Paying a Minimal
+                                Premium amount Every Year and get maximum Returns.</p>
+                          <a routerLink="/UWFetchLife11" class="btn btn-primary" style="background-color: #ff6600; ">Cleck here to see application</a>
+                        </div>
+                      </div>
+                </div>
+                
+                
+                
+                <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
+                    <div class="card">
+                        <h2 class="card-header" style="background-color: #ff6600; color: white;">Vision & Dental</h2>
+                        <div class="card-body">
+                           
+                           
+                            <p class="card-text" style="font-size: 17px;">
+                                Vision insurance and vision benefits plans typically cover the cost of an annual eye exam and
+                                prescription eyeglasses and/or contact lenses, vision plans also offer discounts on elective
+                                vision correction surgery, such as LASIK and PRK.
+                
+                
+                                You Can Apply For both Vision and Dental Insurance with this combo requires less and give you
+                                More.
+                
+                            </p> <a  routerLink="/UWFetchDV11" class="btn btn-primary" style="background-color: #ff6600; ">Cleck here to see application</a>
+                        </div>
+                      </div>
+                </div>
+                
+                
+                
+                
+                
+                 
+                
+                 
 
-                Most health insurance companies in India do not provide any coverage for dental procedures as
-                they fall under the cosmetic treatment category but as the uncertainties are increasing you need
-                a dental Insurance also. 
-                You Can Apply in our company For Dental Insurance With Lot's of Attractive Plans.
-            </p>
-          <a routerLink="/UWFetchDental11" class="btn btn-primary" style="background-color: #ff6600; ">Cleck here to see application</a>
+            </div>
         </div>
-      </div>
-</div>
+      
 
-
-<div class="row" style=" margin-left: 200px; margin-top: 50px; margin-right: 100px;">
-    <div class="card">
-        <h1 class="card-header" style="background-color: #ff6600; color: white;">Life Service</h1>
-        <div class="card-body">
-        
-            <p class="card-text">With uncertainties increasing all around, life insurance is proving to be an
-                ultimate lifeline. Having an insurance cover ensures that the dependents of the bread-winner of
-                the family do not suffer financially in their absence. Apply In Our Company by Paying a Minimal
-                Premium amount Every Year and get maximum Returns.</p>
-          <a routerLink="/UWFetchLife11" class="btn btn-primary" style="background-color: #ff6600; ">Cleck here to see application</a>
-        </div>
-      </div>
-</div>
+    </div>
 
 
 
-<div class="row" style=" margin-left: 200px; margin-top: 50px; margin-right: 100px;">
-    <div class="card">
-        <h1 class="card-header" style="background-color: #ff6600; color: white;">Vision & Dental</h1>
-        <div class="card-body">
-           
-           
-            <p class="card-text">
-                Vision insurance and vision benefits plans typically cover the cost of an annual eye exam and
-                prescription eyeglasses and/or contact lenses, vision plans also offer discounts on elective
-                vision correction surgery, such as LASIK and PRK.
+  
+    
+
+</body>
 
 
-                You Can Apply For both Vision and Dental Insurance with this combo requires less and give you
-                More.
 
-            </p> <a  routerLink="/UWFetchDV11" class="btn btn-primary" style="background-color: #ff6600; ">Cleck here to see application</a>
-        </div>
-      </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
