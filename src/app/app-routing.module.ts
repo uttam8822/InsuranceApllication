@@ -45,6 +45,7 @@ import { AdminAuthGuard } from './Auth/admin-auth.guard';
 import { SendemailAdminComponent } from './sendemail-admin/sendemail-admin.component';
 import { SendOtpUserComponent } from './send-otp-user/send-otp-user.component';
 import { ComparePlansComponent } from './compare-plans/compare-plans.component';
+import { ComparePlans1Component } from './compare-plans1/compare-plans1.component';
 
 
 const routes: Routes = [
@@ -87,7 +88,7 @@ const routes: Routes = [
   { path: "sendEmail", component: SendEmailComponent },
   { path: "sendEmailUW", component: SendmailUWComponent },
   {path:"sendEmailAdmin",component:SendemailAdminComponent},
- 
+  {path: "compareplan1",component:ComparePlans1Component},
  
   {path:"sendOTPUser",component:SendOtpUserComponent},
   {path:"ComparePlans",component:ComparePlansComponent},

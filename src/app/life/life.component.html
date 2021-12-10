@@ -392,7 +392,7 @@
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Bank IFSC Code.</label>
                             <input formControlName="ifscCode" class="form-control" aria-label="zip"
-                                placeholder="Ex: SBIN17683" [(ngModel)]="user.ifscCode"
+                                placeholder="Ex: SBIN017683" [(ngModel)]="user.ifscCode"
                                 style="height: 35px;" />
                                 <div *ngIf="ifscCode.invalid && (ifscCode.touched || ifscCode.dirty)">
                                     <span class="error" *ngIf="ifscCode.errors?.required"> *IFSC Code is required.</span>
