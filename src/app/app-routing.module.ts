@@ -45,9 +45,12 @@ import { AdminAuthGuard } from './Auth/admin-auth.guard';
 import { SendemailAdminComponent } from './sendemail-admin/sendemail-admin.component';
 import { SendOtpUserComponent } from './send-otp-user/send-otp-user.component';
 import { ComparePlansComponent } from './compare-plans/compare-plans.component';
+import { ComparePlans1Component } from './compare-plans1/compare-plans1.component';
+
 import { SendOtpUwComponent } from './send-otp-uw/send-otp-uw.component';
 import { SendOtpAdminComponent } from './send-otp-admin/send-otp-admin.component';
 import { UWuserDetailsComponent } from './uwuser-details/uwuser-details.component';
+
 
 
 const routes: Routes = [
@@ -90,10 +93,17 @@ const routes: Routes = [
   { path: "sendEmail", component: SendEmailComponent },
   { path: "sendEmailUW", component: SendmailUWComponent },
   {path:"sendEmailAdmin",component:SendemailAdminComponent},
+  {path: "compareplan1",component:ComparePlans1Component},
+
   {path:"sendOtpUW",component:SendOtpUwComponent},
   {path:"sendOtpAdmin",component:SendOtpAdminComponent},
  
+ 
  {path:"UWuserDetails",component:UWuserDetailsComponent},
+ 
+
+ 
+ 
   {path:"sendOTPUser",component:SendOtpUserComponent},
   {path:"ComparePlans",component:ComparePlansComponent},
  
