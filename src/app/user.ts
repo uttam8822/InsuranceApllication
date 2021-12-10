@@ -5,5 +5,6 @@ export class User {
     lastName: string;
     password: string;
     otpOfUser:number;
+    dateOfBirth: string;
     constructor() { }
 }

@@ -29,14 +29,41 @@ export class SignupComponent implements OnInit {
   constructor(private _service: RegistrationService, private _router: Router) {
 
   }
+  maxDate:any;
 
-  ngOnInit(): void {
+  futureDateDisable() {
+
+    var date:any = new Date();
+
+    var todayDate:any = date.getDate();
+
+    var month:any = date.getMonth() + 1;
+
+      var year:any = date.getFullYear() - 18;
+
+      if(todayDate < 10)
+
+      {todayDate = '0' + todayDate;}
+
+      if(month < 10)
+
+      {month = '0' + month;}
+
+       this.maxDate = year + "-" + month + "-" + todayDate;
+
+       console.log(this.maxDate);}
+  
+
+
+  ngOnInit(): void  { 
+    this.futureDateDisable();
     this.SignupForm= new FormGroup({
       "firstname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       "lastname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       "email": new FormControl(null, [Validators.required, Validators.pattern(this.emailPattern)]),
       "password": new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(20), Validators.pattern('[A-Za-z0-9@#!]*')]),
-      "cpassword": new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(20), Validators.pattern('[A-Za-z0-9@#!]*')])
+      "cpassword": new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(20), Validators.pattern('[A-Za-z0-9@#!]*')]),
+      "dateOfBirth": new FormControl(null, [Validators.required])
 
     });
   }
@@ -71,6 +98,7 @@ export class SignupComponent implements OnInit {
   get email() { return this.SignupForm.get('email'); }
   get password() { return this.SignupForm.get('password'); }
   get cpassword() { return this.SignupForm.get('cpassword'); }
+  get dateOfBirth() { return this.SignupForm.get('dateOfBirth'); }
 
 
   //signup function for user

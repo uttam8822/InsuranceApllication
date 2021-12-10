@@ -71,6 +71,7 @@ import { ComparePlansComponent } from './compare-plans/compare-plans.component';
  
  
 import { DetailsComponent } from './details/details.component';
+import { ComparePlans1Component } from './compare-plans1/compare-plans1.component';
 
   
 
@@ -130,6 +131,7 @@ import { DetailsComponent } from './details/details.component';
    
      
     DetailsComponent,
+                      ComparePlans1Component,
  
  
   

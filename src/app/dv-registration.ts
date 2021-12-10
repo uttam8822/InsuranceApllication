@@ -16,7 +16,6 @@ export class DVRegistration {
     income: string;
     selectPlane: string;
     gender: string;
-    healthIssue: string;
     cancellingInsurance: string;
     groupInsurance: string;
     tobacco: string;
@@ -30,5 +29,9 @@ export class DVRegistration {
     status: string;
     member: string;
     reason: string;
+    bankName:string;
+    bankAccountNumber: string;
+    ifscCode: string;
+
     constructor() { }
 }

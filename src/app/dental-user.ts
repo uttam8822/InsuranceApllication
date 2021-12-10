@@ -17,7 +17,6 @@ export class DentalUser {
         income: string;
         selectPlane: string;
         gender: string;
-        healthIssue: string;
         cancellingInsurance: string;
         groupInsurance: string;
         tobacco: string;
@@ -26,6 +25,10 @@ export class DentalUser {
         status: string;
         member: string;
         reason: string;
+        bankName:string;
+        bankAccountNumber: string;
+        ifscCode: string;
+
         constructor() { }
 
 }

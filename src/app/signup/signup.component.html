@@ -101,12 +101,34 @@
               </div>
             </div>
           </div>
-  
+          <div class="d-flex flex-row align-items-center mb-4">
+
+            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+
+            <div class="form-outline flex-fill mb-0">
+
+              <label class="form-label" for="form3Example1c" style="color: #ff6600;">Date of Birth</label>
+
+            <input type="date" max="{{maxDate}}" formControlName="dateOfBirth" class="form-control" aria-label="contact"
+
+                 required required [(ngModel)]="user. dateOfBirth" style="height: 35px;" />
+
+            <div *ngIf="dateOfBirth.invalid && (dateOfBirth.touched || dateOfBirth.dirty)">
+
+                <span class="error text-dark" *ngIf="dateOfBirth.errors?.required"> *Date is required.</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
   
           <div class="d-flex flex-row align-items-center mb-4">
             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example3c" style="color: #ff6600;">Your Email</label>
+              <label class="form-label" for="form3Example3c" style="color: #ff6600;"> Your Email</label>
               <input formControlName="email" class="form-control" aria-label="email"
                 placeholder="Enter Your Email" required required [(ngModel)]="user.emailId" />
               <div *ngIf="email.invalid && (email.touched || email.dirty)">
