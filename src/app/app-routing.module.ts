@@ -47,6 +47,10 @@ import { SendOtpUserComponent } from './send-otp-user/send-otp-user.component';
 import { ComparePlansComponent } from './compare-plans/compare-plans.component';
 import { ComparePlans1Component } from './compare-plans1/compare-plans1.component';
 
+import { SendOtpUwComponent } from './send-otp-uw/send-otp-uw.component';
+import { SendOtpAdminComponent } from './send-otp-admin/send-otp-admin.component';
+
+
 
 const routes: Routes = [
   { path: '', pathMatch: "full", redirectTo: "home" },
@@ -72,7 +76,7 @@ const routes: Routes = [
   { path: "success", component: SuccessfullcomponentComponent, canActivate: [UserAuthGuard] },
   { path: "lifeServiceDetails/:aadhar", component: LifeServiceUserDetailsComponent, canActivate: [AdminAuthGuard] },
   { path: "about1", component: Aboutus1Component, canActivate: [UserAuthGuard] },
-  { path: "service1", component: Service1Component},
+  { path: "service1", component: Service1Component, canActivate: [UserAuthGuard] },
   { path: "contact1", component: Contact1Component, canActivate: [UserAuthGuard] },
   { path: "dentaldetails/:aadhar", component: DentaluserdetailsComponent, canActivate: [AdminAuthGuard] },
   { path: "dvdetails/:aadhar", component: DentalvisiondetailsComponent, canActivate: [AdminAuthGuard] },
@@ -89,6 +93,11 @@ const routes: Routes = [
   { path: "sendEmailUW", component: SendmailUWComponent },
   {path:"sendEmailAdmin",component:SendemailAdminComponent},
   {path: "compareplan1",component:ComparePlans1Component},
+
+  {path:"sendOtpUW",component:SendOtpUwComponent},
+  {path:"sendOtpAdmin",component:SendOtpAdminComponent},
+ 
+
  
   {path:"sendOTPUser",component:SendOtpUserComponent},
   {path:"ComparePlans",component:ComparePlansComponent},

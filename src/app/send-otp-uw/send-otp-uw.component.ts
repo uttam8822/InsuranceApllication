@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { RegistrationService } from '../registration.service';
-import { Router } from '@angular/router';
 import { User } from '../user';
+import { Router } from '@angular/router';
+import { RegistrationService } from '../registration.service';
 @Component({
-  selector: 'app-send-otp-user',
-  templateUrl: './send-otp-user.component.html',
-  styleUrls: ['./send-otp-user.component.css']
+  selector: 'app-send-otp-uw',
+  templateUrl: './send-otp-uw.component.html',
+  styleUrls: ['./send-otp-uw.component.css']
 })
-export class SendOtpUserComponent implements OnInit {
+export class SendOtpUwComponent implements OnInit {
 
   constructor(private _service: RegistrationService, private _router: Router) { }
   user = new User();
