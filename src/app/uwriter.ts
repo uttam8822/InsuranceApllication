@@ -4,6 +4,6 @@ export class Uwriter {
     emailId: string;
     writerId: string;
     password: string;
-
+   otpOfUser:number;
     constructor() { }
 }

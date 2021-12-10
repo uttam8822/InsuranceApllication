@@ -85,7 +85,6 @@ export class SendOtpUserComponent implements OnInit {
 
     );
   }
-
 //add service remaining
   resetYourPassword(e:any) {
     e.preventDefault();

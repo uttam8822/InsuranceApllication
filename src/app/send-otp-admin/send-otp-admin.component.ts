@@ -12,8 +12,7 @@ import { User } from '../user';
 export class SendOtpAdminComponent implements OnInit {
 
   constructor(private _service: RegistrationService, private _router: Router)  { }
-
-  user = new User();
+  user = new Admin();
    
   msg = '';
   msg1='';
@@ -42,7 +41,7 @@ export class SendOtpAdminComponent implements OnInit {
     this.isClicked3=true;
   }
   sendOTPUser() {
-    this._service.sendOTPEmailUser(this.user).subscribe(
+    this._service.sendOTPEmailUser1(this.user).subscribe(
       data => {
         console.log("response received");
         this.msg = "OTP sent successfull";
@@ -64,7 +63,7 @@ export class SendOtpAdminComponent implements OnInit {
   }
 
   verifyOTPUser() {
-    this._service.verifyOTPOfUser(this.user).subscribe(
+    this._service.verifyOTPOfUser2(this.user).subscribe(
       data => {
         console.log("response received");
         this.msg1 = "Verification Done Check Your Email For Password";
@@ -88,7 +87,7 @@ export class SendOtpAdminComponent implements OnInit {
 
 //add service remaining
   resetYourPassword() {
-    this._service.verifyOTPOfUser(this.user).subscribe(
+    this._service.verifyOTPOfUser3(this.user).subscribe(
       data => {
         console.log("response received");
         this.msg2 = "Password reset successfull";

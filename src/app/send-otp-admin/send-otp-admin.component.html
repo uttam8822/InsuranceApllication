@@ -229,7 +229,7 @@
   </mat-step>
 <mat-step>
   <ng-template matStepLabel>Step-3</ng-template>
-    <form (ngSubmit)="verifyOTPUser()" #verifyForm="ngForm">
+    <form (ngSubmit)="resetYourPassword()" #verifyForm="ngForm">
       <div *ngIf="alert3" class="alert alert-success" role="alert">
        {{msg1}}
      </div>

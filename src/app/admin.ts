@@ -5,6 +5,7 @@ export class Admin {
     emailId: string;
     adminId: string;
     password: string;
+    otpOfUser:number;
 
 }
 
