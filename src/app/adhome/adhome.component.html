@@ -1,10 +1,10 @@
 <!--This component for toggling admin sidenav-->
 <mat-sidenav-container>
   <mat-sidenav #sidenav role="navigation">
-    <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+    <app-sidenav-list  ></app-sidenav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-adheader (sidenavToggle)="sidenav.toggle()"></app-adheader>
+    <app-adheader ></app-adheader>
     <main>
       <router-outlet></router-outlet>
     </main>

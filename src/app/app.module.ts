@@ -74,6 +74,7 @@ import { DetailsComponent } from './details/details.component';
 import { ComparePlans1Component } from './compare-plans1/compare-plans1.component';
 import { SendOtpUwComponent } from './send-otp-uw/send-otp-uw.component';
 import { SendOtpAdminComponent } from './send-otp-admin/send-otp-admin.component';
+import { UWuserDetailsComponent } from './uwuser-details/uwuser-details.component';
 
   
 
@@ -136,6 +137,7 @@ import { SendOtpAdminComponent } from './send-otp-admin/send-otp-admin.component
                       ComparePlans1Component,
                       SendOtpUwComponent,
                       SendOtpAdminComponent,
+                      UWuserDetailsComponent,
  
  
   
