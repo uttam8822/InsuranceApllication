@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from '../registration.service';
+import { Admin } from '../admin';
 import { Router } from '@angular/router';
 import { User } from '../user';
-@Component({
-  selector: 'app-send-otp-user',
-  templateUrl: './send-otp-user.component.html',
-  styleUrls: ['./send-otp-user.component.css']
-})
-export class SendOtpUserComponent implements OnInit {
 
-  constructor(private _service: RegistrationService, private _router: Router) { }
+@Component({
+  selector: 'app-send-otp-admin',
+  templateUrl: './send-otp-admin.component.html',
+  styleUrls: ['./send-otp-admin.component.css']
+})
+export class SendOtpAdminComponent implements OnInit {
+
+  constructor(private _service: RegistrationService, private _router: Router)  { }
+
   user = new User();
-  user2=new User();
+   
   msg = '';
   msg1='';
   msg2='';
@@ -25,10 +28,7 @@ export class SendOtpUserComponent implements OnInit {
   isClicked1:boolean=false;
   isClicked2:boolean=false;
   isClicked3:boolean=false;
-  ngOnInit(): void {
-
-  }
-
+  
   loadingBar1(){
     this.isClicked1=true;
   }
@@ -109,5 +109,8 @@ export class SendOtpUserComponent implements OnInit {
 
     );
   }
-  
+
+  ngOnInit(): void {
+  }
+
 }
