@@ -201,20 +201,20 @@ public class RegistrationController {
 	return userobj;
 	}
 
-  @PutMapping("/update")
-  @CrossOrigin("*")
-  public Registration updatePassword(@RequestParam String pass,@RequestParam String email, @RequestParam Integer token)throws Exception {
-	  Registration userObj=null;
-	  Registration user=service.fetchUserByOtp(token, email);
-	  if(user==null)
-		  throw new Exception("Error");
-	  
-	  else if(user!=null) {
-		  //user.setOtpOfUser(0);
-		  user.setPassword(pass);
-		  userObj=service.saveUser(user);
+	 @PutMapping("/update")
+	  @CrossOrigin("*")
+	  public Registration updatePassword(@RequestParam String pass,@RequestParam String email, @RequestParam Integer token)throws Exception {
+		  Registration userObj=null;
+		  Registration user=service.fetchUserByOtp(token, email);
+		  if(user==null)
+			  throw new Exception("Error");
 		  
+		  else if(user!=null) {
+			  //user.setOtpOfUser(0);
+			  user.setPassword(pass);
+			  userObj=service.saveUser(user);
+			  
+		  }
+		  return userObj; 
 	  }
-	  return userObj; 
-  }
 }
