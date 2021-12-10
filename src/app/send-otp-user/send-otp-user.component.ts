@@ -87,8 +87,9 @@ export class SendOtpUserComponent implements OnInit {
   }
 
 //add service remaining
-  resetYourPassword() {
-    this._service.verifyOTPOfUser(this.user).subscribe(
+  resetYourPassword(e:any) {
+    e.preventDefault();
+    this._service.verifyOTPOfUser1(this.user).subscribe(
       data => {
         console.log("response received");
         this.msg2 = "Password reset successfull";

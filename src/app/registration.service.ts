@@ -159,6 +159,10 @@ public sendOTPEmailUser(user: User): Observable<any> {
   return this._http.post<any>("http://localhost:8067/sendmailOTP", user);
 }
 //verify otp of user
+public verifyOTPOfUser1(user: User): Observable<any> {
+  return this._http.put<any>("http://localhost:8067/update?pass="+user.password+"&email="+user.emailId+"&token="+user.otpOfUser, user);
+}
+//verify otp of user
 public verifyOTPOfUser(user: User): Observable<any> {
   return this._http.post<any>("http://localhost:8067/verifyOTPOfUser123", user);
 }
