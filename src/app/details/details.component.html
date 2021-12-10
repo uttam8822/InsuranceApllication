@@ -184,10 +184,7 @@
                                        <td>Gender</td>
                                        <td>{{user1.gender}}</td>
                                      </tr>
-                                     <tr>
-                                       <td> Account Number</td>
-                                       <td>{{user1.healthIssue}}</td>
-                                     </tr>
+                                    
                                      <tr>
                                        <td>Cancelling Insurance</td>
                                        <td>{{user1.cancellingInsurance}}</td>
@@ -201,29 +198,37 @@
                                        <td>{{user1.tobacco}}</td>
                                      </tr>
                                      <tr>
-                                       <td>Hiv Positive</td>
-                                       <td>{{user1.hivIssue}}</td>
-                                     </tr>
+                                      <td>Members</td>
+                                      <td>{{user1.member}}</td>
+                                    </tr>
                                      <tr>
-                                       <td>Lungs Issue</td>
-                                       <td>{{user1.lungsIssue}}</td>
-                                     </tr>
+                                      <td>Additonal Comment</td>
+                                      <td>{{user1.additionalComments}}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Bank Name</td>
+                                      <td>{{user1.bankName}}</td>
+                                    </tr>
                                      <tr>
-                                       <td> IFSC Code</td>
-                                       <td>{{user1.ifscCode}}</td>
-                                     </tr>
-                             
+                                      <td> Account Number</td>
+                                      <td>{{user1.bankAccountNumber}}</td>
+                                    </tr>
+                                    <tr>
+                                     <td> IFSC Code</td>
+                                     <td>{{user1.ifscCode}}</td>
+                                   </tr>
                                      <tr>
                                        <td>Status</td>
                                        <td>{{user1.status}}</td>
                                      </tr>
                                      <tr>
-                                       <td  >Reason of Rejection</td>
-                                       <td>{{user1.reason}}</td>
-                                     </tr>
+                                      <tr *ngIf="user1.status=='Rejected'" >
+                                        <td>Reason of Rejection</td>
+                                        <td>{{user1.reason}}</td>
+                                      </tr>
+                                    
                              
-                             
-                             
+      
                                    </tbody>
                                  </table>
                                  <br><br>
@@ -325,10 +330,7 @@
                                        <td>Gender</td>
                                        <td>{{user.gender}}</td>
                                      </tr>
-                                     <tr>
-                                       <td>Account Number</td>
-                                       <td>{{user.healthIssue}}</td>
-                                     </tr>
+                                     
                                      <tr>
                                        <td>Cancelling Insurance</td>
                                        <td>{{user.cancellingInsurance}}</td>
@@ -350,18 +352,31 @@
                                        <td>{{user.lungsIssue}}</td>
                                      </tr>
                                      <tr>
-                                       <td> IFSC Code</td>
-                                       <td>{{user.additionalComments}}</td>
-                                     </tr>
+                                      <tr>
+                                        <td>Members</td>
+                                        <td>{{user.member}}</td>
+                                      </tr>
+                                      <tr>
+                                      <td>Bank Name</td>
+                                      <td>{{user.bankName}}</td>
+                                    </tr>
+                                     <tr>
+                                      <td>Account Number</td>
+                                      <td>{{user.bankAccountNumber}}</td>
+                                    </tr>
+                                    <tr>
+                                     <td> IFSC Code</td>
+                                     <td>{{user.ifscCode}}</td>
+                                   </tr>
                              
                                      <tr>
                                        <td>Status</td>
                                        <td>{{user.status}}</td>
                                      </tr>
-                                     <tr>
-                                       <td  >Reason of Rejection</td>
-                                       <td>{{user.reason}}</td>
-                                     </tr>
+                                     <tr *ngIf="user.status=='Rejected'" >
+                                      <td>Reason of Rejection</td>
+                                      <td>{{user.reason}}</td>
+                                    </tr>
                              
                              
                              
@@ -470,9 +485,33 @@
                                       <td>{{user3.gender}}</td>
                                     </tr>
                                     <tr>
-                                      <td>Account Number</td>
-                                      <td>{{user3.healthIssue}}</td>
+                                      <td>Last Dental Checkup</td>
+                                      <td>{{user3.lastDentalCkeck}}</td>
                                     </tr>
+                                    <tr>
+                                      <td>Oral Operation</td>
+                                      <td>{{user3.oralOperation}}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Cavity</td>
+                                      <td>{{user3.anyCavity}}</td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>Eye Disease</td>
+                                      <td>{{user3.anyEyeDisease}}</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>Wear Glasses</td>
+                                      <td>{{user3. wearGlasses}}</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>Eye Operation</td>
+                                      <td>{{user3.anyEyeOperation}}</td>
+                                    </tr>
+
                                     <tr>
                                       <td>Cancelling Insurance</td>
                                       <td>{{user3.cancellingInsurance}}</td>
@@ -485,17 +524,29 @@
                                       <td>Tobacco</td>
                                       <td>{{user3.tobacco}}</td>
                                     </tr>
-                            
+                                   
+                                    <tr>
+                                      <td>Tobacco</td>
+                                      <td>{{user3.tobacco}}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Bank Name</td>
+                                      <td>{{user3.bankName}}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Account Number</td>
+                                      <td>{{user3.bankAccountNumber}}</td>
+                                    </tr>
                                     <tr>
                                       <td>IFSC Code</td>
-                                      <td>{{user3.additionalComments}}</td>
+                                      <td>{{user3.ifscCode}}</td>
                                     </tr>
-                            
+                                    
                                     <tr>
                                       <td>Status</td>
                                       <td>{{user3.status}}</td>
                                     </tr>
-                                    <tr *ngIf="user.status=='Rejected'" >
+                                    <tr *ngIf="user3.status=='Rejected'" >
                                       <td>Reason of Rejection</td>
                                       <td>{{user3.reason}}</td>
                                     </tr>

@@ -92,9 +92,33 @@
           <td>{{user.gender}}</td>
         </tr>
         <tr>
-          <td>Account Number</td>
-          <td>{{user.healthIssue}}</td>
+          <td>Last Dental Checkup</td>
+          <td>{{user.lastDentalCkeck}}</td>
         </tr>
+        <tr>
+          <td>Oral Operation</td>
+          <td>{{user.oralOperation}}</td>
+        </tr>
+        <tr>
+          <td>Cavity</td>
+          <td>{{user.anyCavity}}</td>
+        </tr>
+
+        <tr>
+          <td>Eye Disease</td>
+          <td>{{user.anyEyeDisease}}</td>
+        </tr>
+        
+        <tr>
+          <td>Wear Glasses</td>
+          <td>{{user. wearGlasses}}</td>
+        </tr>
+        
+        <tr>
+          <td>Eye Operation</td>
+          <td>{{user.anyEyeOperation}}</td>
+        </tr>
+
         <tr>
           <td>Cancelling Insurance</td>
           <td>{{user.cancellingInsurance}}</td>
@@ -107,17 +131,30 @@
           <td>Tobacco</td>
           <td>{{user.tobacco}}</td>
         </tr>
-
+       
+        <tr>
+          <td>Tobacco</td>
+          <td>{{user.tobacco}}</td>
+        </tr>
+        <tr>
+          <td>Bank Name</td>
+          <td>{{user.bankName}}</td>
+        </tr>
+        <tr>
+          <td>Account Number</td>
+          <td>{{user.bankAccountNumber}}</td>
+        </tr>
         <tr>
           <td>IFSC Code</td>
-          <td>{{user.additionalComments}}</td>
+          <td>{{user.ifscCode}}</td>
         </tr>
+        
         <tr>
           <td>Status</td>
           <td>{{user.status}}</td>
         </tr>
         <tr *ngIf="user.status=='Rejected'" >
-          <td >Reason of Rejection</td>
+          <td>Reason of Rejection</td>
           <td>{{user.reason}}</td>
         </tr>
 

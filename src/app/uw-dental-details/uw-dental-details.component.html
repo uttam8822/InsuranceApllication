@@ -27,7 +27,7 @@
       </thead>
       <tbody *ngFor="let user of userData" style="background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%);">
         <tr>
-
+                             
           <td>First Name</td>
           <td>{{user.firstName}}</td>
         </tr>
@@ -91,10 +91,7 @@
           <td>Gender</td>
           <td>{{user.gender}}</td>
         </tr>
-        <tr>
-          <td>Account Number</td>
-          <td>{{user.healthIssue}}</td>
-        </tr>
+       
         <tr>
           <td>Cancelling Insurance</td>
           <td>{{user.cancellingInsurance}}</td>
@@ -107,20 +104,36 @@
           <td>Tobacco</td>
           <td>{{user.tobacco}}</td>
         </tr>
-
         <tr>
-          <td> IFSC Code</td>
-          <td>{{user.additionalComments}}</td>
-        </tr>
+         <td>Members</td>
+         <td>{{user.member}}</td>
+       </tr>
+        <tr>
+         <td>Additonal Comment</td>
+         <td>{{user.additionalComments}}</td>
+       </tr>
+       <tr>
+         <td>Bank Name</td>
+         <td>{{user.bankName}}</td>
+       </tr>
+        <tr>
+         <td> Account Number</td>
+         <td>{{user.bankAccountNumber}}</td>
+       </tr>
+       <tr>
+        <td> IFSC Code</td>
+        <td>{{user.ifscCode}}</td>
+      </tr>
         <tr>
           <td>Status</td>
           <td>{{user.status}}</td>
         </tr>
-        <tr *ngIf="user.status=='Rejected'">
-          <td  >Reason of Rejection</td>
-          <td>{{user.reason}}</td>
-        </tr>
-
+        <tr>
+         <tr *ngIf="user.status=='Rejected'" >
+           <td>Reason of Rejection</td>
+           <td>{{user.reason}}</td>
+         </tr>
+       
 
 
       </tbody>

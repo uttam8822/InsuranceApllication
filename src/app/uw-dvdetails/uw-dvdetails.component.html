@@ -30,92 +30,151 @@
           <td>First Name</td>
           <td>{{user.firstName}}</td>
         </tr>
+
         <tr>
           <td>Middle Name</td>
           <td>{{user.middleNmme}}</td>
         </tr>
+
         <tr>
           <td>Last Name</td>
           <td>{{user.lastName}}</td>
         </tr>
+
         <tr>
           <td>Aadhar</td>
           <td>{{user.aadhar}}</td>
         </tr>
+
         <tr>
           <td>Email</td>
           <td>{{user.email}}</td>
         </tr>
+
         <tr>
           <td>PAN</td>
           <td>{{user.pan}}</td>
         </tr>
+
         <tr>
           <td>Address</td>
           <td>{{user.address}}</td>
         </tr>
+
         <tr>
           <td>Zip</td>
           <td>{{user.zip}}</td>
         </tr>
+
         <tr>
           <td>City</td>
           <td>{{user.city}}</td>
         </tr>
+
         <tr>
           <td>State</td>
           <td>{{user.state}}</td>
         </tr>
+
         <tr>
           <td>Contact</td>
           <td>{{user.contact}}</td>
         </tr>
+
         <tr>
           <td>Date Of Birth</td>
           <td>{{user.dateOfBirth}}</td>
         </tr>
+
         <tr>
           <td>Occupation</td>
           <td>{{user.occupation}}</td>
         </tr>
+
         <tr>
           <td>Income</td>
           <td>{{user.income}}</td>
         </tr>
+
         <tr>
           <td>Select Plan</td>
           <td>{{user.selectPlane}}</td>
         </tr>
+
         <tr>
           <td>Gender</td>
           <td>{{user.gender}}</td>
         </tr>
+
         <tr>
-          <td>Account Number</td>
-          <td>{{user.healthIssue}}</td>
+          <td>Last Dental Checkup</td>
+          <td>{{user.lastDentalCkeck}}</td>
+          </tr>
+
+        <tr>
+          <td>Oral Operation</td>
+          <td>{{user.oralOperation}}</td>
         </tr>
+
+        <tr>
+          <td>Cavity</td>
+          <td>{{user.anyCavity}}</td>
+        </tr>
+
+        <tr>
+          <td>Eye Disease</td>
+          <td>{{user.anyEyeDisease}}</td>
+        </tr>
+        
+        <tr>
+          <td>Wear Glasses</td>
+          <td>{{user. wearGlasses}}</td>
+        </tr>
+        
+        <tr>
+          <td>Eye Operation</td>
+          <td>{{user.anyEyeOperation}}</td>
+        </tr>
+
         <tr>
           <td>Cancelling Insurance</td>
           <td>{{user.cancellingInsurance}}</td>
         </tr>
+
         <tr>
           <td>Group Insurance</td>
           <td>{{user.groupInsurance}}</td>
         </tr>
+
         <tr>
           <td>Tobacco</td>
           <td>{{user.tobacco}}</td>
         </tr>
-
+       
         <tr>
-          <td> IFSC Code</td>
-          <td>{{user.additionalComments}}</td>
+          <td>Tobacco</td>
+          <td>{{user.tobacco}}</td>
+        </tr>
+        <tr>
+          <td>Bank Name</td>
+          <td>{{user.bankName}}</td>
         </tr>
 
+        <tr>
+          <td>Account Number</td>
+          <td>{{user.bankAccountNumber}}</td>
+        </tr>
+        
+        <tr>
+          <td>IFSC Code</td>
+          <td>{{user.ifscCode}}</td>
+        </tr>
+        
         <tr>
           <td>Status</td>
           <td>{{user.status}}</td>
         </tr>
+
         <tr *ngIf="user.status=='Rejected'" >
           <td>Reason of Rejection</td>
           <td>{{user.reason}}</td>

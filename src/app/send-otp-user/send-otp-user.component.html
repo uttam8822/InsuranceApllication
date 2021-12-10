@@ -159,7 +159,7 @@
 
     </form>
 
-    <form (ngSubmit)="verifyOTPUser()" #verifyForm="ngForm">
+    <form (ngSubmit)="resetYourPassword()" #verifyForm="ngForm">
        <div *ngIf="alert3" class="alert alert-success" role="alert">
         {{msg1}}
       </div>
@@ -199,7 +199,7 @@
     </form>
 
 
-    <form (ngSubmit)="verifyOTPUser()" #verifyForm="ngForm">
+    <form (ngSubmit)="resetYourPassword()" #verifyForm="ngForm">
       <div *ngIf="alert3" class="alert alert-success" role="alert">
        {{msg1}}
      </div>
@@ -213,6 +213,10 @@
          <h1>Step-3</h1>
          <label><b>Your Email for OTP</b></label>
          <input class="fname" type="text" name="name" placeholder="Your Email" [(ngModel)]='user.emailId' disabled>
+
+         <label><b>Your Email for OTP</b></label>
+         <input class="otp" type="text" name="otp" placeholder="Your OTP" [(ngModel)]='user.otpOfUser'>
+
 
          <label><b>Enter new password</b></label>
          <input class="password" type="password" name="otp" placeholder="Enter new password" [(ngModel)]="user.password">

@@ -100,7 +100,7 @@ export class SendOtpUserComponent implements OnInit {
       error => {
         console.error("exception occour");
         this.msg2 = "It seems your OTP is not valid please check your email";
-        
+      
         this.alert5 = false;
         this.alert6 = true;
         this.isClicked3=false;
