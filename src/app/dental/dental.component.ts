@@ -109,6 +109,8 @@ export class DentalComponent implements OnInit {
         console.log("Response");
         console.log(data);
         this.userdata=data;
+        this.dateofbirth=this.userdata.dateOfBirth;
+        console.log(this.dateofbirth)
       }
     )
    }
@@ -174,6 +176,7 @@ export class DentalComponent implements OnInit {
     });
     this.mail=localStorage.getItem("email");
     this.user.email=this.mail;
+    this.user.dateOfBirth=this.dateofbirth;
     
   }
   isFieldValid(field: string) {
