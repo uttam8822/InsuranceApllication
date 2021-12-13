@@ -14,6 +14,7 @@ import { AdminAuthGuard } from '../Auth/admin-auth.guard';
 export class AdloginComponent implements OnInit {
   alert: boolean = false;
   msg: String = '';
+  loginId:any;
   admin = new Admin();
   constructor(private _service: RegistrationService, private _route: Router, private auth: AdminAuthGuard) { }
 
@@ -26,6 +27,8 @@ export class AdloginComponent implements OnInit {
         console.log("response received");
         this.msg = "login success"
         this.auth.response = true;
+        this.loginId=this.admin.adminId;
+        localStorage.setItem("adid", this.loginId);
         this._route.navigate(["/adhome"])
       },
       error => {
