@@ -17,6 +17,7 @@
       font-size: 14px;
       color: #666;
     }
+
     h1 {
       margin: 0 0 20px;
       font-weight: 400;
@@ -168,12 +169,13 @@
    
     </form>
     <div class="row g-2">
-      <div class="col">  
-        <button style="background-color: green;" mat-button matStepperPrevious>Back</button>   
-      </div>  
+      
       <div class="col">   
-        <button style="background-color: green;" mat-button matStepperNext>Next</button>  
+        <button style="background-color: green;" mat-button matStepperNext [disabled]="step1Enable">Next</button>  
       </div> 
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
       </div>
   </mat-step>
   
@@ -195,7 +197,7 @@
           <input class="fname" type="text" name="name" placeholder="Your Email" [(ngModel)]='user.emailId' disabled>
 
           <label><b>Enter Your OTP</b></label>
-          <input class="otp" type="text" name="otp" placeholder="Enter Your OTP" [(ngModel)]="user.otpOfUser">
+          <input class="otp" type="text" name="otp" placeholder="Enter Your OTP" [(ngModel)]="user.otpOfUser" [disabled]="step1Enable">
 
         </div>
 
@@ -222,19 +224,21 @@
       <button style="background-color: green;" mat-button matStepperPrevious>Back</button>   
     </div>  
     <div class="col">   
-      <button style="background-color: green;" mat-button matStepperNext>Next</button>  
+      <button style="background-color: green;" mat-button matStepperNext [disabled]="step2Enable">Next</button>  
     </div> 
+    <div class="col"></div>
+    <div class="col"></div>
     </div>
   </mat-step>
 <mat-step>
   <ng-template matStepLabel>Step-3</ng-template>
     <form (ngSubmit)="resetYourPassword()" #verifyForm="ngForm">
       <div *ngIf="alert3" class="alert alert-success" role="alert">
-       {{msg1}}
+       {{msg2}}
      </div>
 
      <div *ngIf="alert4" class="alert alert-danger" role="alert">
-       {{ msg1}}
+       {{ msg2}}
      </div>
      <div class="info">
        
@@ -244,10 +248,10 @@
          <input class="fname" type="text" name="name" placeholder="Your Email" [(ngModel)]='user.emailId' disabled>
 
          <label><b>Enter new password</b></label>
-         <input class="password" type="password" name="otp" placeholder="Enter new password" [(ngModel)]="user.password">
+         <input class="password" type="password" name="otp" placeholder="Enter new password" [(ngModel)]="user.password" [disabled]="step2Enable">
 
          <label><b>Confirm new password</b></label>
-         <input class="cPass" type="password" name="otp" placeholder="Confirm Your password" >
+         <input class="cPass" type="password" name="otp" placeholder="Confirm Your password" [disabled]="step2Enable">
 
        </div>
 
@@ -274,8 +278,9 @@
       <button style="background-color: green;" mat-button matStepperPrevious>Back</button>   
     </div>  
     <div class="col">   
-      <button style="background-color: green;" mat-button matStepperNext>Next</button>  
+        
     </div> 
+    <div class="col"></div>
     </div>  
   </mat-step>
 

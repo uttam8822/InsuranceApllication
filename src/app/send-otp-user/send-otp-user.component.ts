@@ -71,7 +71,7 @@ export class SendOtpUserComponent implements OnInit {
     this._service.verifyOTPOfUser(this.user).subscribe(
       data => {
         console.log("response received");
-        this.msg1 = "Verification Done Check Your Email For Password";
+        this.msg1 = "Verification Done. Go Next For Change Your Password";
         this.alert3 = true;
         this.alert4 = false;
         this.isClicked2=false;
@@ -96,7 +96,7 @@ export class SendOtpUserComponent implements OnInit {
     this._service.verifyOTPOfUser1(this.user).subscribe(
       data => {
         console.log("response received");
-        this.msg2 = "Password reset successfull";
+        this.msg2 = " Your Password reset successfull";
         this.alert5 = true;
         this.alert6 = false;
         this.isClicked3=false;
