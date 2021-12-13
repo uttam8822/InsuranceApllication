@@ -4,6 +4,8 @@ import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -66,34 +68,14 @@ public class AdminLoginController {
 	return adminObj;
 	}	
 	
-	@PostMapping("/sendmailadmin") //Admin forget passowrd email
-	@CrossOrigin(origins="http://localhost:4200")
-	public void triggerMail(@RequestBody Admin user) throws MessagingException {
-	String tempEmailId = user.getEmailId();
-	if(tempEmailId == null) {
-	throw new MessagingException("Bad credentials");
+	@GetMapping("/getuserad/{id}")                   //Getting Application Data by Adhaar
+	@CrossOrigin(origins="*")
+	public Admin getUser(@PathVariable String id){
+		Admin obj=service.fetchByAdminId(id);
+		return obj;
+		//return repo.findAll().stream().filter(t-> email.equals(t.getEmailId())).findFirst().orElse(null);
 	}
-	if(tempEmailId != null && !"".equals(tempEmailId))
-	{
-	Admin userobj= service.fetchByEmail(tempEmailId);
-	if(userobj != null) {
-	service1.sendSimpleEmail(tempEmailId,"Dear Admin,\nYour request for password reset has been sent successfully"
-	+"\nYour emailId is : "+tempEmailId+"\nYour Name : "+userobj.getFullName()+"\nYour ID : "+userobj.getAdminId()+"\nYour password is : "
-	+userobj.getPassword()+"\n\nWe request you please do not share your credentials.In case if you "
-	+ "have any issue please contact us at the address given below"+"\n\n\n\nThank You!"
-	+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd. \nSDF No. K-13 to 16, NSEZ\nPhase-II Noida-201305 (U.P.)"
-	+ "\nPhone " +
-	"+91-120-4018100"+"\nEmail : support@impetus.com"
-	, "Request for password reset");
-	}
-	if(userobj ==null)
-	{
-	throw new MessagingException("Bad credentials");
-	}
-	}else {
-	throw new MessagingException("Bad credentials");
-	}
-	}
+	
 	
 	@PostMapping("/sendmailOTP1") //Mapping for Sending Email in Forget Password
 	@CrossOrigin(origins="http://localhost:4200")
@@ -139,14 +121,7 @@ public class AdminLoginController {
 	if(tempOTP != 0 && tempEmailId != null)
 	{
 	userobj =service.fetchUserByOtp(tempOTP,tempEmailId);
-	service1.sendSimpleEmail(tempEmailId,"Dear User,\nYour request for password reset has been sent successfully"
-	+"\nYour emailId is : "+tempEmailId+"\nYour Name : "+userobj.getFullName()+"\nYour new password is : "
-	+userobj.getPassword()+"\n\nWe request you please do not share your credentials.In case if you "
-	+ "have any issue please contact us at the address given below"+"\n\n\n\nThank You!"
-	+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd. \nSDF No. K-13 to 16, NSEZ\nPhase-II Noida-201305 (U.P.)"
-	+ "\nPhone " +
-	"+91-120-4018100"+"\nEmail : support@impetus.com"
-	, "Request for password reset");
+
 	}
 	if(userobj ==null)
 	{

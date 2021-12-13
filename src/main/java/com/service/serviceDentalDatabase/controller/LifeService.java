@@ -162,4 +162,12 @@ public class LifeService {
 		return repo.findAll().stream().filter(t-> email.equals(t.getEmail()));
 	}
 	
+	@GetMapping("/getlifedatacount")                               //Getting Application Data
+	@CrossOrigin(origins="http://localhost:4200")
+	long getUserLife(){
+		return repo.count();
+	}
+	
+		
+	
 }

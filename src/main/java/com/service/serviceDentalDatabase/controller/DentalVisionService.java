@@ -169,4 +169,10 @@ public class DentalVisionService {
 		//System.out.println(obj);
 		return repo.findAll().stream().filter(t-> email.equals(t.getEmail()));
 	}
+	
+	@GetMapping("/getdvdatacount")                               //Getting Application Data
+	@CrossOrigin(origins="http://localhost:4200")
+	long getUserLife(){
+		return repo.count();
+	}
 }
