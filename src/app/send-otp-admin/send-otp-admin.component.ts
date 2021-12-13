@@ -27,6 +27,9 @@ export class SendOtpAdminComponent implements OnInit {
   isClicked1:boolean=false;
   isClicked2:boolean=false;
   isClicked3:boolean=false;
+
+  step1Enable:boolean=true;
+  step2Enable:boolean=true;
   
   loadingBar1(){
     this.isClicked1=true;
@@ -48,6 +51,7 @@ export class SendOtpAdminComponent implements OnInit {
         this.alert = true;
         this.alert1 = false;
         this.isClicked1=false;
+        this.step1Enable=false;
 
       },
       error => {
@@ -66,10 +70,11 @@ export class SendOtpAdminComponent implements OnInit {
     this._service.verifyOTPOfUser2(this.user).subscribe(
       data => {
         console.log("response received");
-        this.msg1 = "Verification Done Check Your Email For Password";
+        this.msg1 = "Verification Done. Go Next For Change Your Password";
         this.alert3 = true;
         this.alert4 = false;
         this.isClicked2=false;
+        this.step2Enable=false;
 
       },
       error => {
@@ -90,7 +95,7 @@ export class SendOtpAdminComponent implements OnInit {
     this._service.verifyOTPOfUser3(this.user).subscribe(
       data => {
         console.log("response received");
-        this.msg2 = "Password reset successfull";
+        this.msg2 = "Your Password reset successfull";
         this.alert5 = true;
         this.alert6 = false;
         this.isClicked3=false;
