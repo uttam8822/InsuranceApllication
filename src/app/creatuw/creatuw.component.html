@@ -2,11 +2,12 @@
 
 <body>
     <h2 style="text-align: center; margin-top: 50px; color: blue;">Generate Underwriter</h2>
+    <div style=" height: 100%; width: 100%;  background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%);">
     <form #RegisterForm="ngForm" (ngSubmit)="createUw()" (ngSubmit)="RegisterForm.reset()" class="mx-1 mx-md-4"
         [formGroup]="createunderwriter">
         <div class="imgcontainer">
         </div>
-        <small class="text-danger">{{msg1}}</small>
+        <small class="text-danger"> <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>{{msg1}}</small>
         <div class="container">
 
             <div>
@@ -54,7 +55,7 @@
 
             <button style="border-radius: 5px;" type="submit">Create UnderWriter</button>
         </div>
-        <div class="container" style="background-color: white;">
+        <div class="container" style=" height: 100%; width: 100%;  background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%);">
             <div class="row g-3">
                 <div class="col">
                     <button style="border-radius: 5px;" type="button" class="cancelbtn"
@@ -67,4 +68,5 @@
             </div>
         </div>
     </form>
+</div>
 </body>

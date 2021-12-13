@@ -2,12 +2,13 @@
 
 <body>
   <h2 style="text-align: center; margin-top: 50px; color: blue;">Create Admin</h2>
+  <div style=" height: 100%; width: 100%;  background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%);">
 
   <form #RegisterForm="ngForm" (ngSubmit)="createAdmin()" (ngSubmit)="RegisterForm.reset()" class="mx-1 mx-md-4"
     [formGroup]="createadmin">
     <div class="imgcontainer">
     </div>
-    <small class="text-danger">{{msg1}}</small>
+    <small class="text-danger"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>{{msg1}}</small>
     <div class="container">
       <div>
         <label for="name"><b>Full Name</b></label>
@@ -53,7 +54,7 @@
       <button style="border-radius: 5px;" type="submit">Create Admin</button>
     </div>
 
-    <div class="container" style="background-color:white">
+    <div class="container" style="background-color:white" style=" height: 100%; width: 100%;  background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%);">
       <div class="row g-3">
 
 
@@ -71,5 +72,5 @@
       </div>
     </div>
   </form>
-
+</div>
 </body>

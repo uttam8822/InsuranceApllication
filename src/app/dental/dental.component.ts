@@ -42,10 +42,10 @@ export class DentalComponent implements OnInit {
 
 
     if (this.selectedDay == "Individual" && this.selectTobacco == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-10500/-";
+      this.selectmembermessage = "Your yearly policy will be Rs-14,086/-";
     }
     if (this.selectedDay == "Individual" && this.selectTobacco == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-10000/-";
+      this.selectmembermessage = "Your yearly policy will be Rs-13,586/-";
     }
 
     if (this.selectedDay == "Individual & Spouse" && this.selectTobacco == "Yes") {
