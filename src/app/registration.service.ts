@@ -213,5 +213,27 @@ public verifyOTPOfUser5(user: Uwriter): Observable<any> {
   public loginUwriter(uwriter: Uwriter): Observable<any> {
     return this._http.post<any>("http://localhost:8067/uwlogin", uwriter);
   }
+    //user details
+    public uwDetails(id):Observable<object> {
+      return this._http.get(`http://localhost:8067/getuseruw/${id}`);
+    }
+
+     //user details
+     public adDetails(id):Observable<object> {
+      return this._http.get(`http://localhost:8067/getuserad/${id}`);
+    }
+
+    //Application Count
+    public LifeAppCount():Observable<object> {
+      return this._http.get(`http://localhost:8067/getlifedatacount`);
+    }
+
+    public DentalAppCount():Observable<object> {
+      return this._http.get(`http://localhost:8067/getdentaldatacount`);
+    }
+
+    public DvAppCount():Observable<object> {
+      return this._http.get(`http://localhost:8067/getdvdatacount`);
+    }
 }
 
