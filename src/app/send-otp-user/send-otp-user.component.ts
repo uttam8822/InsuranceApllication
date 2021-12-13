@@ -28,6 +28,7 @@ export class SendOtpUserComponent implements OnInit {
 
   step1Enable:boolean=true;
   step2Enable:boolean=true;
+  
   ngOnInit(): void {
 
   }
