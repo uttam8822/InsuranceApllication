@@ -1,3 +1,4 @@
+import { User } from './../user';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
@@ -18,7 +19,7 @@ export class DentalComponent implements OnInit {
   //variable created for scroll view
   @ViewChild('scroll') scroll: ElementRef;
   private formSubmitAttempt: boolean;
-
+ user1=new User();
   mail:any;
   submitted = false;
   isClicked:boolean=false;
@@ -32,7 +33,7 @@ export class DentalComponent implements OnInit {
   cancelExixting: string = '';
   groupInsuranceUser: string = '';
   selectTobacco: string = '';
-
+ dateofbirth:any;
   selectmembermessage: String = '';
   id: any;
   userdata: any;;
@@ -173,6 +174,7 @@ export class DentalComponent implements OnInit {
     });
     this.mail=localStorage.getItem("email");
     this.user.email=this.mail;
+    
   }
   isFieldValid(field: string) {
 
