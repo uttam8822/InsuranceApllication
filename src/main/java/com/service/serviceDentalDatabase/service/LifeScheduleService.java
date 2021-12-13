@@ -1,20 +1,24 @@
 	//Scheduler for Life Services
-	package com.service.serviceDentalDatabase.service;
+package com.service.serviceDentalDatabase.service;
 	
-	import org.slf4j.LoggerFactory;
+import org.slf4j.LoggerFactory;
 	
-	import java.util.Date;
-	import java.util.List;
+import java.util.Date;
+import java.util.List;
 	
-	import org.slf4j.Logger;
-	import org.springframework.beans.factory.annotation.Autowired;
-	import org.springframework.scheduling.annotation.Scheduled;
-	import org.springframework.stereotype.Service;
-	
-	import com.service.serviceDentalDatabase.model.LifeUser;
+import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
+import com.service.serviceDentalDatabase.model.Admin;
+import com.service.serviceDentalDatabase.model.LifeUser;
 import com.service.serviceDentalDatabase.model.Registration;
+import com.service.serviceDentalDatabase.model.UWUser;
+import com.service.serviceDentalDatabase.repo.AdminScheduleRepo;
 import com.service.serviceDentalDatabase.repo.LifeScheduleRepo;
 import com.service.serviceDentalDatabase.repo.RegistrationSchedulerRepo;
+import com.service.serviceDentalDatabase.repo.UWSchedulerRepo;
 	
 	@Service
 	public class LifeScheduleService {
@@ -23,6 +27,10 @@ import com.service.serviceDentalDatabase.repo.RegistrationSchedulerRepo;
 	private LifeScheduleRepo repo;
 	@Autowired
 	private RegistrationSchedulerRepo rs;
+	@Autowired
+	private AdminScheduleRepo ar;
+	@Autowired
+	private UWSchedulerRepo ur;
 	@Autowired
 	private EmailSendService service1;
 	Logger log = LoggerFactory.getLogger(LifeScheduleService.class);
@@ -69,5 +77,39 @@ import com.service.serviceDentalDatabase.repo.RegistrationSchedulerRepo;
 		}
 	     
 	}
+	
+	@Scheduled(fixedRate=600000)
+	public void otpTokenAdmin() {
+	List<Admin> users1= ar.findAll();
+	int l=users1.size();
+	System.out.println(l);
+	for(Admin user : users1) {
+		int a = (int)(Math.random()*(99999999-11111111+1)+11111111);
+			if(user.getOtpOfUser()!=0)
+			{
+		      user.setOtpOfUser(a);
+		      System.out.println(a);
+			}
+			  ar.save(user);
+		}
+	}
+	
+	@Scheduled(fixedRate=600000)
+	public void otpTokenUW() {
+	List<UWUser> users1= ur.findAll();
+	int l=users1.size();
+	System.out.println(l);
+	for(UWUser user : users1) {
+		int a = (int)(Math.random()*(99999999-11111111+1)+11111111);
+			if(user.getOtpOfUser()!=0)
+			{
+		      user.setOtpOfUser(a);
+		      System.out.println(a);
+			}
+			  ur.save(user);
+		}
+	     
+	}
+	
 	}
 
