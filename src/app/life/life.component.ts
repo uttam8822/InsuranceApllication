@@ -35,8 +35,6 @@ export class LifeComponent implements OnInit {
   id: any;
   userdata: any;
   totalPayment:number;
-  d1:number=Date.now();
-  
 
 
   selectChangeHandler(event: any) {
@@ -119,12 +117,10 @@ export class LifeComponent implements OnInit {
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   submitted = false;
   constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { 
-     
     this.id=localStorage.getItem("email");
     this._service.userDetails(this.id).subscribe(
       data=>{
         console.log("Response");
-        
         console.log(data);
         this.userdata=data;
       }
@@ -358,6 +354,45 @@ export class LifeComponent implements OnInit {
   }
 
 
+
+  completed: boolean = false;
+  state1: string;
+done() {
+    this.completed = true;
+    this.state1 = 'done';
+    console.log(this.LifeForm.valid);
+    
+}
+
+
+todayDate=  Date.now();
+
+ nextPremiumDate:any;
+  __nextPremiumDate() {
+
+    var date:any = new Date();
+
+    var todayDate:any = date.getDate();
+
+    var month:any = date.getMonth() + 1;
+
+      var year:any = date.getFullYear() +1;
+
+      if(todayDate < 10)
+
+      {todayDate = '0' + todayDate;}
+
+      if(month < 10)
+
+      {month = '0' + month;}
+
+       this.nextPremiumDate = year + "-" + month + "-" + todayDate;
+
+       console.log(this.nextPremiumDate );}
+
+  
+  
+
   paymentPopUp(){
     this.matDialog.open(SendEmailComponent, {
 
@@ -366,8 +401,9 @@ export class LifeComponent implements OnInit {
       height: "250px",
 
       width: "630px",
-      data:this.totalPayment
-
+      data:
+         this.totalPayment,
+    
     });
   }
   }
