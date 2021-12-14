@@ -30,6 +30,7 @@ export class Service1Component implements OnInit {
         console.log("Response");
         console.log(data);
         this.userdata=data;
+        localStorage.setItem("date", this.userdata.dateOfBirth);
         this.StartLetter=this.userdata.firstName.toUpperCase();
         this.FirstLetter=this.userdata.firstName.charAt(0).toUpperCase();
         this.LastLetter=this.userdata.lastName.charAt(0).toUpperCase();

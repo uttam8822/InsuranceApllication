@@ -1,10 +1,10 @@
 import { User } from './../user';
-
+import { DatePipe } from '@angular/common'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { RegistrationService } from '../registration.service';
 import { DentalUser } from '../dental-user';
-import { Router } from '@angular/router';
+import { Router, Data } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { POPUPComponent } from '../popup/popup.component';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
@@ -22,12 +22,12 @@ export class DentalComponent implements OnInit {
   private formSubmitAttempt: boolean;
  user1=new User();
   mail:any;
+  date:any;
   submitted = false;
   isClicked:boolean=false;
   Dental: any;
   totalPayment:number;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-
 
   selectGender: string = '';
   selectedDay: string = '';
@@ -38,8 +38,8 @@ export class DentalComponent implements OnInit {
  dateofbirth:any;
   selectmembermessage: String = '';
   id: any;
-  userdata: any;;
-
+  reversedate:any;
+  userdata: any;datepipe: any;
   selectChangeHandler(event: any) {
     this.selectedDay = event.target.value;
 
@@ -125,11 +125,15 @@ export class DentalComponent implements OnInit {
       data=>{
         console.log("Response");
         console.log(data);
+       
         this.userdata=data;
-        this.dateofbirth=this.userdata.dateOfBirth;
-        console.log(this.dateofbirth)
+        
+       // this.dateofbirth=this.userdata.dateOfBirth;
+        //console.log(this.dateofbirth)
       }
     )
+
+
    }
 
    maxDate:any;
@@ -158,7 +162,7 @@ export class DentalComponent implements OnInit {
   
   ngOnInit(): void {
 
-    this.futureDateDisable();
+   this.futureDateDisable();
     this.Dental = new FormGroup({
       "firstname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       "lastname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
@@ -192,9 +196,10 @@ export class DentalComponent implements OnInit {
       "bankName": new FormControl("",[Validators.required,Validators.pattern('[a-zA-Z- ]*')])
     });
     this.mail=localStorage.getItem("email");
+    this.date=localStorage.getItem("date");
+    this.reversedate=this.date;
     this.user.email=this.mail;
-    this.user.dateOfBirth=this.dateofbirth;
-    
+    this.user.dateOfBirth=this.reversedate;
   }
   isFieldValid(field: string) {
 
@@ -260,7 +265,14 @@ export class DentalComponent implements OnInit {
   get additionalComments() { return this.Dental.get('additionalComments'); }
   user = new DentalUser();
 
-
+  applyDental1() {
+    this.submitted = true;
+    if (this.Dental.invalid) {
+      this.validateAllFormFields(this.Dental);
+      this.isClicked=false;
+      return;
+    }
+  }
 
   //apply dental application function
   applyDental() {
@@ -270,10 +282,7 @@ export class DentalComponent implements OnInit {
       this.isClicked=false;
       return;
     }
-
-    
-    
-
+     
     this._service.applyUserForDental(this.user).subscribe(
       data => {
         console.log("response received");

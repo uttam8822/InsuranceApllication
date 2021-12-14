@@ -35,6 +35,8 @@ export class LifeComponent implements OnInit {
   id: any;
   userdata: any;
   totalPayment:number;
+  date:any;
+  reversedate:any;
 
 
   selectChangeHandler(event: any) {
@@ -122,7 +124,9 @@ export class LifeComponent implements OnInit {
       data=>{
         console.log("Response");
         console.log(data);
+        
         this.userdata=data;
+      //  localStorage.setItem("datelife", this.userdata.dateOfBirth);
       }
     )
   }
@@ -222,6 +226,9 @@ export class LifeComponent implements OnInit {
     });
     this.mail=localStorage.getItem("email");
     this.user.email=this.mail;
+    this.date=localStorage.getItem("date");
+    this.reversedate=this.date;
+    this.user.dateOfBirth=this.reversedate;
   }
   isFieldValid(field: string) {
 
