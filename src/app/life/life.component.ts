@@ -35,6 +35,8 @@ export class LifeComponent implements OnInit {
   id: any;
   userdata: any;
   totalPayment:number;
+  d1:number=Date.now();
+  
 
 
   selectChangeHandler(event: any) {
@@ -117,10 +119,12 @@ export class LifeComponent implements OnInit {
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   submitted = false;
   constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { 
+     
     this.id=localStorage.getItem("email");
     this._service.userDetails(this.id).subscribe(
       data=>{
         console.log("Response");
+        
         console.log(data);
         this.userdata=data;
       }

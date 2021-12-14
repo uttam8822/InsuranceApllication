@@ -27,6 +27,7 @@ export class DentalVisionComponent implements OnInit {
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   mail: any;
   id: any;
+  d1:number=Date.now();
   userdata: any;
   constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { 
     this.id=localStorage.getItem("email");
