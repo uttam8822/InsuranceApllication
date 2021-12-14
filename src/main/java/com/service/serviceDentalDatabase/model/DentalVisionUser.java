@@ -1,6 +1,8 @@
 //POJO class for Dental and Vision Service
 package com.service.serviceDentalDatabase.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -41,6 +43,9 @@ public class DentalVisionUser {
 	   private String bankAccountNumber;
 	   private String bankName;
 	   private String ifscCode;
+	   private Date submitDate;
+	   private Date nextPayment;
+	   private int totalPayAmount;
 
 
 	   
@@ -49,12 +54,24 @@ public class DentalVisionUser {
 		super();
 	}
 	//Parameterized Constructor
-	public DentalVisionUser(String status,String firstName, String middleNmme, String lastName, String aadhar, String email,
+ 
+
+
+    //Getter and Setter Method
+
+
+
+	public String getReason() {
+		return reason;
+	}
+
+	public DentalVisionUser(String firstName, String middleNmme, String lastName, String aadhar, String email,
 			String pan, String address, String zip, String city, String state, String contact, String dateOfBirth,
-			String occupation, String income, String selectPlane, String gender, String healthIssue,
-			String cancellingInsurance, String groupInsurance, String tobacco, String oralOperation,
-			String lastDentalCkeck, String anyCavity, String wearGlasses, String anyEyeDisease, String anyEyeOperation,
-			String additionalComments, String member,String reason) {
+			String occupation, String income, String selectPlane, String gender, String cancellingInsurance,
+			String groupInsurance, String tobacco, String oralOperation, String lastDentalCkeck, String anyCavity,
+			String wearGlasses, String anyEyeDisease, String anyEyeOperation, String additionalComments, String status,
+			String member, String reason, String bankAccountNumber, String bankName, String ifscCode, Date submitDate,
+			Date nextPayment, int totalPayAmount) {
 		super();
 		this.firstName = firstName;
 		this.middleNmme = middleNmme;
@@ -72,7 +89,6 @@ public class DentalVisionUser {
 		this.income = income;
 		this.selectPlane = selectPlane;
 		this.gender = gender;
-		
 		this.cancellingInsurance = cancellingInsurance;
 		this.groupInsurance = groupInsurance;
 		this.tobacco = tobacco;
@@ -89,18 +105,10 @@ public class DentalVisionUser {
 		this.bankAccountNumber = bankAccountNumber;
 		this.bankName = bankName;
 		this.ifscCode = ifscCode;
+		this.submitDate = submitDate;
+		this.nextPayment = nextPayment;
+		this.totalPayAmount = totalPayAmount;
 	}
-
-
-
-    //Getter and Setter Method
-
-
-
-	public String getReason() {
-		return reason;
-	}
-
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
@@ -304,6 +312,27 @@ public class DentalVisionUser {
 	}
 	public void setAdditionalComments(String additionalComments) {
 		this.additionalComments = additionalComments;
+	}
+	public Date getSubmitDate() {
+		return submitDate;
+	}
+	public void setSubmitDate(Date submitDate) {
+		this.submitDate = submitDate;
+	}
+	public Date getNextPayment() {
+		return nextPayment;
+	}
+	public void setNextPayment(Date nextPayment) {
+		this.nextPayment = nextPayment;
+	}
+	public int getTotalPayAmount() {
+		return totalPayAmount;
+	}
+	public void setTotalPayAmount(int totalPayAmount) {
+		this.totalPayAmount = totalPayAmount;
 	}   
+	
+	
+	
 
 }

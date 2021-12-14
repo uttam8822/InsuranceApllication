@@ -1,6 +1,8 @@
 //POJO class for Life Services
 package com.service.serviceDentalDatabase.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -42,17 +44,35 @@ public class LifeUser {
 	   private String  bankName ;
 	   private String  bankAccountNumber ;
 	   private String   ifscCode ;
+	   private Date submitDate;
+	   private Date nextPayment;
+	   private int totalPayAmount;
 
 	public LifeUser() {
 		super();
 	}
 	//Paramertized Constructor
 
+	 
+
+
+
+
+
+
+	//Getter and Setter Methods
+	public String getBankName() {
+		return bankName;
+	}
+
+
+
 	public LifeUser(String firstName, String middleNmme, String lastName, String aadhar, String email, String pan,
 			String address, String zip, String city, String state, String contact, String dateOfBirth,
 			String occupation, String income, String selectPlane, String gender, String cancellingInsurance,
 			String groupInsurance, String tobacco, String hivIssue, String lungsIssue, String additionalComments,
-			String status, String member, String reason, String bankName, String bankAccountNumber, String ifscCode) {
+			String status, String member, String reason, String bankName, String bankAccountNumber, String ifscCode,
+			Date submitDate, Date nextPayment, int totalPayAmount) {
 		super();
 		this.firstName = firstName;
 		this.middleNmme = middleNmme;
@@ -82,20 +102,10 @@ public class LifeUser {
 		this.bankName = bankName;
 		this.bankAccountNumber = bankAccountNumber;
 		this.ifscCode = ifscCode;
+		this.submitDate = submitDate;
+		this.nextPayment = nextPayment;
+		this.totalPayAmount = totalPayAmount;
 	}
-
-
-
-
-
-
-	//Getter and Setter Methods
-	public String getBankName() {
-		return bankName;
-	}
-
-
-
 	public void setBankName(String bankName) {
 		this.bankName = bankName;
 	}
@@ -263,5 +273,31 @@ public class LifeUser {
 	}
 	public void setAdditionalComments(String additionalComments) {
 		this.additionalComments = additionalComments;
+	}
+
+	public Date getSubmitDate() {
+		return submitDate;
+	}
+
+	public void setSubmitDate(Date submitDate) {
+		this.submitDate = submitDate;
+	}
+
+	public Date getNextPayment() {
+		return nextPayment;
+	}
+
+	public void setNextPayment(Date nextPayment) {
+		this.nextPayment = nextPayment;
+	}
+
+	public int getTotalPayAmount() {
+		return totalPayAmount;
+	}
+
+	public void setTotalPayAmount(int totalPayAmount) {
+		this.totalPayAmount = totalPayAmount;
 	}  
+	
+	
 }
