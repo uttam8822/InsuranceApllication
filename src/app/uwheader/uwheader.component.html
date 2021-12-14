@@ -56,12 +56,12 @@
         <div class="row display-table-row">
             <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
                 <div class="logo" style="border:3px solid #ff6600; border-radius:100%; height:130px;width: 130px; background-color: white; margin-left: 30px;">
-                    <h2 style="text-align: center; margin-top: 18%; color: #ff6600;">Hello<br>Welcome</h2>
+                    <h2 style="text-align: center; margin-top: 18%; color: #ff6600;">Hello<br>{{name}}</h2>
                 </div>
                 <div class="navi" style="margin-top: 20px;">
                     <ul>
                         <li class="active"><a  routerLink="/uwriterhome"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm" style="color:#ff6600;"><b>Home</b></span></a></li>
-                        <li><a routerLink="/UWuserDetails"><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm" style="color:#ff6600;"><b>User <Details></Details></b></span></a></li>
+                        <li><a routerLink="/UWuserDetails"><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm" style="color:#ff6600;"><b>User Details</b></span></a></li>
                    
                         <li><a routerLink="/home"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="hidden-xs hidden-sm" style="color:#ff6600;"><b>LogOut</b></span></a></li>
                    
@@ -71,18 +71,20 @@
             <div class="col ">
                  
                 <div class="user-dashboard" style="background-color: #ff6600;">
-                    <h1 style="color: #ffffff; margin-left: 20px;">Under Writer Dashboard</h1>
+                    <h1 style="color: #ffffff; margin-left: 20px;">{{name}}'s Dashboard</h1>
                     
                 </div>
                 
                 <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
                     <div class="card">
-                        <h2 class="card-header" style="background-color: #ff6600; color: white;">Dental Service</h2>
-                        <div class="card-body">
-                           
+                        <h2 class="card-header" style="background-color: #ff6600; color: white;">Dental Service
+                            <span style="background-color: rgb(255, 0, 0); color: #ffffff; border-radius: 50%; 
+                            width: 50px; height: 50px; margin-left: 20px; padding: 10px;" *ngIf="l2">{{l2}}</span>
+                        </h2>
+                               <div class="card-body">
+                                
                             <p class="card-text" style="font-size: 17px;">
-                
-                                Most health insurance companies in India do not provide any coverage for dental procedures as
+                                 Most health insurance companies in India do not provide any coverage for dental procedures as
                                 they fall under the cosmetic treatment category but as the uncertainties are increasing you need
                                 a dental Insurance also. 
                                 You Can Apply in our company For Dental Insurance With Lot's of Attractive Plans.
@@ -95,7 +97,10 @@
                 
                 <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
                     <div class="card">
-                        <h2 class="card-header" style="background-color: #ff6600; color: white;">Life Service</h2>
+                        <h2 class="card-header" style="background-color: #ff6600; color: white;">Life Service 
+                            <span style="background-color: rgb(255, 0, 0); color: #ffffff; border-radius: 50%; 
+                            width: 50px; height: 50px; margin-left: 20px; padding: 10px;" *ngIf="l1">{{l1}}</span>
+                        </h2>
                         <div class="card-body">
                         
                             <p class="card-text" style="font-size: 17px;">With uncertainties increasing all around, life insurance is proving to be an
@@ -111,7 +116,10 @@
                 
                 <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
                     <div class="card">
-                        <h2 class="card-header" style="background-color: #ff6600; color: white;">Vision & Dental</h2>
+                        <h2 class="card-header" style="background-color: #ff6600; color: white;">Vision & Dental 
+                            <span style="background-color: rgb(255, 0, 0); color: #ffffff; border-radius: 50%; 
+                            width: 50px; height: 30px; margin-left: 20px; padding: 10px;" *ngIf="l3">{{l3}}</span>
+                        </h2>
                         <div class="card-body">
                            
                            

@@ -60,11 +60,11 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
   { path: 'adhome', component: AdhomeComponent,canActivate: [AdminAuthGuard] },
-  { path: 'uwriterhome', component: UwhomeComponent,canActivate: [UwriterAuthGuard] },
+  { path: 'uwriterhome', component: UwhomeComponent},//,canActivate: [UwriterAuthGuard] 
   { path: 'uwlogin', component: UwloginComponent },
   { path: 'adlogin', component: AdloginComponent },
   { path: 'uhome', component: UhomeComponent, canActivate: [UserAuthGuard] },
-  { path: 'life', component: LifeComponent },//, canActivate: [UserAuthGuard]
+  { path: 'life', component: LifeComponent, canActivate: [UserAuthGuard] },
   { path: 'service', component: ServiceComponent },
   { path: 'cretuw', component: CreatuwComponent, canActivate: [AdminAuthGuard] },
   { path: 'dental', component: DentalComponent, canActivate: [UserAuthGuard] },

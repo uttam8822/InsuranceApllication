@@ -18,7 +18,7 @@ export class UwloginComponent implements OnInit {
   uwriter = new Uwriter();
   msg: string = '';
   forgot = 'Forgot your password? Please contact to our customer support at(support@impetus.com).';
-
+  loginId:any;
   constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog, private auth: UwriterAuthGuard) { }
 
   ngOnInit(): void {
@@ -31,6 +31,9 @@ export class UwloginComponent implements OnInit {
         console.log("registered successfully");
         this.msg = "Login Successfully";
         this.auth.response = true;
+       this.loginId=this.uwriter.writerId;
+       console.log(this.loginId)
+       localStorage.setItem("id", this.loginId);
         this._route.navigate(["/uwriterhome"]);
       },
       error => {
