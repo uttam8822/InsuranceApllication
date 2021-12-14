@@ -59,8 +59,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'adhome', component: AdhomeComponent,canActivate: [AdminAuthGuard] },
-  { path: 'uwriterhome', component: UwhomeComponent},//,canActivate: [UwriterAuthGuard] 
+  { path: 'adhome', component: AdhomeComponent},//canActivate: [AdminAuthGuard] 
+  { path: 'uwriterhome', component: UwhomeComponent,canActivate: [UwriterAuthGuard] },
   { path: 'uwlogin', component: UwloginComponent },
   { path: 'adlogin', component: AdloginComponent },
   { path: 'uhome', component: UhomeComponent, canActivate: [UserAuthGuard] },

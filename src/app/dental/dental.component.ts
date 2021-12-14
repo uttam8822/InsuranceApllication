@@ -26,6 +26,7 @@ export class DentalComponent implements OnInit {
   submitted = false;
   isClicked:boolean=false;
   Dental: any;
+  d1:number=Date.now();
   totalPayment:number;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
 

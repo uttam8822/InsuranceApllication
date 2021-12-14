@@ -1,5 +1,21 @@
  <body>
-     
+  <div class="header">
+    <div>
+      <a class="nav" routerLink="/service1">Impetus Insurance</a>
+    </div>
+    <marquee width="20%" hieght="20%" hspace="150" direction="left" height="80px">
+      Invest Today and Enjoy Tomorrow!
+    </marquee>
+    <div class="header-right">
+      <!--<a class="nav-link"routerLink="/uhome">Home</a>-->
+      <a class="nav-link" routerLink="/service1">Dashboard</a>
+      <a class="nav-link" routerLink="/contact1">Contact Us</a>
+      <a class="nav-link" routerLink="/about1">About Us</a>
+      <a class="nav-link" routerLink="/login">Logout</a>
+      
+  </div>
+  </div>
+
   <div class="row" style="margin: 40px; background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%); height: 200px;">
     <div class="col">
       <div class="logo" style="border:3px solid #ff6600; border-radius:100%; height:150px;width: 150px; background-color: white; margin-left: 30px;">
@@ -172,6 +188,18 @@
                                         <td>{{user1.reason}}</td>
                                       </tr>
                                     
+                                      <tr>
+                                        <td>Application Submit Date</td>
+                                        <td>{{user1.submitDate}}</td>
+                                      </tr>
+                                      <tr>
+                                       <td>Annual Policy Payment</td>
+                                       <td>{{user1.totalPayAmount}}</td>
+                                     </tr>
+                                       <tr>
+                                         <td>Next Policy Payment Date</td>
+                                         <td>{{user1.nextPayment}}</td>
+                                       </tr>
                              
       
                                    </tbody>
@@ -324,7 +352,18 @@
                                       <td>Reason of Rejection</td>
                                       <td>{{user.reason}}</td>
                                     </tr>
-                             
+                                    <tr>
+                                      <td>Application Submit Date</td>
+                                      <td>{{user.submitDate}}</td>
+                                    </tr>
+                                    <tr>
+                                     <td>Annual Policy Payment</td>
+                                     <td>{{user.totalPayAmount}}</td>
+                                   </tr>
+                                     <tr>
+                                       <td>Next Policy Payment Date</td>
+                                       <td>{{user.nextPayment}}</td>
+                                     </tr>
                              
                              
                                    </tbody>
@@ -498,7 +537,18 @@
                                     </tr>
                             
                             
-                            
+                                    <tr>
+                                      <td>Application Submit Date</td>
+                                      <td>{{user3.submitDate}}</td>
+                                    </tr>
+                                    <tr>
+                                     <td>Annual Policy Payment</td>
+                                     <td>{{user3.totalPayAmount}}</td>
+                                   </tr>
+                                     <tr>
+                                       <td>Next Policy Payment Date</td>
+                                       <td>{{user3.nextPayment}}</td>
+                                     </tr>
                              
                              
                                    </tbody>

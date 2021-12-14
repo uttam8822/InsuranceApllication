@@ -27,6 +27,7 @@ export class DentalVisionComponent implements OnInit {
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   mail: any;
   id: any;
+  d1:number=Date.now();
   userdata: any;
   date:any;
   reversedate:any;

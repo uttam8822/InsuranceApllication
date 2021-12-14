@@ -25,12 +25,12 @@
             <h1 style="color: rgb(53, 11, 45); text-align: center; font-weight: 900; font-size: xx-large;">Apply for
                 Dental Insurance</h1>
         </div> -->
-         
+
         <form [formGroup]="Dental" #dentalForm="ngForm" (ngSubmit)="applyDental1()"style="font-size: small;">
             <mat-stepper>
 
                 <mat-step >
-                  <ng-template matStepLabel>Personal Details</ng-template>  
+                  <ng-template matStepLabel>Personal Details</ng-template>
             <div class="row g-3">
                 <div class="col">
                     <label>First Name<span style="color: red;">*</span></label>
@@ -82,8 +82,8 @@
                         <span class="error" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
                         <span class="error" *ngIf="email.errors?.required"> *Email is required.</span>
                     </div>
-                    <img *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px;"/> 
-                   
+                    <img *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px;"/>
+
                 </div>
 
                 <div class="col">
@@ -201,15 +201,15 @@
             </div>
             <br>
             <br>
-            <div>  
-                <button mat-button matStepperNext>Next</button>  
-              </div>  
+            <div>
+                <button mat-button matStepperNext>Next</button>
+              </div>
         </mat-step>
 
 
 
         <mat-step>
-            <ng-template matStepLabel>Medical Information and Other Details</ng-template> 
+            <ng-template matStepLabel>Medical Information and Other Details</ng-template>
             <div class="row g-2">
                 <div class="col">
                     <label for="selectPlane">Describe time in year for your plan ?<span
@@ -294,7 +294,7 @@
 
 
             <div class="row g-2">
-    
+
                 <div class="col ">
                     <p>Do you have group life insurance through work?<span style="color: red;">*</span></p>
                     <select name="cars" id="cars" style="height: 35px; width: 450px;"
@@ -331,15 +331,15 @@
 
             <br>
             <br>
-                        <div>  
-                            <button mat-button matStepperPrevious>Back</button>  
-                            <button mat-button matStepperNext>Next</button>  
-                          </div>  
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                          </div>
                     </mat-step>
 
                         <mat-step >
-                            <ng-template matStepLabel>Payment Details</ng-template> 
-            
+                            <ng-template matStepLabel>Payment Details</ng-template>
+
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Name of your Bank.</label>
                                 <input formControlName="bankName" class="form-control" aria-label="zip"
@@ -364,12 +364,12 @@
                                     </div>
                             </div>
 
-                      
+
                             <div style="margin-left: 45%;">
-                            <img  *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px; align-content: center;"/> 
+                            <img  *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px; align-content: center;"/>
                         </div>
-                        
-                       
+
+
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Bank IFSC Code.</label>
                                 <input formControlName="ifscCode" class="form-control" aria-label="zip"
@@ -377,10 +377,10 @@
                                     style="height: 35px;" />
                                     <div *ngIf="ifscCode.invalid && (ifscCode.touched || ifscCode.dirty)">
                                         <span class="error" *ngIf="ifscCode.errors?.required"> *IFSC Code is required.</span>
-                                        <span class="error" *ngIf="ifscCode.errors?.pattern"> *Invalid IFSC Code.</span> 
-                                    </div> 
+                                        <span class="error" *ngIf="ifscCode.errors?.pattern"> *Invalid IFSC Code.</span>
+                                    </div>
                             </div>
-                        
+
 
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Additional Comments.</label>
@@ -391,25 +391,25 @@
                                     <span class="error" *ngIf="additionalComments.errors?.pattern"> *Enter Only Characters.</span>
                                 </div>
                         </div>
- 
+
             <br>
-            <div>  
-                <button mat-button matStepperPrevious>Back</button>   
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
                 <button mat-button matStepperNext>Next</button>
-              </div> 
+              </div>
         </mat-step>
 
         <mat-step >
-            <ng-template matStepLabel>Make Payment</ng-template> 
+            <ng-template matStepLabel>Make Payment</ng-template>
                         <div class="row" style=" margin-top: 20px; margin-left: 10%; margin-right: 10%;  font-weight: bold; border: 3px solid #ff6600; border-radius: 25px; padding: 20px; ">
                             <h3 class="text-success">
-                                Dear user based on your application details your policy will be worth Rs.{{totalPayment}} -/.yearly. If you want to go for this 
+                                Dear user based on your application details your policy will be worth Rs.{{totalPayment}} -/.yearly. If you want to go for this
                                 make your first payment details and submit your application.
                             </h3>
                             <table class="table">
                                 <thead style="background-color: #ff6600; color: white;">
                                   <tr>
-                                    <th>Sr. No</th>  
+                                    <th>Sr. No</th>
                                     <th>Name</th>
                                     <th>Details</th>
                                   </tr>
@@ -419,25 +419,25 @@
                                         <th scope="row">1</th>
                                         <td>Bank Name</td>
                                         <td>{{user.bankName}}</td>
-                                        
+
                                       </tr>
                                       <tr>
                                         <th scope="row">2</th>
                                         <td>Bank Account Number</td>
                                         <td>{{user.bankAccountNumber}}</td>
-                                        
+
                                       </tr>
                                       <tr>
                                         <th scope="row">3</th>
                                         <td>IFSC Code </td>
                                         <td>{{user.ifscCode}}</td>
-                                        
-                                      </tr>    
+
+                                      </tr>
                                 </tbody>
                               </table>
                               <button class="btn btn-warning" (click)="paymentPopUp()"> Pay</button>
                         </div>
-        
+
                     <div class="row" style="margin-top: 100px;">
                     <div class="col">
                         <button type="submit" class="btn btn-success" (click)="scrollTop()"
@@ -445,23 +445,25 @@
                         (click)="user.selectPlane=selectPlaneYear" (click)="user.cancellingInsurance=cancelExixting"
                         (click)="user.member=selectedDay"
                         (click)="user.groupInsurance=groupInsuranceUser"
+                        (click)="user.submitDate=d1" (click)="user.nextPayment=d1"  (click)="user.totalPayAmount=totalPayment"
+                        (click)="formProgress()">Submit</button>
                         (click)="formProgress()"(click)="applyDental()">Submit</button>
                     </div>
-        
+
                     <div class="col">
                     <button (click)="scrollTop()" style="background-color: rgb(240, 52, 52) " type="reset"
                         class="btn btn-success" (click)="dentalForm.reset()">Clear</button>
                     </div>
-        
-        
+
+
                     <div class="col">
                     <button routerLink="/service1" style="background-color: rgb(240, 52, 52) " type="reset"
                         class="btn btn-success" (click)="dentalForm.reset()">Cancel</button>
                     </div>
-        
+
                     </div>
                     <br>
-                    <button mat-button matStepperPrevious>Back</button> 
+                    <button mat-button matStepperPrevious>Back</button>
                     </mat-step>
          </mat-stepper>
         </form>

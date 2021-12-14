@@ -55,7 +55,7 @@
     <div class="container-fluid display-table">
         <div class="row display-table-row">
             <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
-                <div class="logo" style="border:3px solid #ff6600; border-radius:100%; height:130px;width: 130px; background-color: white; margin-left: 30px;">
+                <div class="logo" style="border:3px solid #ff6600; border-radius:100%; height:130px;width: 130px; background-color: white; margin-left: 40px; margin-top: 20px;">
                     <h2 style="text-align: center; margin-top: 18%; color: #ff6600;">Hello<br>{{name}}</h2>
                 </div>
                 <div class="navi" style="margin-top: 20px;">
@@ -72,14 +72,48 @@
                  
                 <div class="user-dashboard" style="background-color: #ff6600;">
                     <h1 style="color: #ffffff; margin-left: 20px;">{{name}}'s Dashboard</h1>
+
+                  
                     
                 </div>
+                <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
+                    <h2 style="text-align: center; background-color: #ff6600; color: #ffffff;">Recieved Application</h2>
+                    <div class="col">
+                        <h3 style="margin-left: 30px;"><b>Dental Application</b></h3>
+                        <circle-progress [percent]=l2 [radius]="70"
+                         [outerStrokeWidth]="16" [innerStrokeWidth]="5" 
+                         [outerStrokeColor]="'#ff6600'" [innerStrokeColor]="'#78C000'"
+                         [animation]="true" [animationDuration]="300" [space]="5" 
+                         [showSubtitle]= "false" [showUnits]= "false" 
+                           
+                        [clockwise]= "false"> </circle-progress>
+                    </div>
+                    <div class="col">
+                        <h3 style="margin-left: 30px;"><b>Life Application</b></h3>
+                        <circle-progress [percent]=l1 [radius]="70"
+                         [outerStrokeWidth]="16" [innerStrokeWidth]="5" 
+                         [outerStrokeColor]="'#ff6600'" [innerStrokeColor]="'#FF6347'"
+                         [animation]="true" [animationDuration]="300" [space]="5" 
+                         [showSubtitle]= "false" [showUnits]= "false" 
+                           
+                        [clockwise]= "false"> </circle-progress>
+                    </div>
+                    <div class="col">
+                        <h3 style="margin-left: 10px;"><b>Dental & Vision Application</b></h3>
+                        <circle-progress [percent]=l3 [radius]="70"
+                         [outerStrokeWidth]="16" [innerStrokeWidth]="5" 
+                         [outerStrokeColor]="'#ff6600'" [innerStrokeColor]="'#4882c2'"
+                         [animation]="true" [animationDuration]="300" [space]="5" 
+                         [showSubtitle]= "false" [showUnits]= "false" 
+                           
+                        [clockwise]= "false"> </circle-progress>
+                    </div>
+                </div>  
                 
                 <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
                     <div class="card">
                         <h2 class="card-header" style="background-color: #ff6600; color: white;">Dental Service
-                            <span style="background-color: rgb(255, 0, 0); color: #ffffff; border-radius: 50%; 
-                            width: 50px; height: 50px; margin-left: 20px; padding: 10px;" *ngIf="l2">{{l2}}</span>
+                            
                         </h2>
                                <div class="card-body">
                                 
@@ -98,8 +132,7 @@
                 <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
                     <div class="card">
                         <h2 class="card-header" style="background-color: #ff6600; color: white;">Life Service 
-                            <span style="background-color: rgb(255, 0, 0); color: #ffffff; border-radius: 50%; 
-                            width: 50px; height: 50px; margin-left: 20px; padding: 10px;" *ngIf="l1">{{l1}}</span>
+                             
                         </h2>
                         <div class="card-body">
                         
@@ -117,8 +150,7 @@
                 <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
                     <div class="card">
                         <h2 class="card-header" style="background-color: #ff6600; color: white;">Vision & Dental 
-                            <span style="background-color: rgb(255, 0, 0); color: #ffffff; border-radius: 50%; 
-                            width: 50px; height: 30px; margin-left: 20px; padding: 10px;" *ngIf="l3">{{l3}}</span>
+                            
                         </h2>
                         <div class="card-body">
                            

@@ -32,6 +32,9 @@ export class DVRegistration {
     bankName:string;
     bankAccountNumber: string;
     ifscCode: string;
+    submitDate:number;
+    nextPayment:number;
+   totalPayAmount:number;
 
     constructor() { }
 }
