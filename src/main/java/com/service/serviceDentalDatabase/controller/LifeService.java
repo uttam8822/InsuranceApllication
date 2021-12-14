@@ -38,25 +38,25 @@ public class LifeService {
         String tempAadhar=user.getAadhar();
         String tempEmail=user.getEmail();
         //Checking Error for null Values
-        if(user.getLastName()==null) throw new Exception("Error");	
-		if(user.getEmail()==null) throw new Exception("Error");	
-		if(user.getPan()==null) throw new Exception("Error");	
-		if(user.getAddress()==null) throw new Exception("Error");	
-		if(user.getZip()==null) throw new Exception("Error");	
-		if(user.getCity()==null) throw new Exception("Error");	
-		if(user.getState()==null) throw new Exception("Error");	
-		if(user.getContact()==null) throw new Exception("Error");	
-		if(user.getDateOfBirth()==null) throw new Exception("Error");	
-		if(user.getOccupation()==null) throw new Exception("Error");	
+        if(user.getLastName()==null) throw new Exception("LError");	
+		if(user.getEmail()==null) throw new Exception("EError");	
+		if(user.getPan()==null) throw new Exception("PError");	
+		if(user.getAddress()==null) throw new Exception("AError");	
+		if(user.getZip()==null) throw new Exception("ZiError");	
+		if(user.getCity()==null) throw new Exception("CiError");	
+		if(user.getState()==null) throw new Exception("SaError");	
+		if(user.getContact()==null) throw new Exception("CaError");	
+		if(user.getDateOfBirth()==null) throw new Exception("DError");	
+		if(user.getOccupation()==null) throw new Exception("OError");	
 		if(user.getIncome()==null) throw new Exception("Error");	
-		if(user.getGender()==null) throw new Exception("Error");
-		if(user.getMember()==null) throw new Exception("Error");
-		if(user.getSelectPlane()==null) throw new Exception("Error");
-		if(user.getTobacco()==null) throw new Exception("Error");
-		if(user.getGroupInsurance()==null) throw new Exception("Error");
-		if(user.getCancellingInsurance()==null) throw new Exception("Error");
-		if(user.getHivIssue()==null) throw new Exception("Error");
-		if(user.getLungsIssue()==null) throw new Exception("Error");
+		if(user.getGender()==null) throw new Exception("GError");
+		if(user.getMember()==null) throw new Exception("MeError");
+		if(user.getSelectPlane()==null) throw new Exception("SPError");
+		if(user.getTobacco()==null) throw new Exception("ToError");
+		if(user.getGroupInsurance()==null) throw new Exception("GIError");
+		if(user.getCancellingInsurance()==null) throw new Exception("CError");
+		if(user.getHivIssue()==null) throw new Exception("HError");
+		if(user.getLungsIssue()==null) throw new Exception("LUError");
 		LifeUser userObj = null;                                                 //Creating Object
 		
 		//Checking Exsiting Application
@@ -168,6 +168,16 @@ public class LifeService {
 		return repo.count();
 	}
 	
+	@GetMapping("/getlifedatacbymail/{email}")                   //Getting Application Data by Adhaar
+	@CrossOrigin(origins="http://localhost:4200")
+	public long getDetailsCount(@PathVariable String email){
+		LifeUser obj=service.fetchByEmail(email);
+		long n=0;
+	if(obj!=null) {
+		 n=service.fetchCountByEmail(email);
+	}
+		return n;
+	}
 		
 	
 }

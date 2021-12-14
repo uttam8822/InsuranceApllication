@@ -25,6 +25,9 @@ public class LifeRegistrationService {
 	public LifeUser fetchByEmail(String email) {
 		return repo.findByEmail(email);
 	}
+	public long fetchCountByEmail(String email) {
+		return repo.countByEmail(email);
+	}
 	
 }
 

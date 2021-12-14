@@ -21,5 +21,6 @@ public interface LifeRepo extends JpaRepository<LifeUser,Integer> {
 	public LifeUser findByAadhar(String aadhar);
 	
 	public LifeUser findByEmail(String email);
+	public long countByEmail(String email);
 
 }
