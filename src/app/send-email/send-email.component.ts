@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { RegistrationService } from '../registration.service';
-import { Router } from '@angular/router';
+import { Data, Router } from '@angular/router';
 import { User } from '../user';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -10,45 +11,16 @@ import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms'
   styleUrls: ['./send-email.component.css']
 })
 export class SendEmailComponent implements OnInit {
-
-  constructor(private _service: RegistrationService, private _router: Router) { }
-  user = new User();
-  msg = '';
-
-  alert: boolean = false;
-  alert1: boolean = false;
-  isClicked:boolean=false;
-
+  
+  constructor(@Inject(MAT_DIALOG_DATA) public data:number) { 
+  
+  }
+   
   ngOnInit(): void {
 
   }
 
-  loadingBar(){
-    this.isClicked=true;
-  }
+   
  
-
-
-  sendEmail() {
-    this._service.sendEmailFromRemote(this.user).subscribe(
-      data => {
-        console.log("response received");
-        this.msg = "Email sent successfull";
-        this.alert = true;
-        this.alert1 = false;
-        this.isClicked=false;
-
-      },
-      error => {
-        console.error("exception occour");
-        this.msg = "It seems you are not a valid user please check your email";
-        this.alert = false;
-        this.alert1 = true;
-        this.isClicked=false;
-
-      }
-
-    );
-  }
 
 }

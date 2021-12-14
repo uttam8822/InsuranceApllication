@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { POPUPComponent } from '../popup/popup.component';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { SendEmailComponent } from '../send-email/send-email.component';
 
 
 @Component({
@@ -23,6 +24,7 @@ export class DentalComponent implements OnInit {
   submitted = false;
   isClicked:boolean=false;
   Dental: any;
+  totalPayment:number;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
 
 
@@ -42,31 +44,39 @@ export class DentalComponent implements OnInit {
 
 
     if (this.selectedDay == "Individual" && this.selectTobacco == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-10500/-";
+      this.totalPayment=10500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual" && this.selectTobacco == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-10000/-";
+      this.totalPayment=10000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
 
     if (this.selectedDay == "Individual & Spouse" && this.selectTobacco == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-20500/-";
+      this.totalPayment=20500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual & Spouse" && this.selectTobacco == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-20000/-";
+      this.totalPayment=20000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
 
     if (this.selectedDay == "Individual Spouse & Child" && this.selectTobacco == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-30500/-";
+      this.totalPayment=30500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual Spouse & Child" && this.selectTobacco == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-30000/-";
+      this.totalPayment=30000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual Spouse & Parents" && this.selectTobacco == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-40500/-";
+      this.totalPayment=40500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
 
     if (this.selectedDay == "Individual Spouse & Parents" && this.selectTobacco == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-40000/-";
+      this.totalPayment=40000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
 
 
@@ -313,6 +323,19 @@ export class DentalComponent implements OnInit {
 
   formProgress(){
    this.isClicked=true;
+  }
+
+  paymentPopUp(){
+    this.matDialog.open(SendEmailComponent, {
+
+       
+
+      height: "250px",
+
+      width: "630px",
+      data:this.totalPayment
+
+    });
   }
 
 

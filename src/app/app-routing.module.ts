@@ -64,7 +64,7 @@ const routes: Routes = [
   { path: 'uwlogin', component: UwloginComponent },
   { path: 'adlogin', component: AdloginComponent },
   { path: 'uhome', component: UhomeComponent, canActivate: [UserAuthGuard] },
-  { path: 'life', component: LifeComponent, canActivate: [UserAuthGuard] },
+  { path: 'life', component: LifeComponent },//, canActivate: [UserAuthGuard]
   { path: 'service', component: ServiceComponent },
   { path: 'cretuw', component: CreatuwComponent, canActivate: [AdminAuthGuard] },
   { path: 'dental', component: DentalComponent, canActivate: [UserAuthGuard] },

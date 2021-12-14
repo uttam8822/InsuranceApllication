@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { POPUPComponent } from '../popup/popup.component';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { SendEmailComponent } from '../send-email/send-email.component';
 
 
 
@@ -98,63 +99,81 @@ export class DentalVisionComponent implements OnInit {
   selectEyeDisses: string = '';
   selectEyeOperation: string = '';
   selectmembermessage: string = '';
+  totalPayment:number;
+
 
   selectChangeHandler(event: any) {
     this.selectedDay = event.target.value;
     if (this.selectedDay == "Individual" && this.selectEyeOperation == "Yes" && this.oralOperationUser == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-11000/-";
+      this.totalPayment=11000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual" && (this.selectEyeOperation == "No" && this.oralOperationUser == "Yes") ) {
-      this.selectmembermessage = "Your yearly policy will be Rs-10500/-";
+      this.totalPayment=10500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual" && (this.selectEyeOperation == "Yes" && this.oralOperationUser == "No") ) {
-      this.selectmembermessage = "Your yearly policy will be Rs-10500/-";
+      this.totalPayment=10500;
+      this.selectmembermessage ="Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual" && this.selectEyeOperation == "No" && this.oralOperationUser == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-10000/-";
+      this.totalPayment=10000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
 
 
 
     if (this.selectedDay == "Individual & Spouse"  && this.selectEyeOperation == "Yes" && this.oralOperationUser == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-21000/-";
+      this.totalPayment=21000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual & Spouse"  && (this.selectEyeOperation == "No" && this.oralOperationUser == "Yes")) {
-      this.selectmembermessage = "Your yearly policy will be Rs-20500/-";
+      this.totalPayment=20500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual & Spouse"  && (this.selectEyeOperation == "Yes" && this.oralOperationUser == "No")) {
-      this.selectmembermessage = "Your yearly policy will be Rs-20500/-";
+      this.totalPayment=20500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
    
     if (this.selectedDay == "Individual & Spouse"  && this.selectEyeOperation == "No" && this.oralOperationUser == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-20000/-";
+      this.totalPayment=20000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
 
     if (this.selectedDay == "Individual Spouse & Child" && this.selectEyeOperation == "Yes" && this.oralOperationUser == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-31000/-";
+      this.totalPayment=31000;
+      this.selectmembermessage ="Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual Spouse & Child" && (this.selectEyeOperation == "No" && this.oralOperationUser == "Yes")) {
-      this.selectmembermessage = "Your yearly policy will be Rs-30500/-";
+      this.totalPayment=30500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual Spouse & Child" && (this.selectEyeOperation == "Yes" && this.oralOperationUser == "No")) {
-      this.selectmembermessage = "Your yearly policy will be Rs-30500/-";
+      this.totalPayment=30500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual Spouse & Child" && this.selectEyeOperation == "No" && this.oralOperationUser == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-30000/-";
+      this.totalPayment=30000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
 
 
     if (this.selectedDay == "Individual Spouse & Parents" && this.selectEyeOperation == "Yes" && this.oralOperationUser == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-41000/-";
+      this.totalPayment=41000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual Spouse & Parents" && (this.selectEyeOperation == "No" && this.oralOperationUser == "Yes")) {
-      this.selectmembermessage = "Your yearly policy will be Rs-40500/-";
+      this.totalPayment=40500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual Spouse & Parents" && (this.selectEyeOperation == "Yes" && this.oralOperationUser == "No")) {
-      this.selectmembermessage = "Your yearly policy will be Rs-40500/-";
+      this.totalPayment=40500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual Spouse & Parents" && this.selectEyeOperation == "No" && this.oralOperationUser == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-40000/-";
+      this.totalPayment=40000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
   }
 
@@ -373,6 +392,19 @@ export class DentalVisionComponent implements OnInit {
   formProgress(){
     this.isClicked=true;
    }
+
+   paymentPopUp(){
+    this.matDialog.open(SendEmailComponent, {
+
+       
+
+      height: "250px",
+
+      width: "630px",
+      data:this.totalPayment
+
+    });
+  }
 
 }
 

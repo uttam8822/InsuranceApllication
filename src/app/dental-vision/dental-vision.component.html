@@ -475,30 +475,78 @@
 
 
 
-            <div class="row">
-                <div class="col">
-                    <button type="submit" class="btn btn-success" (click)="scrollTop()"
-                        (click)="user.gender=selectGender" (click)="user.tobacco=selectTobacco"
-                        (click)="user.selectPlane=selectPlaneYear" (click)="user.cancellingInsurance=cancelExixting"
-                        (click)="user.groupInsurance=groupInsuranceUser" (click)="user.oralOperation=oralOperationUser"
-                        (click)="user.anyCavity=selectCavity" (click)="user.wearGlasses=selectGlasses"
-                        (click)="user.anyEyeDisease=selectEyeDisses" (click)="user.anyEyeOperation=selectEyeOperation"
-                        (click)="user.member=selectedDay"
-                        (click)="formProgress()">Submit</button>
-                </div>
-                <div class="col">
-                    <button (click)="scrollTop()" style="background-color: rgb(240, 52, 52) " type="reset"
-                        class="btn btn-success" (click)="DentalVisionForm.reset()">Clear</button>
-                </div>
-
-                <div class="col">
-                    <button routerLink="/service1" style="background-color: rgb(240, 52, 52) " type="reset"
-                        class="btn btn-success" (click)="DentalVisionForm.reset()">Cancel</button>
-                </div>
-            </div>
+             
             <br>
             <button mat-button matStepperPrevious>Back</button>  
+            <button mat-button matStepperNext>Next</button> 
 </mat-step>
+
+
+<mat-step >
+    <ng-template matStepLabel>Make Payment</ng-template> 
+                <div class="row" style=" margin-top: 20px; margin-left: 10%; margin-right: 10%;  font-weight: bold; border: 3px solid #ff6600; border-radius: 25px; padding: 20px; ">
+                    <h3 class="text-success">
+                        Dear user based on your application details your policy will be worth Rs.{{totalPayment}} -/.yearly. If you want to go for this 
+                        make your first payment details and submit your application.
+                    </h3>
+                    <table class="table">
+                        <thead style="background-color: #ff6600; color: white;">
+                          <tr>
+                            <th>Sr. No</th>  
+                            <th>Name</th>
+                            <th>Details</th>
+                          </tr>
+                        </thead>
+                        <tbody style="color: rgb(0, 0, 0);  background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%);">
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Bank Name</td>
+                                <td>{{user.bankName}}</td>
+                                
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Bank Account Number</td>
+                                <td>{{user.bankAccountNumber}}</td>
+                                
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>IFSC Code </td>
+                                <td>{{user.ifscCode}}</td>
+                                
+                              </tr>    
+                        </tbody>
+                      </table>
+                      <button class="btn btn-warning" (click)="paymentPopUp()"> Pay</button>
+                </div>
+
+            <div class="row" style="margin-top: 100px;">
+            <div class="col">
+                <button type="submit" class="btn btn-success" (click)="scrollTop()"
+                (click)="user.gender=selectGender" (click)="user.tobacco=selectTobacco"
+                (click)="user.selectPlane=selectPlaneYear" (click)="user.cancellingInsurance=cancelExixting"
+                (click)="user.groupInsurance=groupInsuranceUser" (click)="user.oralOperation=oralOperationUser"
+                (click)="user.anyCavity=selectCavity" (click)="user.wearGlasses=selectGlasses"
+                (click)="user.anyEyeDisease=selectEyeDisses" (click)="user.anyEyeOperation=selectEyeOperation"
+                (click)="user.member=selectedDay"
+                (click)="formProgress()">Submit</button>  </div>
+
+            <div class="col">
+            <button (click)="scrollTop()" style="background-color: rgb(240, 52, 52) " type="reset"
+                class="btn btn-success" (click)="DVForm.reset()">Clear</button>
+            </div>
+
+
+            <div class="col">
+            <button routerLink="/service1" style="background-color: rgb(240, 52, 52) " type="reset"
+                class="btn btn-success" (click)="DVForm.reset()">Cancel</button>
+            </div>
+
+            </div>
+            <br>
+            <button mat-button matStepperPrevious>Back</button> 
+            </mat-step>
 </mat-stepper>
 
         </form>

@@ -6,6 +6,7 @@ import { RegistrationService } from '../registration.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { POPUPComponent } from '../popup/popup.component';
+import { SendEmailComponent } from '../send-email/send-email.component';
 
 @Component({
   selector: 'app-life',
@@ -33,65 +34,82 @@ export class LifeComponent implements OnInit {
   user=new LifeRegistration();
   id: any;
   userdata: any;
+  totalPayment:number;
 
 
   selectChangeHandler(event: any) {
     this.selectedDay = event.target.value;
     if (this.selectedDay == "Individual" && this.selectHIV == "Yes" && this.selectTobacco == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-11000";
+      this.totalPayment=11000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual" && this.selectHIV == "Yes" && this.selectTobacco == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-10500";
+      this.totalPayment=10500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual" && this.selectHIV == "No" && this.selectTobacco == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-10500";
+      this.totalPayment=10500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual" && this.selectHIV == "No" && this.selectTobacco == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-10000";
+      this.totalPayment=10000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
 
 
     if (this.selectedDay == "Individual & Spouse" && this.selectHIV == "Yes" && this.selectTobacco == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-21000/-";
+      this.totalPayment=24000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual & Spouse" && this.selectHIV == "No" && this.selectTobacco == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-20500/-";
+      this.totalPayment=24500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual & Spouse" && this.selectHIV == "Yes" && this.selectTobacco == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-20500/-";
+      this.totalPayment=24500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual & Spouse" && this.selectHIV == "No" && this.selectTobacco == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-20000/-";
+      this.totalPayment=24000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
 
 
 
     if (this.selectedDay == "Individual Spouse & Child" && this.selectHIV == "Yes" && this.selectTobacco == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-31000/-";
+      this.totalPayment=31000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual Spouse & Child" && this.selectHIV == "No" && this.selectTobacco == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-30500/-";
+      this.totalPayment=30500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual Spouse & Child" && this.selectHIV == "Yes" && this.selectTobacco == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-30500/-";
+      this.totalPayment=30500;
+      this.selectmembermessage ="Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual Spouse & Child" && this.selectHIV == "No" && this.selectTobacco == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-30000/-";
+      this.totalPayment=30000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
 
 
 
     if (this.selectedDay == "Individual Spouse & Parents" && this.selectHIV == "Yes" && this.selectTobacco == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-41000/-";
+      this.totalPayment=41000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment;
     }
     if (this.selectedDay == "Individual Spouse & Parents" && this.selectHIV == "No" && this.selectTobacco == "Yes") {
-      this.selectmembermessage = "Your yearly policy will be Rs-40500/-";
+      this.totalPayment=40500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual Spouse & Parents" && this.selectHIV == "Yes" && this.selectTobacco == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-40500/-";
+      this.totalPayment=40500;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual Spouse & Parents" && this.selectHIV == "No" && this.selectTobacco == "No") {
-      this.selectmembermessage = "Your yearly policy will be Rs-40000/-";
+      this.totalPayment=40000;
+      this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
   }
 
@@ -334,4 +352,19 @@ export class LifeComponent implements OnInit {
   formProgress() {
     this.isClicked = true;
   }
-}
+
+
+  paymentPopUp(){
+    this.matDialog.open(SendEmailComponent, {
+
+       
+
+      height: "250px",
+
+      width: "630px",
+      data:this.totalPayment
+
+    });
+  }
+  }
+
