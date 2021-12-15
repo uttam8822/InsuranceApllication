@@ -1,0 +1,25 @@
+.my-class{
+
+    width: 100px!important;
+
+    height: 50px;
+    margin-left: 25px;
+    min-width: unset!important;
+
+}
+
+.my-button{
+
+    width: 120px!important;
+
+    height: 60px;
+
+    min-width: unset!important;
+
+}
+
+.alert{
+
+    width: 95%;
+
+}

@@ -156,13 +156,13 @@
 
       <div class="row">
           <div class="col">
-            <button type="submit" (click)="loadingBar1()">
+            <button class="my-button" type="submit" (click)="loadingBar1()">
               <img *ngIf="isClicked1" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 20px; width: 20px;"/>
               Send OTP</button>
             
           </div>
           <div class="col">
-            <button routerLink='/login' style="background-color: rgb(255, 0, 0);">Cancel</button>
+            <button class="my-button" routerLink='/login' style="background-color: rgb(255, 0, 0);">Cancel</button>
           </div>
      
       </div>
@@ -171,7 +171,7 @@
     <div class="row g-2">
       
       <div class="col">   
-        <button style="background-color: green;" mat-button matStepperNext [disabled]="step1Enable">Next</button>  
+        <button class="my-class" style="background-color: green;" mat-button matStepperNext [disabled]="step1Enable">Next</button>  
       </div> 
       <div class="col"></div>
       <div class="col"></div>
@@ -208,23 +208,23 @@
 
       <div class="row">
           <div class="col">
-            <button type="submit" (click)="loadingBar2()">
+            <button class="my-button" type="submit" (click)="loadingBar2()">
               <img *ngIf="isClicked2" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 20px; width: 20px;"/>
               Verify OTP</button>
             
           </div>
       <div class="col">
-        <button routerLink='/login' style="background-color: rgb(255, 0, 0);">Cancel</button>
+        <button class="my-button" routerLink='/login' style="background-color: rgb(255, 0, 0);">Cancel</button>
       </div>
       </div>
 
     </form>
     <div class="row g-2">
     <div class="col">  
-      <button style="background-color: green;" mat-button matStepperPrevious>Back</button>   
+      <button class="my-class" style="background-color: green;" mat-button matStepperPrevious>Back</button>   
     </div>  
     <div class="col">   
-      <button style="background-color: green;" mat-button matStepperNext [disabled]="step2Enable">Next</button>  
+      <button class="my-class" style="background-color: green; margin-left: 125px;" mat-button matStepperNext [disabled]="step2Enable">Next</button>  
     </div> 
     <div class="col"></div>
     <div class="col"></div>
@@ -262,20 +262,20 @@
 
      <div class="row">
          <div class="col">
-           <button type="submit" (click)="loadingBar3()">
+           <button class="my-button" type="submit" (click)="loadingBar3()">
              <img *ngIf="isClicked3" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 20px; width: 20px;"/>
              Change Password</button>
            
          </div>
      <div class="col">
-       <button routerLink='/login' style="background-color: rgb(255, 0, 0);">Cancel</button>
+       <button class="my-button" routerLink='/login' style="background-color: rgb(255, 0, 0);">Cancel</button>
      </div>
      </div>
 
    </form>
    <div class="row g-2">
     <div class="col">  
-      <button style="background-color: green;" mat-button matStepperPrevious>Back</button>   
+      <button class="my-class" style="background-color: green;" mat-button matStepperPrevious>Back</button>   
     </div>  
     <div class="col">   
         

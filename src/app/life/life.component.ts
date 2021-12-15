@@ -368,7 +368,8 @@ export class LifeComponent implements OnInit {
       height: "250px",
 
       width: "630px",
-      data:this.totalPayment
+      data:
+         this.totalPayment,
 
     });
   }

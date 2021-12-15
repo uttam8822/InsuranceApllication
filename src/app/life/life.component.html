@@ -190,9 +190,8 @@
             </div>
             <br>
             <br>
-                        <div>  
-                            <button mat-button matStepperPrevious>Back</button>  
-                            <button mat-button matStepperNext>Next</button>  
+                        <div>   
+                            <button style="background-color: green; color: #fff;" mat-raised-button matStepperNext>Next</button>  
                           </div>  
             
                     </mat-step >
@@ -352,8 +351,8 @@
             <br>
             <br>
                         <div>  
-                            <button mat-button matStepperPrevious>Back</button>  
-                            <button mat-button matStepperNext>Next</button>  
+                            <button style="background-color: green; color: #fff;" mat-raised-button matStepperPrevious>Back</button>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button style="background-color: green; color: #fff;"  mat-raised-button matStepperNext>Next</button>  
                           </div>  
             
                     </mat-step >
@@ -384,10 +383,7 @@
                         </div>
 
                   
-                        <div style="margin-left: 45%;">
-                        <img  *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px; align-content: center;"/> 
-                    </div>
-                    
+                       
                    
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Bank IFSC Code.</label>
@@ -413,8 +409,8 @@
     
           
             <br>
-            <button mat-button matStepperPrevious>Back</button> 
-            <button mat-button matStepperNext>Next</button> 
+            <button style="background-color: green; color: #fff;"  mat-raised-button matStepperPrevious>Back</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button style="background-color: green; color: #fff;"  mat-raised-button matStepperNext>Next</button> 
 </mat-step>
 
 <mat-step >
@@ -455,6 +451,10 @@
                       </table>
                       <button class="btn btn-warning" (click)="paymentPopUp()"> Pay</button>
                 </div>
+                <div style="margin-left: 45%;">
+                    <img  *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px; align-content: center;"/> 
+                </div>
+                
 
             <div class="row" style="margin-top: 100px;">
             <div class="col">
@@ -463,7 +463,7 @@
                 (click)="user.selectPlane=selectPlaneYear" (click)="user.cancellingInsurance=cancelExixting"
                 (click)="user.groupInsurance=groupInsuranceUser" (click)="user.hivIssue=selectHIV"
                 (click)="user.lungsIssue=selectLungsIssue" (click)="user.member=selectedDay" 
-                (click)="user.submitDate=d1" (click)="user.nextPayment=d1"  (click)="user.totalPayAmount=totalPayment" 
+                (click)="user.submitDate=nextPremiumDate" (click)="user.nextPayment=todayDate"  (click)="user.totalPayAmount=totalPayment" 
                 (click)="formProgress()">Submit</button>
             </div>
 
@@ -480,7 +480,7 @@
 
             </div>
             <br>
-            <button mat-button matStepperPrevious>Back</button> 
+            <button style="background-color: green; color: #fff;" mat-raised-button matStepperPrevious>Back</button> 
             </mat-step>
 </mat-stepper>
         </form>
