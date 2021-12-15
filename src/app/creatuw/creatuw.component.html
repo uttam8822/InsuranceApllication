@@ -11,8 +11,8 @@
         <div class="container">
 
             <div>
-                <label for="name"><b>Full Name</b></label>
-                <input formControlName="underwritername" type="text" placeholder="Enter Full Name" name="fullname"
+                <label for="name"><b>Full Name</b></label><br>
+                <input style="width: 50%;" formControlName="underwritername" type="text" placeholder="Enter Full Name" name="fullname"
                     required [(ngModel)]="uwriter.fullName" />
                 <div *ngIf="underwritername.invalid && (underwritername.touched || underwritername.dirty)">
                     <span class="error" *ngIf="underwritername.errors?.required"> *UnderWriter Name is required.</span>
@@ -21,8 +21,8 @@
             </div>
 
             <div>
-                <label for="emailId"><b>Enter EmailId</b></label>
-                <input formControlName="underwriteremail" type="text" placeholder="Enter EmailId" name="emailId"
+                <label  for="emailId"><b>Enter EmailId</b></label><br>
+                <input style="width: 50%;" formControlName="underwriteremail" type="text" placeholder="Enter EmailId" name="emailId"
                     required [(ngModel)]="uwriter.emailId" />
                 <div *ngIf="underwriteremail.invalid && (underwriteremail.touched || underwriteremail.dirty)">
                     <span class="error" *ngIf="underwriteremail.errors?.required"> *Underwriter Email is
@@ -33,8 +33,8 @@
 
 
             <div>
-                <label for="userid"><b>Generate UserId</b></label>
-                <input formControlName="underwriterid" type="text" placeholder="EX: UnderWriter2" name="userid" required
+                <label for="userid"><b>Generate UserId</b></label><br>
+                <input style="width: 50%;" formControlName="underwriterid" type="text" placeholder="EX: UnderWriter2" name="userid" required
                     [(ngModel)]="uwriter.writerId" />
                 <div *ngIf="underwriterid.invalid && (underwriterid.touched || underwriterid.dirty)">
                     <span class="error" *ngIf="underwriterid.errors?.required"> *Underwriter Userid is required.</span>
@@ -43,8 +43,8 @@
                 </div>
             </div>
 
-            <label for="psw"><b>Create Password</b></label>
-            <input formControlName="underwriterpassword" type="password" placeholder="Create Password" name="password"
+            <label for="psw"><b>Create Password</b></label><br>
+            <input style="width: 50%;" formControlName="underwriterpassword" type="password" placeholder="Create Password" name="password"
                 required [(ngModel)]="uwriter.password" />
             <div *ngIf="underwriterpassword.invalid && (underwriterpassword.touched || underwriterpassword.dirty)">
                 <span class="error" *ngIf="underwriterpassword.errors?.required"> *Underwriter Password is
@@ -52,8 +52,8 @@
                 <span class="error" *ngIf="underwriterpassword.errors?.pattern"> *Invalid Password. </span>
             </div>
 
-
-            <button style="border-radius: 5px;" type="submit">Create UnderWriter</button>
+            <br>
+            <button style="border-radius: 5px; width: 50%;" type="submit">Create UnderWriter</button>
         </div>
         <div class="container" style=" height: 100%; width: 100%;  background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%);">
             <div class="row g-3">
@@ -62,7 +62,7 @@
                         routerLink="/adhome">Back</button>
                 </div>
                 <div class="col">
-                    <button style="border-radius: 5px;" type="reset" (ngSubmit)="RegisterForm.reset()"
+                    <button style="border-radius: 5px; margin-right: 550px;" type="reset" (ngSubmit)="RegisterForm.reset()"
                         class="cancelbtn">Clear</button>
                 </div>
             </div>
