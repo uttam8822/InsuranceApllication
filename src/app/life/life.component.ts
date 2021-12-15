@@ -38,8 +38,7 @@ export class LifeComponent implements OnInit {
   date:any;
   reversedate:any;
   d1:number=Date.now();
-
-
+  
 
   selectChangeHandler(event: any) {
     this.selectedDay = event.target.value;
@@ -194,6 +193,7 @@ export class LifeComponent implements OnInit {
 
   ngOnInit(): void {
     this.futureDateDisable();
+    this.__nextPremiumDate()
     this.LifeForm = new FormGroup({
       "firstname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       "lastname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
@@ -228,6 +228,9 @@ export class LifeComponent implements OnInit {
     });
     this.mail=localStorage.getItem("email");
     this.user.email=this.mail;
+    this.date=localStorage.getItem("date");
+    this.reversedate=this.date;
+    this.user.dateOfBirth=this.reversedate;
   }
   isFieldValid(field: string) {
 
@@ -358,6 +361,31 @@ export class LifeComponent implements OnInit {
   formProgress() {
     this.isClicked = true;
   }
+  todayDate=  Date.now();
+
+  nextPremiumDate:any;
+  __nextPremiumDate() {
+
+    var date:any = new Date();
+
+    var todayDate:any = date.getDate();
+
+    var month:any = date.getMonth() + 1;
+
+      var year:any = date.getFullYear() +1;
+
+      if(todayDate < 10)
+
+      {todayDate = '0' + todayDate;}
+
+      if(month < 10)
+
+      {month = '0' + month;}
+
+       this.nextPremiumDate = year + "-" + month + "-" + todayDate;
+
+       console.log(this.nextPremiumDate );}
+
 
 
   paymentPopUp(){
@@ -373,5 +401,6 @@ export class LifeComponent implements OnInit {
 
     });
   }
+
   }
 
