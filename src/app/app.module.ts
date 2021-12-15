@@ -68,7 +68,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatStepperModule } from '@angular/material/stepper';
 import { SendOtpUserComponent } from './send-otp-user/send-otp-user.component';
 import { ComparePlansComponent } from './compare-plans/compare-plans.component';
- 
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { DetailsComponent } from './details/details.component';
 import { ComparePlans1Component } from './compare-plans1/compare-plans1.component';
