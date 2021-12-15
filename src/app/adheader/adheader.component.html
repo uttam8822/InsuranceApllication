@@ -52,101 +52,46 @@
                     <h1 style="color: #ffffff; margin-left: 20px;">{{name}}'s Dashboard</h1>
                     
                 </div>
-                <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
+                
+                <div class="row" style=" margin-left: 60px; margin-top: 50px; margin-right: 60px;">
                     <h2 style="text-align: center; background-color: #ff6600; color: #ffffff;">Recieved Application</h2>
                     <div class="col">
-                        <h3 style="margin-left: 30px;"><b>Dental Application</b></h3>
-                        <circle-progress [percent]=l2 [radius]="70"
+                        <h3 style=" margin-left: 80px;"><b>Dental Application</b></h3>
+                        <circle-progress [percent]=l2 [radius]="100"
                          [outerStrokeWidth]="16" [innerStrokeWidth]="5" 
                          [outerStrokeColor]="'#ff6600'" [innerStrokeColor]="'#78C000'"
                          [animation]="true" [animationDuration]="300" [space]="5" 
                          [showSubtitle]= "false" [showUnits]= "false" 
                            
-                        [clockwise]= "false"> </circle-progress>
+                        [clockwise]= "false" style=" margin-left: 40px;"> </circle-progress>
+                        <a routerLink="/detaldata" class="btn btn-primary" style="background-color: #78C000;  margin-left: 80px;"> Review Application</a>
                     </div>
                     <div class="col">
-                        <h3 style="margin-left: 30px;"><b>Life Application</b></h3>
-                        <circle-progress [percent]=l1 [radius]="70"
+                        <h3 style="margin-left: 100px;"><b>Life Application</b></h3>
+                        <circle-progress [percent]=l1 [radius]="100"
                          [outerStrokeWidth]="16" [innerStrokeWidth]="5" 
                          [outerStrokeColor]="'#ff6600'" [innerStrokeColor]="'#FF6347'"
                          [animation]="true" [animationDuration]="300" [space]="5" 
                          [showSubtitle]= "false" [showUnits]= "false" 
                            
-                        [clockwise]= "false"> </circle-progress>
+                        [clockwise]= "false" style="margin-left: 40px;"> </circle-progress>
+                        <a routerLink="/lifedata" class="btn btn-primary" style="background-color: #FF6347;  margin-left: 80px;"> Review Application</a>
                     </div>
                     <div class="col">
-                        <h3 style="margin-left: 10px;"><b>Dental & Vision Application</b></h3>
-                        <circle-progress [percent]=l3 [radius]="70"
+                        <h3 style="margin-left: 70px;"><b>Dental & Vision Application</b></h3>
+                        <circle-progress [percent]=l3 [radius]="100"
                          [outerStrokeWidth]="16" [innerStrokeWidth]="5" 
                          [outerStrokeColor]="'#ff6600'" [innerStrokeColor]="'#4882c2'"
                          [animation]="true" [animationDuration]="300" [space]="5" 
                          [showSubtitle]= "false" [showUnits]= "false" 
                            
-                        [clockwise]= "false"> </circle-progress>
+                        [clockwise]= "false" style="margin-left: 40px;"> </circle-progress>
+                        <a routerLink="/DVdata" class="btn btn-primary" style="background-color: #4882c2; margin-left: 80px;"> Review Application</a>
                     </div>
                 </div>
                  
                 
                 
-                <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
-                    <div class="card">
-                        <h2 class="card-header" style="background-color: #ff6600; color: white;">Dental Service
-                            
-                        </h2>
-                        <div class="card-body">
-                           
-                            <p class="card-text" style="font-size: 17px;">
-                
-                                Most health insurance companies in India do not provide any coverage for dental procedures as
-                                they fall under the cosmetic treatment category but as the uncertainties are increasing you need
-                                a dental Insurance also. 
-                                You Can Apply in our company For Dental Insurance With Lot's of Attractive Plans.
-                            </p>
-                          <a routerLink="/detaldata" class="btn btn-primary" style="background-color: #ff6600; ">Cleck here to see application</a>
-                        </div>
-                      </div>
-                </div>
-                
-                
-                <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
-                    <div class="card">
-                        <h2 class="card-header" style="background-color: #ff6600; color: white;">Life Service
-                         
-                        </h2>
-                        <div class="card-body">
-                        
-                            <p class="card-text" style="font-size: 17px;">With uncertainties increasing all around, life insurance is proving to be an
-                                ultimate lifeline. Having an insurance cover ensures that the dependents of the bread-winner of
-                                the family do not suffer financially in their absence. Apply In Our Company by Paying a Minimal
-                                Premium amount Every Year and get maximum Returns.</p>
-                          <a routerLink="/lifedata" class="btn btn-primary" style="background-color: #ff6600; ">Cleck here to see application</a>
-                        </div>
-                      </div>
-                </div>
-                
-                
-                
-                <div class="row" style=" margin-left: 100px; margin-top: 50px; margin-right: 100px;">
-                    <div class="card">
-                        <h2 class="card-header" style="background-color: #ff6600; color: white;">Vision & Dental
-                         
-                        </h2>
-                        <div class="card-body">
-                           
-                           
-                            <p class="card-text" style="font-size: 17px;">
-                                Vision insurance and vision benefits plans typically cover the cost of an annual eye exam and
-                                prescription eyeglasses and/or contact lenses, vision plans also offer discounts on elective
-                                vision correction surgery, such as LASIK and PRK.
-                
-                
-                                You Can Apply For both Vision and Dental Insurance with this combo requires less and give you
-                                More.
-                
-                            </p> <a  routerLink="/DVdata" class="btn btn-primary" style="background-color: #ff6600; ">Cleck here to see application</a>
-                        </div>
-                      </div>
-                </div>
                 
                 
                 
