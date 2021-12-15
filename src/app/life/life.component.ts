@@ -38,7 +38,7 @@ export class LifeComponent implements OnInit {
   date:any;
   reversedate:any;
   d1:number=Date.now();
-  
+
 
   selectChangeHandler(event: any) {
     this.selectedDay = event.target.value;
@@ -193,7 +193,7 @@ export class LifeComponent implements OnInit {
 
   ngOnInit(): void {
     this.futureDateDisable();
-    this.__nextPremiumDate()
+    this.__nextPremiumDate();
     this.LifeForm = new FormGroup({
       "firstname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       "lastname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),

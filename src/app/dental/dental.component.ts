@@ -46,19 +46,19 @@ export class DentalComponent implements OnInit {
 
 
     if (this.selectedDay == "Individual" && this.selectTobacco == "Yes") {
- 
+
       this.totalPayment=10500;
       this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
     }
     if (this.selectedDay == "Individual" && this.selectTobacco == "No") {
       this.totalPayment=14086;
       this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
-  
+
     }
     if (this.selectedDay == "Individual" && this.selectTobacco == "No") {
       this.totalPayment=15000;
       this.selectmembermessage = "Your yearly policy will be Rs-"+this.totalPayment ;
- 
+
     }
 
     if (this.selectedDay == "Individual & Spouse" && this.selectTobacco == "Yes") {
@@ -106,7 +106,7 @@ export class DentalComponent implements OnInit {
     this.cancelExixting = event.target.value;
   }
 
-  //for group insurance 
+  //for group insurance
   selectGroupInsuranceHandler(event: any) {
     this.groupInsuranceUser = event.target.value;
   }
@@ -126,11 +126,10 @@ export class DentalComponent implements OnInit {
       data=>{
         console.log("Response");
         console.log(data);
-       
+
         this.userdata=data;
-        
-       // this.dateofbirth=this.userdata.dateOfBirth;
-        //console.log(this.dateofbirth)
+        this.dateofbirth=this.userdata.dateOfBirth;
+        console.log(this.dateofbirth)
       }
     )
 
@@ -140,30 +139,31 @@ export class DentalComponent implements OnInit {
    maxDate:any;
 
    futureDateDisable() {
- 
+
      var date:any = new Date();
- 
+
      var todayDate:any = date.getDate();
- 
+
      var month:any = date.getMonth() + 1;
- 
+
        var year:any = date.getFullYear() - 18;
- 
+
        if(todayDate < 10)
- 
+
        {todayDate = '0' + todayDate;}
- 
+
        if(month < 10)
- 
+
        {month = '0' + month;}
- 
+
         this.maxDate = year + "-" + month + "-" + todayDate;
- 
+
         console.log(this.maxDate);}
-  
+
   ngOnInit(): void {
 
    this.futureDateDisable();
+    this.__nextPremiumDate();
     this.Dental = new FormGroup({
       "firstname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       "lastname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
@@ -183,11 +183,11 @@ export class DentalComponent implements OnInit {
       "gender": new FormControl('', [Validators.required, Validators.pattern('[?:male\bMALE|female\bFEMALE]*')]),
       "state": new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z0-9-]*')]),
       "selectPlane": new FormControl('', [Validators.required, Validators.pattern('[1-5]')]),
-      
+
       "dateOfBirth": new FormControl(null, [Validators.required]),
       "bankAccountNumber": new FormControl(null, [Validators.required, Validators.maxLength(18), Validators.minLength(9), Validators.pattern('[0-9]*')]),
 
-      
+
 
       "ifscCode":new FormControl(null, [Validators.required, Validators.pattern('[[A-Z]{4}0[0-9]{6}]*')]),
 
@@ -253,8 +253,8 @@ export class DentalComponent implements OnInit {
   get dateOfBirth() { return this.Dental.get('dateOfBirth'); }
   get selectPlane() { return this.Dental.get('selectPlane'); }
   get gender() { return this.Dental.get('gender'); }
- 
- 
+
+
   get member() { return this.Dental.get('member'); }
 
   get bankAccountNumber() { return this.Dental.get('bankAccountNumber'); }
@@ -283,17 +283,17 @@ export class DentalComponent implements OnInit {
       this.isClicked=false;
       return;
     }
-     
+
     this._service.applyUserForDental(this.user).subscribe(
       data => {
         console.log("response received");
         console.log(this.Dental.value);
-        this.isClicked=false; 
+        this.isClicked=false;
         this._route.navigate(["/success"])
       },
       error => {
         console.log("exception occred");
-        this.isClicked=false; 
+        this.isClicked=false;
       }
 
     );
@@ -347,8 +347,8 @@ export class DentalComponent implements OnInit {
    this.isClicked=true;
   }
 
-  todayDate=  Date.now();
 
+  todayDate=  Date.now();
   nextPremiumDate:any;
   __nextPremiumDate() {
 
@@ -372,12 +372,10 @@ export class DentalComponent implements OnInit {
 
        console.log(this.nextPremiumDate );}
 
-
-
   paymentPopUp(){
     this.matDialog.open(SendEmailComponent, {
 
-       
+
 
       height: "250px",
 

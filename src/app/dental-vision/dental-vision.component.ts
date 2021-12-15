@@ -230,6 +230,7 @@ export class DentalVisionComponent implements OnInit {
   ngOnInit(): void {
     this.futureDateDisable();
     this._futureDateDisable();
+    this.__nextPremiumDate();
     this.DentalVisionForm = new FormGroup({
       "firstname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       "lastname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
@@ -399,6 +400,29 @@ export class DentalVisionComponent implements OnInit {
   formProgress(){
     this.isClicked=true;
    }
+   todayDate=  Date.now();
+  nextPremiumDate:any;
+  __nextPremiumDate() {
+
+    var date:any = new Date();
+
+    var todayDate:any = date.getDate();
+
+    var month:any = date.getMonth() + 1;
+
+      var year:any = date.getFullYear() +1;
+
+      if(todayDate < 10)
+
+      {todayDate = '0' + todayDate;}
+
+      if(month < 10)
+
+      {month = '0' + month;}
+
+       this.nextPremiumDate = year + "-" + month + "-" + todayDate;
+
+       console.log(this.nextPremiumDate );}
 
    paymentPopUp(){
     this.matDialog.open(SendEmailComponent, {

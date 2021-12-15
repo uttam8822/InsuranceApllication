@@ -332,8 +332,8 @@
             <br>
             <br>
                         <div>
-                            <button mat-button matStepperPrevious>Back</button>
-                            <button mat-button matStepperNext>Next</button>
+                            <button style="background-color: green; color: #fff;" mat-raised-button matStepperPrevious>Back</button>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button style="background-color: green; color: #fff;"  mat-raised-button matStepperNext>Next</button>
                           </div>
                     </mat-step>
 
@@ -402,7 +402,7 @@
                         <div class="row" style=" margin-top: 20px; margin-left: 10%; margin-right: 10%;  font-weight: bold; border: 3px solid #ff6600; border-radius: 25px; padding: 20px; ">
                             <h3 class="text-success">
                                 Dear user based on your application details your policy will be worth Rs.{{totalPayment}} -/.yearly. If you want to go for this
-                                make your first payment details and submit your application.
+                                make your first payment and submit your application.
                             </h3>
                             <table class="table">
                                 <thead style="background-color: #ff6600; color: white;">
@@ -435,6 +435,9 @@
                               </table>
                               <button class="btn btn-warning" (click)="paymentPopUp()"> Pay</button>
                         </div>
+                        <div style="margin-left: 45%;">
+                            <img  *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px; align-content: center;"/>
+                        </div>
 
                     <div class="row" style="margin-top: 100px;">
                     <div class="col">
@@ -443,9 +446,8 @@
                         (click)="user.selectPlane=selectPlaneYear" (click)="user.cancellingInsurance=cancelExixting"
                         (click)="user.member=selectedDay"
                         (click)="user.groupInsurance=groupInsuranceUser"
-                        (click)="user.submitDate=d1" (click)="user.nextPayment=d1"  (click)="user.totalPayAmount=totalPayment"
-                        (click)="formProgress()"
-                        (click)="formProgress()" (click)="applyDental()">Submit</button>
+                        (click)="user.submitDate=todayDate" (click)="user.nextPayment=nextPremiumDate"  (click)="user.totalPayAmount=totalPayment"
+                        (click)="formProgress()">Submit</button>
                     </div>
 
                     <div class="col">
