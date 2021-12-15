@@ -188,6 +188,7 @@ export class LifeComponent implements OnInit {
 
   ngOnInit(): void {
     this.futureDateDisable();
+    this.__nextPremiumDate();
     this.LifeForm = new FormGroup({
       "firstname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       "lastname": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
