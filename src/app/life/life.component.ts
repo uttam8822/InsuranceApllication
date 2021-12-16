@@ -35,6 +35,9 @@ export class LifeComponent implements OnInit {
   id: any;
   userdata: any;
   totalPayment:number;
+  date:any;
+  reversedate:any;
+  d1:number=Date.now();
 
 
   selectChangeHandler(event: any) {
@@ -116,12 +119,14 @@ export class LifeComponent implements OnInit {
   LifeForm: any;
   emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   submitted = false;
-  constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { 
+  constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) {
     this.id=localStorage.getItem("email");
     this._service.userDetails(this.id).subscribe(
       data=>{
         console.log("Response");
+
         console.log(data);
+
         this.userdata=data;
       }
     )
@@ -213,7 +218,7 @@ export class LifeComponent implements OnInit {
       "lungDisease": new FormControl("", [Validators.required, Validators.pattern('[?:YES\byes|NO\bno]+')]),
       "dateOfBirth": new FormControl("", [Validators.required]),
       "member": new FormControl("", Validators.required),
-      
+
       "bankAccountNumber": new FormControl(null, [Validators.required, Validators.maxLength(18), Validators.minLength(9), Validators.pattern('[0-9]*')]),
 
       "bankName": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
@@ -224,6 +229,9 @@ export class LifeComponent implements OnInit {
     });
     this.mail=localStorage.getItem("email");
     this.user.email=this.mail;
+    this.date=localStorage.getItem("date");
+    this.reversedate=this.date;
+    this.user.dateOfBirth=this.reversedate;
   }
   isFieldValid(field: string) {
 
@@ -271,9 +279,9 @@ export class LifeComponent implements OnInit {
   get cancellingInsurance() { return this.LifeForm.get('cancellingInsurance'); }
   get hivIssue() { return this.LifeForm.get('hivIssue'); }
   get lungDisease() { return this.LifeForm.get('lungDisease'); }
-  
+
   get member() { return this.LifeForm.get('member'); }
-  
+
   get bankAccountNumber() { return this.LifeForm.get('bankAccountNumber'); }
 
   get bankName() { return this.LifeForm.get('bankName'); }
@@ -354,6 +362,8 @@ export class LifeComponent implements OnInit {
   formProgress() {
     this.isClicked = true;
   }
+  todayDate=  Date.now();
+
 
 
 
@@ -370,6 +380,7 @@ done() {
 
 
  nextPremiumDate:any;
+
   __nextPremiumDate() {
 
     var date:any = new Date();
@@ -391,6 +402,7 @@ done() {
        this.nextPremiumDate = todayDate + "/" + month + "/" + year ;
 
        console.log(this.nextPremiumDate );}
+
 
 
        _todayDate:any;
@@ -418,20 +430,21 @@ done() {
      
 
   
-  
+
 
   paymentPopUp(){
     this.matDialog.open(SendEmailComponent, {
 
-       
+
 
       height: "250px",
 
       width: "630px",
       data:
          this.totalPayment,
-    
+
     });
   }
+
   }
 

@@ -240,7 +240,13 @@
                              
                                    </thead>
                                    <tbody *ngFor="let user of datalife" style="background: linear-gradient(to top left, #ff6600 -31%, #ffffff 100%);">
-                                     <tr>
+                                    
+                                    <tr style="background-color: #ff6600;">
+                                      <td><h2>Application Details</h2></td>
+                                      <td></td>
+                                   </tr>
+                                    
+                                    <tr>
                              
                                        <td>First Name</td>
                                        <td>{{user.firstName}}</td>
@@ -364,8 +370,7 @@
                                        <td>Next Policy Payment Date</td>
                                        <td>{{user.nextPayment}}</td>
                                      </tr>
-                             
-                             
+                                    
                                    </tbody>
                                  </table>
                                

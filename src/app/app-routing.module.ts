@@ -59,7 +59,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'adhome', component: AdhomeComponent},//canActivate: [AdminAuthGuard] 
+  { path: 'adhome', component: AdhomeComponent,canActivate: [AdminAuthGuard] },
   { path: 'uwriterhome', component: UwhomeComponent,canActivate: [UwriterAuthGuard] },
   { path: 'uwlogin', component: UwloginComponent },
   { path: 'adlogin', component: AdloginComponent },
@@ -73,7 +73,7 @@ const routes: Routes = [
   { path: "detaldata", component: FetchdatadentalComponent,canActivate: [AdminAuthGuard] }, 
   { path: "lifedata", component: FetchdatalifeComponent,canActivate: [AdminAuthGuard]}, 
   { path: "DVdata", component: FetchdatadentalvisionComponent,canActivate: [AdminAuthGuard]}, 
-  { path: "createAdmin", component: CreateadminComponent},
+  { path: "createAdmin", component: CreateadminComponent,canActivate: [AdminAuthGuard]},
   { path: "success", component: SuccessfullcomponentComponent, canActivate: [UserAuthGuard] },
   { path: "lifeServiceDetails/:aadhar", component: LifeServiceUserDetailsComponent, canActivate: [AdminAuthGuard] },
   { path: "about1", component: Aboutus1Component, canActivate: [UserAuthGuard] },

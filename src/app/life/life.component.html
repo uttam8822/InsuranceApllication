@@ -155,7 +155,7 @@
                     <div class="col">
                         <label>Birth date<span style="color: red;">*</span></label>
                         <input type="date" max="{{maxDate}}" name="date" formControlName="dateOfBirth" class="form-control" aria-label="contact"
-                            placeholder="DD/MM/YYYY" required required [(ngModel)]="user. dateOfBirth" style="height: 35px;" />
+                            placeholder="DD/MM/YYYY" readonly required required [(ngModel)]="user. dateOfBirth" style="height: 35px;" />
                         <div *ngIf="dateOfBirth.invalid && (dateOfBirth.touched || dateOfBirth.dirty)">
                             <span class="error" *ngIf="dateOfBirth.errors?.required"> *Date is required.</span>
                         </div>

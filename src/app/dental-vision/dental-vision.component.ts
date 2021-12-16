@@ -29,12 +29,15 @@ export class DentalVisionComponent implements OnInit {
   id: any;
   d1:number=Date.now();
   userdata: any;
+  date:any;
+  reversedate:any;
   constructor(private _service: RegistrationService, private _route: Router, private matDialog: MatDialog) { 
     this.id=localStorage.getItem("email");
     this._service.userDetails(this.id).subscribe(
       data=>{
         console.log("Response");
         console.log(data);
+        //localStorage.setItem("datedv", this.userdata.dateOfBirth);
         this.userdata=data;
       }
     )
@@ -268,6 +271,9 @@ export class DentalVisionComponent implements OnInit {
     });
     this.mail=localStorage.getItem("email");
     this.user.email=this.mail;
+    this.date=localStorage.getItem("date");
+    this.reversedate=this.date;
+    this.user.dateOfBirth=this.reversedate;
   }
   isFieldValid(field: string) {
 
