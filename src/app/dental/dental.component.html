@@ -26,7 +26,7 @@
                 Dental Insurance</h1>
         </div> -->
 
-        <form [formGroup]="Dental" #dentalForm="ngForm" (ngSubmit)="applyDental1()"style="font-size: small;">
+        <form [formGroup]="Dental" #dentalForm="ngForm" (ngSubmit)="applyDental()"style="font-size: small;">
             <mat-stepper>
 
                 <mat-step >
@@ -202,7 +202,7 @@
             <br>
             <br>
             <div>
-                <button mat-button matStepperNext>Next</button>
+                <button  style="background-color: green; color: #fff;"  mat-raised-button matStepperNext>Next</button>
               </div>
         </mat-step>
 
@@ -463,7 +463,6 @@
 
                     </div>
                     <br>
-                    <button mat-button matStepperPrevious>Back</button>
                     <button style="background-color: green; color: #fff;" mat-raised-button matStepperPrevious>Back</button>
                     </mat-step>
          </mat-stepper>
