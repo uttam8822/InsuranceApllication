@@ -28,8 +28,8 @@ export class DentalUser {
         bankName:string;
         bankAccountNumber: string;
         ifscCode: string;
-        submitDate:number;
-     nextPayment:number;
+        submitDate:any;
+     nextPayment:any;
     totalPayAmount:number;
 
         constructor() { }

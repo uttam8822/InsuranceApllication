@@ -225,6 +225,7 @@ export class DentalVisionComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.submitDate();
     this.futureDateDisable();
     this._futureDateDisable();
     this.__nextPremiumDate();
@@ -394,7 +395,32 @@ export class DentalVisionComponent implements OnInit {
   formProgress(){
     this.isClicked=true;
    }
-   todayDate=  Date.now();
+   _todayDate: any;
+   submitDate() {
+
+    var date:any = new Date();
+
+    var todayDate:any = date.getDate();
+
+    var month:any = date.getMonth() + 1;
+
+      var year:any = date.getFullYear();
+
+      if(todayDate < 10)
+
+      {todayDate = '0' + todayDate;}
+
+      if(month < 10)
+
+      {month = '0' + month;}
+
+       this._todayDate = todayDate + "/" + month + "/" + year;
+
+       console.log(this._todayDate);}
+
+
+
+
   nextPremiumDate:any;
   __nextPremiumDate() {
 
@@ -414,7 +440,7 @@ export class DentalVisionComponent implements OnInit {
 
       {month = '0' + month;}
 
-       this.nextPremiumDate = year + "-" + month + "-" + todayDate;
+       this.nextPremiumDate = todayDate + "/" + month + "/" + year;
 
        console.log(this.nextPremiumDate );}
 

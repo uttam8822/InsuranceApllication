@@ -29,8 +29,8 @@ export class LifeRegistration {
     bankAccountNumber: string;
     ifscCode: string;
      additionalComments: string;
-     submitDate:number;
-     nextPayment:number;
+     submitDate:any;
+     nextPayment:any;
     totalPayAmount:number;
     constructor() { }
 }

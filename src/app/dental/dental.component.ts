@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { POPUPComponent } from '../popup/popup.component';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SendEmailComponent } from '../send-email/send-email.component';
+import { formatDate as ngFormatDate } from '@angular/common';
 
 
 @Component({
@@ -156,9 +157,41 @@ export class DentalComponent implements OnInit {
         this.maxDate = year + "-" + month + "-" + todayDate;
  
         console.log(this.maxDate);}
+
+     
+        
+        _todayDate: any;
+   submitDate() {
+ 
+    var date:any = new Date();
+
+    var todayDate:any = date.getDate();
+
+    var month:any = date.getMonth() + 1;
+
+      var year:any = date.getFullYear() 
+
+      if(todayDate < 10)
+
+      {todayDate = '0' + todayDate;}
+
+      if(month < 10)
+
+      {month = '0' + month;}
+
+       this._todayDate = todayDate  + "/" + month + "/" + year;
+
+       console.log(this._todayDate);}
   
+       
+ 
+  
+
   ngOnInit(): void {
 
+    
+  
+    this.submitDate();
     this.futureDateDisable();
     this.__nextPremiumDate();
     this.Dental = new FormGroup({
@@ -340,7 +373,8 @@ export class DentalComponent implements OnInit {
   }
 
 
-  todayDate=  Date.now();
+ 
+  
   nextPremiumDate:any;
   __nextPremiumDate() {
 
@@ -360,15 +394,12 @@ export class DentalComponent implements OnInit {
 
       {month = '0' + month;}
 
-       this.nextPremiumDate = year + "-" + month + "-" + todayDate;
+       this.nextPremiumDate = todayDate  + "/" + month + "/" + year;
 
-       console.log(this.nextPremiumDate );}
+       console.log(this.nextPremiumDate);}
 
   paymentPopUp(){
     this.matDialog.open(SendEmailComponent, {
-
-       
-
       height: "250px",
 
       width: "630px",

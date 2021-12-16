@@ -187,6 +187,7 @@ export class LifeComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.submitDate();
     this.futureDateDisable();
     this.__nextPremiumDate();
     this.LifeForm = new FormGroup({
@@ -366,7 +367,7 @@ done() {
 }
 
 
-todayDate=  Date.now();
+
 
  nextPremiumDate:any;
   __nextPremiumDate() {
@@ -387,9 +388,34 @@ todayDate=  Date.now();
 
       {month = '0' + month;}
 
-       this.nextPremiumDate = year + "-" + month + "-" + todayDate;
+       this.nextPremiumDate = todayDate + "/" + month + "/" + year ;
 
        console.log(this.nextPremiumDate );}
+
+
+       _todayDate:any;
+       submitDate() {
+     
+         var date:any = new Date();
+     
+         var todayDate:any = date.getDate();
+     
+         var month:any = date.getMonth() + 1;
+     
+           var year:any = date.getFullYear();
+     
+           if(todayDate < 10)
+     
+           {todayDate = '0' + todayDate;}
+     
+           if(month < 10)
+     
+           {month = '0' + month;}
+     
+            this._todayDate = todayDate + "/" + month + "/" + year ;
+     
+            console.log(this._todayDate );}
+     
 
   
   
