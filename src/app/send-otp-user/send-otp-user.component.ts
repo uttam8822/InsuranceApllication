@@ -17,7 +17,9 @@ export class SendOtpUserComponent implements OnInit {
   msg2='';
   alert: boolean = false;
   alert1: boolean = false;
-
+  able:boolean=false;
+  able1:boolean=false;
+  able2:boolean=false;
   alert3:boolean=false;
   alert4:boolean=false;
   alert5:boolean=false;
@@ -53,6 +55,7 @@ export class SendOtpUserComponent implements OnInit {
         this.alert = true;
         this.alert1 = false;
         this.isClicked1=false;
+        this.able1=true;
         this.step1Enable=false;
 
       },
@@ -76,6 +79,7 @@ export class SendOtpUserComponent implements OnInit {
         this.alert3 = true;
         this.alert4 = false;
         this.isClicked2=false;
+        this.able2=true;
         this.step2Enable=false;
 
       },
@@ -97,9 +101,10 @@ export class SendOtpUserComponent implements OnInit {
     this._service.verifyOTPOfUser1(this.user).subscribe(
       data => {
         console.log("response received");
-        this.msg2 = " Your Password reset successfull";
+        this.msg2 = " Your Password reset successfull login here";
         this.alert5 = true;
         this.alert6 = false;
+        this.able=true;
         this.isClicked3=false;
 
       },
@@ -109,6 +114,7 @@ export class SendOtpUserComponent implements OnInit {
       
         this.alert5 = false;
         this.alert6 = true;
+        this.able=false
         this.isClicked3=false;
 
       }

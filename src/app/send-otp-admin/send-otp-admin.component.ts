@@ -19,7 +19,9 @@ export class SendOtpAdminComponent implements OnInit {
   msg2='';
   alert: boolean = false;
   alert1: boolean = false;
-
+  able:boolean=false;
+  able1:boolean=false;
+  able2:boolean=false;
   alert3:boolean=false;
   alert4:boolean=false;
   alert5:boolean=false;
@@ -50,6 +52,7 @@ export class SendOtpAdminComponent implements OnInit {
         this.msg = "OTP sent successfull";
         this.alert = true;
         this.alert1 = false;
+        this.able=true;
         this.isClicked1=false;
         this.step1Enable=false;
 
@@ -73,6 +76,7 @@ export class SendOtpAdminComponent implements OnInit {
         this.msg1 = "Verification Done. Go Next For Change Your Password";
         this.alert3 = true;
         this.alert4 = false;
+        this.able1=true
         this.isClicked2=false;
         this.step2Enable=false;
 
@@ -98,6 +102,7 @@ export class SendOtpAdminComponent implements OnInit {
         this.msg2 = "Your Password reset successfull";
         this.alert5 = true;
         this.alert6 = false;
+        this.able2=true
         this.isClicked3=false;
 
       },
