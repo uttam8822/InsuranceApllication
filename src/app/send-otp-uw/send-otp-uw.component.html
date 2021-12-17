@@ -132,7 +132,7 @@
       <mat-stepper style=" background-color: #f39b60;" >
         <mat-step>
           <ng-template matStepLabel>Step-1</ng-template>
-    <form (ngSubmit)="sendOTPUser()" #EmailForm="ngForm">
+    <form (ngSubmit)="sendOTPUser()" #EmailForm="ngForm" [formGroup]="otpUw">
      
       <div *ngIf="alert" class="alert alert-success" role="alert">
         {{msg}}
@@ -147,7 +147,11 @@
         <div>
           <h1>Step-1</h1>
           <label><b>Enter Your Email</b></label>
-          <input class="fname" type="text" name="name" placeholder="Email" [(ngModel)]="user.emailId">
+          <input formControlName = "email" class="fname" type="text" name="name" placeholder="Email" [(ngModel)]="user.emailId">
+          <div *ngIf="email.invalid && (email.touched || email.dirty)">
+            <span class="error" *ngIf="email.errors?.required" style="color: red;">*Email required.</span>
+            <span class="error" *ngIf="email.errors?.pattern" style="color: red;">*Invalid Email Id.</span>
+          </div>
 
         </div>
      
@@ -232,7 +236,7 @@
   </mat-step>
 <mat-step>
   <ng-template matStepLabel>Step-3</ng-template>
-    <form (ngSubmit)="resetYourPassword()" #verifyForm="ngForm">
+    <form (ngSubmit)="resetYourPassword()" #verifyForm="ngForm" [formGroup]="otpUw">
       <div *ngIf="alert3" class="alert alert-success" role="alert">
        {{msg2}}
      </div>
@@ -248,10 +252,15 @@
          <input class="fname" type="text" name="name" placeholder="Your Email" [(ngModel)]='user.emailId' disabled>
 
          <label><b>Enter new password</b></label>
-         <input class="password" type="password" name="otp" placeholder="Enter new password" [(ngModel)]="user.password" [disabled]="step2Enable">
+         <input formControlName = "changePassword" class="password" type="password" name="otp" placeholder="Enter new password" [(ngModel)]="user.password" [disabled]="step2Enable">
+         <div *ngIf="changePassword.invalid && (changePassword.touched || changePassword.dirty)">
+          <span class="error" *ngIf="changePassword.errors?.required" style="color: red;"> *Password is required.</span>
+          <span class="error" *ngIf="changePassword.errors?.minlength" style="color: red;">*MinLength is 8.</span>
+          <span class="error" *ngIf="changePassword.errors?.maxlength" style="color: red;">*Invalid Zip code.</span>
+      </div>
 
-         <label><b>Confirm new password</b></label>
-         <input class="cPass" type="password" name="otp" placeholder="Confirm Your password" [disabled]="step2Enable">
+         <!-- <label><b>Confirm new password</b></label>
+         <input class="cPass" type="password" name="otp" placeholder="Confirm Your password" [disabled]="step2Enable"> -->
 
        </div>
 

@@ -132,8 +132,8 @@
       <mat-stepper style=" background-color: #f39b60;" >
         <mat-step>
           <ng-template matStepLabel>Step-1</ng-template>
-    <form (ngSubmit)="sendOTPUser()" #EmailForm="ngForm">
-     
+    <form (ngSubmit)="sendOTPUser()" #EmailForm="ngForm" [formGroup]="otpAdmin">
+
       <div *ngIf="alert" class="alert alert-success" role="alert">
         {{msg}}
       </div>
@@ -142,43 +142,46 @@
         {{ msg}}
       </div>
       <div class="info">
-       
-        
+
+
         <div>
           <h1>Step-1</h1>
           <label><b>Enter Your Email</b></label>
-          <input class="fname" type="text" name="name" placeholder="Email" [(ngModel)]="user.emailId">
-
-        </div>
-     
+          <input formControlName = 'email' class="fname" type="text" name="name" placeholder="Email" [(ngModel)]="user.emailId">
+          <div *ngIf="email.invalid && (email.touched || email.dirty)">
+            <span class="error" *ngIf="email.errors?.required" style="color: red;">*Email required.</span>
+            <span class="error" *ngIf="email.errors?.pattern" style="color: red;">*Invalid Email Id.</span>
+          </div>
+        <!-- <img *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px;"/>  -->
       </div>
-     
+      </div>
+
 
       <div class="row">
           <div class="col">
             <button class="my-button" type="submit" (click)="loadingBar1()"[disabled]="able">
               <img *ngIf="isClicked1" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 20px; width: 20px;"/>
               Send OTP</button>
-            
+
           </div>
           <div class="col">
             <button class="my-button" routerLink='/login' style="background-color: rgb(255, 0, 0);">Cancel</button>
           </div>
-     
+
       </div>
-   
+
     </form>
     <div class="row g-2">
-      
-      <div class="col">   
-        <button class="my-class" style="background-color: green;" mat-button matStepperNext [disabled]="step1Enable">Next</button>  
-      </div> 
+
+      <div class="col">
+        <button class="my-class" style="background-color: green;" mat-button matStepperNext [disabled]="step1Enable">Next</button>
+      </div>
       <div class="col"></div>
       <div class="col"></div>
       <div class="col"></div>
       </div>
   </mat-step>
-  
+
   <mat-step>
     <ng-template matStepLabel>Step-2</ng-template>
     <form (ngSubmit)="verifyOTPUser()" #verifyForm="ngForm">
@@ -190,7 +193,7 @@
         {{ msg1}}
       </div>
       <div class="info">
-        
+
         <div>
           <h1>Step-2</h1>
           <label><b>Your Email for OTP</b></label>
@@ -211,7 +214,7 @@
             <button class="my-button" type="submit" (click)="loadingBar2()"[disabled]="able1">
               <img *ngIf="isClicked2" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 20px; width: 20px;"/>
               Verify OTP</button>
-            
+
           </div>
       <div class="col">
         <button class="my-button" routerLink='/login' style="background-color: rgb(255, 0, 0);">Cancel</button>
@@ -220,19 +223,19 @@
 
     </form>
     <div class="row g-2">
-    <div class="col">  
-      <button class="my-class" style="background-color: green;" mat-button matStepperPrevious>Back</button>   
-    </div>  
-    <div class="col">   
-      <button class="my-class" style="background-color: green; margin-left: 125px;" mat-button matStepperNext [disabled]="step2Enable">Next</button>  
-    </div> 
+    <div class="col">
+      <button class="my-class" style="background-color: green;" mat-button matStepperPrevious>Back</button>
+    </div>
+    <div class="col">
+      <button class="my-class" style="background-color: green; margin-left: 125px;" mat-button matStepperNext [disabled]="step2Enable">Next</button>
+    </div>
     <div class="col"></div>
     <div class="col"></div>
     </div>
   </mat-step>
 <mat-step>
   <ng-template matStepLabel>Step-3</ng-template>
-    <form (ngSubmit)="resetYourPassword()" #verifyForm="ngForm">
+    <form (ngSubmit)="resetYourPassword()" #verifyForm="ngForm" [formGroup]="otpAdmin">
       <div *ngIf="alert3" class="alert alert-success" role="alert">
        {{msg2}}
      </div>
@@ -241,15 +244,22 @@
        {{ msg2}}
      </div>
      <div class="info">
-       
+
        <div>
          <h1>Step-3</h1>
          <label><b>Your Email for OTP</b></label>
          <input class="fname" type="text" name="name" placeholder="Your Email" [(ngModel)]='user.emailId' disabled>
 
          <label><b>Enter new password</b></label>
-         <input class="password" type="password" name="otp" placeholder="Enter new password" [(ngModel)]="user.password" [disabled]="step2Enable">
+         <input formControlName = "changePassword" class="password" type="password" name="otp" placeholder="Enter new password" [(ngModel)]="user.password" [disabled]="step2Enable">
+         <div *ngIf="changePassword.invalid && (changePassword.touched || changePassword.dirty)">
+          <span class="error" *ngIf="changePassword.errors?.required" style="color: red;"> *Password is required.</span>
+          <span class="error" *ngIf="changePassword.errors?.minlength" style="color: red;">*MinLength is 8.</span>
+          <span class="error" *ngIf="changePassword.errors?.maxlength" style="color: red;">*Invalid Zip code.</span>
+      </div>
 
+         <!-- <label><b>Confirm new password</b></label>
+         <input class="cPass" type="password" name="otp" placeholder="Confirm Your password" [disabled]="step2Enable"> -->
 
        </div>
 
@@ -263,7 +273,7 @@
            <button class="my-button" type="submit" (click)="loadingBar3()"[disabled]="able2">
              <img *ngIf="isClicked3" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 20px; width: 20px;"/>
              Change Password</button>
-           
+
          </div>
      <div class="col">
        <button  class="my-button" routerLink='/adlogin' style="background-color: rgb(66, 77, 235)">Login</button>
@@ -272,14 +282,14 @@
 
    </form>
    <div class="row g-2">
-    <div class="col">  
-      <button class="my-class" style="background-color: green;" mat-button matStepperPrevious>Back</button>   
-    </div>  
-    <div class="col">   
-        
-    </div> 
+    <div class="col">
+      <button class="my-class" style="background-color: green;" mat-button matStepperPrevious>Back</button>
+    </div>
+    <div class="col">
+
+    </div>
     <div class="col"></div>
-    </div>  
+    </div>
   </mat-step>
 
   </mat-stepper>
