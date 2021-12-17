@@ -170,6 +170,13 @@ public class UWController {
 				String encodedPassword = encoder.encodeToString(pass.getBytes());
 			  user.setPassword(encodedPassword);
 			  userObj=service.saveUser(user);
+			  service1.sendSimpleEmail(email,"Dear User, your password changed successfully"
+
+				+ ". have any issue please contact us at the address given below"+"\n\n\n\nThank You!"
+				+"\n\n\n\n\nImpetus Technologies (India) Pvt. Ltd. \nSDF No. K-13 to 16, NSEZ\nPhase-II Noida-201305 (U.P.)"
+				+ "\nPhone " +
+				"+91-120-4018100"+"\nEmail : support@impetus.com"
+				, "Request for password reset");
 			  
 		  }
 		  return userObj; 
