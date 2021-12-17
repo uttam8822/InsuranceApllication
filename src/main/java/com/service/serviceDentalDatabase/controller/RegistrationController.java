@@ -1,6 +1,9 @@
 //User Signup Controller
 package com.service.serviceDentalDatabase.controller;
 
+import java.util.Base64;
+import java.util.Base64.Decoder;
+import java.util.Base64.Encoder;
 import java.util.List;
 
 import javax.mail.MessagingException;
@@ -43,6 +46,10 @@ public class RegistrationController {
 	{  
 		
 		String tempEmailId = user.getEmailId();
+		String password = user.getPassword();
+		Encoder encoder = Base64.getEncoder();
+		String encodedPassword = encoder.encodeToString(password.getBytes());
+		user.setPassword(encodedPassword);
 		if(tempEmailId != null && !"".equals(tempEmailId))
         {
 	     Registration userobj=service.fetchUserByEmailId(tempEmailId);
@@ -71,10 +78,13 @@ public class RegistrationController {
 	{
 		String tempEmailId = user.getEmailId();
 		String tempPass = user.getPassword();
+		Encoder encoder = Base64.getEncoder();
+		String encodedPassword = encoder.encodeToString(tempPass.getBytes());
+		
 		Registration userobj = null;
 		if(tempEmailId != null && tempPass != null)
 		{
-			userobj =service.fetchUserByEmailIdAndPassword(tempEmailId, tempPass);
+			userobj =service.fetchUserByEmailIdAndPassword(tempEmailId, encodedPassword);
 		}
 		if(userobj ==null) 
 		{
@@ -174,7 +184,9 @@ public class RegistrationController {
 		  
 		  else if(user!=null) {
 			  //user.setOtpOfUser(0);
-			  user.setPassword(pass);
+			  Encoder encoder = Base64.getEncoder();
+				String encodedPassword = encoder.encodeToString(pass.getBytes());
+			  user.setPassword(encodedPassword);
 			  userObj=service.saveUser(user);
 			  
 		  }

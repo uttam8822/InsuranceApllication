@@ -1,15 +1,14 @@
 //Login Service for User
 package com.service.serviceDentalDatabase.service;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.service.serviceDentalDatabase.model.Registration;
 import com.service.serviceDentalDatabase.repo.RegistrationRepository;
 
 @Service
 public class RegistrationUserService
 {
+	 
 	//Wiring
 	@Autowired
 	private RegistrationRepository repo;

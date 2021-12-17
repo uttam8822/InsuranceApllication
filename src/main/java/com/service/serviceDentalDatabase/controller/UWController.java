@@ -1,7 +1,10 @@
 //UnderWriter Controller
 package com.service.serviceDentalDatabase.controller;
 
+import java.util.Base64;
 import java.util.List;
+import java.util.Base64.Encoder;
+
 import javax.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -39,6 +42,10 @@ public class UWController {
 
 		String tempEmail=user.getEmailId();
 		String tempId=user.getWriterId();
+		String password = user.getPassword();
+		Encoder encoder = Base64.getEncoder();
+		String encodedPassword = encoder.encodeToString(password.getBytes());
+		user.setPassword(encodedPassword);
 	    if(tempEmail != null && !"".equals(tempEmail)) {
 			UWUser userObj=service.fetchByEmailId(tempEmail);
 			if(userObj!=null) throw new Exception ("Email Id "+tempEmail+"already exist");
@@ -64,9 +71,12 @@ public class UWController {
 	public UWUser loginwriter(@RequestBody UWUser writer) throws Exception {
 	String tempWriterId = writer.getWriterId();
 	String tempPassword = writer.getPassword();
+	Encoder encoder = Base64.getEncoder();
+	String encodedPassword = encoder.encodeToString(tempPassword.getBytes());
+	 
 	UWUser writerObj = null;
 	if(tempWriterId != null && tempPassword != null) {
-	writerObj = service.fetchByWriterIdAndPassword(tempWriterId,tempPassword);
+	writerObj = service.fetchByWriterIdAndPassword(tempWriterId,encodedPassword);
 	}
 	if(writerObj == null) {
 	throw new Exception ("Bad Credentials");
@@ -156,7 +166,9 @@ public class UWController {
 		  
 		  else if(user!=null) {
 			  //user.setOtpOfUser(0);
-			  user.setPassword(pass);
+			  Encoder encoder = Base64.getEncoder();
+				String encodedPassword = encoder.encodeToString(pass.getBytes());
+			  user.setPassword(encodedPassword);
 			  userObj=service.saveUser(user);
 			  
 		  }

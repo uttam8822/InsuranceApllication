@@ -1,5 +1,8 @@
 // Controller Class for Admin Activity
 package com.service.serviceDentalDatabase.controller;
+import java.util.Base64;
+import java.util.Base64.Encoder;
+
 import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +36,10 @@ public class AdminLoginController {
 		
 	    String tempEmail=user.getEmailId();
 		String tempId=user.getAdminId();
+		String password = user.getPassword();
+		Encoder encoder = Base64.getEncoder();
+		String encodedPassword = encoder.encodeToString(password.getBytes());
+		user.setPassword(encodedPassword);
 		if(tempEmail != null && !"".equals(tempEmail)) {
 		Admin userObj=service.fetchByEmail(tempEmail);
 		if(userObj!=null) throw new Exception ("Email Id "+tempEmail+"already exist");
@@ -58,9 +65,12 @@ public class AdminLoginController {
 	public Admin loginAdmin(@RequestBody Admin admin) throws Exception {
 	String tempAdminId = admin.getAdminId();
 	String tempPassword = admin.getPassword();
+	Encoder encoder = Base64.getEncoder();
+	String encodedPassword = encoder.encodeToString(tempPassword.getBytes());
+	 
 	Admin adminObj = null;
 	if(tempAdminId != null && tempPassword != null) {
-	adminObj = service.fetchByAdminIdAndPassword(tempAdminId,tempPassword);
+	adminObj = service.fetchByAdminIdAndPassword(tempAdminId,encodedPassword);
 	}
 	if(adminObj == null) {
 	throw new Exception ("Bad Credentials");
@@ -140,7 +150,9 @@ public class AdminLoginController {
 		  
 		  else if(user!=null) {
 			  //user.setOtpOfUser(0);
-			  user.setPassword(pass);
+			    Encoder encoder = Base64.getEncoder();
+				String encodedPassword = encoder.encodeToString(pass.getBytes());
+			  user.setPassword(encodedPassword);
 			  userObj=service.saveUser(user);
 			  
 		  }
