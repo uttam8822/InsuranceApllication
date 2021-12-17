@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from '../registration.service';
 import { Router } from '@angular/router';
 import { User } from '../user';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-send-otp-user',
   templateUrl: './send-otp-user.component.html',
@@ -32,7 +33,6 @@ export class SendOtpUserComponent implements OnInit {
   step2Enable:boolean=true;
   
   ngOnInit(): void {
-
   }
 
   loadingBar1(){
@@ -121,5 +121,5 @@ export class SendOtpUserComponent implements OnInit {
 
     );
   }
-  
+
 }

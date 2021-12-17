@@ -232,7 +232,7 @@
   </mat-step>
 <mat-step>
   <ng-template matStepLabel>Step-3</ng-template>
-    <form (ngSubmit)="resetYourPassword($event)" #verifyForm="ngForm">
+    <form (ngSubmit)="resetYourPassword($event)" #verifyForm="ngForm" >
       <div *ngIf="alert3" class="alert alert-success" role="alert">
        {{msg2}}
      </div>
@@ -248,10 +248,9 @@
          <input class="fname" type="text" name="name" placeholder="Your Email" [(ngModel)]='user.emailId' disabled>
 
          <label><b>Enter new password</b></label>
-         <input class="password" type="password" name="otp" placeholder="Enter new password" [(ngModel)]="user.password" [disabled]="step2Enable">
-
-         <label><b>Confirm new password</b></label>
-         <input formControlName="cpassword" class="form-control" type="password" name="otp" placeholder="Confirm Your password" [disabled]="step2Enable">
+         <input class="password"  type="password" name="otp" placeholder="Enter new password" required [(ngModel)]="user.password" [disabled]="step2Enable">
+         
+        
        </div>
      </div>
 
@@ -268,7 +267,6 @@
        <button class="my-button" routerLink='/login' style="background-color: rgb(66, 77, 235);">Login</button>
      </div>
      </div>
-
    </form>
    <div class="row g-2">
     <div class="col">  
