@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { Router } from '@angular/router';
 import { RegistrationService } from '../registration.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-send-otp-uw',
   templateUrl: './send-otp-uw.component.html',
@@ -30,9 +31,19 @@ export class SendOtpUwComponent implements OnInit {
   isClicked3:boolean=false;
   step1Enable:boolean=true;
   step2Enable:boolean=true;
+  emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+  otpUw:any;
   ngOnInit(): void {
 
+this.otpUw = new FormGroup(
+  {'email' : new FormControl(null, [Validators.required, Validators.pattern(this.emailPattern)]),
+  'changePassword' : new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(20)]),
   }
+)
+  }
+  get email() { return this.otpUw.get('email'); }
+  get changePassword() { return this.otpUw.get('changePassword'); }
+
 
   loadingBar1(){
     this.isClicked1=true;

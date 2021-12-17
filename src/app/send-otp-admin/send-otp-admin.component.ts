@@ -124,10 +124,11 @@ export class SendOtpAdminComponent implements OnInit {
 
 this.otpAdmin = new FormGroup(
   {'email' : new FormControl(null, [Validators.required, Validators.pattern(this.emailPattern)]),
-
+  'changePassword' : new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(20)]),
   }
 )
   }
   get email() { return this.otpAdmin.get('email'); }
+  get changePassword() { return this.otpAdmin.get('changePassword'); }
 
 }
