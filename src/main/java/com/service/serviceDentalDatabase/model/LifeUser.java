@@ -44,8 +44,8 @@ public class LifeUser {
 	   private String  bankName ;
 	   private String  bankAccountNumber ;
 	   private String   ifscCode ;
-	   private Date submitDate;
-	   private Date nextPayment;
+	   private String submitDate;
+	   private String nextPayment;
 	   private int totalPayAmount;
 
 	public LifeUser() {
@@ -72,7 +72,7 @@ public class LifeUser {
 			String occupation, String income, String selectPlane, String gender, String cancellingInsurance,
 			String groupInsurance, String tobacco, String hivIssue, String lungsIssue, String additionalComments,
 			String status, String member, String reason, String bankName, String bankAccountNumber, String ifscCode,
-			Date submitDate, Date nextPayment, int totalPayAmount) {
+			String submitDate, String nextPayment, int totalPayAmount) {
 		super();
 		this.firstName = firstName;
 		this.middleNmme = middleNmme;
@@ -275,19 +275,19 @@ public class LifeUser {
 		this.additionalComments = additionalComments;
 	}
 
-	public Date getSubmitDate() {
+	public String getSubmitDate() {
 		return submitDate;
 	}
 
-	public void setSubmitDate(Date submitDate) {
+	public void setSubmitDate(String submitDate) {
 		this.submitDate = submitDate;
 	}
 
-	public Date getNextPayment() {
+	public String getNextPayment() {
 		return nextPayment;
 	}
 
-	public void setNextPayment(Date nextPayment) {
+	public void setNextPayment(String nextPayment) {
 		this.nextPayment = nextPayment;
 	}
 

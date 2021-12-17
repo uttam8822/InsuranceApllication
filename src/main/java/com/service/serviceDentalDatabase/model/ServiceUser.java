@@ -1,5 +1,6 @@
 //POJO class for Dental Service
 package com.service.serviceDentalDatabase.model;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -36,10 +37,15 @@ public class ServiceUser {
 	   private String   bankName;
 	   private String   bankAccountNumber;
 	   private String   ifscCode;
-	   private Date submitDate;
-	   private Date nextPayment;
+	  // private Date submitDate;
+	   private String nextPayment;
 	   private int totalPayAmount;
 
+	   
+     private String submitDate ;
+//	private SimpleDateFormat  simpleDateFormat= new SimpleDateFormat("yyyy-MM");
+//	String submitDate = simpleDateFormat.format(new Date());
+	
    public ServiceUser() {
 		super();
 	}
@@ -56,7 +62,7 @@ public ServiceUser(String firstName, String middleNmme, String lastName, String 
 		String address, String zip, String city, String state, String contact, String dateOfBirth, String occupation,
 		String income, String selectPlane, String gender, String cancellingInsurance, String groupInsurance,
 		String tobacco, String additionalComments, String status, String member, String reason, String bankName,
-		String bankAccountNumber, String ifscCode, Date submitDate, Date nextPayment, int totalPayAmount) {
+		String bankAccountNumber, String ifscCode, String submitDate, String nextPayment, int totalPayAmount) {
 	super();
 	this.firstName = firstName;
 	this.middleNmme = middleNmme;
@@ -282,19 +288,19 @@ public void setAdditionalComments(String additionalComments) {
 	this.additionalComments = additionalComments;
 }
 
-public Date getSubmitDate() {
+public String getSubmitDate() {
 	return submitDate;
 }
 
-public void setSubmitDate(Date submitDate) {
+public void setSubmitDate(String submitDate) {
 	this.submitDate = submitDate;
 }
 
-public Date getNextPayment() {
+public String getNextPayment() {
 	return nextPayment;
 }
 
-public void setNextPayment(Date nextPayment) {
+public void setNextPayment(String nextPayment) {
 	this.nextPayment = nextPayment;
 }
 

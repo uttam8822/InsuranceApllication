@@ -43,8 +43,8 @@ public class DentalVisionUser {
 	   private String bankAccountNumber;
 	   private String bankName;
 	   private String ifscCode;
-	   private Date submitDate;
-	   private Date nextPayment;
+	   private String submitDate;
+	   private String nextPayment;
 	   private int totalPayAmount;
 
 
@@ -70,8 +70,8 @@ public class DentalVisionUser {
 			String occupation, String income, String selectPlane, String gender, String cancellingInsurance,
 			String groupInsurance, String tobacco, String oralOperation, String lastDentalCkeck, String anyCavity,
 			String wearGlasses, String anyEyeDisease, String anyEyeOperation, String additionalComments, String status,
-			String member, String reason, String bankAccountNumber, String bankName, String ifscCode, Date submitDate,
-			Date nextPayment, int totalPayAmount) {
+			String member, String reason, String bankAccountNumber, String bankName, String ifscCode, String submitDate,
+			String nextPayment, int totalPayAmount) {
 		super();
 		this.firstName = firstName;
 		this.middleNmme = middleNmme;
@@ -313,16 +313,16 @@ public class DentalVisionUser {
 	public void setAdditionalComments(String additionalComments) {
 		this.additionalComments = additionalComments;
 	}
-	public Date getSubmitDate() {
+	public String getSubmitDate() {
 		return submitDate;
 	}
-	public void setSubmitDate(Date submitDate) {
+	public void setSubmitDate(String submitDate) {
 		this.submitDate = submitDate;
 	}
-	public Date getNextPayment() {
+	public String getNextPayment() {
 		return nextPayment;
 	}
-	public void setNextPayment(Date nextPayment) {
+	public void setNextPayment(String nextPayment) {
 		this.nextPayment = nextPayment;
 	}
 	public int getTotalPayAmount() {
