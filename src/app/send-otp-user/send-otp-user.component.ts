@@ -32,17 +32,18 @@ export class SendOtpUserComponent implements OnInit {
   step1Enable:boolean=true;
   step2Enable:boolean=true;
 
-  emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+  
   otpUser:any;
   ngOnInit(): void {
 
 this.otpUser = new FormGroup(
-  {'email' : new FormControl(null, [Validators.required, Validators.pattern(this.emailPattern)]),
+  {
   'changePassword' : new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(20)]),
+
   }
 )
   }
-  get email() { return this.otpUser.get('email'); }
+  
   get changePassword() { return this.otpUser.get('changePassword'); }
 
 
