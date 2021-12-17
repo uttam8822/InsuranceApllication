@@ -132,7 +132,7 @@
       <mat-stepper style=" background-color: #f39b60;" >
         <mat-step>
           <ng-template matStepLabel>Step-1</ng-template>
-    <form (ngSubmit)="sendOTPUser()" #EmailForm="ngForm">
+    <form (ngSubmit)="sendOTPUser()" #EmailForm="ngForm" [formGroup]="otpAdmin">
      
       <div *ngIf="alert" class="alert alert-success" role="alert">
         {{msg}}
@@ -147,10 +147,13 @@
         <div>
           <h1>Step-1</h1>
           <label><b>Enter Your Email</b></label>
-          <input class="fname" type="text" name="name" placeholder="Email" [(ngModel)]="user.emailId">
-
-        </div>
-     
+          <input formControlName = 'email' class="fname" type="text" name="name" placeholder="Email" [(ngModel)]="user.emailId">
+          <div *ngIf="email.invalid && (email.touched || email.dirty)">
+            <span class="error" *ngIf="email.errors?.required">*Email required.</span>
+            <span class="error" *ngIf="email.errors?.pattern">*Invalid Email Id.</span>
+          </div>
+        <!-- <img *ngIf="isClicked" src="https://c.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" style="height: 100px; width: 100px;"/>  -->
+      </div>
       </div>
      
 

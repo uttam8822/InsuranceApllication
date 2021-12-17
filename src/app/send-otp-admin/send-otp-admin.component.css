@@ -9,10 +9,11 @@
 }
 
 .my-button{
+    border-radius: 5px;
 
-    width: 120px!important;
+    width: 150px!important;
 
-    height: 60px;
+    height: 52px;
 
     min-width: unset!important;
 

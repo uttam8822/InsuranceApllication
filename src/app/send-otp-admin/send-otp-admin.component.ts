@@ -3,7 +3,7 @@ import { RegistrationService } from '../registration.service';
 import { Admin } from '../admin';
 import { Router } from '@angular/router';
 import { User } from '../user';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-send-otp-admin',
   templateUrl: './send-otp-admin.component.html',
@@ -118,8 +118,16 @@ export class SendOtpAdminComponent implements OnInit {
 
     );
   }
-
+  emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+  otpAdmin:any;
   ngOnInit(): void {
+
+this.otpAdmin = new FormGroup(
+  {'email' : new FormControl(null, [Validators.required, Validators.pattern(this.emailPattern)]),
+
   }
+)
+  }
+  get email() { return this.otpAdmin.get('email'); }
 
 }
