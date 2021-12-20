@@ -249,14 +249,18 @@
        <div>
          <h1>Step-3</h1>
          <label><b>Your Email for OTP</b></label>
-         <input class="fname" type="text" name="name" placeholder="Your Email" [(ngModel)]='user.emailId' disabled>
+         <input formControlName = "email" class="fname" type="text" name="name" readonly required placeholder="Email" [(ngModel)]="user.emailId">
+         <div *ngIf="email.invalid && (email.touched || email.dirty)">
+           <span class="error" *ngIf="email.errors?.required" style="color: red;">*Email required.</span>
+           <span class="error" *ngIf="email.errors?.pattern" style="color: red;">*Invalid Email Id.</span>
+         </div>
 
          <label><b>Enter new password</b></label>
          <input formControlName = "changePassword" class="password" type="password" name="otp" placeholder="Enter new password" [(ngModel)]="user.password" [disabled]="step2Enable">
          <div *ngIf="changePassword.invalid && (changePassword.touched || changePassword.dirty)">
           <span class="error" *ngIf="changePassword.errors?.required" style="color: red;"> *Password is required.</span>
           <span class="error" *ngIf="changePassword.errors?.minlength" style="color: red;">*MinLength is 8.</span>
-          <span class="error" *ngIf="changePassword.errors?.maxlength" style="color: red;">*Invalid Zip code.</span>
+          <span class="error" *ngIf="changePassword.errors?.maxlength" style="color: red;">*Invalid Password code.</span>
       </div>
 
          <!-- <label><b>Confirm new password</b></label>

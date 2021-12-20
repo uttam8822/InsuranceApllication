@@ -73,7 +73,7 @@ const routes: Routes = [
   { path: "detaldata", component: FetchdatadentalComponent,canActivate: [AdminAuthGuard] }, 
   { path: "lifedata", component: FetchdatalifeComponent,canActivate: [AdminAuthGuard]}, 
   { path: "DVdata", component: FetchdatadentalvisionComponent,canActivate: [AdminAuthGuard]}, 
-  { path: "createAdmin", component: CreateadminComponent,canActivate: [AdminAuthGuard]},
+  { path: "createAdmin", component: CreateadminComponent,},
   { path: "success", component: SuccessfullcomponentComponent, canActivate: [UserAuthGuard] },
   { path: "lifeServiceDetails/:aadhar", component: LifeServiceUserDetailsComponent, canActivate: [AdminAuthGuard] },
   { path: "about1", component: Aboutus1Component, canActivate: [UserAuthGuard] },

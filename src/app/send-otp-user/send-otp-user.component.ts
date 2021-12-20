@@ -13,9 +13,11 @@ export class SendOtpUserComponent implements OnInit {
   constructor(private _service: RegistrationService, private _router: Router) { }
   user = new User();
   user2=new User();
+  private formSubmitAttempt: boolean;
   msg = '';
   msg1='';
   msg2='';
+  submitted:boolean=false;
   alert: boolean = false;
   alert1: boolean = false;
   able:boolean=false;
@@ -32,18 +34,43 @@ export class SendOtpUserComponent implements OnInit {
   step1Enable:boolean=true;
   step2Enable:boolean=true;
 
-  
+  emailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
   otpUser:any;
   ngOnInit(): void {
 
 this.otpUser = new FormGroup(
-  {
+  {'email' : new FormControl(null, [Validators.required, Validators.pattern(this.emailPattern)]),
   'changePassword' : new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(20)]),
-
   }
 )
   }
+
+  isFieldValid(field: string) {
+
+    return (
+
+      (!this.otpUser.get(field).valid && this.otpUser.get(field).touched) ||
+
+      (this.otpUser.get(field).untouched && this.formSubmitAttempt)
+
+    );
+
+  }
+
   
+  displayFieldCss(field: string) {
+
+    return {
+
+      'has-error': this.isFieldValid(field),
+
+      'has-feedback': this.isFieldValid(field)
+
+    };
+
+  }
+
+  get email() { return this.otpUser.get('email'); }
   get changePassword() { return this.otpUser.get('changePassword'); }
 
 
@@ -111,6 +138,12 @@ this.otpUser = new FormGroup(
 //add service remaining
   resetYourPassword(e:any) {
     e.preventDefault();
+    this.submitted=true;
+    if (this.otpUser.invalid) {
+      this.validateAllFormFields(this.otpUser);
+      this.isClicked3=false;
+      return;
+    }
     this._service.verifyOTPOfUser1(this.user).subscribe(
       data => {
         console.log("response received");
@@ -134,5 +167,27 @@ this.otpUser = new FormGroup(
 
     );
   }
+  validateAllFormFields(formGroup: FormGroup) {
 
+    Object.keys(formGroup.controls).forEach(field => {
+
+      console.log(field);
+
+      const control = formGroup.get(field);
+
+
+
+      if (control instanceof FormControl) {
+
+        control.markAsTouched({ onlySelf: true });
+
+      } else if (control instanceof FormGroup) {
+
+        this.validateAllFormFields(control);
+
+      }
+
+    });
+
+  }
 }

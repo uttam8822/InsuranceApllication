@@ -13,10 +13,11 @@ export class SendOtpAdminComponent implements OnInit {
 
   constructor(private _service: RegistrationService, private _router: Router)  { }
   user = new Admin();
-   
+   private formSubmitAttempt:boolean;
   msg = '';
   msg1='';
   msg2='';
+  submitted:boolean=false;
   alert: boolean = false;
   alert1: boolean = false;
   able:boolean=false;
@@ -96,6 +97,12 @@ export class SendOtpAdminComponent implements OnInit {
 
 //add service remaining
   resetYourPassword() {
+    this.submitted=true;
+    if (this.otpAdmin.invalid) {
+      this.validateAllFormFields(this.otpAdmin);
+      this.isClicked3=false;
+      return;
+    }
     this._service.verifyOTPOfUser3(this.user).subscribe(
       data => {
         console.log("response received");
@@ -128,7 +135,56 @@ this.otpAdmin = new FormGroup(
   }
 )
   }
+  isFieldValid(field: string) {
+
+    return (
+
+      (!this.otpAdmin.get(field).valid && this.otpAdmin.get(field).touched) ||
+
+      (this.otpAdmin.get(field).untouched && this.formSubmitAttempt)
+
+    );
+
+  }
+
+  
+  displayFieldCss(field: string) {
+
+    return {
+
+      'has-error': this.isFieldValid(field),
+
+      'has-feedback': this.isFieldValid(field)
+
+    };
+
+  }
+
   get email() { return this.otpAdmin.get('email'); }
   get changePassword() { return this.otpAdmin.get('changePassword'); }
 
+
+  validateAllFormFields(formGroup: FormGroup) {
+
+    Object.keys(formGroup.controls).forEach(field => {
+
+      console.log(field);
+
+      const control = formGroup.get(field);
+
+
+
+      if (control instanceof FormControl) {
+
+        control.markAsTouched({ onlySelf: true });
+
+      } else if (control instanceof FormGroup) {
+
+        this.validateAllFormFields(control);
+
+      }
+
+    });
+
+  }
 }

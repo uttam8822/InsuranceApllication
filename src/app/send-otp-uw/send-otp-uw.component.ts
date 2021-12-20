@@ -10,10 +10,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./send-otp-uw.component.css']
 })
 export class SendOtpUwComponent implements OnInit {
+private  formSubmitAttempt: boolean;
 
   constructor(private _service: RegistrationService, private _router: Router) { }
   user = new Uwriter();
   user2=new Uwriter();
+  submitted:boolean=false;
   msg = '';
   msg1='';
   msg2='';
@@ -41,6 +43,34 @@ this.otpUw = new FormGroup(
   }
 )
   }
+
+  isFieldValid(field: string) {
+
+    return (
+
+      (!this.otpUw.get(field).valid && this.otpUw.get(field).touched) ||
+
+      (this.otpUw.get(field).untouched && this.formSubmitAttempt)
+
+    );
+
+  }
+
+  
+  displayFieldCss(field: string) {
+
+    return {
+
+      'has-error': this.isFieldValid(field),
+
+      'has-feedback': this.isFieldValid(field)
+
+    };
+
+  }
+
+
+
   get email() { return this.otpUw.get('email'); }
   get changePassword() { return this.otpUw.get('changePassword'); }
 
@@ -108,6 +138,13 @@ this.otpUw = new FormGroup(
 
 //add service remaining
   resetYourPassword() {
+
+    this.submitted=true;
+    if (this.otpUw.invalid) {
+      this.validateAllFormFields(this.otpUw);
+      this.isClicked3=false;
+      return;
+    }
     this._service.verifyOTPOfUser4(this.user).subscribe(
       data => {
         console.log("response received");
@@ -129,6 +166,30 @@ this.otpUw = new FormGroup(
       }
 
     );
+  }
+
+  validateAllFormFields(formGroup: FormGroup) {
+
+    Object.keys(formGroup.controls).forEach(field => {
+
+      console.log(field);
+
+      const control = formGroup.get(field);
+
+
+
+      if (control instanceof FormControl) {
+
+        control.markAsTouched({ onlySelf: true });
+
+      } else if (control instanceof FormGroup) {
+
+        this.validateAllFormFields(control);
+
+      }
+
+    });
+
   }
   
 }
